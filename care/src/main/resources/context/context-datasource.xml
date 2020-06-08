@@ -6,7 +6,7 @@
 	<!-- database Connection pull -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> 
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" /> 
+		<property name="url" value="jdbc:oracle:thin:@192.168.0.114:1521:xe" /> 
 		<property name="username" value="arum"/> 
 		<property name="password" value="arum"/>
 	</bean>
