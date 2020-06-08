@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+  
+<tiles-definitions>
+
+    <!--1. 유저 레이아웃-->   
+    <definition name="user-layout" template="/WEB-INF/tiles/layouts/user-layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/components/user-header.jsp" />
+        <put-attribute name="content" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/tiles/components/user-footer.jsp" />
+    </definition>
+    <definition name="user/*/*/*" extends="user-layout">
+      <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    </definition>
+    
+    <!--2.  관리자 레이아웃-->   
+    <definition name="admin-layout" template="/WEB-INF/tiles/layouts/admin-layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/components/admin-header.jsp" />
+        <put-attribute name="content" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/tiles/components/admin-footer.jsp" />
+    </definition>
+   <definition name="admin/*/*/*" extends="admin-layout">      
+      <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    </definition>
+    
+    <!--3. 레이아웃을 적용하지않는화면-->    
+    <definition name="no-layout" template="/WEB-INF/tiles/layouts/no-layout.jsp">
+        <put-attribute name="header" value="" />
+        <put-attribute name="content" value="" />        
+        <put-attribute name="footer" value="" />
+    </definition>
+    <definition name="main/*/*/*" extends="no-layout">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />    
+    </definition>
+
+ 
+
+</tiles-definitions>
