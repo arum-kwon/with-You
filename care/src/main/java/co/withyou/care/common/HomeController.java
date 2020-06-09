@@ -1,4 +1,4 @@
-package co.withyou.care.common.web;
+package co.withyou.care.common;
 
 import java.text.DateFormat;
 import java.util.Date;
