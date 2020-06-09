@@ -7,5 +7,6 @@
 <h1>
 	Hello world!  
 </h1>
+<a href="findload.do">길찾기가기</a>
 </body>
 </html>
