@@ -12,7 +12,10 @@
 	
 	<!-- Application Loggers -->
 	<logger name="co.arum.prj">
-		<level value="info" />
+		<level value="DEBUG" />
+	</logger>
+	<logger name="co.withyou.care">
+		<level value="DEBUG" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -38,4 +41,21 @@
 		<appender-ref ref="console" />
 	</root>
 	
+	<!-- jdbc -->
+	<logger name="jdbc.sqltiming" additivity="false">
+		<level value="DEBUG"/>
+		<appender-ref ref="console"/>
+	</logger>
+		<logger name="jdbc.sqlonly" additivity="false">
+		<level value="DEBUG"/>
+	<appender-ref ref="console"/>
+	</logger>
+	<!-- <logger name="jdbc.resultset" additivity="false">
+		<level value="DEBUG"/>
+		<appender-ref ref="console"/>
+	</logger> -->
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="DEBUG"/>
+		<appender-ref ref="console"/>
+	</logger>
 </log4j:configuration>
