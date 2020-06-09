@@ -34,5 +34,5 @@
 	    <beans:property name="order" value="2" />
 	</beans:bean>
 	
-	<context:component-scan base-package="co.arum.prj" />
+	<context:component-scan base-package="co.withyou.care" />
 </beans:beans>
