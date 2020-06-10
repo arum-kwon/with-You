@@ -35,7 +35,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "main/common/geolocation/gpsTest";
+		return "main/common/home/home";
 	}
 	
 }
