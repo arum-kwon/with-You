@@ -1,10 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+<title>환자 집으로가기 화면</title>
+
+<style type="text/css"> 
+#urgent { font-family:sans-serif;
+		  font-size:x-large;
+		  font-style: italic;
+		  color:#1E90FF;
+}
+</style>
 </head>
 
 <body>
@@ -70,17 +80,42 @@ function displayMarker(locPosition, message) {
     map.setCenter(locPosition);   
     console.log(locPosition);
 }    
-
-
+	
+//전화걸기
+function callNumber(num){
+    location.href = "tel:" + num;
+}
 
 </script>
 
 
 
 <div align="center">
-<h1>길 찾기 </h1>
-<a href="http://map.daum.net/?sX=850715&sY=862595&sName=롯데시네마 프리미엄만경&eX=523953&eY=1084098&eName=카카오판교오피스">집으로</a>
-<a href="https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212">집으로(도착지만)</a>
+<div align="center" style="margin:40px;">
+	<a style="color:black" href="https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212">
+	<i class="fas fa-home fa-4x"></i>
+	</a>
+<h2>집으로</h2>
+</div>
+<div style="display: inline-block; margin:30px;" >
+<a style="color:black" href="tel:010-4691-7957">
+	<i class="fas fa-user-alt fa-4x"></i>
+</a>
+</div>
+<div style="display: inline-block; margin:30px;">
+<a id="urgent" href="tel:112">	
+	<h1>112</h1>
+</a>
+</div>
+
+<!-- 자바스크립트 이용시  -->
+<div onclick="callNumber('${call.familyTel }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
+	<i class="fas fa-user-alt fa-4x"></i>
+</div> 
+<c:forEach var="call" items="${callList}">
+<i class="fas fa-user-alt fa-4x" onclick="callNumber('${call.familyTel }')"></i>  
+</c:forEach>
+
 </div>
 </body>
 </html>
