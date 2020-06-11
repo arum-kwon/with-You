@@ -5,15 +5,39 @@
   
 <tiles-definitions>
 
-    <!--1. 유저 레이아웃-->   
-    <definition name="user-layout" template="/WEB-INF/tiles/layouts/user-layout.jsp">
+    
+    <!--1.1 환자 레이아웃-->
+    <definition name="patient-layout" template="/WEB-INF/tiles/layouts/patient-layout.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/components/user-header.jsp" />
         <put-attribute name="content" value="" />        
         <put-attribute name="footer" value="/WEB-INF/tiles/components/user-footer.jsp" />
     </definition>
-    <definition name="user/*/*/*" extends="user-layout">
-      <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    <definition name="patient/*/*" extends="patient-layout">
+      <put-attribute name="content" value="/WEB-INF/views/patient/{1}/{2}.jsp" />
     </definition>
+    
+    
+    <!--1.2 보호자 레이아웃-->
+    <definition name="family-layout" template="/WEB-INF/tiles/layouts/family-layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/components/user-header.jsp" />
+        <put-attribute name="content" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/tiles/components/user-footer.jsp" />
+    </definition>
+    <definition name="family/*/*" extends="family-layout">
+      <put-attribute name="content" value="/WEB-INF/views/family/{1}/{2}.jsp" />
+    </definition>
+    
+    
+    <!--1.3간병인 레이아웃-->
+    <definition name="helper-layout" template="/WEB-INF/tiles/layouts/helper-layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/components/user-header.jsp" />
+        <put-attribute name="content" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/tiles/components/user-footer.jsp" />
+    </definition>
+    <definition name="helper/*/*" extends="helper-layout">
+      <put-attribute name="content" value="/WEB-INF/views/helper/{1}/{2}.jsp" />
+    </definition>
+    
     
     <!--2.  관리자 레이아웃-->   
     <definition name="admin-layout" template="/WEB-INF/tiles/layouts/admin-layout.jsp">
@@ -25,14 +49,14 @@
       <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
     </definition>
     
-    <!--3. 레이아웃을 적용하지않는화면-->    
-    <definition name="no-layout" template="/WEB-INF/tiles/layouts/no-layout.jsp">
+    <!--3. 레이아웃을 home 레이아웃-->    
+    <definition name="common-layout" template="/WEB-INF/tiles/layouts/common-layout.jsp">
         <put-attribute name="header" value="" />
         <put-attribute name="content" value="" />        
         <put-attribute name="footer" value="" />
     </definition>
-    <definition name="main/*/*/*" extends="no-layout">
-        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />    
+    <definition name="common/*/*" extends="common-layout">
+        <put-attribute name="content" value="/WEB-INF/views/common/{1}/{2}.jsp" />    
     </definition>
 
  
