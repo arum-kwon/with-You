@@ -25,11 +25,11 @@
 <title>Insert title here</title>
 </head>
 
-<body>
-<div class ="bg-color-brown">
+<body class ="bg-color-brown">
+<div>
     <tiles:insertAttribute name="header" />
    <tiles:insertAttribute name="content" />
    <tiles:insertAttribute name="footer" />
-   </div>
+</div>
 </body>
 </html>

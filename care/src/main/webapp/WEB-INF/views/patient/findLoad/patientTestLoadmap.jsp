@@ -109,12 +109,10 @@ function callNumber(num){
 </div>
 
 <!-- 자바스크립트 이용시  -->
-<div onclick="callNumber('${call.familyTel }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
+<div onclick="callNumber('${ tell }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
 	<i class="fas fa-user-alt fa-4x"></i>
 </div> 
-<c:forEach var="call" items="${callList}">
-<i class="fas fa-user-alt fa-4x" onclick="callNumber('${call.familyTel }')"></i>  
-</c:forEach>
+
 
 </div>
 </body>

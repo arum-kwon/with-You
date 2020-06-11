@@ -19,14 +19,14 @@
    .bg-color-yellow {background-color:#eacc9b!important}
    .bg-color-brown {background-color:#d6c9c1!important}
    .bg-color-blue {background-color:#afcee3!important}
-   .bg-color-mint {background-color:#ccffe2!important}
+   .bg-color-mint {background-color:#c8f2db!important}
    .btn-color-green {background-color:#75D8C4!important}
 </style>
 <title>Insert title here</title>
 </head>
 
-<body>
-<div class ="bg-color-mint">
+<body class ="bg-color-mint">
+<div>
     <tiles:insertAttribute name="header" />
    <tiles:insertAttribute name="content" />
    </div>
