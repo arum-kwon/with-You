@@ -14,7 +14,7 @@ public class SignUpController {
 	 */
 	@RequestMapping(value = "/signUpFormFamily.do")
 	public String goFormFamily() {
-		return "user/common/signUp/formFamily";
+		return "family/signUp/formFamily";
 	}
 	/**
 	 * 간병인 회원가입 폼으로 이동
@@ -22,6 +22,6 @@ public class SignUpController {
 	@RequestMapping(value = "/signUpFormHelper.do")
 	public String goFormHelper() {
 		
-		return "user/common/signUp/formHelper";
+		return "helper/signUp/formHelper";
 	}
 }
