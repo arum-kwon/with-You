@@ -4,5 +4,7 @@
 	<typeAliases>
 		<typeAlias type="co.withyou.care.common.signUp.service.FamilyVO" alias="signUpFamilyVO"/>
 		<typeAlias type="co.withyou.care.common.signUp.service.HelperVO" alias="signUpHelperVO"/>
-	</typeAliases>
+
+		<typeAlias type="co.withyou.care.family.familyLogin.service.FamilyVO" alias="LoginFamilyVO"/>
+ 	</typeAliases>
 </configuration>
