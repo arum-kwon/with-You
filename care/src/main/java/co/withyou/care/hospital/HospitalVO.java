@@ -1,6 +1,6 @@
 package co.withyou.care.hospital;
 
-public class hospitalVO {
+public class HospitalVO {
 	//광명요양병원 기준
 		private String  BIZPLC_NM; //사업장명
 		private String  REFINE_WGS84_LOGT; //wgs84 경도
