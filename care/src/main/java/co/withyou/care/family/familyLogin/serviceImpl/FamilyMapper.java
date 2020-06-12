@@ -1,8 +1,9 @@
-package co.withyou.care.common.familyLogin;
+package co.withyou.care.family.familyLogin.serviceImpl;
 
-import org.mybatis.spring.annotation.MapperScan;
 
-@MapperScan("famloginmap")
+import co.withyou.care.family.familyLogin.service.FamilyService;
+
+
 public interface FamilyMapper extends FamilyService {
 
 }

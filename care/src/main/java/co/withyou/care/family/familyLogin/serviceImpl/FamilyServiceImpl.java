@@ -1,12 +1,15 @@
-package co.withyou.care.common.familyLogin;
+package co.withyou.care.family.familyLogin.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("familyLoginService")
+import co.withyou.care.family.familyLogin.service.FamilyService;
+import co.withyou.care.family.familyLogin.service.FamilyVO;
+
+//@Service("familyLoginService")
 public class FamilyServiceImpl implements FamilyService {
 
-	@Autowired
+	//@Autowired
 	private FamilyMapper famloginmap;
 	
 	@Override
