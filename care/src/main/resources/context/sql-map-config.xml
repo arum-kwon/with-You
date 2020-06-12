@@ -2,6 +2,6 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 	<typeAliases>
-		<typeAlias type="co.arum.prj.user.service.MemberVO" alias="MemberVO"/>
-	</typeAliases>
+<!-- 		<typeAlias type="co.withyou.care.family.familyLogin.service.FamilyVO" alias="LoginFamilyVO"/>
+ -->	</typeAliases>
 </configuration>
