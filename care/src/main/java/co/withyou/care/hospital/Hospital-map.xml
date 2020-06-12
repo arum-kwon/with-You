@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="co.withyou.care.hospital.mapper.HospitalMap">
+	<insert id="hospitalInsert" parameterType="co.withyou.care.hospital.HospitalVO">
+		INSERT INTO HOSPITAL
+		VALUES
+		(#{)
+	</insert>
+</mapper>
