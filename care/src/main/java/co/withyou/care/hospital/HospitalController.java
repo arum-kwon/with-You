@@ -1,5 +1,7 @@
 package co.withyou.care.hospital;
 
+
+
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +11,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import co.withyou.care.hospital.GwangMyeong.GwangMyeongData;
+
+
 @Controller
 public class HospitalController {
-
 	@Autowired
-	HospitalService hospiterService;
+	GwangMyeongData Gdata;
 	
-	@RequestMapping(value="/hospitalGetGwangMyeong.do")
+	@RequestMapping(value="/hospital.do")
 	@ResponseBody
-	public Object getData()throws JsonProcessingException, IOException{
-		Object GwangMyeongResponse = hospiterService.GwangMyeong();
-		return GwangMyeongResponse;
+	//public Object getGwangMyeong() throws JsonProcessingException, IOException {
+	public String getGwangMyeong() throws JsonProcessingException, IOException {
+
+		System.out.println("hospital.do");
+		Object vo = Gdata.getData();
+		return "gwangmyeong/GwangMyeong";
 		
+		 	
 	}
+	
 }
