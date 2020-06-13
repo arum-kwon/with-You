@@ -4,6 +4,6 @@
 	<insert id="hospitalInsert" parameterType="co.withyou.care.hospital.HospitalVO">
 		INSERT INTO HOSPITAL
 		VALUES
-		(#{)
+		(#{BIZPLC_NM},#{REFINE_WGS84_LOGT},#{REFINE_WGS84_LAT},#{REFINE_ROADNM_ADDR},#{HOSPTLRM_CNT},#{MEDSTAF_CNT})
 	</insert>
 </mapper>

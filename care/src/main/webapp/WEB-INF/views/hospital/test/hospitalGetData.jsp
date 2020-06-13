@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<f:view>
-
-</f:view>
+<a href="hospitalGetGwangMyeong.do">광명api가지러가기</a>
 </body>
 </html>

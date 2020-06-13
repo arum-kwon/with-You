@@ -47,4 +47,10 @@ public class HomeController {
 	
 		return "helper/test/helper";
 	}	
+	@RequestMapping(value = "/hospitalGetData.do")
+	public String hospital(Locale locale,Model model) {
+		return "hospital/test/hospitalGetdata";
+		
+	}
+	
 }
