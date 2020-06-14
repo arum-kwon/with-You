@@ -3,6 +3,8 @@ package co.withyou.care.hospital.GwangMyeong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.withyou.care.hospital.GwangMyeong.mapper.GHospitalMapper;
+
 @Service("GHospiterService")
 public class GHospitalImpl implements GwangMyeongService{
 

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="co.withyou.care.hospital.GwangMyeong.GHospitalMapper">
 
-	<select id="GHospitalInsert" parameterType="GHospitalVO" resultType="GHospitalVO">
+	<select id="GHospitalInsert" parameterType="co.withyou.care.hospital.GwangMyeong.GHospitalVO" resultType="co.withyou.care.hospital.GwangMyeong.GHospitalVO">
 		INSERT INTO GHospitalInsert
 		VALUES
 		(#{BIZPLC_NM},#{REFINE_WGS84_LOGT},#{REFINE_WGS84_LAT},#{REFINE_ROADNM_ADDR},#{HOSPTLRM_CNT},#{MEDSTAF_CNT});
