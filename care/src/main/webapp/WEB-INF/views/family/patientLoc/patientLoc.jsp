@@ -8,7 +8,7 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript"
-	src="http://maps.google.com/maps/api/js?key=AIzaSyBLxy_NDcgNNQZHn_kVUmVAjhNtpvOsldI"></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1180e2d9999814c4d0d9e8ab3b7abf23"></script>
 <style>
 #map_ma {
 	width: 100%;
@@ -19,47 +19,49 @@
 </style>
 </head>
 <body>
-	<div id="map_ma"></div>
-	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							var myLatlng = new google.maps.LatLng(35.870616,
-									128.589454); // 위치값 위도 경도
-							var Y_point = 35.870616; // Y 좌표
-							var X_point = 128.589454; // X 좌표
-							var zoomLevel = 18; // 지도의 확대 레벨 : 숫자가 클수록 확대정도가 큼
-							//var markerTitle = "대구광역시"; // 현재 위치 마커에 마우스를 오버을때 나타나는 정보
-							var markerMaxWidth = 300; // 마커를 클릭했을때 나타나는 말풍선의 최대 크기
+	<div id="map" style="width: 100%; height: 350px;"></div>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(38.450701, 128.570667), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨 
+		};
 
-							// 말풍선 내용
-							var contentString = '<div>' + '<h2>안녕</h2>'
-									+ '<p>환자위치임</p>' +
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		var lat = '35.870616', // 위도
+		lon = '128.589454'; // 경도
 
-									'</div>';
-							var myLatlng = new google.maps.LatLng(Y_point,
-									X_point);
-							var mapOptions = {
-								zoom : zoomLevel,
-								center : myLatlng,
-								mapTypeId : google.maps.MapTypeId.ROADMAP
-							}
-							var map = new google.maps.Map(document
-									.getElementById('map_ma'), mapOptions);
-							var marker = new google.maps.Marker({
-								position : myLatlng,
-								map : map,
-								title : markerTitle
-							});
-							var infowindow = new google.maps.InfoWindow({
-								content : contentString,
-								maxWizzzdth : markerMaxWidth
-							});
-							google.maps.event.addListener(marker, 'click',
-									function() {
-										infowindow.open(map, marker);
-									});
-						});
+		var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+		message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+
+		// 마커와 인포윈도우를 표시합니다
+		displayMarker(locPosition, message);
+
+		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+		function displayMarker(locPosition, message) {
+
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+				map : map,
+				position : locPosition
+			});
+
+			var iwContent = message, // 인포윈도우에 표시할 내용
+			iwRemoveable = true;
+
+			// 인포윈도우를 생성합니다
+			var infowindow = new kakao.maps.InfoWindow({
+				content : iwContent,
+				removable : iwRemoveable
+			});
+
+			// 인포윈도우를 마커위에 표시합니다 
+			infowindow.open(map, marker);
+
+			// 지도 중심좌표를 접속위치로 변경합니다
+			map.setCenter(locPosition);
+		}
 	</script>
 </body>
 </html>
