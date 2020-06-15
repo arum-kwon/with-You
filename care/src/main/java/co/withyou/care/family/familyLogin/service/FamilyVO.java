@@ -1,4 +1,4 @@
-package co.withyou.care.common.familyLogin;
+package co.withyou.care.family.familyLogin.service;
 
 import java.util.Date;
 
