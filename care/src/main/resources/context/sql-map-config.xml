@@ -6,6 +6,5 @@
 		<typeAlias type="co.withyou.care.common.signUp.service.HelperVO" alias="signUpHelperVO"/>
 
 		<typeAlias type="co.withyou.care.family.familyLogin.service.FamilyVO" alias="LoginFamilyVO"/>
-		<typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/>
  	</typeAliases>
 </configuration>
