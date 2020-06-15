@@ -1,4 +1,4 @@
-package co.withyou.care.common.familyLogin;
+package co.withyou.care.family.familyLogin.service;
 
 import java.util.Date;
 
@@ -11,9 +11,8 @@ public class FamilyVO {
 	private String familyEmail;
 	private String familyPw;
 	
-	private void familyvo() {
-		// TODO Auto-generated method stub
-
+	public FamilyVO() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public int getFamilyNo() {
