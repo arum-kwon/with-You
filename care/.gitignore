@@ -123,5 +123,6 @@ $RECYCLE.BIN/
 .classpath
 .settings/
 /target/*
+**/target/*
 care/target/classes/log4j.xml
 
