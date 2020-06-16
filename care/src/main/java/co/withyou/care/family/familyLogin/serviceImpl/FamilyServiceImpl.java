@@ -7,16 +7,17 @@ import co.withyou.care.family.familyLogin.mapper.FamilyMapper;
 import co.withyou.care.family.familyLogin.service.FamilyService;
 import co.withyou.care.family.familyLogin.service.FamilyVO;
 
-@Service("familyLoginService")
+@Service("service")
 public class FamilyServiceImpl implements FamilyService {
 
 	@Autowired
-	private FamilyMapper famloginmap;
+	private FamilyMapper map;
 	
 	@Override
 	public FamilyVO getSelect(FamilyVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		return famloginmap.getSelect(vo);
+		return map.getSelect(vo);
 	}
+
+
 
 }
