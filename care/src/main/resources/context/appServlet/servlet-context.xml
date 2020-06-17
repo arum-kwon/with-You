@@ -34,5 +34,14 @@
 	    <beans:property name="order" value="2" />
 	</beans:bean>
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/loginCheck.do"/>
+			<beans:bean id="loginIntercep" 
+						class="co.withyou.care.family.familyLogin.interceptor.HandlerInterceptor">
+			</beans:bean>
+		</interceptor>
+	</interceptors>
+
 	<context:component-scan base-package="co.withyou.care" />
 </beans:beans>

@@ -8,9 +8,10 @@
 <title>보호자 메인홈메뉴</title>
 </head>
 <body>
-
-		<h2>보호자님 환영합니다.</h2>
-
+    <c:if test="${loginOk != null }">
+		<h2>${loginOk.familyName }님 어서오세요.</h2>
+	</c:if>
+   <input type="button" value="로그아웃" onclick="location.href='logout.do'" class="btn btn-primary btn-lg">  
 
 </body>
 </html>
