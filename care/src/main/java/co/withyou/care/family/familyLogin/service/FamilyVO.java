@@ -11,9 +11,8 @@ public class FamilyVO {
 	private String familyEmail;
 	private String familyPw;
 	
-	private void familyvo() {
-		// TODO Auto-generated method stub
-
+	public FamilyVO() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public int getFamilyNo() {
@@ -69,3 +68,4 @@ public class FamilyVO {
 	
 	
 }
+

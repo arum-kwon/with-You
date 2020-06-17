@@ -18,10 +18,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-@Service
+
 public class HospitalService {
 	
-	@Autowired
 	private HospitalMap map;
 	private HospitalVO vo;
 	
