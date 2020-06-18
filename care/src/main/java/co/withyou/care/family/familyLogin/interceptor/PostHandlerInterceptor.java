@@ -35,7 +35,7 @@ public class PostHandlerInterceptor extends HandlerInterceptorAdapter {
 		  loginCookie.setPath("/");
 		  loginCookie.setMaxAge(60*60*24*7); 
 		  //담기 
-		  response.addCookie(EmailCookie); // 이메일만 있음
+		  response.addCookie(EmailCookie); 
 		  
 		 
 			 
