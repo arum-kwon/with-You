@@ -36,12 +36,22 @@
 	
 	<interceptors>
 		<interceptor>
-			<mapping path="/loginCheck.do"/>
-			<beans:bean id="loginIntercep" 
-						class="co.withyou.care.family.familyLogin.interceptor.HandlerInterceptor">
+			<mapping path="/familyLogin.do"/>
+ 			<mapping path="/patient.do"/>
+			<mapping path="/helper.do"/>	 	
+			<beans:bean id="loginPreIntercep" 
+						class="co.withyou.care.family.familyLogin.interceptor.PreHandlerInterceptor">
 			</beans:bean>
 		</interceptor>
 	</interceptors>
-
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/loginCheck.do"/>			
+			<beans:bean id="loginPostIntercep" 
+						class="co.withyou.care.family.familyLogin.interceptor.PostHandlerInterceptor">
+			</beans:bean>
+		</interceptor>
+	</interceptors>
 	<context:component-scan base-package="co.withyou.care" />
 </beans:beans>
