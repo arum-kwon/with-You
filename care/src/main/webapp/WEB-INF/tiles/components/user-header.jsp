@@ -28,6 +28,12 @@
                         <li class="nav-item">
                         	<a class="nav-link" href="#contact" style="color:black;">Contact</a>
                         </li>
+                        <li class="nav-item">
+                        	<a href="#contact">
+                        	<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" />
+                        	</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

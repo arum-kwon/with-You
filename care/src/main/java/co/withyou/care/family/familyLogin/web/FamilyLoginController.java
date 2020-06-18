@@ -24,14 +24,18 @@ public class FamilyLoginController {
 	 @Autowired
 	 private FamilyService service;
 	 
-	  //01.로그인폼 가기
-	  
+	  // 로그인폼 가기	  
 	  @RequestMapping("/familyLogin.do") 
 	  public String familyLogin() { 
 		  return "family/login/FamilyLogin";
 		}
 	 
-	 //02. 이메일 하나 조회
+	  @RequestMapping("/familyMain.do")
+	  public String familyMain() {
+		  return "family/main/FamilyMain";
+	  }
+	  
+	 // 이메일 하나 조회
 	  @RequestMapping("/familyGetSelect")
 	  public String familyGetSelect(Model model, FamilyVO vo) throws Exception {
 		  model.addAttribute("getSelect", service.getSelect(vo));
@@ -43,6 +47,7 @@ public class FamilyLoginController {
 	  public String loginCheck(FamilyVO vo, HttpServletRequest request, Model model) throws Exception {
 		  HttpSession session = request.getSession();
 		  FamilyVO loginCheck = service.getSelect(vo);
+		  model.addAttribute("customCheck", request.getParameter("customCheck"));
 		
 		  if(loginCheck == null) {
 			  model.addAttribute("noEmail", false);
@@ -50,7 +55,7 @@ public class FamilyLoginController {
 		  } else if(vo.getFamilyPw().equals(loginCheck.getFamilyPw())) {
 			  session.setAttribute("loginOk", loginCheck);	
 			  model.addAttribute("loginOk", loginCheck);	
-			  return "family/main/FamilyMain";
+			  return "redirect:familyMain.do";
 		  } else {
 			  model.addAttribute("noMember", false);			  
 			  return "family/login/FamilyLogin";
