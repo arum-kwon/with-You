@@ -83,6 +83,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <a href="helper.do" class="helper">간병인</a><br><br>
 </div> 
 
+<!-- 임시 a링크들 boy 찬진 -->
+<div><br/></div>
+<div id=temp align="center">
+	<h3>기능 테스트를 위한 임시 링크(찬진)</h3>
+	<a href=chat.do>채팅</a><br/>
+	<a href=pay.do>결제</a><br/>
+	<a href=helperList.do>보호자의 간병인 조회/신청</a><br/>
+</div>
+
 </header>
 
 </body> 

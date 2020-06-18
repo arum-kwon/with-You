@@ -7,5 +7,9 @@
 
 		<typeAlias type="co.withyou.care.family.familyLogin.service.FamilyVO" alias="LoginFamilyVO"/>
 		<typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/>
+		
+		<!-- boy 찬진 -->
+		<typeAlias type="co.withyou.care.common.pay.service.PayVo" alias="PayVo"/>
+		<typeAlias type="co.withyou.care.family.search.service.SearchFilterVo" alias="SearchFilterVo"/>
  	</typeAliases>
 </configuration>
