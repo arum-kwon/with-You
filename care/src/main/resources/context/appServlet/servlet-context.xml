@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -34,5 +36,37 @@
 	    <beans:property name="order" value="2" />
 	</beans:bean>
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/familyLogin.do"/>
+ 			<mapping path="/patient.do"/>
+			<mapping path="/helper.do"/>	 	
+			<beans:bean id="loginPreIntercep" 
+						class="co.withyou.care.family.familyLogin.interceptor.PreHandlerInterceptor">
+			</beans:bean>
+		</interceptor>
+	</interceptors>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/loginCheck.do"/>			
+			<beans:bean id="loginPostIntercep" 
+						class="co.withyou.care.family.familyLogin.interceptor.PostHandlerInterceptor">
+			</beans:bean>
+		</interceptor>
+	</interceptors>
 	<context:component-scan base-package="co.withyou.care" />
+	
+	<!-- 웹소켓 boy 찬진 -->
+	<beans:bean id="echoHandler" class="co.withyou.care.common.chat.common.EchoHandler" />
+	
+	<websocket:handlers>
+		<websocket:mapping handler="echoHandler" path="/care" />
+		<websocket:handshake-interceptors>
+			<beans:bean class="co.withyou.care.common.chat.common.HandshakeInterceptor" />
+		</websocket:handshake-interceptors>
+		<websocket:sockjs />
+	</websocket:handlers>
+	<!-- 웹소켓 끗 -->
+	
 </beans:beans>

@@ -9,15 +9,6 @@
 <title>보호자 로그인화면</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <!-- Custom fonts for this template-->
-  <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 <style>
 
 </style>
@@ -52,56 +43,52 @@ function enterKeyCheck(){
 
 </script>
 <style>
-.text-center {
-	margin:100px;
-
+.main {
+	margin:80px;
+	
 }
 </style>
 </head>
 <body>
-<div class="text-center">
-  <h1 class="h4 text-gray-900 mb-4">보호자 로그인</h1>
+<div class="main" align="center">
+	<div class="col-lg-10 align-self-end">
+	  <div class="col-lg-10 align-self-end">
+       <h2 class="text-uppercase text-black font-weight-bold">보호자 로그인</h2>
+      </div>
+	</div>
 </div>
+
+
 
 <form name="fLoginForm" action="loginCheck.do" method="post" class="user">
   <div class="form-group">
-    <input type="text" class="form-control form-control-user" id="familyEmail" name="familyEmail"  autofocus onkeyup="enterKeyCheck()" placeholder="이메일을 입력해 주세요.">
+ <input type="text" class="form-control" id="familyEmail" name="familyEmail" autofocus onkeyup="enterKeyCheck()" placeholder="이메일을 입력해 주세요.">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control form-control-user" id="familyPw" name="familyPw" onkeyup="enterKeyCheck()" placeholder="비밀번호를 입력해 주세요.">
+    <input type="password" class="form-control" id="familyPw" name="familyPw" onkeyup="enterKeyCheck()" placeholder="비밀번호를 입력해 주세요.">
   </div>
+
+    <c:if test="${noEmail == false }">
+		<p style="color:#ec2020; font-weight:bold;"> 해당하는 이메일이 존재하지 않습니다.</p>
+	</c:if>
+    <c:if test="${noMember == false }">
+		<p style="color:#ec2020; font-weight:bold;"> 이메일 또는 패스워드가 틀렸습니다.</p>
+	</c:if>
+  <br><br>
   <div align="center" class="form-group">
     <div class="custom-control custom-checkbox small">
-      <input type="checkbox" class="custom-control-input" id="customCheck">
+      <input type="checkbox" class="custom-control-input" id="customCheck" name="customCheck">
       <label class="custom-control-label" for="customCheck">자동 로그인</label>
-    </div><br><br>
+    </div>
+    
+    <br>
    <input type="button" value="로그인" onclick="loginValidation()" class="btn btn-primary btn-lg">
    <input type="button" value="회원가입" onclick="location.href='signUpFormFamily.do'" class="btn btn-primary btn-lg">  
-  </div><br><br>
- 
+  </div>
+  <br>
 </form>
-
-
-
-
-
-
- <!-- Bootstrap core JavaScript-->
-  <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="${pageContext.request.contextPath}/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="${pageContext.request.contextPath}/resources/js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
+     
+        
 
 </body>
 </html>

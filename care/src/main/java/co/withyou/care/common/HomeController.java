@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +27,13 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/home.do")
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, HttpSession session, HttpServletRequest request) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
+		//채팅 기능 테스트용 접속 IP값 세션 저장
+		String ipAddress = request.getRemoteAddr();
+		session.setAttribute("userLoc", ipAddress);
+		
 		return "common/home/home";
 	}
  //환자

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.withyou.care.family.search.mapper.SearchMapper">
+	
+	<select id="getSelectList" parameterType="SearchFilterVo" resultType="map">
+		SELECT HELPERNO "helperNo",
+				HELPERNAME "helperName",
+				HELPERPROFILE "helperProfile",
+			    HELPERWORKAREA "helperWorkArea",
+			    HELPERSTARTTIME "helperStartTime",
+			    HELPERENDTIME "helperEndTime" 
+		FROM HELPER
+		<where>
+			<if test="helperWorkArea != null and helperWorkArea != ''">
+				HELPERWORKAREA = #{helperWorkArea}
+			</if>
+			
+			<if test="helperStartTime != null and helperStartTime != ''">
+				AND HELPERSTARTTIME <![CDATA[<]]>= #{helperStartTime}
+			</if>
+				
+			<if test="helperEndTime != null and helperEndTime != ''">
+				AND HELPERENDTIME >= #{helperEndTime}
+			</if>
+			
+			<if test="certifiNo != null and certifiNo != ''">
+				AND exists ( select CERTIFINO "certifiNo" from certification 
+							where helper.helperno=certification.helperno
+						) 
+			</if>
+		</where>
+	</select>
+	
+	<select id="getSelect" parameterType="String" resultType="map">
+		SELECT H.HELPERNO "helperNo",
+				H.HELPERNAME "helperName",
+				H.HELPERWORKAREA "helperWorkArea",
+				H.HELPERSTARTTIME "helperStartTime",
+				H.HELPERENDTIME "helperEndTime",
+				H.HELPERPROFILE "helperProfile",
+				H.HELPERSEX "helperSex",
+				H.HELPEREMAIL "helperEmail",
+				H.HELPERUNIQUE "helperUnique",
+				C.CERTIFINO "certifiNo"
+		 FROM HELPER H, CERTIFICATION C
+		 WHERE H.HELPERNO = C.HELPERNO 
+		 AND H.HELPERNO = #{value}
+	</select>
+</mapper>
