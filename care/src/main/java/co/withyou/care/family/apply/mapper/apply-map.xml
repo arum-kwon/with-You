@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.withyou.care.family.apply.mapper.ApplyMapper">
+	
+	<insert id="applyResultInsert" parameterType="ApplyVo">
+		INSERT INTO serviceApply VALUES	( 
+			service_sq.nextval, 
+			#{serviceStartTime }, 
+			(to_number(#{serviceEndTime})-to_number(#{serviceStartTime}))*(select codename from code where codeid='P01')*0.7,
+			default,
+			#{serviceEndTime },
+			(to_number(#{serviceEndTime})-to_number(#{serviceStartTime}))*(select codename from code where codeid='P01'),
+			#{serviceDate},
+			#{serviceDemand},
+			null,
+			410003,
+			sysdate,
+			#{serviceArea}
+			)
+	</insert>
+	
+</mapper>

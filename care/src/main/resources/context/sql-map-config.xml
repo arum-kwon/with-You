@@ -4,7 +4,6 @@
 	<typeAliases>
 		<typeAlias type="co.withyou.care.common.signUp.service.FamilyVO" alias="signUpFamilyVO"/>
 		<typeAlias type="co.withyou.care.common.signUp.service.HelperVO" alias="signUpHelperVO"/>
-<<<<<<< HEAD
 		
 		<!-- girl 재선  -->
 		<typeAlias type="co.withyou.care.family.Login.service.FamilyVO" alias="LoginFamilyVO"/>
@@ -13,14 +12,13 @@
 		
 			
 		<typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/>
-=======
 
-		<typeAlias type="co.withyou.care.family.familyLogin.service.FamilyVO" alias="LoginFamilyVO"/>
+		<!-- <typeAlias type="co.withyou.care.family.familyLogin.service.FamilyVO" alias="LoginFamilyVO"/> -->
 		<!-- <typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/> -->
->>>>>>> branch 'master' of https://github.com/arum-kwon/with-You.git
 		
 		<!-- boy 찬진 -->
 		<typeAlias type="co.withyou.care.common.pay.service.PayVo" alias="PayVo"/>
 		<typeAlias type="co.withyou.care.family.search.service.SearchFilterVo" alias="SearchFilterVo"/>
+		<typeAlias type="co.withyou.care.family.apply.service.ApplyVo" alias="ApplyVo"/>
  	</typeAliases>
 </configuration>
