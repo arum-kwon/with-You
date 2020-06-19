@@ -5,18 +5,18 @@
 <!-- 7.  다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 <mapper namespace="AdminMapper">
     
-    <select id="loginCheck" resultType="String">
+  <!--   <select id="loginCheck" resultType="String">
         SELECT admin_id AS adminId FROM admin
         WHERE admin_id = #{adminId} AND admin_pw = #{adminPw}
-    </select>
+    </select> -->
     
     <select id="viewAdmin" resultType="co.withyou.care.admin.vo.AdminVO">
-        SELECT 
-            admin_name AS adminId,
-            admin_pw AS adminPw,
-            email AS Email,
-        FROM admin
-        WHERE admin_id = #{adminId} AND admin_pw = #{adminPw}
+    SELECT 
+    adminid AS ID,
+    adminpw AS PW,
+    email AS Email
+    FROM ADMIN
+    WHERE admin_id = #{adminId} AND admin_pw = #{adminPw}
     </select>
  
 </mapper>
