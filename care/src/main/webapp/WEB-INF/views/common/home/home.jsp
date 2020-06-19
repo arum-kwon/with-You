@@ -69,7 +69,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <body>
 <div class="w3-right" style="padding:4px; margin:4px">
-<button class="w3-button w3-flat-emerald w3-padding-large w3-hover-white w3-large w3-round-large">관리자</button>
+<button class="w3-button w3-flat-emerald w3-padding-large w3-hover-white w3-large w3-round-large" 
+	onclick="location.href='adminlogin.do'" class="adminlogin" > 관리자 </button>
 </div>
 <!-- Header -->
 <header class="w3-center" style="padding:80px 16px">
