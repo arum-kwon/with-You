@@ -1,5 +1,8 @@
 package co.withyou.care.common.geoLocation.service;
 
-public class GeoLocationService {
+import org.springframework.stereotype.Service;
 
+public interface GeoLocationService {
+	int insertPatientLoc(PatientLocVO vo);
+	
 }
