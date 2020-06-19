@@ -10,7 +10,7 @@ public class RecordVoiceMsgController {
 	@RequestMapping("/recordVoiceMsg.do")
 	public String recordVoiceMsg(Model model) throws Exception {
 		
-		return "user/family/voiceMsg/recordVoiceMsg";
+		return "patient/voiceMsg/recordVoiceMsg";
 	}
 	
 }

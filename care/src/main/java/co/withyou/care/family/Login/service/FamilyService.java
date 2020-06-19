@@ -1,4 +1,4 @@
-package co.withyou.care.family.familyLogin.service;
+package co.withyou.care.family.Login.service;
 
 
 public interface FamilyService {

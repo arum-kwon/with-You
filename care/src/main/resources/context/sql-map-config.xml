@@ -4,8 +4,13 @@
 	<typeAliases>
 		<typeAlias type="co.withyou.care.common.signUp.service.FamilyVO" alias="signUpFamilyVO"/>
 		<typeAlias type="co.withyou.care.common.signUp.service.HelperVO" alias="signUpHelperVO"/>
-
-		<typeAlias type="co.withyou.care.family.familyLogin.service.FamilyVO" alias="LoginFamilyVO"/>
+		
+		<!-- girl 재선  -->
+		<typeAlias type="co.withyou.care.family.Login.service.FamilyVO" alias="LoginFamilyVO"/>
+		<typeAlias type="co.withyou.care.helper.Login.service.HelperVO" alias="LoginHelperVO"/>
+		<typeAlias type="co.withyou.care.patient.Login.service.PatientVO" alias="LoginPatientVO"/>
+		
+			
 		<typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/>
 		
 		<!-- boy 찬진 -->

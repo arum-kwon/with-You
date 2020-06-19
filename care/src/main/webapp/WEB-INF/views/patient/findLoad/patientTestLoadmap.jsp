@@ -39,7 +39,7 @@ if (navigator.geolocation) {
             lon = position.coords.longitude; // 경도
         
         var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+            message = '<div style="padding:5px;">여기에 계시네요!</div>'; // 인포윈도우에 표시될 내용입니다
     
             
         // 마커와 인포윈도우를 표시합니다
@@ -93,9 +93,9 @@ function callNumber(num){
 <div align="center">
 <div align="center" style="margin:40px;">
 	<a style="color:black" href="https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212">
-	<i class="fas fa-home fa-4x"></i>
+	<img src="${pageContext.request.contextPath}/resources/img/menu/findLoad.png" style="height:90px"  />
 	</a>
-<h2>집으로</h2>
+<h2>길찾기</h2>
 </div>
 <div style="display: inline-block; margin:30px;" >
 <a style="color:black" href="tel:010-4691-7957">

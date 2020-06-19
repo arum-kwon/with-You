@@ -5,29 +5,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>보호자 메인홈메뉴</title>
 <style>
 .menu {
 	margin:50px;
 }
+.fam1,.fam2 {
+	margin:45px;
+	display:inline-block;
+
+}
+.fam3 {
+	margin:35px;
+}
 </style>
 </head>
 <body>
-   <input type="button" value="로그아웃" onclick="location.href='logout.do'" class="btn btn-primary btn-lg">  
-    <c:if test="${loginOk != null }">
-		<h2>${loginOk.familyName }님 어서오세요.</h2>
-	</c:if>
-	<br>
 	<div class="menu" align="center">
-		<div>
+		<div class="fam1">
 		   	<a href="#contact">
-		  	<img src="${pageContext.request.contextPath}/resources/img/menu/addHelper.png" style="height:80px"  />
+		  	<img src="${pageContext.request.contextPath}/resources/img/menu/addHelper.png" style="height:90px"  />
 		  	</a>
-		</div><br>
-		<div style="margin:20px;">
-		  	<a>
-		  	<img src="${pageContext.request.contextPath}/resources/img/menu/hospital.png" style="height:80px"  />
+		  	<h3>간병인 신청</h3>
+		</div>
+		  <div class="fam2">
+		  	<a href="#contact">
+		  		<img src="${pageContext.request.contextPath}/resources/img/menu/familyCare.png" style="height:100px"  />
 		  	</a>
+		  		<h3>가족 케어</h3>
+		  </div>
+		<br>
+		<div class="fam3">
+		  	<a href="#contact">
+		  		<img src="${pageContext.request.contextPath}/resources/img/menu/hospital.png" style="height:90px"  />
+		  	</a>
+		  	<h3>시설 조회</h3>
 		</div>
   	
 	</div>

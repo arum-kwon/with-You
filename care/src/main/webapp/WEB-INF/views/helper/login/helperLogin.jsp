@@ -6,24 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<title>보호자 로그인화면</title>
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>간병인 로그인화면</title>
+
+<style>
+.main {
+	margin:80px;
+	
+}
+</style>
+
 <script>
 function loginValidation(){
 	
-	var familyEmail = $("#familyEmail").val();
-	var password = $("#familyPw").val();
+	var familyEmail = $("#helperEmail").val();
+	var password = $("#helperPw").val();
 	
 	if(!familyEmail){
 		alert("이메일을 입력하세요.");
-		$("#familyEmail").focus();
+		$("#helperEmail").focus();
 		return false;
 	}else if(!password){
 		alert("비밀번호를 입력하세요.");
-		$("#familyPw").focus();
+		$("#helperPw").focus();
 		return false;
 	} 	
-	fLoginForm.submit();
+	hLoginForm.submit();
 }
 
 
@@ -38,31 +46,25 @@ function enterKeyCheck(){
 
 
 </script>
-<style>
-.main {
-	margin:80px;
-	
-}
-</style>
+
 </head>
+
 
 <body>
 <div class="main" align="center">
 	<div class="col-lg-10 align-self-end">
 	  <div class="col-lg-10 align-self-end">
-       <h2 class="text-uppercase text-black font-weight-bold">보호자 로그인</h2>
+       <h2 class="text-uppercase text-black font-weight-bold">간병인 로그인</h2>
       </div>
 	</div>
 </div>
 
-
-
-<form name="fLoginForm" action="loginCheck.do" method="post" class="user">
+<form name="hLoginForm" action="helperLoginCheck.do" method="post" class="user">
   <div class="form-group">
- <input type="text" class="form-control" id="familyEmail" name="familyEmail" autofocus onkeyup="enterKeyCheck()" placeholder="이메일을 입력해 주세요.">
+ <input type="text" class="form-control" id="helperEmail" name="helperEmail" autofocus onkeyup="enterKeyCheck()" placeholder="이메일을 입력해 주세요.">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="familyPw" name="familyPw" onkeyup="enterKeyCheck()" placeholder="비밀번호를 입력해 주세요.">
+    <input type="password" class="form-control" id="helperPw" name="helperPw" onkeyup="enterKeyCheck()" placeholder="비밀번호를 입력해 주세요.">
   </div>
 
     <c:if test="${noEmail == false }">
@@ -84,8 +86,7 @@ function enterKeyCheck(){
   </div>
   <br>
 </form>
-     
-        
 
 </body>
+
 </html>

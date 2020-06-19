@@ -1,4 +1,4 @@
-package co.withyou.care.family.familyLogin.interceptor;
+package co.withyou.care.patient.Login.interceptor;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -11,13 +11,17 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.util.WebUtils;
 
-import co.withyou.care.family.familyLogin.service.FamilyService;
-import co.withyou.care.family.familyLogin.service.FamilyVO;
+import co.withyou.care.family.Login.service.FamilyService;
+import co.withyou.care.family.Login.service.FamilyVO;
+import co.withyou.care.helper.Login.service.HelperService;
+import co.withyou.care.helper.Login.service.HelperVO;
+import co.withyou.care.patient.Login.service.PatientService;
+import co.withyou.care.patient.Login.service.PatientVO;
 
 public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 	
 	@Autowired
-	FamilyService service;
+	PatientService patientService;
 	
 	@Override
 	public boolean preHandle(
@@ -26,11 +30,11 @@ public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 		
 		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
 		if(loginCookie != null) {		
-			FamilyVO vo = new FamilyVO();
-			Cookie loginEmailCookie = WebUtils.getCookie(request, "loginEmail");
-			vo.setFamilyEmail(loginEmailCookie.getValue());		
-			request.getSession().setAttribute("loginOk", service.getSelect(vo));	
-			response.sendRedirect("familyMain.do");
+			PatientVO vo = new PatientVO();
+			Cookie loginCodeCookie = WebUtils.getCookie(request, "loginCode");
+			vo.setPatientVcode(loginCodeCookie.getValue());		
+			request.getSession().setAttribute("loginOk", patientService.getSelect(vo));	
+			response.sendRedirect("patientMain.do");
 			
 		} 
 

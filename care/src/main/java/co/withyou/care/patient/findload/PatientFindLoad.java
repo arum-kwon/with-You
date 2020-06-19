@@ -21,7 +21,7 @@ public class PatientFindLoad {
 		session.setAttribute("tell", "010-4691-7957");
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/patient/findLoad/patientTestLoadmap");
+		mav.setViewName("patient/findLoad/patientTestLoadmap");
 		
 		
 		return mav;		

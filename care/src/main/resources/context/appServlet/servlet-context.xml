@@ -35,26 +35,50 @@
 	    <beans:property name="suffix" value=".jsp" />
 	    <beans:property name="order" value="2" />
 	</beans:bean>
-	
 	<interceptors>
+	
+		<!--PreHandle 코드  -->
 		<interceptor>
-			<mapping path="/familyLogin.do"/>
- 			<mapping path="/patient.do"/>
-			<mapping path="/helper.do"/>	 	
-			<beans:bean id="loginPreIntercep" 
-						class="co.withyou.care.family.familyLogin.interceptor.PreHandlerInterceptor">
+			<mapping path="/familyLogin.do"/> 	
+			<beans:bean id="floginPreIntercep" 
+						class="co.withyou.care.family.Login.interceptor.PreHandlerInterceptor">
+			</beans:bean>
+		</interceptor> 
+		<interceptor>
+		  	<mapping path="/helperLogin.do"/>	
+			<beans:bean id="hloginPreIntercep" 
+						class="co.withyou.care.helper.Login.interceptor.PreHandlerInterceptor">
 			</beans:bean>
 		</interceptor>
-	</interceptors>
-	
-	<interceptors>
+		
+		<interceptor>
+ 			<mapping path="/patientLogin.do"/>
+			<beans:bean id="ploginPreIntercep" 
+						class="co.withyou.care.patient.Login.interceptor.PreHandlerInterceptor">
+			</beans:bean>
+		</interceptor>	
+			
+		<!--PostHandle 코드  -->
 		<interceptor>
 			<mapping path="/loginCheck.do"/>			
-			<beans:bean id="loginPostIntercep" 
-						class="co.withyou.care.family.familyLogin.interceptor.PostHandlerInterceptor">
+			<beans:bean id="floginPostIntercep" 
+						class="co.withyou.care.family.Login.interceptor.PostHandlerInterceptor">
 			</beans:bean>
 		</interceptor>
+		<interceptor>
+			<mapping path="/helperLoginCheck.do"/>			
+			<beans:bean id="hloginPostIntercep" 
+						class="co.withyou.care.helper.Login.interceptor.PostHandlerInterceptor">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="patientLoginCheck.do"/>			
+			<beans:bean id="ploginPostIntercep" 
+						class="co.withyou.care.patient.Login.interceptor.PostHandlerInterceptor">
+			</beans:bean>
+		</interceptor>	
 	</interceptors>
+	
 	<context:component-scan base-package="co.withyou.care" />
 	
 	<!-- 웹소켓 boy 찬진 -->

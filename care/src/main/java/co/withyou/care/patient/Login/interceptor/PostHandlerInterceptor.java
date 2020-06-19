@@ -1,4 +1,4 @@
-package co.withyou.care.family.familyLogin.interceptor;
+package co.withyou.care.patient.Login.interceptor;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -9,19 +9,21 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import co.withyou.care.family.familyLogin.service.FamilyVO;
+import co.withyou.care.family.Login.service.FamilyVO;
+import co.withyou.care.helper.Login.service.HelperVO;
+import co.withyou.care.patient.Login.service.PatientVO;
 
 
 public class PostHandlerInterceptor extends HandlerInterceptorAdapter {
 
 	
-	// controller의 handler가 끝나면 처리됨
+	// 자동로그인 controller의 handler가 끝나면 처리됨
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response,Object obj, ModelAndView mav) throws Exception {			
 		HttpSession session = request.getSession();
 		ModelMap modelMap = mav.getModelMap();
-		FamilyVO vo = new FamilyVO();
-		vo = (FamilyVO) session.getAttribute("loginOk");
+		PatientVO vo = new PatientVO();
+		vo = (PatientVO) session.getAttribute("loginOk");
 		
 	  if(modelMap.get("customCheck") != null) {
 		  Cookie loginCookie = new Cookie("loginCookie",session.getId());
@@ -30,15 +32,14 @@ public class PostHandlerInterceptor extends HandlerInterceptorAdapter {
 		  //담기
 		  response.addCookie(loginCookie);
 
-		  // 이메일 쿠키에 저장 
-		  Cookie EmailCookie = new Cookie("loginEmail", vo.getFamilyEmail()); 
+		  // 코드 쿠키에 저장 
+		  Cookie CodeCookie = new Cookie("loginCode", vo.getPatientVcode()); 
 		  loginCookie.setPath("/");
 		  loginCookie.setMaxAge(60*60*24*7); 
-		  //담기 
-		  response.addCookie(EmailCookie); 
 		  
-		 
-			 
+		  //담기 
+		  response.addCookie(CodeCookie); 
+ 
 	  }
 	}
 
