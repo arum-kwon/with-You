@@ -42,6 +42,12 @@
 		  	</a>
 		  	<h3>시설 조회</h3>
 		</div>
+		<div class="fam4">
+		  	<a href="familygetSelect.do">
+		  		<img src="${pageContext.request.contextPath}/resources/img/menu/hospital.png" style="height:90px"  />
+		  	</a>
+		  	<h3>정보 수정</h3>
+		</div>
   	
 	</div>
 

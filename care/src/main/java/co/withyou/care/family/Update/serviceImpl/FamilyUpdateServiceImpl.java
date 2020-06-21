@@ -20,9 +20,16 @@ public class FamilyUpdateServiceImpl implements FamilyUpdateService {
 	}
 
 	@Override
-	public FamilyUpdateVo Update(FamilyUpdateVo vo) throws Exception {
+	public int Update(FamilyUpdateVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return map.Update(vo);
+		int result = 0;
+		try {
+			result = map.Update(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return result;
+		}
+		return result;
 	}
 	
 	

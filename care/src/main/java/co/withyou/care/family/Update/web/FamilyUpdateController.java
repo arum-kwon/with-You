@@ -1,6 +1,7 @@
 package co.withyou.care.family.Update.web;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,21 @@ public class FamilyUpdateController {
 		}
 		
 		@RequestMapping("/familyUpdate.do")
-		public String familyUpdate(FamilyUpdateVo vo) throws Exception {
-			updateservice.Update(vo);
-			return "";
+		public String familyUpdate(FamilyUpdateVo vo, HttpServletRequest request) throws Exception {
+			
+			int result = updateservice.Update(vo);
+			if(result==1) {
+				
+			}else {
+				return "family/main/FamilyMain";
+			}
+			return "familygetSelect.do";
 		}
+		
+		@RequestMapping("/familyLogout")
+	    public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+			session.invalidate();
+			return "common/home/home";
+		}
+
 }
