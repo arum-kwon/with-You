@@ -19,12 +19,17 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleService scheduleService;
 	
-	@RequestMapping("/schedule.do")
-	HashMap<String, Object> myPlan(HttpServletRequest request, ApplyVo vo) throws Exception {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		HttpSession session = request.getSession();
-		List<Map> schedule = scheduleService.getSchedule(vo);
-		map.put("shedule", schedule);
-		return map;
+//	@RequestMapping("/schedule.do")
+//	HashMap<String, Object> Schedule(HttpServletRequest request, ApplyVo vo) throws Exception {
+//		HashMap<String, Object> map = new HashMap<String, Object>();
+//		HttpSession session = request.getSession();
+//		List<Map> schedule = scheduleService.getSchedule(vo);
+//		map.put("shedule", schedule);
+//		return map;
+//	}
+	@RequestMapping("/scheduleEx.do")
+	public String ScheduleEx() {
+		return "helper/Schedule/Schedule";
+		
 	}
 }

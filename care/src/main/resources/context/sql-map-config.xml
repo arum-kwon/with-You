@@ -22,5 +22,6 @@
  		<!-- original by 성훈 -->
  		<typeAlias type="co.withyou.care.family.Update.service.FamilyUpdateVo" alias="FamilyUpdateVo"/>
  		<typeAlias type="co.withyou.care.helper.update.service.HelperVo" alias="UpdateHelperVo"/>
+ 		<typeAlias type="co.withyou.care.helper.schedule.service.ApplyVo" alias="ScheduleSelectVo"/>
  	</typeAliases>
 </configuration>

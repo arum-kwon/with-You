@@ -92,7 +92,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 	<a href=pay.do>결제</a><br/>
 	<a href=helperList.do>보호자의 간병인 조회/신청</a><br/>
 </div>
-
+<div align="center">
+	<a href="scheduleEx.do">schedule example</a>
+</div>
 </header>
 
 </body> 
