@@ -16,7 +16,6 @@
 }
 </style>
 </head>
-
 <body>
 <div id="map" style="width:100%;height:350px;"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7d32000692658cb31291420c5c084e6d"></script>
@@ -97,23 +96,18 @@ function callNumber(num){
 	</a>
 <h2>길찾기</h2>
 </div>
-<div style="display: inline-block; margin:30px;" >
-<a style="color:black" href="tel:010-4691-7957">
-	<i class="fas fa-user-alt fa-4x"></i>
-</a>
-</div>
-<div style="display: inline-block; margin:30px;">
-<a id="urgent" href="tel:112">	
-	<h1>112</h1>
-</a>
-</div>
-
 <!-- 자바스크립트 이용시  -->
-<div onclick="callNumber('${ tell }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
+<div style="display: inline-block; margin:30px;" onclick="callNumber('${ tell }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
 	<i class="fas fa-user-alt fa-4x"></i>
 </div> 
 
-
+<div style="display: inline-block; margin:30px;">
+<a id="urgent" href="tel:112">	
+</a>
+	<h1>112</h1>
 </div>
+
+
+</div> 
 </body>
 </html>
