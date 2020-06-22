@@ -128,7 +128,7 @@
 		</c:forEach>
 	</table>
 	<div><br />
-		<input type="button" name="main" value="메인화면" onclick="location.href='home.do'">
+		<input type="button" name="main" value="보호자메인" onclick="location.href='familyMain.do'">
 	</div>
 	
 </div>
@@ -139,7 +139,7 @@
 		function selectOne(key) {
 			document.frm.action="helperInfo.do";	//frm 에서 저장한 조건value 가지고 간다
 			document.frm.helperNo.value=key;
-			console.log(key);
+			
 			document.frm.submit(); 
 		}
 		

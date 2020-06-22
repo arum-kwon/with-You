@@ -21,7 +21,7 @@
 		자격증명: ${helperInfo.certifiName }<br />
 	</div>
 	<div><br />
-		<input type="button" name="main" value="메인화면" onclick="location.href='home.do'">
+		<input type="button" name="main" value="보호자메인" onclick="location.href='familyMain.do'">
 		<input type="button" name="helperList" value="조회목록" onclick="location.href='helperList.do'">
 	</div>
 	<div><br /></div>
@@ -44,6 +44,7 @@
 				<input type="hidden" id="serviceStartTime" name="serviceStartTime" value="${searchFilterVo.helperStartTime }">
 				<input type="hidden" id="serviceEndTime" name="serviceEndTime" value="${searchFilterVo.helperEndTime }">
 				<input type="hidden" id="serviceArea" name="serviceArea" value="${searchFilterVo.helperWorkArea }">
+				<input type="hidden" id="familyNo" name="familyNo" value="${loginOk.familyNo }">
 			</form>
 		</div>
 </div>
@@ -58,12 +59,13 @@
 				'"서비스신청내역" 메뉴에서 결제 등 진행상황을 확인 하실 수 있습니다.' +'\n'+
 				'\n'+
 				'<신청내용>' +'\n'+
+				'신청자 성명: ' + '${loginOk.familyName}'+'\n'+
 				'요청시간 : ' + ${searchFilterVo.helperStartTime }+ ' 시부터~'+${searchFilterVo.helperEndTime }+' 시까지 ('+(parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))+'시간)' +'\n'+
 				'요청지역 : ' +	 '${searchFilterVo.helperWorkArea }' +'\n'+
 				'요청날짜 : ' + document.orderFrm.serviceDate.value +'\n'+
 				'요청메모 : ' + document.orderFrm.serviceDemand.value +'\n'+
-				'\n'+
-				'결제금액 : ' + (parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))*10000
+				'결제예정금액 : ' + (parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))*10000 +'\n'+
+				'    * (금액 = 시간 X 10,000원)'
 				) == true) {
 			alert("신청이 완료 되었습니다")
 			document.orderFrm.submit();
