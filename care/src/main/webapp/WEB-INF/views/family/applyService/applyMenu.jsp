@@ -9,7 +9,7 @@
 <body>
 <div align="center">
 	<button type="button" id="btnApply" class="btn btn-light" onclick="location.href='helperList.do'">신청하기</button><div><br/></div>
-	<button type="button" id="btnInfoList" class="btn btn-light" onclick="location.href='#'">신청내역</button><div><br/></div>
+	<button type="button" id="btnInfoList" class="btn btn-light" onclick="location.href='applyList.do'">신청내역</button><div><br/></div>
 	<button type="button" id="btnLikeList" class="btn btn-light" onclick="location.href='#'">즐겨찾기 리스트</button><div><br/></div>
 </div>
 </body>

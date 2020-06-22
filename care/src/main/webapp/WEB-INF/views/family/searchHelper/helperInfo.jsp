@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -38,13 +39,17 @@
 					
 				<br />
 				서비스 날짜:<input type="date" id="serviceDate" name="serviceDate"><br />
-				보호자 요청사항: <textarea id="serviceDemand" name="serviceDemand"></textarea><br />
+				<div class="form-group">
+			      <label for="comment">보호자 요청사항:</label>
+			      <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+    			</div>
 				<div><br /></div>
 				<input type="button" id="btnOrder" name="btnOrder" value="신청하기" onclick="orderInfo()">
 				<input type="hidden" id="serviceStartTime" name="serviceStartTime" value="${searchFilterVo.helperStartTime }">
 				<input type="hidden" id="serviceEndTime" name="serviceEndTime" value="${searchFilterVo.helperEndTime }">
 				<input type="hidden" id="serviceArea" name="serviceArea" value="${searchFilterVo.helperWorkArea }">
 				<input type="hidden" id="familyNo" name="familyNo" value="${loginOk.familyNo }">
+				<input type="hidden" id="helperNo" name="helperNo" value="${helperInfo.helperNo }">
 			</form>
 		</div>
 </div>
@@ -55,11 +60,13 @@
 			alert('돌봄서비스 날짜를 선택해주세요');
 			document.orderFrm.serviceDate.focus();
 		} 
-		else if( confirm('아래의 내용과 같이 돌봄서비스를 신청합니다.' +'\n'+ 
+		else if( confirm(
+				'아래의 내용과 같이 돌봄서비스를 신청합니다.' +'\n'+ 
 				'"서비스신청내역" 메뉴에서 결제 등 진행상황을 확인 하실 수 있습니다.' +'\n'+
 				'\n'+
 				'<신청내용>' +'\n'+
 				'신청자 성명: ' + '${loginOk.familyName}'+'\n'+
+				'간병인 성명: ' + '${helperInfo.helperName}'+'\n'+
 				'요청시간 : ' + ${searchFilterVo.helperStartTime }+ ' 시부터~'+${searchFilterVo.helperEndTime }+' 시까지 ('+(parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))+'시간)' +'\n'+
 				'요청지역 : ' +	 '${searchFilterVo.helperWorkArea }' +'\n'+
 				'요청날짜 : ' + document.orderFrm.serviceDate.value +'\n'+

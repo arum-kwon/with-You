@@ -12,14 +12,35 @@
 			(to_number(#{serviceEndTime})-to_number(#{serviceStartTime}))*(select codename from code where codeid='P01'),
 			#{serviceDate},
 			#{serviceDemand},
-			null,
-			SELECT P.PATIENTNO "patientNo"
+			#{helperNo},
+			(SELECT P.PATIENTNO "patientNo"
 			FROM PATIENT P, FAMILY F 
 			WHERE P.FAMILYNO = F.FAMILYNO
-			AND F.FAMILYNO = #{familyNo},
+			AND F.FAMILYNO = #{familyNo}),
 			sysdate,
 			#{serviceArea}
 			)
 	</insert>
+	
+	<select id="getSelectList" parameterType="ApplyVo" resultType="map">
+		SELECT S.SERVICENO "serviceNo",
+				 S.SERVICESTARTTIME "serviceStartTime",
+				 S.SERVICEENDTIME "serviceEndTime", 
+				 S.SERVICESTATUS "serviceStatus", 
+				 S.SERVICEDATE "serviceDate", 
+				 S.SERVICEDEMAND "serviceDemand",
+        		 S.SERVICEAREA "serviceArea", 
+        		 H.HELPERNO "helperNo", 
+        		 H.HELPERNAME "helperName", 
+        		 H.HELPERPROFILE "helperProfile" 
+ 		FROM SERVICEAPPLY S, HELPER H
+ 		WHERE S.HELPERNO = H.HELPERNO
+ 		AND SERVICENO IN ( SELECT SERVICENO 
+		                     FROM SERVICEAPPLY 
+		                     WHERE PATIENTNO = ( SELECT P.PATIENTNO "patientNo" 
+			                                     FROM FAMILY F, PATIENT P
+			                                     WHERE F.FAMILYNO = P.FAMILYNO
+			                                     AND F.FAMILYNO=#{familyNo}))
+	</select>
 	
 </mapper>
