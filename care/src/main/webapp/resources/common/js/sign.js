@@ -1,5 +1,17 @@
 var pwCheek = false;
 var mailCheek = false;
+var jusoIndex = 0;
+
+//주소 api 샘플은  views/common/addr/jusoPopup 참고
+function jusoPopup(index){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.=
+	jusoIndex = index;
+	var pop = window.open("jusoPopup.do","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+}
+
+function jusoCallBack(roadFullAddr){
+	$(".add-juso").eq(jusoIndex).val(roadFullAddr);
+}
 
 //입력 양식 확인하고 submit
 function fnSubmit(isFam){
@@ -13,11 +25,11 @@ function fnSubmit(isFam){
 			alert("유효하지 않는 이메일입니다.");
 		}
 	}else{
-		$('.pw-check:eq(0)').val(CryptoJS.SHA256($('.pw-check:eq(0)').val()).toString()); 
-		$("#frmSignUp").submit();
+		pwSHA256();
+		$("#mainFrm").submit();
 	}
 }
-
+//보호자>환자 안심범위 초기화
 function changeZone(isFam){
 	if (isFam){
 	    var zone = $('#patientZone').val();
@@ -27,8 +39,17 @@ function changeZone(isFam){
 	}
 }
 
+//비밀번호 암호화
+function pwSHA256(){
+	$('.pw-check:eq(0)').val(CryptoJS.SHA256($('.pw-check:eq(0)').val()).toString()); 
+}
+
+
+
+
 $(function(){
-	//이메일 중복확인
+	
+	//이메일 중복확인 ajax
 	$(".email-check:eq(0)").focusout(function () {
 		var ob = $('.email-check:eq(0)');
 		var key = ob.attr('id');

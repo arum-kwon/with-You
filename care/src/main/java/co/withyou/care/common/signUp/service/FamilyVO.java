@@ -87,5 +87,13 @@ public class FamilyVO {
 	public void setFamilySex(String familySex) {
 		this.familySex = familySex;
 	}
+
+	@Override
+	public String toString() {
+		return "FamilyVO [familyNo=" + familyNo + ", familyName=" + familyName + ", familyBirth=" + familyBirth
+				+ ", familyAddr=" + familyAddr + ", familyTel=" + familyTel + ", familyEmail=" + familyEmail
+				+ ", familyPw=" + familyPw + ", familyJoinDate=" + familyJoinDate + ", familySex=" + familySex + "]";
+	}
+	
 	
 }

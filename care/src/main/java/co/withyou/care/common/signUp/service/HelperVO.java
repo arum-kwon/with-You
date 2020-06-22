@@ -132,4 +132,16 @@ public class HelperVO {
 	public void setCommissionGrade(String commissionGrade) {
 		this.commissionGrade = commissionGrade;
 	}
+
+	@Override
+	public String toString() {
+		return "HelperVO [helperNo=" + helperNo + ", helperName=" + helperName + ", helperBirth=" + helperBirth
+				+ ", helperSex=" + helperSex + ", helperTel=" + helperTel + ", helperEmail=" + helperEmail
+				+ ", helperPw=" + helperPw + ", helperWorkArea=" + helperWorkArea + ", helperStartTime="
+				+ helperStartTime + ", helperEndTime=" + helperEndTime + ", helperUnique=" + helperUnique
+				+ ", helperAddr=" + helperAddr + ", helperProfile=" + helperProfile + ", commissionGrade="
+				+ commissionGrade + "]";
+	}
+	
+	
 }

@@ -172,6 +172,17 @@ public class PatientVO {
 	public void setFamilyNo(int familyNo) {
 		this.familyNo = familyNo;
 	}
+
+
+	@Override
+	public String toString() {
+		return "PatientVO [patientNo=" + patientNo + ", patientName=" + patientName + ", patientAddr=" + patientAddr
+				+ ", patientSex=" + patientSex + ", patientBirth=" + patientBirth + ", patientFamilyTel="
+				+ patientFamilyTel + ", patientTel=" + patientTel + ", patientBlood=" + patientBlood + ", patientVcode="
+				+ patientVcode + ", patientZone=" + patientZone + ", patientDisease=" + patientDisease
+				+ ", patientGrade=" + patientGrade + ", patientMedication=" + patientMedication + ", patientUnique="
+				+ patientUnique + ", familyNo=" + familyNo + "]";
+	}
 	
 	
 }

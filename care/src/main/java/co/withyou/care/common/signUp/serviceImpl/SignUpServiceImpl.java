@@ -23,21 +23,27 @@ public class SignUpServiceImpl implements SignUpService {
 	}
 
 	@Override
-	public int checkEmailHelper(String email) throws Exception {
-		return 0;
+	public int checkEmailHelper(HelperVO vo) throws Exception {
+		return map.checkEmailHelper(vo);
 	}
 
 	@Override
 	public void insertFamilyAndPatient(FamilyVO fVO, PatientVO pVO) throws Exception {
+
+		//보호자 insert
+		map.insertFamily(fVO);
+		//보호자 번호 조회, 환자 VO에 삽입
+		pVO.setFamilyNo(map.selectFamilyNo(fVO));
+		//환자 코드 생성
 		String code = createPatientVCode();
 		pVO.setPatientVcode(code);
+		//환자 insert
 		map.insertPatient(pVO);
-		map.selectPatientNo(pVO);
-		map.insertFamily(fVO);
 	}
 
 	@Override
 	public void insertHelper(HelperVO vo) throws Exception {
+		map.insertHelper(vo);
 	}
 
 	@Override
@@ -55,7 +61,7 @@ public class SignUpServiceImpl implements SignUpService {
 				sb.append(ch);
 			}
 			String code = sb.toString();
-			System.out.println(code);
+			//System.out.println(code);
 			int result = map.checkPatientVCode(code);
 			if(result == 0) {
 				return code;

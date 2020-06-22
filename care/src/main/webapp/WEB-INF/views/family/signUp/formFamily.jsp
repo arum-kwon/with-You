@@ -10,7 +10,7 @@
 
 <div class="">&nbsp;</div>
 <div class="">
-	<form action="createMemberFamily.do" id="frmSignUp" name="frmSignUp" method="post">
+	<form action="createMemberFamily.do" id="mainFrm" name="mainFrm" method="post">
 		<h1>보호자 회원가입</h1>
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>이메일*</p></div>
@@ -69,7 +69,7 @@
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>주소*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border" type="text" placeholder="" id="familyAddr" name="familyAddr" required>
+				<input class="w3-input w3-border add-juso" type="text" placeholder="" id="familyAddr" name="familyAddr" required readOnly><button type="button" onclick="jusoPopup(0)">주소찾기</button>
 			</div>
 		</div>
 		<div class="w3-row">
@@ -78,6 +78,7 @@
 				<input class="w3-input w3-border" type="text" placeholder="숫자만" id="familyTel" name="familyTel" numberOnly required>
 			</div>
 		</div>
+
 
 		<h1>환자정보</h1>
 		<div class="w3-row">
@@ -113,6 +114,12 @@
 			 -->
 		</div>
 		<div class="w3-row">
+			<div class="w3-col s4 m4"><p>주소*</p></div>
+			<div class="w3-col s8 m8">
+				<input class="w3-input w3-border add-juso" type="text" placeholder="" id="patientAddr" name="patientAddr" required readOnly><button type="button" onclick="jusoPopup(1)">주소찾기</button>
+			</div>
+		</div>
+		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>연락처*</p></div>
 			<div class="w3-col s8 m8">
 				<input class="w3-input w3-border" type="text" placeholder="숫자만" id="patientTel" name="patientTel" numberOnly required>
@@ -130,12 +137,12 @@
 			  <p>
 				<select name="patientGrade">
 				  <option value="">선택</option>
-				  <option value="1등급">1등급</option>
-				  <option value="2등급">2등급</option>
-				  <option value="3등급">3등급</option>
-				  <option value="4등급">4등급</option>
-				  <option value="5등급">5등급</option>
-				  <option value="인지지원등급">인지지원등급</option>
+				  <option value="G01">1등급</option>
+				  <option value="G02">2등급</option>
+				  <option value="G03">3등급</option>
+				  <option value="G04">4등급</option>
+				  <option value="G05">5등급</option>
+				  <option value="G06">인지지원등급</option>
 				</select>
 			  </p>
 			</div>
@@ -188,4 +195,9 @@
 
 </div>
 </div>
-		
+
+
+
+
+
+

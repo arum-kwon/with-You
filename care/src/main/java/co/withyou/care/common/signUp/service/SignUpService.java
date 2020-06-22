@@ -2,7 +2,7 @@ package co.withyou.care.common.signUp.service;
 
 public interface SignUpService {
 	int checkEmailFamily(FamilyVO vo) throws Exception;
-	int checkEmailHelper(String email) throws Exception;
+	int checkEmailHelper(HelperVO vo) throws Exception;
 	
 	void insertFamilyAndPatient(FamilyVO fVO, PatientVO pVO) throws Exception;
 	void insertHelper(HelperVO vo) throws Exception;

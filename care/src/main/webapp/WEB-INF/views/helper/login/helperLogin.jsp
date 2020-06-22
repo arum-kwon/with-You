@@ -82,7 +82,7 @@ function enterKeyCheck(){
     
     <br>
    <input type="button" value="로그인" onclick="loginValidation()" class="btn btn-primary btn-lg">
-   <input type="button" value="회원가입" onclick="location.href='signUpFormFamily.do'" class="btn btn-primary btn-lg">  
+   <input type="button" value="회원가입" onclick="location.href='signUpFormHelper.do'" class="btn btn-primary btn-lg">  
   </div>
   <br>
 </form>
