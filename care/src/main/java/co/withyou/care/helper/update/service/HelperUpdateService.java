@@ -1,8 +1,9 @@
 package co.withyou.care.helper.update.service;
 
+import co.withyou.care.helper.Login.service.HelperVO;
 
 public interface HelperUpdateService {
 	
-	HelperVo getSelect(HelperVo vo) throws Exception;
+	HelperVO getSelect(HelperVO vo) throws Exception;
 	public int HelperUpdate(HelperVo vo) throws Exception;
 }

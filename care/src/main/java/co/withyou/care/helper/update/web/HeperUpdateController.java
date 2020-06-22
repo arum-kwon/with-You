@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import co.withyou.care.helper.Login.service.HelperVO;
 import co.withyou.care.helper.update.service.HelperUpdateService;
 import co.withyou.care.helper.update.service.HelperVo;
 
@@ -18,8 +19,10 @@ public class HeperUpdateController {
 	private HelperUpdateService Hupdateservice;
 	
 	@RequestMapping("/helperGetSelect.do")
-	public String helperGetSelect(HelperVo vo, HttpServletRequest request, Model model) throws Exception {
+	public String helperGetSelect(HelperVO vo, HttpServletRequest request, Model model) throws Exception {
 		HttpSession session = request.getSession();
+		System.out.println("helperNo"+session.getAttribute("loginOk"));
+		vo=(HelperVO) session.getAttribute("loginOk");
 		vo = Hupdateservice.getSelect(vo);
 		model.addAttribute("getSelect",vo);
 		return "helper/update/helperUpdate";
