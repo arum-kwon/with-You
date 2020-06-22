@@ -15,7 +15,7 @@
 	DB 테이블명 : serviceApply
 		</pre>
 		<div><br/></div>
-		<input type="button" name="main" value="메인화면" onclick="location.href='home.do'">
+		<input type="button" name="main" value="메인화면" onclick="location.href='familyMain.do'">
 	</div>
 </body>
 </html>

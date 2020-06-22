@@ -16,11 +16,11 @@
 			</if>
 			
 			<if test="helperStartTime != null and helperStartTime != ''">
-				AND HELPERSTARTTIME >= #{helperStartTime}
+				AND HELPERSTARTTIME <![CDATA[<=]]> #{helperStartTime}
 			</if>
 				
 			<if test="helperEndTime != null and helperEndTime != ''">
-				AND HELPERENDTIME <![CDATA[<=]]> #{helperEndTime}
+				AND HELPERENDTIME >= #{helperEndTime}
 			</if>
 			
 			<if test='certifiName != null and certifiName == "y"'>
@@ -29,7 +29,7 @@
 						) 
 			</if>
 			<if test='certifiName != null and certifiName == "n"'>
-				AND not exists ( select CERTIFINAME "certifiNo" from certification 
+				AND not exists ( select CERTIFINAME "certifiName" from certification 
 							where helper.helperno=certification.helperno
 						) 
 			</if>

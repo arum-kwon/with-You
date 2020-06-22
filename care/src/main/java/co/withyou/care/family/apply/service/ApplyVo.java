@@ -11,12 +11,21 @@ public class ApplyVo {
 	private String serviceDate;
 	private String serviceDemand;
 	private int helperNo;
+	private int familyNo;
 	private int patientNo;
 	private String applyDate;
 	private String serviceArea;
 	
 	public ApplyVo() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public int getFamilyNo() {
+		return familyNo;
+	}
+
+	public void setFamilyNo(int familyNo) {
+		this.familyNo = familyNo;
 	}
 
 	public String getServiceArea() {
@@ -117,11 +126,11 @@ public class ApplyVo {
 
 	@Override
 	public String toString() {
-		return "ApplyVo [serviceNo=" + serviceNo + ", serviceStartTime=" + serviceStartTime + ", serviceEndTime="
-				+ serviceEndTime + ", helperPrice=" + helperPrice + ", servicePrice=" + servicePrice
-				+ ", serviceStatus=" + serviceStatus + ", serviceDate=" + serviceDate + ", applyDate=" + applyDate
-				+ ", serviceDemand=" + serviceDemand + ", helperNo=" + helperNo + ", patientNo=" + patientNo
-				+ ", serviceArea=" + serviceArea + "]";
+		return "ApplyVo [serviceNo=" + serviceNo + ", serviceStartTime=" + serviceStartTime + ", helperPrice="
+				+ helperPrice + ", serviceStatus=" + serviceStatus + ", serviceEndTime=" + serviceEndTime
+				+ ", servicePrice=" + servicePrice + ", serviceDate=" + serviceDate + ", serviceDemand=" + serviceDemand
+				+ ", helperNo=" + helperNo + ", familyNo=" + familyNo + ", patientNo=" + patientNo + ", applyDate="
+				+ applyDate + ", serviceArea=" + serviceArea + "]";
 	}
-	
+
 }

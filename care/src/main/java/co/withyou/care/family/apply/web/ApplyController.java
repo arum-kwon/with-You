@@ -15,7 +15,7 @@ public class ApplyController {
 	
 	@RequestMapping("applyService.do")
 	public String applyService (ApplyVo applyVo) throws Exception {
-		System.out.println(applyVo);
+		System.out.println("applyVo"+applyVo);
 		applyService.applyResultInsert(applyVo);
 		
 		return "family/applyService/saveApplyResult";

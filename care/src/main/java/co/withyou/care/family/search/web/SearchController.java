@@ -19,6 +19,13 @@ public class SearchController {
 	@Autowired
 	public SearchService searchService;
 	
+	//간병신청 메뉴
+	@RequestMapping("applyMenu.do")
+	public String applyMenu() {
+		return "family/applyService/applyMenu";
+	}
+	
+	//간병인 조회 
 	@RequestMapping("helperList.do")
 	public String helperList(SearchFilterVo searchFilterVo, Model model) throws Exception {
 		if(searchFilterVo.getHelperWorkArea() == null) {
@@ -33,6 +40,7 @@ public class SearchController {
 		return "family/searchHelper/helperList";
 	}
 	
+	//조회된 간병인 상세정보
 	@RequestMapping("helperInfo.do")
 	public String memberInfo(@RequestParam("helperNo") String hNo, Model model, SearchFilterVo searchFilterVo) throws Exception {
 		String helperNo = hNo;

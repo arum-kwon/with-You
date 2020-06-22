@@ -24,7 +24,7 @@
 <body>
 	<div class="menu" align="center">
 		<div class="fam1">
-		   	<a href="#contact">
+		   	<a href="applyMenu.do">
 		  	<img src="${pageContext.request.contextPath}/resources/img/menu/addHelper.png" style="height:90px"  />
 		  	</a>
 		  	<h3>간병인 신청</h3>
