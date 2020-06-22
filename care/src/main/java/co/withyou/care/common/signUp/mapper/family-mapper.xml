@@ -5,4 +5,29 @@
 	<select id="checkEmailFamily" resultType="int" parameterType="signUpFamilyVO">
 		SELECT count(*) FROM FAMILY WHERE FAMILYEMAIL = #{familyEmail}
 	</select>
-</mapper>
+	
+	<select id="selectPatientNo">
+		SELECT PATIENTNO FROM PATIENT WHERE PATIENTVCODE = #{patientVcode}
+	</select>
+	
+	<insert id="insertFamily" parameterType="signUpFamilyVO">
+		insert into family(FAMILYNO, FAMILYNAME, FAMILYBIRTH, FAMILYADDR, FAMILYTEL, 
+							FAMILYEMAIL, FAMILYPW, FAMILYJOINDATE, FAMILYSEX)
+		VALUES(FAMILY_SQ.nextval, #{patientName}, #{patientBirth}, #{patientAddr}, #{familyTel}, 
+				#{familyEmail}, #{familyPw}, SYSDATE, null)
+	</insert>
+	
+	<insert id="insertPatient" parameterType="co.withyou.care.common.signUp.service.PatientVO">
+		insert into patient(PATIENTNO, PATIENTNAME, PATIENTADDR, PATIENTSEX, PATIENTBIRTH, 
+							PATIENTFAMILYTEL, PATIENTDISEASE, PATIENTGRADE, PATIENTBLOOD, PATIENTMEDICATION,
+							PATIENTZONE, PATIENTUNIQUE, PATIENTVCODE, PATIENTTEL, FAMILYNO)
+		values(PATIENT_SQ.NEXTVAL, #{patientName}, #{patientAddr}, #{patientSex}, #{patientBirth}, 
+				#{patientFamilyTel}, #{patientDisease}, #{patientGrade}, #{patientBlood}, #{patientMedication}, 
+				#{patientZone}, #{patientUnique}, #{patientVcode}, #{patientTel}, #{familyNo})
+	</insert>
+	
+	<select id="checkPatientVCode" resultType="int" parameterType="String">
+		SELECT count(*) FROM Patient WHERE patientVcode = #{value}
+	</select>
+	
+</mapper> 

@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.withyou.care.common.signUp.service.FamilyVO;
+import co.withyou.care.common.signUp.service.HelperVO;
+import co.withyou.care.common.signUp.service.PatientVO;
 import co.withyou.care.common.signUp.service.SignUpService;
 
 
@@ -33,13 +36,30 @@ public class SignUpController {
 		return "helper/signUp/formHelper";
 	}
 
-	@RequestMapping(value = "/checkEmailFamily.do", method = RequestMethod.GET)
-	public String checkEmailFamily() throws Exception {	
-		FamilyVO familyVO = new FamilyVO();
-		familyVO.setFamilyEmail("seon2723@gmail");
-		int a = signUpService.checkEmailFamily(familyVO);
-		System.out.println(a);
-		return "family/signUp/formFamily";
+
+	/**
+	 * 보호자 아이디 중복확인
+	 */
+	@RequestMapping(value = "/checkEmail.do")
+	@ResponseBody
+	public int checkEmail(FamilyVO fVO, HelperVO hVO) throws Exception {
+		int result = 0;
+		
+		if(fVO.getFamilyEmail() != null) {
+			result = signUpService.checkEmailFamily(fVO);
+		}else if(hVO.getHelperEmail() != null) {
+			//result = signUpService.checkEmailFamily(hVO);
+		}
+		return result;
 	}
 	
+	/**
+	 * 보호자.환자정보 추가
+	 */
+	@RequestMapping(value = "/createMemberFamily.do")
+	public String createMemberFamily(FamilyVO fVO, PatientVO pVO) throws Exception {
+		signUpService.insertFamilyAndPatient(fVO, pVO);
+		return "";
+	}
+		
 }
