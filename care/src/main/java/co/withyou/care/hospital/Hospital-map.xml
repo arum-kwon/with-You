@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<mapper namespace="co.withyou.care.hospital.mapper.HospitalMap">
-	<insert id="hospitalInsert" parameterType="co.withyou.care.hospital.HospitalVO">
-		INSERT INTO HOSPITAL
-		VALUES
-		(#{BIZPLC_NM},#{REFINE_WGS84_LOGT},#{REFINE_WGS84_LAT},#{REFINE_ROADNM_ADDR},#{HOSPTLRM_CNT},#{MEDSTAF_CNT})
-	</insert>
-</mapper>
