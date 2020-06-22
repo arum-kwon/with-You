@@ -96,6 +96,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div align="center">
 	<a href="scheduleEx.do">schedule example</a>
 </div>
+<div align="center">
+	<a href="patientLocEx.do">환자위치 example</a>
+</div>
 </header>
 
 </body> 
