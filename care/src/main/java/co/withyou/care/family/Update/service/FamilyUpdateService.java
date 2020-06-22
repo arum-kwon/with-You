@@ -1,7 +1,9 @@
 package co.withyou.care.family.Update.service;
 
+import co.withyou.care.family.Login.service.FamilyVO;
+
 public interface FamilyUpdateService {
 
-	FamilyUpdateVo getSelect(FamilyUpdateVo vo) throws Exception;
-	public int Update(FamilyUpdateVo vo)throws Exception;
+	FamilyVO getSelect(FamilyVO vo) throws Exception;
+	public int Update(FamilyVO vo)throws Exception;
 }

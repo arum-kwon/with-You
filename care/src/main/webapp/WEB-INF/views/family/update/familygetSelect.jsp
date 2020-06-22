@@ -44,21 +44,21 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이메일</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="familyEmail" name="familyEmail" value="${getSelect.familyEmail }"> 
+							<input class="w3-input w3-border" type="text" placeholder="" id="familyEmail" name="familyEmail" value="${getSelect.familyEmail }" readonly> 
 						</div>
 					</div>
 					
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이름</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="familyName" name="familyName" value="${getSelect.familyName }">
+							<input class="w3-input w3-border" type="text" placeholder="" id="familyName" name="familyName" value="${getSelect.familyName }" readonly>
 						</div>
 					</div>
 					
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>생년월일</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="familyBirth" name="familyBirth" value="${getSelect.familyBirth }">
+							<input class="w3-input w3-border" type="text" placeholder="" id="familyBirth" name="familyBirth" value="${getSelect.familyBirth }" readonly>
 						</div>
 					</div>
 					<div class="w3-row">
@@ -71,75 +71,6 @@
 						<div class="w3-col s4 m4"><p>연락처</p></div>
 						<div class="w3-col s8 m8">
 							<input class="w3-input w3-border" type="text" placeholder="" id="familyTel" name="familyTel" value="${getSelect.familyTel }">
-						</div>
-					</div>
-
-					<h1>환자정보</h1>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>이름</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientName" name="patientName" value="${getSelect.patientName }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>성별</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientSex" name="patientSex" value="${getSelect.patientSex }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>주소</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientAddr" name="patientAddr" value="${getSelect.patientAddr }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>생년월일</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientBirth" name="patientBirth" value="${getSelect.patientBirth }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>연락처</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientTel" name="patientTel" value="${getSelect.patientTel }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>비상연락처</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientFamilyTel" name="patientFamilyTel" value="${getSelect.patientFamilyTel }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>치매등급</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientGrade" name="patientGrade" value="${getSelect.patientGrade }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>질환</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientDisease" name="patientDisease" value="${getSelect.patientDisease }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>혈액형</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientBlood" name="patientBlood" value="${getSelect.patientBlood }">
-						</div>
-					</div>
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>복용중인약</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientMedication" name="patientMedication" value="${getSelect.patientMedication }">
-						</div>
-					</div>
-					
-					<div class="w3-row">
-						<div class="w3-col s4 m4"><p>특이사항</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientUnique" name="patientUnique" value="${getSelect.patientUnique }">
 						</div>
 					</div>
 					<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>

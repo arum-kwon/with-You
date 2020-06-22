@@ -31,7 +31,7 @@
 		  		<h3>스케줄관리</h3>
 		</div>
 		  <div class="fam2">
-		  	<a href="#contact">
+		  	<a href="helperGetSelect.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/settingUser.png" style="height:100px"  />
 		  	</a>
 		  		<h3>회원정보 수정</h3>

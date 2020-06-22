@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import co.withyou.care.family.Login.service.FamilyVO;
 import co.withyou.care.family.Update.service.FamilyUpdateService;
 import co.withyou.care.family.Update.service.FamilyUpdateVo;
 
@@ -19,16 +20,17 @@ public class FamilyUpdateController {
 		private FamilyUpdateService updateservice;
 		
 		@RequestMapping("/familygetSelect.do")
-		public String familygetSelect(FamilyUpdateVo vo, HttpServletRequest request, Model model) throws Exception{
+		public String familygetSelect(FamilyVO vo, HttpServletRequest request, Model model) throws Exception{
 			HttpSession session = request.getSession();
-			vo = updateservice.getSelect(vo);
+			vo=(FamilyVO)session.getAttribute("loginOk");
+			//vo = updateservice.getSelect(vo);
 			model.addAttribute("getSelect",vo);
 			return "family/update/familygetSelect";
 			
 		}
 		
 		@RequestMapping("/familyUpdate.do")
-		public String familyUpdate(FamilyUpdateVo vo, HttpServletRequest request) throws Exception {
+		public String familyUpdate(FamilyVO vo, HttpServletRequest request) throws Exception {
 			
 			int result = updateservice.Update(vo);
 			if(result==1) {
