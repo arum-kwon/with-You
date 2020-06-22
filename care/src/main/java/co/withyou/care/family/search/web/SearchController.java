@@ -34,7 +34,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping("helperInfo.do")
-	public String memberInfo(@RequestParam("helperNo") String hNo, Model model) throws Exception {
+	public String memberInfo(@RequestParam("helperNo") String hNo, Model model, SearchFilterVo searchFilterVo) throws Exception {
 		String helperNo = hNo;
 		System.out.println(helperNo);
 		

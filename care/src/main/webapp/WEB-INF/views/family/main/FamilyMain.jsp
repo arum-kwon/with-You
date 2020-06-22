@@ -30,7 +30,7 @@
 		  	<h3>간병인 신청</h3>
 		</div>
 		  <div class="fam2">
-		  	<a href="#contact">
+		  	<a href="careFamily.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/familyCare.png" style="height:100px"  />
 		  	</a>
 		  		<h3>가족 케어</h3>
@@ -41,6 +41,12 @@
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/hospital.png" style="height:90px"  />
 		  	</a>
 		  	<h3>시설 조회</h3>
+		</div>
+		<div class="fam4">
+		  	<a href="familygetSelect.do">
+		  		<img src="${pageContext.request.contextPath}/resources/img/menu/hospital.png" style="height:90px"  />
+		  	</a>
+		  	<h3>정보 수정</h3>
 		</div>
   	
 	</div>

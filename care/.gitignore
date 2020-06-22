@@ -120,8 +120,8 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,windows
 
-.classpath
-.settings/
+**/.classpath
+**/.settings/
 /target/*
 **/target/*
 care/target/classes/log4j.xml
