@@ -28,7 +28,7 @@
 		  		<h3>집으로</h3>
 		</div>
 		  <div class="fam2">
-		  	<a href="recordVoiceMsg.do">
+		  	<a href="#">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/voiceList.png" style="height:100px"  />
 		  	</a>
 		  		<h3>녹음 리스트</h3>

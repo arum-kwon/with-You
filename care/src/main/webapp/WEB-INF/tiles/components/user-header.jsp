@@ -58,7 +58,7 @@
 							</c:if>
                         </li>
                         <li class="dropdown">
-                        	<c:if test="${loginOk != null }">
+                        	<c:if test="${userType == 'f' }">
 	                        	<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" />
 	                        	</a>
@@ -68,16 +68,38 @@
 		                        	 <button class="dropdown-item" type="button">공지사항</button>
 		    						 <button class="dropdown-item" type="button">문의하기</button>
 		    						 <button class="dropdown-item" type="button">알림</button>
+		    						 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
+		                        </div>
+                        	</c:if>
+                        </li>
+						<li class="dropdown">
+                        	<c:if test="${userType == 'p' }">
+	                        	<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" />
+	                        	</a>
+		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+		                        	 <button class="dropdown-item" type="button">공지사항</button>
+		    						 <button class="dropdown-item" type="button">문의하기</button>
+		    						 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
+		                        </div>
+                        	</c:if>
+                        </li>                        
+                        <li class="dropdown">
+                        	<c:if test="${userType == 'h' }">
+	                        	<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" />
+	                        	</a>
+		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+		                        	 <button class="dropdown-item" type="button">회원정보수정</button>		                        	 
+		                        	 <button class="dropdown-item" type="button">공지사항</button>
+		    						 <button class="dropdown-item" type="button">문의하기</button>
+		    						 <button class="dropdown-item" type="button">알림</button>
+		    						 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
 		                        </div>
                         	</c:if>
                         </li>
                     </ul>
                     <br><br>
-                <div>
-                  	<c:if test="${not empty loginOk }">
-                  		<input type="button" value="로그아웃" onclick="location.href='logout.do'" class="btn btn-primary">  
-                  	</c:if>
-                </div>
                 </div>
             </div>
         </nav>

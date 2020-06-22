@@ -9,10 +9,16 @@
 <title>환자 집으로가기 화면</title>
 
 <style type="text/css"> 
-#urgent { font-family:sans-serif;
-		  font-size:x-large;
-		  font-style: italic;
-		  color:#1E90FF;
+#urgent { 
+  font-family:sans-serif;
+  font-size:x-large;
+  font-style: italic;
+  color:#1E90FF;
+}
+
+.patient1,.patient2 {
+	display:inline-block;
+	margin:30px;
 }
 </style>
 </head>
@@ -82,8 +88,54 @@ function displayMarker(locPosition, message) {
 	
 //전화걸기
 function callNumber(num){
-    location.href = "tel:" + num;
+    location.href = "TELL:" + num;
 }
+
+//주소 위도경도 변환
+/* public static Float[] geoCoding(String location) {
+
+if (location == null)  
+
+return null;
+
+		       		       
+Geocoder geocoder = new Geocoder();
+
+// setAddress : 변환하려는 주소 (경기도 성남시 분당구 등)
+
+// setLanguate : 인코딩 설정
+
+GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location).setLanguage("ko").getGeocoderRequest();
+
+GeocodeResponse geocoderResponse;
+
+
+try {
+
+	geocoderResponse = geocoder.geocode(geocoderRequest);
+
+	if (geocoderResponse.getStatus() == GeocoderStatus.OK & !geocoderResponse.getResults().isEmpty()) {
+		
+		GeocoderResult geocoderResult=geocoderResponse.getResults().iterator().next();		
+		LatLng latitudeLongitude = geocoderResult.getGeometry().getLocation();
+				  
+		Float[] coords = new Float[2];
+		
+		coords[0] = latitudeLongitude.getLat().floatValue();
+		
+		coords[1] = latitudeLongitude.getLng().floatValue();
+
+		return coords;
+
+		}
+
+	} catch (IOException ex) {
+
+		ex.printStackTrace();
+
+	}
+		return null;
+} */
 
 </script>
 
@@ -97,11 +149,14 @@ function callNumber(num){
 <h2>길찾기</h2>
 </div>
 <!-- 자바스크립트 이용시  -->
-<div style="display: inline-block; margin:30px;" onclick="callNumber('${ tell }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
-	<i class="fas fa-user-alt fa-4x"></i>
-</div> 
+<div class="patient1">
+<a onclick="callNumber('${ familyVO.familyTel }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
+	<img src="${pageContext.request.contextPath}/resources/img/menu/call.png" style="height:90px"  />
+</a> 
+	<h3>가족에게 전화</h3>
+</div>
 
-<div style="display: inline-block; margin:30px;">
+<div class="patient2">
 <a id="urgent" href="tel:112">	
 </a>
 	<h1>112</h1>

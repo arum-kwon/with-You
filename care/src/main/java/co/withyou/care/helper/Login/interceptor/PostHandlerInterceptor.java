@@ -25,16 +25,16 @@ public class PostHandlerInterceptor extends HandlerInterceptorAdapter {
 		vo = (HelperVO) session.getAttribute("loginOk");
 		
 	  if(modelMap.get("customCheck") != null) {
-		  Cookie loginCookie = new Cookie("loginCookie",session.getId());
+		  Cookie loginCookie = new Cookie("hloginCookie",session.getId());
 		  loginCookie.setPath("/");
 		  loginCookie.setMaxAge(60*60*24*7);
 		  //담기
 		  response.addCookie(loginCookie);
 
 		  // 이메일 쿠키에 저장 
-		  Cookie EmailCookie = new Cookie("loginEmail", vo.getHelperEmail()); 
-		  loginCookie.setPath("/");
-		  loginCookie.setMaxAge(60*60*24*7); 
+		  Cookie EmailCookie = new Cookie("hloginEmail", vo.getHelperEmail()); 
+		  EmailCookie.setPath("/");
+		  EmailCookie.setMaxAge(60*60*24*7); 
 		  
 		  //담기 
 		  response.addCookie(EmailCookie); 

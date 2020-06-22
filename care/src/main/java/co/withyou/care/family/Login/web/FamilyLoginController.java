@@ -67,38 +67,32 @@ public class FamilyLoginController {
 	 //로그아웃
 	  @RequestMapping("/logout.do")
 	    public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-		/*
-		 * Object obj = session.getAttribute("loginOk"); if(obj != null) {
-		 * session.removeAttribute("loginOk"); session.invalidate(); // 세션초기화
-		 * 
-		 * Cookie emailCookie = WebUtils.getCookie(request, "loginEmail");
-		 * 
-		 * if(emailCookie != null) { emailCookie.setPath("/"); // 모든 경로에서 삭제 됬음을 알린다.
-		 * emailCookie.setMaxAge(0); // 쿠키의 expiration 타임을 0으로 하여 없앤다.
-		 * response.addCookie(emailCookie);
-		 * 
-		 * }
-		 * 
-		 * }
-		 */
 		  
-//		  Cookie[] cookies = request.getCookies(); // 모든 쿠키의 정보를 cookies에 저장
+		  session.invalidate();
+		  
+		  Cookie[] cookies = request.getCookies(); // 모든 쿠키의 정보를 cookies에 저장
+		  System.out.println(cookies+"========쿡희덜======================");
+		  if(cookies != null){ // 쿠키가 한개라도 있으면 실행
 
-		  	//if (cookies != null) { // 쿠키가 한개라도 있으면 실행
-	
-				//for (int i = 0; i < cookies.length; i++) {
-	
-					//cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
-	
-					//response.addCookie(cookies[i]); // 응답 헤더에 추가
-	
-				//}
-	
-			//}
-			
-			session.invalidate();
-	      
-	      return "common/home/home"; // 로그아웃 후 로그인화면으로 이동
-	  }	  
+			for (int i = 0; i < cookies.length; i++) {
+				System.out.println(cookies[i].getName());
+				if ("floginCookie".equals(cookies[i].getName()) || "floginEmail".equals(cookies[i].getName())) {
+					cookies[i].setPath("/");
+					cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+					response.addCookie(cookies[i]); // 응답 헤더에 추가
+				} else if ("hloginCookie".equals(cookies[i].getName()) || "hloginEmail".equals(cookies[i].getName())) {
+					cookies[i].setPath("/");
+					cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+					response.addCookie(cookies[i]); // 응답 헤더에 추가
+				} else if ("ploginCookie".equals(cookies[i].getName()) || "ploginCode".equals(cookies[i].getName())) {
+					cookies[i].setPath("/");
+					cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+					response.addCookie(cookies[i]); // 응답 헤더에 추가
+				}
+			}
+
+		}
+		return "common/home/home";
+	}
 
 } // end of Class

@@ -28,10 +28,10 @@ public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 			HttpServletRequest request, HttpServletResponse response,
 			Object obj) throws Exception {
 		
-		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+		Cookie loginCookie = WebUtils.getCookie(request, "ploginCookie");
 		if(loginCookie != null) {		
 			PatientVO vo = new PatientVO();
-			Cookie loginCodeCookie = WebUtils.getCookie(request, "loginCode");
+			Cookie loginCodeCookie = WebUtils.getCookie(request, "ploginCode");
 			vo.setPatientVcode(loginCodeCookie.getValue());		
 			request.getSession().setAttribute("loginOk", patientService.getSelect(vo));	
 			response.sendRedirect("patientMain.do");

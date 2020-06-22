@@ -34,7 +34,7 @@ public class PatientLoginController {
 	public String loginCheck(PatientVO vo, HttpServletRequest request, Model model) throws Exception {
 		HttpSession session = request.getSession();
 		PatientVO loginCheck = patientService.getSelect(vo);
-		 model.addAttribute("customCheck", request.getParameter("customCheck"));
+		model.addAttribute("customCheck", request.getParameter("customCheck"));
 		 
 		 if(loginCheck == null) {
 			 model.addAttribute("noCode", false);

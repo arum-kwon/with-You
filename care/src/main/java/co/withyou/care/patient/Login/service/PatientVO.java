@@ -17,9 +17,21 @@ public class PatientVO {
 	private String patientMedication;
 	private String patientUnique;
 	private String patientVcode;
+	private int familyNo;
 	
 	public PatientVO() {
 	}
+
+	
+	public int getFamilyNo() {
+		return familyNo;
+	}
+
+
+	public void setFamilyNo(int familyNo) {
+		this.familyNo = familyNo;
+	}
+
 
 	public int getPatientNo() {
 		return patientNo;
