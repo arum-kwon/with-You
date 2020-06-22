@@ -6,7 +6,7 @@
   
 </head>
 <body>
-<div id="map" style="width:100%;height:350px;"></div>
+<div id="map" style="width:100%;height:800px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 <script>
@@ -16,7 +16,7 @@ var patientLatitude = "<c:out value='${getLoc.patientLatitude}'/>";
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(patientLongitude, patientLatitude), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨 
+        level: 2 // 지도의 확대 레벨 
     }; 
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -29,8 +29,7 @@ if (navigator.geolocation) {
         
     //    var lat = position.coords.latitude, // 위도
        //     lon = position.coords.longitude; // 경도
-        var lat = 35.870633;
-        	lon = 128.589401;
+        
         var locPosition = new kakao.maps.LatLng(patientLongitude, patientLatitude), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
             message = '<div style="padding:5px;">여기 있습니다</div>'; // 인포윈도우에 표시될 내용입니다
         

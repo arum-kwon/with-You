@@ -1,0 +1,14 @@
+package co.withyou.care.family.patientLine.service;
+
+import java.util.List;
+import java.util.Map;
+
+import co.withyou.care.common.geoLocation.service.PatientLocVO;
+
+public interface PatientLineService {
+
+	public List<Map> getGpsList(PatientLocVO vo) throws Exception;
+		// TODO Auto-generated method stub
+	
+
+}

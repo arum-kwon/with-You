@@ -13,7 +13,7 @@ public class PatientLocController {
 	@Autowired
 	private PatientLocService locService;
 		
-	@RequestMapping("/patientLocEx.do")
+	@RequestMapping("/patientLoc.do")
 	public String LocGetSelect(PatientLocVO vo,Model model) throws Exception {
 		vo = locService.getLoc(vo);
 		model.addAttribute("getLoc",vo);
