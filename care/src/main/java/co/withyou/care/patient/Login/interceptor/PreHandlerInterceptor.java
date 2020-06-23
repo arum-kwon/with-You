@@ -1,5 +1,6 @@
 package co.withyou.care.patient.Login.interceptor;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,11 +35,14 @@ public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 			Cookie loginCodeCookie = WebUtils.getCookie(request, "ploginCode");
 			vo.setPatientVcode(loginCodeCookie.getValue());		
 			request.getSession().setAttribute("loginOk", patientService.getSelect(vo));	
-			response.sendRedirect("patientMain.do");
+			response.sendRedirect("patientMain.do");	
 			
-		} 
+		} else {
+			return true;
 
-		return true;
+		}
+		
+		return false;
 	}
 
 } //end of Class

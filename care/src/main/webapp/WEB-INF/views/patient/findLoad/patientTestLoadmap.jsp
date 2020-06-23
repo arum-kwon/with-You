@@ -26,7 +26,7 @@
 <div id="map" style="width:100%;height:350px;"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7d32000692658cb31291420c5c084e6d"></script>
 <script>
-var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+/* var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
 	center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
 	level: 3 //지도의 레벨(확대, 축소 정도)
@@ -84,85 +84,37 @@ function displayMarker(locPosition, message) {
     // 지도 중심좌표를 접속위치로 변경합니다
     map.setCenter(locPosition);   
     console.log(locPosition);
-}    
+}     */
 	
 //전화걸기
 function callNumber(num){
-    location.href = "TELL:" + num;
+	console.log("전화");
+    location.href = "tel:" + num;
 }
-
-//주소 위도경도 변환
-/* public static Float[] geoCoding(String location) {
-
-if (location == null)  
-
-return null;
-
-		       		       
-Geocoder geocoder = new Geocoder();
-
-// setAddress : 변환하려는 주소 (경기도 성남시 분당구 등)
-
-// setLanguate : 인코딩 설정
-
-GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location).setLanguage("ko").getGeocoderRequest();
-
-GeocodeResponse geocoderResponse;
-
-
-try {
-
-	geocoderResponse = geocoder.geocode(geocoderRequest);
-
-	if (geocoderResponse.getStatus() == GeocoderStatus.OK & !geocoderResponse.getResults().isEmpty()) {
-		
-		GeocoderResult geocoderResult=geocoderResponse.getResults().iterator().next();		
-		LatLng latitudeLongitude = geocoderResult.getGeometry().getLocation();
-				  
-		Float[] coords = new Float[2];
-		
-		coords[0] = latitudeLongitude.getLat().floatValue();
-		
-		coords[1] = latitudeLongitude.getLng().floatValue();
-
-		return coords;
-
-		}
-
-	} catch (IOException ex) {
-
-		ex.printStackTrace();
-
-	}
-		return null;
-} */
 
 </script>
 
-
-
 <div align="center">
-<div align="center" style="margin:40px;">
-	<a style="color:black" href="https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212">
-	<img src="${pageContext.request.contextPath}/resources/img/menu/findLoad.png" style="height:90px"  />
-	</a>
-<h2>길찾기</h2>
+	<div align="center" style="margin:40px;">
+		<a style="color:black" href="https://map.kakao.com/link/to/예담직업전문학교,35.870685,128.589422">
+			<img src="${pageContext.request.contextPath}/resources/img/menu/findLoad.png" style="height:90px"  />
+		</a>
+		<h2>길찾기</h2>
 </div>
 <!-- 자바스크립트 이용시  -->
 <div class="patient1">
-<a onclick="callNumber('${ familyVO.familyTel }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
-	<img src="${pageContext.request.contextPath}/resources/img/menu/call.png" style="height:90px"  />
-</a> 
+	<a onclick="callNumber('${ familyVO.familyTel }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
+		<img src="${pageContext.request.contextPath}/resources/img/menu/call.png" style="height:90px"  />
+	</a> 
 	<h3>가족에게 전화</h3>
 </div>
 
 <div class="patient2">
-<a id="urgent" href="tel:112">	
-</a>
-	<h1>112</h1>
+	<a id="urgent" href="tel:112">	
+		<h1>112</h1>
+	</a>
 </div>
-
-
+<a href="changeAddr.do">클릭</a>
 </div> 
 </body>
 </html>

@@ -5,7 +5,6 @@
 <html>
  <head>
  <meta charset="utf-8" />
- <link type="text/css" rel="stylesheet" href="style.css" />
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
  <title>Creative - Start Bootstrap Theme</title>
  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

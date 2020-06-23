@@ -36,6 +36,17 @@ public class HomeController {
 		
 		return "common/home/home";
 	}
+	// 재선 로그인용 home 가는 코드
+	@RequestMapping(value = "/goHome.do")
+	public String goHome(Locale locale, Model model, HttpSession session, HttpServletRequest request) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+
+		//채팅 기능 테스트용 접속 IP값 세션 저장
+		String ipAddress = request.getRemoteAddr();
+		session.setAttribute("userLoc", ipAddress);
+		
+		return "common/home/home";
+	}	
  //환자
 	@RequestMapping(value = "/patient.do")
 	public String patient(Locale locale, Model model) {

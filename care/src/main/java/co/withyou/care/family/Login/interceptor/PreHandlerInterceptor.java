@@ -32,9 +32,11 @@ public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 			request.getSession().setAttribute("loginOk", service.getSelect(vo));	
 			response.sendRedirect("familyMain.do");
 			
-		} 
+		} else {
+			return true;
+		}
 
-		return true;
+		return false;
 	}
 
 } //end of Class
