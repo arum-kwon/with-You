@@ -6,43 +6,34 @@
     <meta charset="utf-8">    
 </head>
 <body>
-
 <div id="map" style="width:100%;height:350px;"></div>    
  <form name="insertDate" action="patientGetLine.do" method="post">
         <input type="date" id='Loctime' name='Loctime'/>
         <input type="submit" value="검색">
-    </form>=======================================================${GpsLine}
+    </form>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 <script>
-
-var GpsLine= JSON.parse('${GpsLine}');
-console.log(GpsLine[0].patientLongitude);
-
-//var TodayLong = new Array();
-//<c:forEach items="${todayLine}" var="today">
-//	TodayLong.push(${today.patientLongitude})
-//</c:forEach>
-//console.log(TodayLat[0]);
+var Search = JSON.parse('${todayLine}');
 
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new kakao.maps.LatLng(GpsLine[0].patientLatitude, GpsLine[0].patientLongitude), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(Search[0].patientLatitude, Search[0].patientLongitude), // 지도의 중심좌표
         level: 4 // 지도의 확대 레벨
     };  
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-for(i=0;i<GpsLine.length;i++){	
+for(i=0<Search.length;i++){
 var linePath = [
-	
-   new kakao.maps.LatLng(GpsLine[i].patientLatitude, GpsLine[i].patientLongitude),
+
+   new kakao.maps.LatLng(Search[i].patientLatitude, Search[i].patientLongitude),
 	
   
 ];
 }
-// 지도에 표시할 선을 생성합니다--%>
+// 지도에 표시할 선을 생성합니다
 var polyline = new kakao.maps.Polyline({
     path: linePath, // 선을 구성하는 좌표배열 입니다
     strokeWeight: 2, // 선의 두께 입니다

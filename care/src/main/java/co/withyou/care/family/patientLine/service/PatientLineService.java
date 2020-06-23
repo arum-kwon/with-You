@@ -9,6 +9,6 @@ public interface PatientLineService {
 
 	public List<Map> getGpsList(PatientLocVO vo) throws Exception;
 		// TODO Auto-generated method stub
-	
+	public List<Map> getTodayLine(PatientLocVO vo) throws Exception;
 
 }
