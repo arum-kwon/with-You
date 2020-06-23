@@ -99,6 +99,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div align="center">
 	<a href="patientLine.do">환자라인 example</a>
 </div>
+<div align="center">
+	<a href="findLoadTest.do">길찾기Test example</a>
+</div>
 </header>
 
 </body> 
