@@ -18,7 +18,8 @@
 			WHERE P.FAMILYNO = F.FAMILYNO
 			AND F.FAMILYNO = #{familyNo}),
 			sysdate,
-			#{serviceArea}
+			#{serviceArea},
+			#{familyNo}
 			)
 	</insert>
 	
@@ -27,9 +28,10 @@
 				 S.SERVICESTARTTIME "serviceStartTime",
 				 S.SERVICEENDTIME "serviceEndTime", 
 				 S.SERVICESTATUS "serviceStatus", 
-				 S.SERVICEDATE "serviceDate", 
+				 TO_CHAR(S.SERVICEDATE, 'YYYY-MM-DD') "serviceDate", 
 				 S.SERVICEDEMAND "serviceDemand",
         		 S.SERVICEAREA "serviceArea", 
+        		 S.SERVICEPRICE "servicePrice",
         		 H.HELPERNO "helperNo", 
         		 H.HELPERNAME "helperName", 
         		 H.HELPERPROFILE "helperProfile" 
@@ -41,6 +43,43 @@
 			                                     FROM FAMILY F, PATIENT P
 			                                     WHERE F.FAMILYNO = P.FAMILYNO
 			                                     AND F.FAMILYNO=#{familyNo}))
+	</select>
+	
+	<select id="getSelect" parameterType="String" resultType="map">
+		SELECT S.SERVICENO "serviceNo",
+				 S.SERVICESTARTTIME "serviceStartTime",
+				 S.SERVICEENDTIME "serviceEndTime", 
+				 S.SERVICESTATUS "serviceStatus", 
+				 TO_CHAR(S.SERVICEDATE, 'YYYY-MM-DD') "serviceDate", 
+				 S.SERVICEDEMAND "serviceDemand",
+        		 S.SERVICEAREA "serviceArea", 
+        		 S.SERVICEPRICE "servicePrice",
+        		 S.FAMILYNO "familyNo",
+        		 H.HELPERNO "helperNo", 
+        		 H.HELPERNAME "helperName", 
+        		 H.HELPERPROFILE "helperProfile" 
+ 		FROM SERVICEAPPLY S, HELPER H
+ 		WHERE S.HELPERNO = H.HELPERNO
+ 		AND SERVICENO = #{value}
+	</select>
+	
+	<select id="getSelect2" parameterType="String" resultType="map">
+		SELECT REALSTARTTIME "realStartTime", 
+				REALENDTIME "realEndTime"
+		FROM SERVICEHISTORY
+		WHERE SERVICENO = #{value}
+	</select>
+	
+	<select id="getSelect3" parameterType="String" resultType="map">
+		SELECT F.FAMILYNAME "familyName", 
+				F.FAMILYNO "familyNo", 
+				F.FAMILYADDR "familyAddr", 
+				F.FAMILYTEL "familyTel", 
+				F.FAMILYEMAIL "familyEmail", 
+				S.SERVICEPRICE "servicePrice"
+		FROM FAMILY F, SERVICEAPPLY S
+		WHERE F.FAMILYNO = S.FAMILYNO
+		AND SERVICENO = #{value}
 	</select>
 	
 </mapper>

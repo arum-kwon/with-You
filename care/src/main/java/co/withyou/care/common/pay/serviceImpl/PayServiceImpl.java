@@ -20,4 +20,11 @@ public class PayServiceImpl implements PayService{
 		payMap.payResultInsert(payVo);
 	}
 
+	@Override
+	public void paySuccessUpdate(PayVo payVo) throws Exception {
+		// TODO Auto-generated method stub
+		payMap.paySuccessUpdate(payVo);
+		
+	}
+
 }

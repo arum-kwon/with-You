@@ -9,49 +9,61 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center">
+<div class="container">
 	<h1>간병인 정보</h1>
 	<div>
-		이름: ${helperInfo.helperName }<br />
-		성별: ${helperInfo.helperSex }<br />
-		이메일: ${helperInfo.helperEmail }<br />
+	<img src="uploadProfile/${view.profile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
+		${helperInfo.helperName }님 / ${helperInfo.helperSex }<br />
+		<div><br/></div>
+		
 		희망근무지역: ${helperInfo.helperWorkArea }<br />
 		돌봄가능시간: ${helperInfo.helperStartTime }시~${helperInfo.helperEndTime }시<br />
-		요구사항: ${helperInfo.helperUnique }<br />
+		특이사항: ${helperInfo.helperUnique }<br />
 		프로필사진: ${helperInfo.helperProfile }<br />
 		자격증명: ${helperInfo.certifiName }<br />
+		<br />
+		후기 및 평점 :
+		<!-- 후기 및 평점 영역 -->
+		
+		
+		
+		
+		
+		
+		
 	</div>
 	<div><br />
 		<input type="button" name="main" value="보호자메인" onclick="location.href='familyMain.do'">
 		<input type="button" name="helperList" value="조회목록" onclick="location.href='helperList.do'">
 	</div>
 	<div><br /></div>
-	<h1>서비스 신청하기</h1>
-		<div>
-			<form id="orderFrm" name="orderFrm" action="applyService.do" method="post">
-				서비스 요청시간 : ${searchFilterVo.helperStartTime }시 부터~${searchFilterVo.helperEndTime }시 까지 <br />
-				서비스 지역 : ${searchFilterVo.helperWorkArea }<br />
-				자격보유 : 
-					<c:choose>
-						<c:when test="${searchFilterVo.certifiName eq 'y'}">${helperInfo.certifiName }</c:when>
-						<c:otherwise>미보유</c:otherwise>
-					</c:choose>
-					
-				<br />
-				서비스 날짜:<input type="date" id="serviceDate" name="serviceDate"><br />
-				<div class="form-group">
-			      <label for="comment">보호자 요청사항:</label>
-			      <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-    			</div>
-				<div><br /></div>
-				<input type="button" id="btnOrder" name="btnOrder" value="신청하기" onclick="orderInfo()">
-				<input type="hidden" id="serviceStartTime" name="serviceStartTime" value="${searchFilterVo.helperStartTime }">
-				<input type="hidden" id="serviceEndTime" name="serviceEndTime" value="${searchFilterVo.helperEndTime }">
-				<input type="hidden" id="serviceArea" name="serviceArea" value="${searchFilterVo.helperWorkArea }">
-				<input type="hidden" id="familyNo" name="familyNo" value="${loginOk.familyNo }">
-				<input type="hidden" id="helperNo" name="helperNo" value="${helperInfo.helperNo }">
-			</form>
-		</div>
+<h1>서비스 신청하기</h1>
+	<div>
+		<form id="orderFrm" name="orderFrm" action="applyService.do" method="post">
+			서비스 요청시간 : ${searchFilterVo.helperStartTime }시 부터~${searchFilterVo.helperEndTime }시 까지 <br />
+			서비스 지역 : ${searchFilterVo.helperWorkArea }<br />
+			자격보유 : 
+				<c:choose>
+					<c:when test="${searchFilterVo.certifiName eq 'y'}">${helperInfo.certifiName }</c:when>
+					<c:otherwise>미보유</c:otherwise>
+				</c:choose>
+				
+			<br />
+			서비스 날짜:<input type="date" id="serviceDate" name="serviceDate"><br />
+			<div class="form-group">
+		      <label for="comment">보호자 요청사항:</label>
+		      <textarea class="form-control" rows="5" id="serviceDemand" name="serviceDemand"></textarea>
+   			</div>
+			<div><br /></div>
+			<input type="button" id="btnOrder" name="btnOrder" value="신청하기" onclick="orderInfo()">
+			<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
+			<input type="hidden" id="serviceStartTime" name="serviceStartTime" value="${searchFilterVo.helperStartTime }">
+			<input type="hidden" id="serviceEndTime" name="serviceEndTime" value="${searchFilterVo.helperEndTime }">
+			<input type="hidden" id="serviceArea" name="serviceArea" value="${searchFilterVo.helperWorkArea }">
+			<input type="hidden" id="familyNo" name="familyNo" value="${loginOk.familyNo }">
+			<input type="hidden" id="helperNo" name="helperNo" value="${helperInfo.helperNo }">
+		</form>
+	</div>
 </div>
 
 <script type="text/javascript">
@@ -74,7 +86,7 @@
 				'결제예정금액 : ' + (parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))*10000 +'\n'+
 				'    * (금액 = 시간 X 10,000원)'
 				) == true) {
-			alert("신청이 완료 되었습니다")
+			alert("신청이 완료 되었습니다"+"\n"+"'신청내역'메뉴에서 내용을 확인 하실 수 있습니다.")
 			document.orderFrm.submit();
 		} else {
 			return;

@@ -9,5 +9,8 @@ public interface ApplyService {
 
 	public void applyResultInsert(ApplyVo applyVo) throws Exception;
 	List <Map> getSelectList(ApplyVo applyVo) throws Exception;
+	Map getSelect (String serviceNo) throws Exception;
+	Map getSelect2 (String serviceNo) throws Exception;
+	Map getSelect3 (String serviceNo) throws Exception;
 	
 }

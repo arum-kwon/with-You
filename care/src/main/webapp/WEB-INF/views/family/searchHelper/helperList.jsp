@@ -119,7 +119,7 @@
 		<c:forEach var="list" items="${searchList }">
 		<tr id="listTr" onclick="selectOne('${list.helperNo }')" 
 				onMouseOver="this.style.backgroundColor='yellow';" onMouseOut="this.style.backgroundColor='';">
-			<td>${list.helperProfile }</td>
+			<td><img src="uploadProfile/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
 			<td>${list.helperName }</td>
 			<td>${list.helperWorkArea }</td>
 			<td>${list.helperStartTime }</td>

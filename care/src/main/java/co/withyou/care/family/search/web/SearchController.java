@@ -22,7 +22,7 @@ public class SearchController {
 	//간병신청 메뉴
 	@RequestMapping("applyMenu.do")
 	public String applyMenu() {
-		return "family/applyService/applyMenu";
+		return "family/applyService/applyHelperService";
 	}
 	
 	//간병인 조회 

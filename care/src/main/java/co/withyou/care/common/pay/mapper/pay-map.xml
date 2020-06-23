@@ -3,6 +3,11 @@
 <mapper namespace="co.withyou.care.common.pay.mapper.PayMapper">
 	
 	<insert id="payResultInsert" parameterType="PayVo">
-		INSERT INTO PAYRESULT VALUES (#{imp_uid}, #{merchant_uid}, #{apply_num}, #{paid_amount}, #{buyer_name})
+		INSERT INTO PAYRESULT VALUES (#{imp_uid}, #{merchant_uid}, #{apply_num}, #{paid_amount}, #{buyer_name}, #{buyer_addr} )
 	</insert>
+	
+	<update id="paySuccessUpdate" parameterType="PayVo">
+		UPDATE SERVICEAPPLY SET
+		SERVICESTATUS = 'S03' WHERE SERVICENO = #{buyer_addr}
+	</update>
 </mapper>

@@ -6,9 +6,18 @@ public class PayVo {
 	private String apply_num;
 	private int paid_amount;
 	private String buyer_name;
+	private String buyer_addr;
 	
 	public PayVo() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getBuyer_addr() {
+		return buyer_addr;
+	}
+
+	public void setBuyer_addr(String buyer_addr) {
+		this.buyer_addr = buyer_addr;
 	}
 
 	public String getImp_uid() {

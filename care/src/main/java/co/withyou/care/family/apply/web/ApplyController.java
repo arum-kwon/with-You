@@ -25,10 +25,9 @@ public class ApplyController {
 	//서비스 신청하기 메뉴
 	@RequestMapping("applyService.do")
 	public String applyService (ApplyVo applyVo) throws Exception {
-		System.out.println("applyVo"+applyVo);
 		applyService.applyResultInsert(applyVo);
 		
-		return "family/applyService/saveApplyResult";
+		return "family/main/FamilyMain";
 	}
 	
 	//서비스 신청내역 메뉴
@@ -45,9 +44,20 @@ public class ApplyController {
 	
 	//서비스 신청내역 -> 상세내역 메뉴
 	@RequestMapping("applyDetail.do")
-	public String applyDetail (@RequestParam("serviceNo") String sNo) {
+	public String applyDetail (@RequestParam("serviceNo") String sNo, Model model, ApplyVo applyVo) throws Exception {
 		String serviceNo = sNo;
 		System.out.println(serviceNo);
+		
+		Map map = applyService.getSelect(serviceNo);
+		model.addAttribute("applyDetail", map);
+		
+		if(map.get("serviceStatus").equals("S02") || map.get("serviceStatus").equals("S03") || map.get("serviceStatus").equals("S04")) {
+			Map map2 = applyService.getSelect2(serviceNo);
+			model.addAttribute("applyDetail2", map2);
+		}
+		
+		Map map3 = applyService.getSelect3(serviceNo);
+		model.addAttribute("applyDetail3", map3);
 		
 		return "family/applyService/applyDetail";
 	}

@@ -35,6 +35,10 @@ public class PayController {
 		System.out.println(payVo);
 		payService.payResultInsert(payVo);
 		
+		if(payVo.getBuyer_addr() != null) {
+			payService.paySuccessUpdate(payVo);
+		}
+		
 		return payVo;
 	}
 	

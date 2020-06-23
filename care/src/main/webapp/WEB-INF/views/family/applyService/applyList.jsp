@@ -14,7 +14,7 @@
 		<c:forEach var="list" items="${applyList }">
 		<div class="col-xl-6 col-md-12 col-sm-12" >
 			<br> 
-			<img src="uploadProfile/${view.profile }" id="viewProfile" class="rounded-circle" width="100" height="100">
+			<img src="uploadProfile/no.jpg" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100">
 			${list.helperName} 님<br/>
 			요청서비스날짜 : ${list.serviceDate }<br/>
 			요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지<br/>
@@ -22,7 +22,20 @@
 		</div>
 		<div class="col-xl-6 col-md-12 col-sm-12" id="centerDiv">
 		<div><br/></div>
-			배치대기 버튼<div><br/></div>
+			<c:choose>
+				<c:when test="${list.serviceStatus eq 'S01'}">
+					<button type="button" id="btnServiceReady" class="btn btn-info">수락대기</button><div><br/></div>
+				</c:when>
+				<c:when test="${list.serviceStatus eq 'S02'}">
+					<button type="button" id="btnPayReady" class="btn btn-primary">결제대기</button><div><br/></div>
+				</c:when>
+				<c:when test="${list.serviceStatus eq 'S03'}">
+					<button type="button" id="btnPayDone" class="btn btn-success">결제완료</button><div><br/></div>
+				</c:when>
+				<c:otherwise>
+					<button type="button" id="btnServiceDone" class="btn btn-dark">서비스종료</button><div><br/></div>
+				</c:otherwise>
+			</c:choose>
 			<button type="button" id="btnLikeList" class="btn btn-light" onclick="getServiceNo('${list.serviceNo}')">상세내역</button><div><br/></div>
 			<button type="button" id="btnChat" class="btn btn-dark" onclick="location.href='#'">채팅</button><div><br/></div>
 		</div>
@@ -30,6 +43,8 @@
 		
 		<input type="hidden" id="serviceNo" name="serviceNo">
 	</form>
+	<div><br/></div>
+	<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
 </div>
 
 
