@@ -3,12 +3,10 @@
 <mapper
 	namespace="co.withyou.care.family.patientLoc.mapper.PatientLocMapper">
 
-	<select id="getLoc" parameterType="PatientLocVO" resultType="PatientLocVO">
-		select PatientLocNo,patientLongitude,patientLatitude
-		from PatientLoc
-		where  rownum <![CDATA[<=]]>'1'
-		order by PatientLocNo desc
-		
+	<select id="getGpsList" parameterType="PatientLocVO" resultType="PatientLocVO">
+		select *
+		from 
+		where
 	</select>
 
 
