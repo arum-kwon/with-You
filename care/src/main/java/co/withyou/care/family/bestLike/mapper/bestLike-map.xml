@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.withyou.care.family.bestLike.mapper.BestLikeMapper">
 	
+	<insert id="bestLikeInsert" parameterType="BestLikeVo">
+		INSERT INTO BESTLIKE (HELPERNO, FAMILYNO)
+		VALUES (#{helperNo}, #{familyNo})		
+	</insert>
+	
 </mapper>

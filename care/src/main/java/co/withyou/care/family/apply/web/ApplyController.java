@@ -32,10 +32,13 @@ public class ApplyController {
 	
 	//서비스 신청내역 메뉴
 	@RequestMapping("applyList.do")
-	public String applyDetail (ApplyVo applyVo, Model model, HttpServletRequest request, HttpSession session) throws Exception {
+	public String applyList (ApplyVo applyVo, Model model, HttpServletRequest request, HttpSession session) throws Exception {
+		//세션에서 값 받기
 		session = request.getSession();
 		FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
 		applyVo.setFamilyNo(familyVo.getFamilyNo());
+		
+		//세션에서 받은 값으로 쿼리 실행, 리스트에 담기
 		List <Map> list = applyService.getSelectList(applyVo);
 		model.addAttribute("applyList", list);
 		

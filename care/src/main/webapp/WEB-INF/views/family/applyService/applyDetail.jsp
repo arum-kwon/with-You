@@ -33,21 +33,28 @@
 				<button type="button" id="btnServiceReady" class="btn btn-primary" onclick="requestPay()">결제하기</button>
 			</c:when>
 			<c:when test="${applyDetail.serviceStatus eq 'S03' }">
-				<button type="button" id="btnServiceReady" class="btn btn-success" onclick="requestPay()">결제완료</button>
+				<button type="button" id="btnServiceReady" class="btn btn-success" onclick="requestPay()" disabled>결제완료</button>
 			</c:when>
 		</c:choose>
 	<div><br/></div>
 	
 <!-- 좋아요 버튼 + Form -->
 <form id="likeFrm" name="likeFrm" action="bestLike.do" method="post">
-	<a href="like()">
-  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:60px"  />
-  	</a>
-	<a href="disLike()">
-  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:60px"  />
-  	</a>
+	<c:choose>
+		<c:when test="">
+			<a href="#" onClick="like(); return false;">
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:60px"  />
+		  	</a>
+		</c:when>
+		<c:when test="">
+			<a href="javascript:void(0);" onClick="disLike();">
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:60px"  />
+		  	</a>
+		</c:when>
+	</c:choose>
 	<div><br/></div>
 	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
+	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
 </form>
 <!-- 좋아요 버튼 + Form 끝-->
 	
@@ -71,7 +78,9 @@
 				<!-- 좋아요 자바스크립트 -->
 <script type="text/javascript">
 	function like() {
-		document.likeFrm.helperNo.value
+//		document.likeFrm.helperNo.value=key;
+		document.likeFrm.action="bestLike.do";
+		document.likeFrm.submit();
 	}
 </script>
 				<!-- 좋아요 자바스크립트 끝-->
