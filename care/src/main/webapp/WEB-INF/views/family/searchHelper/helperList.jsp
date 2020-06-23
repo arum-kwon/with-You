@@ -14,91 +14,93 @@
 	<form id="frm" name="frm" action="helperList.do" method="post">
 		<label for="helperWorkArea">근무지역</label>
 			<select name="helperWorkArea" id="helperWorkArea">
-				<option value="">선택</option>
-				<option value="대구">대구</option>
-				<option value="서울">서울</option>
-				<option value="인천">인천</option>
-				<option value="부산">부산</option>
-				<option value="경북">경북</option>
-				<option value="경남">경남</option>
-				<option value="경기">경기</option>
-				<option value="대전">대전</option>
-				<option value="광주">광주</option>
-				<option value="울산">울산</option>
-				<option value="충북">충북</option>
-				<option value="충남">충남</option>
-				<option value="세종">세종</option>
-				<option value="전남">전남</option>
-				<option value="전북">전북</option>
-				<option value="제주">제주</option>
+				<option value="" selected="selected">선택</option>
+				<option value="대구" ${param.helperWorkArea eq "대구" ? "selected" :""}>대구</option>
+				<option value="서울" ${param.helperWorkArea eq "서울" ? "selected" :""}>서울</option>
+				<option value="인천" ${param.helperWorkArea eq "인천" ? "selected" :""}>인천</option>
+				<option value="부산" ${param.helperWorkArea eq "부산" ? "selected" :""}>부산</option>
+				<option value="경북" ${param.helperWorkArea eq "경북" ? "selected" :""}>경북</option>
+				<option value="경남" ${param.helperWorkArea eq "경남" ? "selected" :""}>경남</option>
+				<option value="경기" ${param.helperWorkArea eq "경기" ? "selected" :""}>경기</option>
+				<option value="대전" ${param.helperWorkArea eq "대전" ? "selected" :""}>대전</option>
+				<option value="광주" ${param.helperWorkArea eq "광주" ? "selected" :""}>광주</option>
+				<option value="울산" ${param.helperWorkArea eq "울산" ? "selected" :""}>울산</option>
+				<option value="충북" ${param.helperWorkArea eq "충북" ? "selected" :""}>충북</option>
+				<option value="충남" ${param.helperWorkArea eq "충남" ? "selected" :""}>충남</option>
+				<option value="세종" ${param.helperWorkArea eq "세종" ? "selected" :""}>세종</option>
+				<option value="전남" ${param.helperWorkArea eq "전남" ? "selected" :""}>전남</option>
+				<option value="전북" ${param.helperWorkArea eq "전북" ? "selected" :""}>전북</option>
+				<option value="제주" ${param.helperWorkArea eq "제주" ? "selected" :""}>제주</option>
 			</select>
 			
 		<label for="helperStartTime">돌봄시작시간</label>
 			<select name="helperStartTime" id="helperStartTime">
-				<option value="">선택</option>
-				<option value="0">00</option>
-				<option value="1">01</option>
-				<option value="2">02</option>
-				<option value="3">03</option>
-				<option value="4">04</option>
-				<option value="5">05</option>
-				<option value="6">06</option>
-				<option value="7">07</option>
-				<option value="8">08</option>
-				<option value="9">09</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option>
-				<option value="13">13</option>
-				<option value="14">14</option>
-				<option value="15">15</option>
-				<option value="16">16</option>
-				<option value="17">17</option>
-				<option value="18">18</option>
-				<option value="19">19</option>
-				<option value="20">20</option>
-				<option value="21">21</option>
-				<option value="22">22</option>
-				<option value="23">23</option>
-				<option value="24">24</option>
+				<option value="" selected="selected">선택</option>
+				<option value="0" ${param.helperStartTime eq "0" ? "selected" :""}>00</option>
+				<option value="1" ${param.helperStartTime eq "1" ? "selected" :""}>01</option>
+				<option value="2" ${param.helperStartTime eq "2" ? "selected" :""}>02</option>
+				<option value="3" ${param.helperStartTime eq "3" ? "selected" :""}>03</option>
+				<option value="4" ${param.helperStartTime eq "4" ? "selected" :""}>04</option>
+				<option value="5" ${param.helperStartTime eq "5" ? "selected" :""}>05</option>
+				<option value="6" ${param.helperStartTime eq "6" ? "selected" :""}>06</option>
+				<option value="7" ${param.helperStartTime eq "7" ? "selected" :""}>07</option>
+				<option value="8" ${param.helperStartTime eq "8" ? "selected" :""}>08</option>
+				<option value="9" ${param.helperStartTime eq "9" ? "selected" :""}>09</option>
+				<option value="10" ${param.helperStartTime eq "10" ? "selected" :""}>10</option>
+				<option value="11" ${param.helperStartTime eq "11" ? "selected" :""}>11</option>
+				<option value="12" ${param.helperStartTime eq "12" ? "selected" :""}>12</option>
+				<option value="13" ${param.helperStartTime eq "13" ? "selected" :""}>13</option>
+				<option value="14" ${param.helperStartTime eq "14" ? "selected" :""}>14</option>
+				<option value="15" ${param.helperStartTime eq "15" ? "selected" :""}>15</option>
+				<option value="16" ${param.helperStartTime eq "16" ? "selected" :""}>16</option>
+				<option value="17" ${param.helperStartTime eq "17" ? "selected" :""}>17</option>
+				<option value="18" ${param.helperStartTime eq "18" ? "selected" :""}>18</option>
+				<option value="19" ${param.helperStartTime eq "19" ? "selected" :""}>19</option>
+				<option value="20" ${param.helperStartTime eq "20" ? "selected" :""}>20</option>
+				<option value="21" ${param.helperStartTime eq "21" ? "selected" :""}>21</option>
+				<option value="22" ${param.helperStartTime eq "22" ? "selected" :""}>22</option>
+				<option value="23" ${param.helperStartTime eq "23" ? "selected" :""}>23</option>
+				<option value="24" ${param.helperStartTime eq "24" ? "selected" :""}>24</option>
 			</select>	
 		
 		<label for="helperEndTime">돌봄종료시간</label>
 			<select name="helperEndTime" id="helperEndTime">
-				<option value="">선택</option>
-				<option value="0">00</option>
-				<option value="1">01</option>
-				<option value="2">02</option>
-				<option value="3">03</option>
-				<option value="4">04</option>
-				<option value="5">05</option>
-				<option value="6">06</option>
-				<option value="7">07</option>
-				<option value="8">08</option>
-				<option value="9">09</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option>
-				<option value="13">13</option>
-				<option value="14">14</option>
-				<option value="15">15</option>
-				<option value="16">16</option>
-				<option value="17">17</option>
-				<option value="18">18</option>
-				<option value="19">19</option>
-				<option value="20">20</option>
-				<option value="21">21</option>
-				<option value="22">22</option>
-				<option value="23">23</option>
-				<option value="24">24</option>
+				<option value="" selected="selected">선택</option>
+				<option value="0" ${param.helperEndTime eq "0" ? "selected" :""}>00</option>
+				<option value="1" ${param.helperEndTime eq "1" ? "selected" :""}>01</option>
+				<option value="2" ${param.helperEndTime eq "2" ? "selected" :""}>02</option>
+				<option value="3" ${param.helperEndTime eq "3" ? "selected" :""}>03</option>
+				<option value="4" ${param.helperEndTime eq "4" ? "selected" :""}>04</option>
+				<option value="5" ${param.helperEndTime eq "5" ? "selected" :""}>05</option>
+				<option value="6" ${param.helperEndTime eq "6" ? "selected" :""}>06</option>
+				<option value="7" ${param.helperEndTime eq "7" ? "selected" :""}>07</option>
+				<option value="8" ${param.helperEndTime eq "8" ? "selected" :""}>08</option>
+				<option value="9" ${param.helperEndTime eq "9" ? "selected" :""}>09</option>
+				<option value="10" ${param.helperEndTime eq "10" ? "selected" :""}>10</option>
+				<option value="11" ${param.helperEndTime eq "11" ? "selected" :""}>11</option>
+				<option value="12" ${param.helperEndTime eq "12" ? "selected" :""}>12</option>
+				<option value="13" ${param.helperEndTime eq "13" ? "selected" :""}>13</option>
+				<option value="14" ${param.helperEndTime eq "14" ? "selected" :""}>14</option>
+				<option value="15" ${param.helperEndTime eq "15" ? "selected" :""}>15</option>
+				<option value="16" ${param.helperEndTime eq "16" ? "selected" :""}>16</option>
+				<option value="17" ${param.helperEndTime eq "17" ? "selected" :""}>17</option>
+				<option value="18" ${param.helperEndTime eq "18" ? "selected" :""}>18</option>
+				<option value="19" ${param.helperEndTime eq "19" ? "selected" :""}>19</option>
+				<option value="20" ${param.helperEndTime eq "20" ? "selected" :""}>20</option>
+				<option value="21" ${param.helperEndTime eq "21" ? "selected" :""}>21</option>
+				<option value="22" ${param.helperEndTime eq "22" ? "selected" :""}>22</option>
+				<option value="23" ${param.helperEndTime eq "23" ? "selected" :""}>23</option>
+				<option value="24" ${param.helperEndTime eq "24" ? "selected" :""}>24</option>
 			</select>
 			
-		<label for="certifiNo">자격증보유</label>
-			<select name="certifiNo" id="certifiNo" >
-				<option value="">선택</option>
-				<option value="y">보유</option>
-				<option value="">미보유</option>				
+		<label for="certifiName">자격증보유</label>
+			<select name="certifiName" id="certifiName" >
+				<option value="" selected="selected">선택</option>
+				<option value="y" ${param.certifiName eq "y" ? "selected" :"" }>보유</option>
+				<option value="n" ${param.certifiName eq "n" ? "selected" :"" }>미보유</option>				
 			</select>
+			
+			<input type="hidden" id="helperNo" name="helperNo">
 			
 			&nbsp;&nbsp;&nbsp;
 		<input type="button" onclick="formCheck()" value="검색" id="sbmt" name="sbmt">
@@ -126,34 +128,19 @@
 		</c:forEach>
 	</table>
 	<div><br />
-		<input type="button" name="main" value="메인화면" onclick="location.href='home.do'">
+		<input type="button" name="main" value="보호자메인" onclick="location.href='familyMain.do'">
 	</div>
 	
 </div>
-	<form id="hiddenFrm" name="hiddenFrm" action="helperInfo.do" method="post">
-		<input type="hidden" id="helperNo" name="helperNo">
-		
-		<!-- 
-		<input type="hidden" id="helperStartTime" name="helperStartTime">
-		<input type="hidden" id="helperEndTime" name="helperEndTime">
-		<input type="hidden" id="helperWorkArea" name="helperWorkArea">
-		 -->
-		 	
-	</form>
+	
 
 	<script type="text/javascript">
 		//조회된 간병인 목록 클릭시 간병인 상세정보 페이지 이동 함수
 		function selectOne(key) {
+			document.frm.action="helperInfo.do";	//frm 에서 저장한 조건value 가지고 간다
+			document.frm.helperNo.value=key;
 			
-			/*
-			document.hiddenFrm.helperStartTime.value = document.frm.helperStartTime.value;
-			document.hiddenFrm.helperEndTime.value = document.frm.helperEndTime.value;
-			document.hiddenFrm.helperWorkArea.value = document.frm.helperWorkArea.value;
-			*/
-			
-			document.hiddenFrm.helperNo.value=key;
-			console.log(key);
-			document.hiddenFrm.submit(); 
+			document.frm.submit(); 
 		}
 		
 		//필수 조건 선택여부 체크 함수
@@ -170,9 +157,9 @@
 				alert('돌봄서비스 종료시간을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
 				document.frm.helperEndTime.focus();
 			}
-			else if(document.frm.certifiNo.value == '') {
+			else if(document.frm.certifiName.value == '') {
 				alert('간병인 자격유무를 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
-				document.frm.certifiNo.focus();
+				document.frm.certifiName.focus();
 			}
 			else {
 				document.frm.submit();

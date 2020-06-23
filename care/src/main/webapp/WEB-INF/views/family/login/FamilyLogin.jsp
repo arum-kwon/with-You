@@ -4,14 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 <title>보호자 로그인화면</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<style>
-
-</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script>
 function loginValidation(){
 	
@@ -24,7 +20,7 @@ function loginValidation(){
 		return false;
 	}else if(!password){
 		alert("비밀번호를 입력하세요.");
-		$("#password").focus();
+		$("#familyPw").focus();
 		return false;
 	} 	
 	fLoginForm.submit();
@@ -49,6 +45,7 @@ function enterKeyCheck(){
 }
 </style>
 </head>
+
 <body>
 <div class="main" align="center">
 	<div class="col-lg-10 align-self-end">

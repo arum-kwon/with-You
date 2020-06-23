@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -79,9 +80,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 
 <div align="center" style="margin:20px;">
-<a href="patient.do" class="patient">환자</a><br><br>
+<a href="patientLogin.do" class="patient">환자</a><br><br>
 <a href="familyLogin.do" class="family">보호자</a><br><br>
-<a href="helper.do" class="helper">간병인</a><br><br>
+<a href="helperLogin.do" class="helper">간병인</a><br><br>
 </div> 
 
 <!-- 임시 a링크들 boy 찬진 -->
@@ -92,7 +93,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 	<a href=pay.do>결제</a><br/>
 	<a href=helperList.do>보호자의 간병인 조회/신청</a><br/>
 </div>
-
+<div align="center">
+	<a href="scheduleEx.do">schedule example</a>
+</div>
+<div align="center">
+	<a href="patientLine.do">환자라인 example</a>
+</div>
 </header>
 
 </body> 

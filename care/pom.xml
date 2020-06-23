@@ -206,6 +206,14 @@
 			<artifactId>gson</artifactId>
 			<version>2.8.6</version>
 		</dependency>
+		<!-- 주소 위도경도 변환   -->
+		<dependency>
+			<groupId>com.google.code.geocoder-java</groupId>
+			<artifactId>geocoder-java</artifactId>
+			<version>0.16</version>
+		</dependency>
+
+
 
 
 

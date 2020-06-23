@@ -9,14 +9,19 @@
 <title>환자 집으로가기 화면</title>
 
 <style type="text/css"> 
-#urgent { font-family:sans-serif;
-		  font-size:x-large;
-		  font-style: italic;
-		  color:#1E90FF;
+#urgent { 
+  font-family:sans-serif;
+  font-size:x-large;
+  font-style: italic;
+  color:#1E90FF;
+}
+
+.patient1,.patient2 {
+	display:inline-block;
+	margin:30px;
 }
 </style>
 </head>
-
 <body>
 <div id="map" style="width:100%;height:350px;"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7d32000692658cb31291420c5c084e6d"></script>
@@ -39,7 +44,7 @@ if (navigator.geolocation) {
             lon = position.coords.longitude; // 경도
         
         var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+            message = '<div style="padding:5px;">여기에 계시네요!</div>'; // 인포윈도우에 표시될 내용입니다
     
             
         // 마커와 인포윈도우를 표시합니다
@@ -83,8 +88,54 @@ function displayMarker(locPosition, message) {
 	
 //전화걸기
 function callNumber(num){
-    location.href = "tel:" + num;
+    location.href = "TELL:" + num;
 }
+
+//주소 위도경도 변환
+/* public static Float[] geoCoding(String location) {
+
+if (location == null)  
+
+return null;
+
+		       		       
+Geocoder geocoder = new Geocoder();
+
+// setAddress : 변환하려는 주소 (경기도 성남시 분당구 등)
+
+// setLanguate : 인코딩 설정
+
+GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location).setLanguage("ko").getGeocoderRequest();
+
+GeocodeResponse geocoderResponse;
+
+
+try {
+
+	geocoderResponse = geocoder.geocode(geocoderRequest);
+
+	if (geocoderResponse.getStatus() == GeocoderStatus.OK & !geocoderResponse.getResults().isEmpty()) {
+		
+		GeocoderResult geocoderResult=geocoderResponse.getResults().iterator().next();		
+		LatLng latitudeLongitude = geocoderResult.getGeometry().getLocation();
+				  
+		Float[] coords = new Float[2];
+		
+		coords[0] = latitudeLongitude.getLat().floatValue();
+		
+		coords[1] = latitudeLongitude.getLng().floatValue();
+
+		return coords;
+
+		}
+
+	} catch (IOException ex) {
+
+		ex.printStackTrace();
+
+	}
+		return null;
+} */
 
 </script>
 
@@ -93,27 +144,25 @@ function callNumber(num){
 <div align="center">
 <div align="center" style="margin:40px;">
 	<a style="color:black" href="https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212">
-	<i class="fas fa-home fa-4x"></i>
+	<img src="${pageContext.request.contextPath}/resources/img/menu/findLoad.png" style="height:90px"  />
 	</a>
-<h2>집으로</h2>
+<h2>길찾기</h2>
 </div>
-<div style="display: inline-block; margin:30px;" >
-<a style="color:black" href="tel:010-4691-7957">
-	<i class="fas fa-user-alt fa-4x"></i>
-</a>
-</div>
-<div style="display: inline-block; margin:30px;">
-<a id="urgent" href="tel:112">	
-	<h1>112</h1>
-</a>
-</div>
-
 <!-- 자바스크립트 이용시  -->
-<div onclick="callNumber('${ tell }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
-	<i class="fas fa-user-alt fa-4x"></i>
-</div> 
-
-
+<div class="patient1">
+<a onclick="callNumber('${ familyVO.familyTel }')">  <!--{shopAbout.shop_tel } : 보호자번호가 들어가야함  -->
+	<img src="${pageContext.request.contextPath}/resources/img/menu/call.png" style="height:90px"  />
+</a> 
+	<h3>가족에게 전화</h3>
 </div>
+
+<div class="patient2">
+<a id="urgent" href="tel:112">	
+</a>
+	<h1>112</h1>
+</div>
+
+
+</div> 
 </body>
 </html>
