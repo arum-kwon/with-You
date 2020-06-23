@@ -14,25 +14,25 @@ public class AdminVO {
 		
 	
 
-		public String getAdminid() {
+		public String getAdminId() {
 			return adminId;
 		}
 
 
 
-		public void setAdminid(String adminid) {
+		public void setAdminId(String adminid) {
 			this.adminId = adminid;
 		}
 
 
 
-		public String getAdminpw() {
+		public String getAdminPw() {
 			return adminPw;
 		}
 
 
 
-		public void setAdminpw(String adminpw) {
+		public void setAdminPw(String adminpw) {
 			this.adminPw = adminpw;
 		}
 
