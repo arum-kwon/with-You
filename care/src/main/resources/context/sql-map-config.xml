@@ -5,7 +5,7 @@
 		<!-- 아름  -->
 		<typeAlias type="co.withyou.care.common.signUp.service.FamilyVO" alias="signUpFamilyVO"/>
 		<typeAlias type="co.withyou.care.common.signUp.service.HelperVO" alias="signUpHelperVO"/>
-	
+		<typeAlias type="co.withyou.care.common.signUp.service.PatientVO" alias="signPatientVO"/>
 	
 	
 		
