@@ -13,7 +13,7 @@
 	
 	<select id="Update" parameterType="LoginPatientVO">
 		UPDATE family
-		SET familyAddr=#{familyAddr},familyTel=#{familyTel},
+		SET familyAddr=#{familyAddr},familyTel=#{familyTel}
 		WHERE familyNo=#{familyNo}
 	</select>
 </mapper>

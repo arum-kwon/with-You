@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper
-	namespace="co.withyou.care.family.patientLoc.mapper.PatientLocMapper">
+	namespace="co.withyou.care.family.patientLine.mapper.PatientLineMapper">
 
 	<select id="getGpsList" parameterType="PatientLocVO" resultType="PatientLocVO">
-		select *
-		from 
-		where
+		SELECT *
+		FROM patientLoc
+		WHERE trunc(patientLoctime) = #{patientLoctime}
+		order by patientloctime
+	</select>
+	<select id="getTodayLine" parameterType="PatientLocVO" resultType="patientLocVO">
+		SELECT *
+		FROM patientLoc
+		WHERE trunc(patientLoctime) = trunc(sysdate)
 	</select>
 
 
