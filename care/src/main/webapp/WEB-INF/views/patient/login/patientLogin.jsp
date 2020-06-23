@@ -1,20 +1,38 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <html>
 <head>
-<meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<title>환자 로그인 메뉴</title>
+<meta charset="utf-8" />
+<title>환자 로그인</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/css/util.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/css/main.css">
 <style>
 .main {
 	margin:80px;
+	
 }
-.btnLogin {
-	margin:30px
+
+.errorMsg, .errorMsg2 {
+	color:#ec2020; 
+	font-weight:bold;
+	font-size: 18px;
+	font-family: Montserrat-Regular;
 }
+
+
 </style>
+
 <script>
 function loginValidation(){
 	
@@ -38,50 +56,84 @@ function enterKeyCheck(){
 	 loginValidation();
 	  }	
 }
-
-
 </script>
-
-
-
-
 </head>
 <body>
-<div class="main" align="center">
-	<div class="col-lg-10 align-self-end">
-	  <div class="col-lg-10 align-self-end">
-       <h2 class="text-uppercase text-black font-weight-bold">환자 로그인</h2>
-      </div>
+
+	<div class="limiter">
+
+			<div class="main" align="center">
+				<form name="pLoginForm" action="patientLoginCheck.do" method="post" class="login100-form validate-form">
+					<span class="w3-xxlarge"> 환자 로그인</span>
+					<br><br>					
+					<div class="wrap-input100 validate-input"
+						 data-validate="인증코드를 입력해주세요.: ">
+						<input class="input100" type="text" id="patientVcode" name="patientVcode" onkeyup="enterKeyCheck()" autofocus> 
+						<span class="focus-input100"></span> 
+						<span class="label-input100">인증코드</span>
+					</div>
+
+				    <c:if test="${noCode == false }">
+						<p class="errorMsg"> 해당하는 인증코드가 존재하지 않습니다.</p>
+					</c:if>
+				    <c:if test="${noMember == false }">
+						<p class="errorMsg2"> 인증코드가 틀렸습니다.</p>
+					</c:if>
+				  <br><br>					
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" type="checkbox" id="customCheck" name="customCheck" > 
+								<label class="label-checkbox100" for="customCheck"> 자동 로그인 </label>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="loginValidation()">로그인</button>
+					</div>
+
+				</form>
+			</div>
+
 	</div>
-</div>
-
-<form name="pLoginForm" action="patientLoginCheck.do" method="post" class="user">
-  <div class="form-group">
- <input type="text" class="form-control" id="patientVcode" name="patientVcode" autofocus onkeyup="enterKeyCheck()" placeholder="인증코드를 입력해 주세요.">
-  </div>
-  <br>
-      <c:if test="${noCode == false }">
-		<p style="color:#ec2020; font-weight:bold;"> 해당하는 인증코드가 존재하지 않습니다.</p>
-	</c:if>
-    <c:if test="${noMember == false }">
-		<p style="color:#ec2020; font-weight:bold;"> 인증코드가 틀렸습니다.</p>
-	</c:if>
-  <br><br>
-  
-  <div align="center" class="form-group">
-    <div class="custom-control custom-checkbox small">
-      <input type="checkbox" class="custom-control-input" id="customCheck" name="customCheck">
-      <label class="custom-control-label" for="customCheck">자동 로그인</label>
-    </div>
-    <br>
-   <div class="btnLogin">
-   	<input type="button" value="로그인" onclick="loginValidation()" class="btn btn-primary btn-lg">
-   </div>
-  </div>
-
-  <br>
-</form>
 
 
+
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/jquery/jquery-3.2.1.min.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/animsition/js/animsition.min.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/bootstrap/js/popper.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/bootstrap/js/bootstrap.min.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/select2/select2.min.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/daterangepicker/moment.min.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/daterangepicker/daterangepicker.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+
+	<script src="${pageContext.request.contextPath}/resources/login/vendor/countdowntime/countdowntime.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+
+	<script src="${pageContext.request.contextPath}/resources/login/js/main.js"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+
+	<script async
+		src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+		type="52d3938905cc4558c3d5b090-text/javascript"></script>
+	<script type="52d3938905cc4558c3d5b090-text/javascript">
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+	<script
+		src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+		data-cf-settings="52d3938905cc4558c3d5b090-|49" defer=""></script>
 </body>
 </html>
