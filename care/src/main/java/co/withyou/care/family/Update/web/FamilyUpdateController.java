@@ -1,5 +1,8 @@
 package co.withyou.care.family.Update.web;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,10 +34,15 @@ public class FamilyUpdateController {
 		
 		@RequestMapping("/familyUpdate.do")
 		public String familyUpdate(FamilyVO vo, HttpServletRequest request) throws Exception {
-			
+		//	System.out.println(vo.getFamily);
+			String birth = request.getParameter("familyBirth");
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date to = transFormat.parse(birth);
+
+			vo.setFamilyBirth(to);
 			int result = updateservice.Update(vo);
+			System.out.println("FamilyBirth :" + vo.getFamilyBirth());			
 			if(result==1) {
-				
 			}else {
 				return "family/main/FamilyMain";
 			}
