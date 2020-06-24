@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script type="text/javascript">
-	window.onload=function(){
+<%--	window.onload=function(){
 		var button = document.getElementById("updateButton");
 		   button.addEventListener("click",updateForm);
 		   function updateForm(){
 			   var familyAddr = document.getElementById("familyAddr").value
 			   var familyTel = document.getElementById("familyTel").value
-			   var patientAddr = document.getElementById("patientAddr").value
+			   var patientAddr = document.getElementById("familyAddr").value
 			   var patientFamilyTel = document.getElementById("patientFamilyTel").value
 			   var patientTel = document.getElementById("patientTel").value		  			   			   
 			   
@@ -31,7 +31,8 @@
 	}
    
    }
-   
+   --%>
+ 
 </script>
 <div class="w3-container w3-center">
 	<div class="w3-padding-large">
@@ -75,7 +76,7 @@
 					</div>
 					<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 					&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey" id="updateButton"type="button" >&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey" id="updateButton" type="submit">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
 				</form>
 			</div>
 			<div class="w3-col m4">&nbsp;</div>

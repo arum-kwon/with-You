@@ -32,4 +32,8 @@ public class ScheduleController {
 		return "helper/Schedule/Schedule";
 		
 	}
+	@RequestMapping("/findLoadTest.do")
+	public String FindLoad() {
+		return "FindLoadTest";
+	}
 }
