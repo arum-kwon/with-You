@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import co.withyou.care.family.apply.mapper.ApplyMapper;
 import co.withyou.care.family.apply.service.ApplyService;
-import co.withyou.care.family.apply.service.ApplyVo;
+import co.withyou.care.family.apply.service.ApplyServiceVo;
 
 @Service
 @Primary
@@ -19,13 +19,13 @@ public class ApplyServiceImpl implements ApplyService{
 	public ApplyMapper applyMap;
 
 	@Override
-	public void applyResultInsert(ApplyVo applyVo) throws Exception {
+	public void applyResultInsert(ApplyServiceVo applyVo) throws Exception {
 		// TODO Auto-generated method stub
 		applyMap.applyResultInsert(applyVo);
 	}
 
 	@Override
-	public List<Map> getSelectList(ApplyVo applyVo) throws Exception {
+	public List<Map> getSelectList(ApplyServiceVo applyVo) throws Exception {
 		// TODO Auto-generated method stub
 		return applyMap.getSelectList(applyVo);
 	}
@@ -49,7 +49,7 @@ public class ApplyServiceImpl implements ApplyService{
 	}
 
 	@Override
-	public Map getSelect4(ApplyVo applylVo) throws Exception {
+	public Map getSelect4(ApplyServiceVo applylVo) throws Exception {
 		// TODO Auto-generated method stub
 		return applyMap.getSelect4(applylVo);
 	}

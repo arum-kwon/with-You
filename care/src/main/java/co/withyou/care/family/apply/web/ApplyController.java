@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.withyou.care.family.Login.service.FamilyVO;
 import co.withyou.care.family.apply.service.ApplyService;
-import co.withyou.care.family.apply.service.ApplyVo;
+import co.withyou.care.family.apply.service.ApplyServiceVo;
 
 @Controller
 public class ApplyController {
@@ -24,7 +24,7 @@ public class ApplyController {
 	
 	//서비스 신청하기 메뉴
 	@RequestMapping("applyService.do")
-	public String applyService (ApplyVo applyVo) throws Exception {
+	public String applyService (ApplyServiceVo applyVo) throws Exception {
 		applyService.applyResultInsert(applyVo);
 		
 		return "family/main/FamilyMain";
@@ -32,7 +32,7 @@ public class ApplyController {
 	
 	//서비스 신청내역 메뉴
 	@RequestMapping("applyList.do")
-	public String applyList (ApplyVo applyVo, Model model, HttpServletRequest request, HttpSession session) throws Exception {
+	public String applyList (ApplyServiceVo applyVo, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 		//세션에서 값 받기
 		session = request.getSession();
 		FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
@@ -47,7 +47,7 @@ public class ApplyController {
 	
 	//서비스 신청내역 -> 상세내역 메뉴
 	@RequestMapping("applyDetail.do")
-	public String applyDetail (@RequestParam("serviceNo") String sNo, Model model, ApplyVo applyVo, HttpServletRequest request, HttpSession session) throws Exception {
+	public String applyDetail (@RequestParam("serviceNo") String sNo, Model model, ApplyServiceVo applyVo, HttpServletRequest request, HttpSession session) throws Exception {
 		//앞에서 가져온 파라미터 serviceNo를 꺼냄
 		String serviceNo = sNo;
 		System.out.println(serviceNo);
@@ -67,7 +67,7 @@ public class ApplyController {
 			model.addAttribute("applyDetail2", map2);
 		}
 		
-		//결제진행시 금액등 정보 수집을 위한 셀렉트
+		//결제진행시 필요한 정보 수집을 위한 셀렉트
 		Map map3 = applyService.getSelect3(serviceNo);
 		model.addAttribute("applyDetail3", map3);
 		
