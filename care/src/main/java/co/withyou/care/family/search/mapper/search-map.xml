@@ -47,9 +47,14 @@
 				H.HELPEREMAIL "helperEmail",
 				H.HELPERUNIQUE "helperUnique",
 				C.CERTIFINO "certifiNo",
-				C.CERTIFINAME "certifiName"
-		 FROM HELPER H, CERTIFICATION C
-		 WHERE H.HELPERNO = C.HELPERNO 
+				C.CERTIFINAME "certifiName",
+				CA.CAREERNO "careerNo",
+				CA.CAREERORGAN "careerOrgan",
+				TO_CHAR(CA.CAREERSTART, 'YYYY-MM-DD') "careerStart",
+				TO_CHAR(CA.CAREEREND, 'YYYY-MM-DD') "careerEnd"
+		 FROM HELPER H, CERTIFICATION C, CARRER CA
+		 WHERE H.HELPERNO = C.HELPERNO
+		 AND H.HELPERNO = CA.HELPERNO
 		 AND H.HELPERNO = #{value}
 	</select>
 </mapper>

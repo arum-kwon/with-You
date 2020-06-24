@@ -57,6 +57,7 @@
 		</c:when>
 	</c:choose> 
 	<div><br/></div>
+	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
 	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
 	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
 </form>

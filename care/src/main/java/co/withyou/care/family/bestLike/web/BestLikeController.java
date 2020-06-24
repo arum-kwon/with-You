@@ -10,16 +10,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.withyou.care.family.Login.service.FamilyVO;
+import co.withyou.care.family.apply.service.ApplyService;
+import co.withyou.care.family.apply.service.ApplyServiceVo;
 import co.withyou.care.family.bestLike.service.BestLikeService;
 import co.withyou.care.family.bestLike.service.BestLikeVo;
+import co.withyou.care.family.search.service.SearchService;
 
 @Controller
 public class BestLikeController {
 
 	@Autowired
 	public BestLikeService bestLikeService;
+	
+	@Autowired
+	public SearchService searchService;
+	
+	@Autowired
+	public ApplyService applyService;
 	
 	//즐겨찾기 추가
 	@RequestMapping("addLike.do")
@@ -30,7 +40,7 @@ public class BestLikeController {
 		
 		bestLikeService.bestLikeInsert(bestLikeVo);
 		
-		return "redirect:/applyList.do";
+		return "redirect:/applyDetail.do?serviceNo="+bestLikeVo.getServiceNo();
 	}
 	
 	//즐겨찾기 삭제
@@ -42,7 +52,7 @@ public class BestLikeController {
 		
 		bestLikeService.bestLikeDelete(bestLikeVo);
 		
-		return "redirect:/applyList.do";
+		return "redirect:/applyDetail.do?serviceNo="+bestLikeVo.getServiceNo();
 	}
 	
 	//즐겨찾기 리스트 뷰
@@ -73,8 +83,22 @@ public class BestLikeController {
 	
 	//즐겨찾기 목록 상세보기
 	@RequestMapping("bestLikeDetail.do")
-	public String bestLikeDetail () {
+	public String bestLikeDetail (@RequestParam("helperNo") String hNo, Model model, BestLikeVo bestLikeVo, HttpServletRequest request, HttpSession session) throws Exception {
+		String helperNo = hNo;
 		
-		return null;
+		Map map = searchService.getSelect(helperNo);
+		model.addAttribute("likeDetail", map);
+		
+		
+		return "family/bestLike/bestLikeDetail";
 	}
+	
+	//즐겨찾기 상세보기에서 서비스 신청
+	@RequestMapping("applyInLike.do")
+	public String applyInLike(ApplyServiceVo applyServiceVo) throws Exception {
+		applyService.applyResultInsert(applyServiceVo);
+		
+		return "family/main/FamilyMain";
+	}
+	
 }
