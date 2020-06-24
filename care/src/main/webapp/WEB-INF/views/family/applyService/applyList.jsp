@@ -6,48 +6,74 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+.btn {
+	width:60%;
+}
+.text {
+	text-align:left;
+}
+.w3-row {
+	margin:30px;
+	line-height: 34px
+}
+</style>
 </head>
 <body>
 
-<div class="container">
+
 	<form id="sNoFrm" name="sNoFrm" action="applyDetail.do" method="post"> 
 		<c:forEach var="list" items="${applyList }">
-		<div class="col-xl-6 col-md-12 col-sm-12" >
-			<br> 
-			<img src="uploadProfile/no.jpg" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100">
-			${list.helperName} 님<br/>
-			요청서비스날짜 : ${list.serviceDate }<br/>
-			요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지<br/>
-			<div></div>
+		<div class="w3-row">
+		 <div class="w3-col w3-container m2 s2" align="center">
+			<img src="uploadProfile/no.jpg" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100">&nbsp;&nbsp;
+		 </div>
+		 <div class="w3-col w3-container m6 s6 text">
+					${list.helperName} 님<br/>
+					요청서비스날짜 : ${list.serviceDate }<br/>
+					요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지<br/>		
+		 </div>
+			<div class="w3-col w3-container m4 s4" align="center">
+				<c:choose>
+					<c:when test="${list.serviceStatus eq 'S01'}">
+						<button type="button" id="btnServiceReady" class="btn btn-info" disabled>수락대기</button><br>
+					</c:when>
+					<c:when test="${list.serviceStatus eq 'S02'}">
+						<button type="button" id="btnPayReady" class="btn btn-primary" disabled>결제대기</button><br>
+					</c:when>
+					<c:when test="${list.serviceStatus eq 'S03'}">
+						<button type="button" id="btnPayDone" class="btn btn-success" disabled>결제완료</button><br>
+					</c:when>
+					<c:otherwise>
+						<button type="button" id="btnServiceDone" class="btn btn-dark" disabled>서비스종료</button><br>
+					</c:otherwise>
+				</c:choose>
+				<button type="button" id="btnLikeList" class="btn btn-light" onclick="getServiceNo('${list.serviceNo}')">상세내역</button>
+					<br>
+				<a href="#">
+			  		<img src="${pageContext.request.contextPath}/resources/img/chat/patientTOfamily.png" style="height:38px"  />
+			  	</a>
+			  	&nbsp;&nbsp;&nbsp;
+				<a href="#">
+			  		<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height:38px"  />
+			  	</a>
+			</div>
 		</div>
-		<div class="col-xl-6 col-md-12 col-sm-12" id="centerDiv">
-		<div><br/></div>
-			<c:choose>
-				<c:when test="${list.serviceStatus eq 'S01'}">
-					<button type="button" id="btnServiceReady" class="btn btn-info" disabled>수락대기</button><div><br/></div>
-				</c:when>
-				<c:when test="${list.serviceStatus eq 'S02'}">
-					<button type="button" id="btnPayReady" class="btn btn-primary" disabled>결제대기</button><div><br/></div>
-				</c:when>
-				<c:when test="${list.serviceStatus eq 'S03'}">
-					<button type="button" id="btnPayDone" class="btn btn-success" disabled>결제완료</button><div><br/></div>
-				</c:when>
-				<c:otherwise>
-					<button type="button" id="btnServiceDone" class="btn btn-dark" disabled>서비스종료</button><div><br/></div>
-				</c:otherwise>
-			</c:choose>
-			<button type="button" id="btnLikeList" class="btn btn-light" onclick="getServiceNo('${list.serviceNo}')">상세내역</button><div><br/></div>
-			<a href="#">
-		  		<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height:60px"  />
-		  	</a>
-		</div>
+		
+
+			  	
+			
+			
+		<div align="right" class="" id="centerDiv">		
+
+		</div><br>
 		</c:forEach>
 		
 		<input type="hidden" id="serviceNo" name="serviceNo">
 	</form>
-	<div><br/></div>
+
 	<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
-</div>
+
 
 
 <script type="text/javascript">
