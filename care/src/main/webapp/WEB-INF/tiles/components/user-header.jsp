@@ -41,8 +41,26 @@
             	<c:if test="${userType == 'p' }">
                 	<a class="w3-container w3-myfont w3-xxlarge" href="patientMain.do" style="color:black;">Care With.U</a>
             	</c:if>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span></button>
+            	
+            	<!-- 창 줄어들 때 흰색배경에 나오는 아이들 -->
+                <a class="navbar-toggler navbar-toggler-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenu2" >              		
+              		<c:if test="${userType == 'h' || userType == 'f' || userType == 'p'}">
+              		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" />
+              		</c:if>
+              	</a>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+               	<c:if test="${userType == 'h' || userType == 'f' || userType == 'p'}">
+               	 <button class="dropdown-item" type="button" onclick="location.href='familygetSelect.do'">회원정보수정</button>
+               	 <button class="dropdown-item" type="button">환자정보수정</button>
+               	 <button class="dropdown-item" type="button">공지사항</button>
+				 <button class="dropdown-item" type="button">문의하기</button>
+				 <button class="dropdown-item" type="button">알림</button>
+				 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
+               	</c:if>
+               </div>
+                
+                
+                
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="w3-container w3-myfont w3-large">
