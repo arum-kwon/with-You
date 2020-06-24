@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.withyou.care.family.apply.mapper.ApplyMapper">
 	
-	<insert id="applyResultInsert" parameterType="ApplyVo">
+	<insert id="applyResultInsert" parameterType="ApplyServiceVo">
 		INSERT INTO SERVICEAPPLY (
 				SERVICENO, SERVICESTARTTIME, HELPERPRICE, SERVICESTATUS, SERVICEENDTIME,
 				SERVICEPRICE, SERVICEDATE, SERVICEDEMAND, HELPERNO, PATIENTNO, APPLYDATE, SERVICEAREA, FAMILYNO)
@@ -29,7 +29,7 @@
 				)
 	</insert>
 	
-	<select id="getSelectList" parameterType="ApplyVo" resultType="map">
+	<select id="getSelectList" parameterType="ApplyServiceVo" resultType="map">
 		SELECT S.SERVICENO "serviceNo",
 				 S.SERVICESTARTTIME "serviceStartTime",
 				 S.SERVICEENDTIME "serviceEndTime", 
@@ -89,7 +89,7 @@
 		AND SERVICENO = #{value}
 	</select>
 	
-	<select id="getSelect4" parameterType="ApplyVo" resultType="map">
+	<select id="getSelect4" parameterType="ApplyServiceVo" resultType="map">
 		SELECT	FAMILYNO "familyNo",
 				HELPERNO "helperNo" 
 		FROM BESTLIKE

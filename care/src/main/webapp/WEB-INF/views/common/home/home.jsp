@@ -17,61 +17,46 @@
 <title>메인화면</title> 
 
 <style type = "text/css">
-.patient, .family, .helper {
-	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
-	-webkit-box-shadow: 0px 10px 14px -7px #3e7327;
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #72b352) );
-	background:-moz-linear-gradient( center top, #77b55a 5%, #72b352 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#72b352');
-	background-color:#77b55a;
-	-webkit-border-top-left-radius:4px;
-	-moz-border-radius-topleft:4px;
-	border-top-left-radius:4px;
-	-webkit-border-top-right-radius:4px;
-	-moz-border-radius-topright:4px;
-	border-top-right-radius:4px;
-	-webkit-border-bottom-right-radius:4px;
-	-moz-border-radius-bottomright:4px;
-	border-bottom-right-radius:4px;
-	-webkit-border-bottom-left-radius:4px;
-	-moz-border-radius-bottomleft:4px;
-	border-bottom-left-radius:4px;
-    text-indent:0;
-	border:2px solid #4b8f29;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:21px;
-	font-weight:bold;
-	font-style:normal;
-	height:69px;
-	line-height:69px;
-	width:300px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:0px 1px 0px #5b8a3c;
-}.patient:hover, .family:hover, .helper:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a) );
-	background:-moz-linear-gradient( center top, #72b352 5%, #77b55a 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a');
-	background-color:#c3ebae;
-}.patient:active, .family:active, .helper:active {
-	position:relative;
-	top:1px;
+html, body {
+  height: 100%;
+}
+
+.button {
+  width: 250px;
+  height: 55px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
 	
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
-.w3-button {width:200px;}
-</style>
 
+</style>
 </head>
 
 <body>
 <div class="w3-right" style="padding:4px; margin:4px">
 <button class="w3-button w3-flat-emerald w3-padding-large w3-hover-white w3-large w3-round-large" 
-	 class="adminlogin" onclick="location.href='adminlogin.do'" > 관리자 </button>
+	 class="adminlogin" onclick="location.href='adminlogin.do'"> 관리자 </button>
 </div>
 <!-- Header -->
 <header class="w3-center" style="padding:80px 16px">
@@ -79,11 +64,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <p class="w3-xlarge">사용자 유형을 선택해주세요.</p><br>
 
 
-<div align="center" style="margin:20px;">
-<a href="patientLogin.do" class="patient">환자</a><br><br>
-<a href="familyLogin.do" class="family">보호자</a><br><br>
-<a href="helperLogin.do" class="helper">간병인</a><br><br>
-</div> 
+  <button class="button" onclick="location.href='patientLogin.do'">환자</button><br><br>
+  <button class="button" onclick="location.href='familyLogin.do'">보호자</button><br><br>
+  <button class="button" onclick="location.href='helperLogin.do'">간병인</button><br><br>
+
 
 <!-- 임시 a링크들 boy 찬진 -->
 <div><br/></div>

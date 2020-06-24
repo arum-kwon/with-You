@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
+<div class="container">
   <h2>즐겨찾기 리스트</h2>
   <div><br/></div>
   <table class="table">

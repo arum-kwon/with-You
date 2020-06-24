@@ -1,6 +1,6 @@
 package co.withyou.care.family.apply.service;
 
-public class ApplyVo {
+public class ApplyServiceVo {
 	
 	private int serviceNo;
 	private int serviceStartTime;
@@ -16,7 +16,7 @@ public class ApplyVo {
 	private String applyDate;
 	private String serviceArea;
 	
-	public ApplyVo() {
+	public ApplyServiceVo() {
 		// TODO Auto-generated constructor stub
 	}
 	
