@@ -12,4 +12,15 @@
 		WHERE HELPERNO = #{helperNo} 
 		AND FAMILYNO = #{familyNo} 
 	</delete>
+	
+	<select id="getSelectList" parameterType="BestLikeVo" resultType="map">
+		SELECT H.HELPERPROFILE "helperProfile", 
+				H.HELPERNAME "helperName", 
+				H.HELPERSEX "helperSex", 
+				H.HELPERNO "helperNo",
+				B.FAMILYNO "familyNo"
+		FROM BESTLIKE B, HELPER H
+		WHERE B.HELPERNO=H.HELPERNO
+		AND FAMILYNO = #{familyNo}
+	</select>
 </mapper>

@@ -1,6 +1,9 @@
 package co.withyou.care.family.bestLike.serviceImpl;
 
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -26,6 +29,12 @@ public class BestLikeServiceImpl implements BestLikeService{
 	public void bestLikeDelete(BestLikeVo bestLikeVo) throws Exception {
 		// TODO Auto-generated method stub
 		bestLikeMap.bestLikeDelete(bestLikeVo);
+	}
+
+	@Override
+	public List<Map> getSelectList(BestLikeVo bestLikeVo) throws Exception {
+		// TODO Auto-generated method stub
+		return bestLikeMap.getSelectList(bestLikeVo);
 	}
 
 

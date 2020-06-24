@@ -9,7 +9,10 @@
 		VALUES	( 
 				service_sq.nextval, 
 				#{serviceStartTime }, 
-				(to_number(#{serviceEndTime})-to_number(#{serviceStartTime}))*(select codename from code where codeid='P01')*0.7,
+				(to_number(#{serviceEndTime})-to_number(#{serviceStartTime}))*(select codename from code where codeid='P01')
+					* (SELECT CODENAME FROM CODE 
+						WHERE CODEID = (SELECT COMMISSIONGRADE FROM HELPER 
+										WHERE HELPERNO = #{helperNo})),
 				default,
 				#{serviceEndTime },
 				(to_number(#{serviceEndTime})-to_number(#{serviceStartTime}))*(select codename from code where codeid='P01'),
@@ -17,9 +20,9 @@
 				#{serviceDemand},
 				#{helperNo},
 				(SELECT P.PATIENTNO "patientNo"
-				FROM PATIENT P, FAMILY F 
-				WHERE P.FAMILYNO = F.FAMILYNO
-				AND F.FAMILYNO = #{familyNo}),
+					FROM PATIENT P, FAMILY F 
+					WHERE P.FAMILYNO = F.FAMILYNO
+					AND F.FAMILYNO = #{familyNo}),
 				sysdate,
 				#{serviceArea},
 				#{familyNo}
@@ -35,7 +38,8 @@
 				 S.SERVICEDEMAND "serviceDemand",
         		 S.SERVICEAREA "serviceArea", 
         		 S.SERVICEPRICE "servicePrice",
-        		 H.HELPERNO "helperNo", 
+        		 H.HELPERNO "helperNo",
+        		 H.HELPERTEL "helperTel", 
         		 H.HELPERNAME "helperName", 
         		 H.HELPERPROFILE "helperProfile" 
  		FROM SERVICEAPPLY S, HELPER H
