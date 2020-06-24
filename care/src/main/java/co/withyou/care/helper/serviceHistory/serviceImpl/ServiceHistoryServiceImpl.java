@@ -1,23 +1,23 @@
 package co.withyou.care.helper.serviceHistory.serviceImpl;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.withyou.care.helper.serviceHistory.service.ServiceHistoryService;
-import co.withyou.care.helper.serviceHistory.service.ServiceSummaryVO;
 import co.withyou.care.helper.serviceHistory.mapper.ServiceHistoryMapper;
+import co.withyou.care.helper.serviceHistory.service.ServiceHistoryService;
 
-@Service
+@Service("historyService")
 public class ServiceHistoryServiceImpl implements ServiceHistoryService {
 
 	@Autowired
-	ServiceHistoryMapper map;
+	public ServiceHistoryMapper historyMap;
+	
 	
 	@Override
-	public ArrayList<ServiceSummaryVO> getServiceList() {
-		return map.getServiceList();
+	public Map getList(int helperNO) throws Exception {
+		return historyMap.getList(helperNO);
 	}
 
 }

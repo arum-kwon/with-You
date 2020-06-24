@@ -1,10 +1,10 @@
 package co.withyou.care.helper.serviceHistory.mapper;
 
-import java.util.ArrayList;
+import org.mybatis.spring.annotation.MapperScan;
 
-import co.withyou.care.helper.serviceHistory.service.ServiceSummaryVO;
+import co.withyou.care.helper.serviceHistory.service.ServiceHistoryService;
 
-public interface ServiceHistoryMapper {
-	ArrayList<ServiceSummaryVO> getServiceList();
+@MapperScan
+public interface ServiceHistoryMapper extends ServiceHistoryService {
 
 }

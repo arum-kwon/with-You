@@ -44,7 +44,7 @@
 		  		<h3>요청리스트</h3>
 		</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<div class="fam4">
-		  	<a href="#contact">
+		  	<a href="serviceHistory.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/serviceList.png" style="height:100px"  />
 		  	</a>
 		  		<h3>서비스 이력</h3>

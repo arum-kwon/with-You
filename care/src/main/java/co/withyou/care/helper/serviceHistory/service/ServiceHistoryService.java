@@ -1,8 +1,8 @@
 package co.withyou.care.helper.serviceHistory.service;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 public interface ServiceHistoryService {
-	ArrayList<ServiceSummaryVO> getServiceList();
+	Map getList(int helperNO) throws Exception;
 	
 }
