@@ -47,7 +47,7 @@ public class AdminController {
         ModelAndView mav = new ModelAndView();
         if (result == true) { // 로그인 성공
             // main.로 이동
-            mav.setViewName("admin/admin-layout/ad_home");
+            mav.setViewName("redirect:ad_home.do");
             mav.addObject("msg", "success");
         } else {    // 로그인 실패
             // login.jsp로 이동
@@ -73,8 +73,11 @@ public class AdminController {
 		
     	return "admin/admin-layout/ad_home";
 }
+    //헬퍼조회컨트롤
+    @RequestMapping("/adminhelperList.do")
+      public String helperlist(Locale locale, Model model){
+         
+      	return "admin/helper/adminhelperList";
+      }	   
 }
-
-
-
 
