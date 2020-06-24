@@ -24,20 +24,22 @@
 		<div><br/></div>
 			<c:choose>
 				<c:when test="${list.serviceStatus eq 'S01'}">
-					<button type="button" id="btnServiceReady" class="btn btn-info">수락대기</button><div><br/></div>
+					<button type="button" id="btnServiceReady" class="btn btn-info" disabled>수락대기</button><div><br/></div>
 				</c:when>
 				<c:when test="${list.serviceStatus eq 'S02'}">
-					<button type="button" id="btnPayReady" class="btn btn-primary">결제대기</button><div><br/></div>
+					<button type="button" id="btnPayReady" class="btn btn-primary" disabled>결제대기</button><div><br/></div>
 				</c:when>
 				<c:when test="${list.serviceStatus eq 'S03'}">
-					<button type="button" id="btnPayDone" class="btn btn-success">결제완료</button><div><br/></div>
+					<button type="button" id="btnPayDone" class="btn btn-success" disabled>결제완료</button><div><br/></div>
 				</c:when>
 				<c:otherwise>
-					<button type="button" id="btnServiceDone" class="btn btn-dark">서비스종료</button><div><br/></div>
+					<button type="button" id="btnServiceDone" class="btn btn-dark" disabled>서비스종료</button><div><br/></div>
 				</c:otherwise>
 			</c:choose>
 			<button type="button" id="btnLikeList" class="btn btn-light" onclick="getServiceNo('${list.serviceNo}')">상세내역</button><div><br/></div>
-			<button type="button" id="btnChat" class="btn btn-dark" onclick="location.href='#'">채팅</button><div><br/></div>
+			<a href="#">
+		  		<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height:60px"  />
+		  	</a>
 		</div>
 		</c:forEach>
 		

@@ -7,4 +7,9 @@
 		VALUES (#{helperNo}, #{familyNo})		
 	</insert>
 	
+	<delete id="bestLikeDelete" parameterType="BestLikeVo">
+		DELETE FROM BESTLIKE
+		WHERE HELPERNO = #{helperNo} 
+		AND FAMILYNO = #{familyNo} 
+	</delete>
 </mapper>

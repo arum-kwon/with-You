@@ -22,6 +22,12 @@ public class BestLikeServiceImpl implements BestLikeService{
 		bestLikeMap.bestLikeInsert(bestLikeVo);
 	}
 
+	@Override
+	public void bestLikeDelete(BestLikeVo bestLikeVo) throws Exception {
+		// TODO Auto-generated method stub
+		bestLikeMap.bestLikeDelete(bestLikeVo);
+	}
+
 
 	
 }

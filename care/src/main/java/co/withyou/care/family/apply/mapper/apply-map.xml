@@ -85,4 +85,14 @@
 		AND SERVICENO = #{value}
 	</select>
 	
+	<select id="getSelect4" parameterType="ApplyVo" resultType="map">
+		SELECT	FAMILYNO "familyNo",
+				HELPERNO "helperNo" 
+		FROM BESTLIKE
+		WHERE FAMILYNO = #{familyNo}
+		AND HELPERNO = (SELECT HELPERNO FROM SERVICEAPPLY
+						WHERE FAMILYNO = #{familyNo}
+						AND SERVICENO = #{serviceNo})
+	</select>
+	
 </mapper>

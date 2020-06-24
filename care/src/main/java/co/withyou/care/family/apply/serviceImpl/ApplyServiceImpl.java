@@ -47,5 +47,11 @@ public class ApplyServiceImpl implements ApplyService{
 		// TODO Auto-generated method stub
 		return applyMap.getSelect3(serviceNo);
 	}
+
+	@Override
+	public Map getSelect4(ApplyVo applylVo) throws Exception {
+		// TODO Auto-generated method stub
+		return applyMap.getSelect4(applylVo);
+	}
 	
 }

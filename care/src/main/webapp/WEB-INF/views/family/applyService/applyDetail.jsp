@@ -38,25 +38,31 @@
 		</c:choose>
 	<div><br/></div>
 	
-<!-- 좋아요 버튼 + Form -->
+	
+	
+<!-- 즐겨찾기 버튼 + Form -->
 <form id="likeFrm" name="likeFrm" action="bestLike.do" method="post">
 	<c:choose>
-		<c:when test="">
-			<a href="#" onClick="like(); return false;">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:60px"  />
+		<c:when test="${empty applyDetail4.familyNo}">
+			<a href="#" onClick="addlike(); return false;">
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:30px"  />
+		  		<h4>즐겨찾기 등록/삭제</h4>
 		  	</a>
 		</c:when>
-		<c:when test="">
+		<c:when test="${not empty applyDetail4.familyNo}"> 
 			<a href="javascript:void(0);" onClick="disLike();">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:60px"  />
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:30px"  />
+		  		<h4>즐겨찾기 등록/삭제</h4>
 		  	</a>
 		</c:when>
-	</c:choose>
+	</c:choose> 
 	<div><br/></div>
 	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
-	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
+	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
 </form>
 <!-- 좋아요 버튼 + Form 끝-->
+	
+	
 	
 	<!--  후기 및 평점 작성  -->
 	<div>
@@ -75,15 +81,23 @@
 </div>
 
 
-				<!-- 좋아요 자바스크립트 -->
+
+				<!-- 즐겨찾기 자바스크립트 -->
 <script type="text/javascript">
-	function like() {
+	function addlike() {
 //		document.likeFrm.helperNo.value=key;
-		document.likeFrm.action="bestLike.do";
+		document.likeFrm.action="addLike.do";
+		document.likeFrm.submit();
+	}
+	function disLike() {
+		document.likeFrm.action="disLike.do";
 		document.likeFrm.submit();
 	}
 </script>
-				<!-- 좋아요 자바스크립트 끝-->
+				<!-- 즐겨찾기 자바스크립트 끝-->
+
+
+
 
 									<!-- 결제 스크립트 -->
 									

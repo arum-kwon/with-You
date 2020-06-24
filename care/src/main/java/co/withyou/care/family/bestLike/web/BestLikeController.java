@@ -5,8 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import co.withyou.care.family.Login.service.FamilyVO;
 import co.withyou.care.family.bestLike.service.BestLikeService;
@@ -18,15 +18,35 @@ public class BestLikeController {
 	@Autowired
 	public BestLikeService bestLikeService;
 	
-	@RequestMapping("bestLike.do")
-	public String bestLike ( BestLikeVo bestLikeVo, HttpServletRequest request, HttpSession session) throws Exception {
+	//즐겨찾기 추가
+	@RequestMapping("addLike.do")
+	public String addLike (BestLikeVo bestLikeVo, HttpServletRequest request, HttpSession session) throws Exception {
 		session = request.getSession();
 		FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
 		bestLikeVo.setFamilyNo(familyVo.getFamilyNo());
 		
-		System.out.println(bestLikeVo);
 		bestLikeService.bestLikeInsert(bestLikeVo);
 		
 		return "redirect:/applyList.do";
 	}
+	
+	//즐겨찾기 삭제
+	@RequestMapping("disLike.do")
+	public String disLike (BestLikeVo bestLikeVo, HttpServletRequest request, HttpSession session) throws Exception {
+		session = request.getSession();
+		FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
+		bestLikeVo.setFamilyNo(familyVo.getFamilyNo());
+		
+		bestLikeService.bestLikeDelete(bestLikeVo);
+		
+		return "redirect:/applyList.do";
+	}
+	
+	//즐겨찾기 리스트 뷰
+	@RequestMapping("bestLikeList.do")
+	public String bestLikeList (BestLikeVo bestLikeVo, HttpServletRequest request, HttpSession session, Model model) throws Exception {
+		
+		return null;
+	}
+	
 }

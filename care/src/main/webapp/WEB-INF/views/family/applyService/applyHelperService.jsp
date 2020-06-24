@@ -48,7 +48,7 @@
 		<a href="applyList.do" class="myButton">신청내역</a><br><br>
 	</div>
 	<div class="d3">
-		<a href="#" class="myButton">즐겨찾기 리스트</a><br><br>
+		<a href="bestLikeList.do" class="myButton">즐겨찾기 리스트</a><br><br>
 	</div>
 </div>
 

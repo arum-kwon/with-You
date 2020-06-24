@@ -47,20 +47,33 @@ public class ApplyController {
 	
 	//서비스 신청내역 -> 상세내역 메뉴
 	@RequestMapping("applyDetail.do")
-	public String applyDetail (@RequestParam("serviceNo") String sNo, Model model, ApplyVo applyVo) throws Exception {
+	public String applyDetail (@RequestParam("serviceNo") String sNo, Model model, ApplyVo applyVo, HttpServletRequest request, HttpSession session) throws Exception {
+		//앞에서 가져온 파라미터 serviceNo를 꺼냄
 		String serviceNo = sNo;
 		System.out.println(serviceNo);
 		
+		//세션에서 familyNo 받기
+		session = request.getSession();
+		FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
+		applyVo.setFamilyNo(familyVo.getFamilyNo());
+		
+		//상세내역 뷰 출력을 위한 셀렉트
 		Map map = applyService.getSelect(serviceNo);
 		model.addAttribute("applyDetail", map);
 		
+		//진행 상태에따라 실제 출퇴근시간 뷰 출력을 위한 셀렉트
 		if(map.get("serviceStatus").equals("S02") || map.get("serviceStatus").equals("S03") || map.get("serviceStatus").equals("S04")) {
 			Map map2 = applyService.getSelect2(serviceNo);
 			model.addAttribute("applyDetail2", map2);
 		}
 		
+		//결제진행시 금액등 정보 수집을 위한 셀렉트
 		Map map3 = applyService.getSelect3(serviceNo);
 		model.addAttribute("applyDetail3", map3);
+		
+		//즐겨찾기 데이터에따라 아이콘 활성화 유무를 위한 셀렉트
+		Map map4 = applyService.getSelect4(applyVo);
+		model.addAttribute("applyDetail4", map4);
 		
 		return "family/applyService/applyDetail";
 	}
