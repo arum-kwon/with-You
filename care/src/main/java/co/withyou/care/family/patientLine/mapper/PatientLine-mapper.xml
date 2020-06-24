@@ -14,6 +14,11 @@
 		FROM patientLoc
 		WHERE trunc(patientLoctime) = trunc(sysdate)
 	</select>
-
+	<select id="getSevenLine" parameterType="PatientLocVO" resultType="PatientLocVO">
+		SELECT *
+		FROM patientLoc
+		WHERE patientLoctime <![CDATA[>=]]> trunc(sysdate)<![CDATA[-]]>'7'
+		ORDER BY patientLoctime
+	</select>
 
 </mapper>

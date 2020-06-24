@@ -25,7 +25,7 @@
 <body>
 	<div class="menu" align="center">
 		<div class="fam1">
-		   	<a href="#contact">
+		   	<a href="patientLoc.do">
 		  	<img src="${pageContext.request.contextPath}/resources/img/menu/findPatient.png" style="height:90px"  />
 		  	</a>
 		  	<h3>가족 실시간 위치</h3>
@@ -39,7 +39,7 @@
 		<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<div class="fam3">
-		  	<a href="#contact">
+		  	<a href="todayLine.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/analysePatient.png" style="height:90px"  />
 		  	</a>
 		  	<h3>가족 활동체크</h3>

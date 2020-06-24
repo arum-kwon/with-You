@@ -21,5 +21,10 @@ public class PatientLineServiceImpl implements PatientLineService{
 		// TODO Auto-generated method stub
 		return map.getTodayLine(vo);
 	}
+	@Override
+	public List<Map> getSevenLine(PatientLocVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return map.getSevenLine(vo);
+	}
 
 }

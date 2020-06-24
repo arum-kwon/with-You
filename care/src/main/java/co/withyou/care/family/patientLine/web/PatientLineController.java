@@ -45,7 +45,16 @@ public class PatientLineController {
 	public String TodateLine(PatientLocVO vo,Model model) throws Exception {
 		List<Map>list = pservice.getTodayLine(vo);
 		model.addAttribute("todayLine",new ObjectMapper().writeValueAsString(list));
+		
 		return "family/PatientLine/PatientLineSearch";
 
+	}
+	
+	@RequestMapping("/sevenLine.do")
+	public String SevenLine(PatientLocVO vo,Model model) throws Exception{
+		List<Map>list = pservice.getSevenLine(vo);
+		model.addAttribute("sevenLine",new ObjectMapper().writeValueAsString(list));
+		return "family/PatientLine/PatientSevenLine";
+		
 	}
 }

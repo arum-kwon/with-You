@@ -11,7 +11,7 @@
  <form name="insertDate" action="patientGetLine.do" method="post">
         <input type="date" id='Loctime' name='Loctime'/>
         <input type="submit" value="검색">
-    </form>=======================================================${GpsLine}
+    </form>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 <script>
 
@@ -34,19 +34,18 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-for(i=0;i<GpsLine.length;i++){	
-var linePath = [
-	
-   new kakao.maps.LatLng(GpsLine[i].patientLatitude, GpsLine[i].patientLongitude),
-	
-  
-];
-}
+
+var linePath = [];
+for(var i=0;i<GpsLine.length;i++){	
+	  linePath.push(new kakao.maps.LatLng(GpsLine[i].patientLatitude, GpsLine[i].patientLongitude))
+		}	
+		
+
 // 지도에 표시할 선을 생성합니다--%>
 var polyline = new kakao.maps.Polyline({
     path: linePath, // 선을 구성하는 좌표배열 입니다
     strokeWeight: 2, // 선의 두께 입니다
-    strokeColor: '#FFAE00', // 선의 색깔입니다
+    strokeColor: '#0000FF', // 선의 색깔입니다
     strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
     strokeStyle: 'solid' // 선의 스타일입니다
 });

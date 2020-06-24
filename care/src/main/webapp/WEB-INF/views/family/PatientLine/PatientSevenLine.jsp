@@ -15,12 +15,12 @@
 <button type="button" onclick="location.href='sevenLine.do'">1주일 보기</button>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 <script>
-var Search = JSON.parse('${todayLine}');
-console.log("Search:"+Search)
+var sevenLine = JSON.parse('${sevenLine}');
+console.log("sevenLine:"+sevenLine)
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new kakao.maps.LatLng(Search[0].patientLatitude, Search[0].patientLongitude), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(sevenLine[0].patientLatitude, sevenLine[0].patientLongitude), // 지도의 중심좌표
         level: 4 // 지도의 확대 레벨
     };  
 
@@ -29,8 +29,8 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
 
 var linePath = [];
-	for(var i=0;i<Search.length;i++){
-		linePath.push(new kakao.maps.LatLng(Search[i].patientLatitude, Search[i].patientLongitude))
+	for(var i=0;i<sevenLine.length;i++){
+		linePath.push(new kakao.maps.LatLng(sevenLine[i].patientLatitude, sevenLine[i].patientLongitude))
 	}
   
 
