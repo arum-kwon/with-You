@@ -36,7 +36,7 @@
      
     <!-- AOP Pointcut/Advisor 설정 -->
     <aop:config>
-        <aop:pointcut expression="execution(public * co.arum.prj..service.*Service.*(..))" id="controllerTx"></aop:pointcut>
+        <aop:pointcut expression="execution(public * co.withyou.care..service.*Service.*(..))" id="controllerTx"></aop:pointcut>
     	<aop:advisor advice-ref="txAdvice" pointcut-ref="controllerTx"></aop:advisor>    
     </aop:config>
 </beans>

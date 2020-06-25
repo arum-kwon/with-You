@@ -96,8 +96,8 @@ function enterKeyCheck(){
 						</div>
 					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="loginValidation()">로그인</button>&nbsp;&nbsp;&nbsp;
-						<button class="login100-form-btn" onclick="location.href='signUpFormFamily.do'">회원가입</button><br>
+						<button type="button" class="login100-form-btn" onclick="loginValidation()">로그인</button>&nbsp;&nbsp;&nbsp;
+						<button type="button" class="login100-form-btn" onclick="location.href='signUpFormFamily.do'">회원가입</button><br>
 					</div>
 
 				</form>

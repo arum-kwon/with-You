@@ -36,19 +36,19 @@
 <script>
 function loginValidation(){
 	
-	var familyEmail = $("#familyEmail").val();
-	var password = $("#familyPw").val();
+	var helperEmail = $("#helperEmail").val();
+	var password = $("#helperPw").val();
 	
-	if(!familyEmail){
+	if(!helperEmail){
 		alert("이메일을 입력하세요.");
-		$("#familyEmail").focus();
+		$("#helperEmail").focus();
 		return false;
 	}else if(!password){
 		alert("비밀번호를 입력하세요.");
-		$("#familyPw").focus();
+		$("#helperPw").focus();
 		return false;
 	} 	
-	fLoginForm.submit();
+	hLoginForm.submit();
 }
 
 
@@ -96,8 +96,8 @@ function enterKeyCheck(){
 						</div>
 					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="loginValidation()">로그인</button>&nbsp;&nbsp;&nbsp;
-						<button class="login100-form-btn" onclick="location.href='signUpFormHelper.do'">회원가입</button><br>
+						<button type="button" class="login100-form-btn" onclick="loginValidation()">로그인</button>&nbsp;&nbsp;&nbsp;
+						<button type="button" class="login100-form-btn" onclick="location.href='signUpFormHelper.do'">회원가입</button><br>
 					</div>
 
 				</form>

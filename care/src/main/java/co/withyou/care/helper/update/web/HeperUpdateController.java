@@ -32,7 +32,7 @@ public class HeperUpdateController {
 	public String helperUpdat(HelperVo vo, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		HelperVO Hvo = (HelperVO)session.getAttribute("loginOk");
-		vo.setHelperNo(Hvo.getHelperNo());
+		//vo.setHelperNo(Hvo.getHelperNo());
 		int result = 0;
 		result = Hupdateservice.HelperUpdate(vo);
 		

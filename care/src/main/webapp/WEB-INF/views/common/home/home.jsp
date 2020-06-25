@@ -15,7 +15,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head> 
 <title>메인화면</title> 
-
+<script type="text/javascript">
+	window.MyApp.jsToAppStopService();
+</script>
 <style type = "text/css">
 html, body {
   height: 100%;

@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>환자 메인홈메뉴</title>
+
+<script type="text/javascript">
+	window.MyApp.jsToAppStartService(${loginOk.patientNo});
+</script>
+
 <style>
 .menu {
 	margin:50px;
@@ -16,7 +21,6 @@
 	display:inline-block;
 
 }
-
 </style>
 </head>
 <body>
