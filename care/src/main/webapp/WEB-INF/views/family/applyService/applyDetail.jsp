@@ -46,13 +46,13 @@
 		<c:when test="${empty applyDetail4.familyNo}">
 			<a href="#" onClick="addlike(); return false;">
 		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:30px"  />
-		  		<h4>즐겨찾기 등록/삭제</h4>
+		  		<h4>즐겨찾기 등록</h4>
 		  	</a>
 		</c:when>
 		<c:when test="${not empty applyDetail4.familyNo}"> 
 			<a href="javascript:void(0);" onClick="disLike();">
 		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:30px"  />
-		  		<h4>즐겨찾기 등록/삭제</h4>
+		  		<h4>즐겨찾기 삭제</h4>
 		  	</a>
 		</c:when>
 	</c:choose> 
@@ -62,6 +62,27 @@
 	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
 </form>
 <!-- 좋아요 버튼 + Form 끝-->
+
+<!-- 블랙리스트 버튼 + Form -->
+<form id="blackFrm" name="blackFrm" action="" method="post">
+	<c:choose>
+		<c:when test="${empty applyDetail5.familyNo}">
+			<a href="#" onClick="addBlack(); return false;">
+		  		<h4>블랙리스트 등록</h4>
+		  	</a>
+		</c:when>
+		<c:when test="${not empty applyDetail5.familyNo}"> 
+			<a href="javascript:void(0);" onClick="removeBlack();">
+		  		<h4>블랙리스트 삭제</h4>
+		  	</a>
+		</c:when>
+	</c:choose> 
+	<div><br/></div>
+	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
+	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
+	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
+</form>
+<!-- 블랙리스트 버튼 + Form 끝-->
 	
 	
 	
@@ -96,6 +117,26 @@
 	}
 </script>
 				<!-- 즐겨찾기 자바스크립트 끝-->
+				
+				<!-- 블랙리스트 자바스크립트 -->
+<script type="text/javascript">
+	function addBlack() {
+		if(confirm('블랙리스트로 등록 하시겠습니까?' +'\n'+
+				 '*블랙리스트에 등록된 간병인은 검색목록에서 제외됩니다.'
+			)== true ) {
+		document.likeFrm.action="addBlack.do";
+		document.likeFrm.submit();
+		} else {
+			return;
+		}
+	}
+	
+	function removeBlack() {
+		document.likeFrm.action="removeBlack.do";
+		document.likeFrm.submit();
+	}
+</script>
+				<!-- 블랙리스트 자바스크립트 끝-->
 
 
 

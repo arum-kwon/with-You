@@ -31,8 +31,8 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
 		//채팅 기능 테스트용 접속 IP값 세션 저장
-		String ipAddress = request.getRemoteAddr();
-		session.setAttribute("userLoc", ipAddress);
+//		String ipAddress = request.getRemoteAddr();
+//		session.setAttribute("userLoc", ipAddress);
 		
 		return "common/home/home";
 	}
@@ -42,8 +42,8 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
 		//채팅 기능 테스트용 접속 IP값 세션 저장
-		String ipAddress = request.getRemoteAddr();
-		session.setAttribute("userLoc", ipAddress);
+//		String ipAddress = request.getRemoteAddr();
+//		session.setAttribute("userLoc", ipAddress);
 		
 		return "common/home/home";
 	}	
