@@ -75,6 +75,10 @@ public class ApplyController {
 		Map map4 = applyService.getSelect4(applyVo);
 		model.addAttribute("applyDetail4", map4);
 		
+		//블랙리스트 데이터에따라 아이콘 활성화 유무를 위한 셀렉트
+		Map map5 = applyService.getSelect5(applyVo);
+		model.addAttribute("applyDetail5", map5);
+		
 		return "family/applyService/applyDetail";
 	}
 }

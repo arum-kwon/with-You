@@ -13,5 +13,6 @@ public interface ApplyService {
 	Map getSelect2 (String serviceNo) throws Exception;
 	Map getSelect3 (String serviceNo) throws Exception;
 	Map getSelect4 (ApplyServiceVo applylVo) throws Exception;
+	Map getSelect5 (ApplyServiceVo applylVo) throws Exception;
 	
 }

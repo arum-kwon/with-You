@@ -5,9 +5,16 @@
 
 
 	
-	<select id="Update" parameterType="FamilyUpdateVo">
-		UPDATE family
-		SET familyAddr=#{familyAddr},familyTel=#{familyTel},
+	<select id="getSelect" parameterType="LoginPatientVO" resultType="LoginPatientVO">
+		SELECT *
+		FROM patient
 		WHERE familyNo=#{familyNo}
 	</select>
+	
+	<update id="Update" parameterType="PatientUpdateVo">
+		UPDATE patient
+		SET patientAddr = #{patientAddr}, patientTel=#{patientTel}, patientFamilyTel = #{patientFamilyTel},
+			patientDisease =#{patientDisease}, patientMedication=#{patientMedication}, patientUnique=#{patientUnique}
+		WHERE familyNo=#{familyNo}
+	</update>
 </mapper>

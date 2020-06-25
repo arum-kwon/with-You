@@ -21,16 +21,21 @@ public class FamilyUpdateServiceImpl implements FamilyUpdateService {
 	}
 
 	@Override
-	public int Update(FamilyVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		int result = 0;
-		try {
-			result = map.Update(vo);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return result;
-		}
-		return result;
+	public int Update(FamilyUpdateVo vo) throws Exception {
+		return map.Update(vo);
+		
+//		// TODO Auto-generated method stub
+//		int result = 0;
+//		System.out.println("리절트 선언부분"+result);
+//		try {
+//			result = map.Update(vo);
+//			System.out.println("여기리절트"+result);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return result;
+//		}
+//		return result;
+	
 	}
 
 	

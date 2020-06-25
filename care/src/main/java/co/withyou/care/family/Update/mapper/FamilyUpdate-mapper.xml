@@ -11,9 +11,9 @@
 		WHERE familyNo=#{familyNo}
 	</select>
 	
-	<select id="Update" parameterType="LoginPatientVO">
+	<update id="Update" parameterType="FamilyUpdateVo">
 		UPDATE family
 		SET familyAddr=#{familyAddr},familyTel=#{familyTel}
 		WHERE familyNo=#{familyNo}
-	</select>
+	</update>
 </mapper>
