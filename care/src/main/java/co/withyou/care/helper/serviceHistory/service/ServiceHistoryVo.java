@@ -12,7 +12,7 @@ public class ServiceHistoryVo {
 	private int servicePrice;
 	private Date serviceDate;
 	private String serviceDemand;
-	private String helperNo;
+	private int helperNo;
 	private int familyNo;
 	private int patientNo;
 	private String applyDate;
@@ -111,12 +111,12 @@ public class ServiceHistoryVo {
 		this.serviceDemand = serviceDemand;
 	}
 
-	public String getHelperNo() {
+	public int getHelperNo() {
 		return helperNo;
 	}
 
-	public void setHelperNo(String string) {
-		this.helperNo = string;
+	public void setHelperNo(int i) {
+		this.helperNo = i;
 	}
 
 	public int getPatientNo() {

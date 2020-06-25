@@ -81,7 +81,7 @@
 	                        	</a>
 		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
 		                        	 <button class="dropdown-item" type="button" onclick="location.href='familygetSelect.do'">회원정보수정</button>
-		                        	 <button class="dropdown-item" type="button">환자정보수정</button>
+		                        	 <button class="dropdown-item" type="button" onclick="location.href='patientgetSelect.do'">환자정보수정</button>
 		                        	 <button class="dropdown-item" type="button">공지사항</button>
 		    						 <button class="dropdown-item" type="button">문의하기</button>
 		    						 <button class="dropdown-item" type="button">알림</button>
