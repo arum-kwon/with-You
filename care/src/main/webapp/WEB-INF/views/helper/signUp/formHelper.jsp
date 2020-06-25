@@ -3,6 +3,7 @@
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sign.js"></script>
 
 <div class="">

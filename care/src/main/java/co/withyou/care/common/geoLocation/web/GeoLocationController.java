@@ -1,5 +1,9 @@
 package co.withyou.care.common.geoLocation.web;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -30,15 +34,26 @@ public class GeoLocationController {
 	 * @param vo
 	 */
 	@RequestMapping(value = "/insertLocation.do")
-	public void insertLocation(PatientLocVO vo) {
-		//String latitude = request.getParameter("patientLatitude");
+	public void insertLocation(PatientLocVO vo, HttpServletRequest request) {
+		String time = request.getParameter("time");
+        SimpleDateFormat df = new SimpleDateFormat ( "yyyy-MM-dd hh:mm:ss");
+		try {
+			Date locTime = df.parse(time);
+			vo.setPatientLoctime(locTime);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+
+
 		//String longitude = request.getParameter("patientLongitude");
 		//세션에 저장된 환자의 등록 번호를 연결해줌
 		//System.out.println("latitude : " + latitude + ", longitude : " + longitude);
-		System.out.println(vo.getPatientNo());
+		System.out.println(vo.getPatientNo() + ", " + vo.getPatientLatitude() + ", " + 
+						vo.getPatientLongitude() + ", " + vo.getPatientLoctime());
 		//HttpSession session = request.getSession();
 		
 		//System.out.println("---------" +  session.getAttribute("loginOk"));
-		//service.insertPatientLoc(vo);
+		service.insertPatientLoc(vo);
 	}
 }
