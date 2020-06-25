@@ -16,7 +16,7 @@
 		<typeAlias type="co.withyou.care.helper.Login.service.HelperVO" alias="LoginHelperVO"/>
 		<typeAlias type="co.withyou.care.patient.Login.service.PatientVO" alias="LoginPatientVO"/>
 		<typeAlias type="co.withyou.care.patient.findload.service.FamilyVO" alias="CallFamilyVO"/>
-		
+		<typeAlias type="co.withyou.care.helper.serviceHistory.service.ServiceHistoryVo" alias="ServiceHistoryVo"/>
 		
 		
 		

@@ -75,7 +75,7 @@ public class AdminController {
 }
     //헬퍼조회컨트롤
     @RequestMapping("/adminhelperList.do")
-      public String helperlist(Locale locale, Model model){
+      public String adminhelperlist(Locale locale, Model model){
          
       	return "admin/helper/adminhelperList";
       }	   

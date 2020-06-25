@@ -27,9 +27,9 @@ public class EchoHandler extends TextWebSocketHandler {
 		System.out.println("클라이언트 접속됨");
 		
 		Map<String, Object> maps = session.getAttributes();
-		String cId = (String)maps.get("cId");
+		String familyNo = (String)maps.get("familyNo");
 		
-		map.put(cId, session);
+		map.put(familyNo, session);
 		System.out.println("map에 담긴값 :" +map);
 	}
 	

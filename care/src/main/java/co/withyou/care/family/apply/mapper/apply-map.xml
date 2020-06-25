@@ -99,4 +99,14 @@
 						AND SERVICENO = #{serviceNo})
 	</select>
 	
+	<select id="getSelect5" parameterType="ApplyServiceVo" resultType="map">
+		SELECT	FAMILYNO "familyNo",
+				HELPERNO "helperNo" 
+		FROM BLACKLIST
+		WHERE FAMILYNO = #{familyNo}
+		AND HELPERNO = (SELECT HELPERNO FROM SERVICEAPPLY
+						WHERE FAMILYNO = #{familyNo}
+						AND SERVICENO = #{serviceNo})
+	</select>
+	
 </mapper>

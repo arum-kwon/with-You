@@ -69,7 +69,7 @@
 					<br> <a onclick="callToHelper('${list.helperTel}')"> <img
 						src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png"
 						style="height: 42px" />
-					</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#"> <img
+					</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="chat.do"> <img
 						src="${pageContext.request.contextPath}/resources/img/chat/chat.png"
 						style="height: 42px" />
 					</a>
