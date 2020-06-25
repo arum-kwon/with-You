@@ -123,5 +123,7 @@ public class ApplyVo {
 				+ ", serviceDemand=" + serviceDemand + ", helperNo=" + helperNo + ", patientNo=" + patientNo
 				+ ", serviceArea=" + serviceArea + "]";
 	}
+ 
+
 	
 }
