@@ -11,9 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.withyou.care.common.signUp.service.HelperVO;
 import co.withyou.care.family.Login.service.FamilyVO;
 import co.withyou.care.family.apply.service.ApplyServiceVo;
+import co.withyou.care.helper.Login.service.HelperVO;
 import co.withyou.care.helper.applyList.service.ServiceApplyListService;
 import co.withyou.care.helper.applyList.service.ServiceApplyListVo;
 
@@ -28,7 +28,8 @@ public class ServiceApplyListController {
 		
 		session = request.getSession();
 		HelperVO helperVo = (HelperVO) session.getAttribute("loginOk");
-		applyListVo.setFamilyNo(helperVo.getHelperNo());
+		System.out.println("여기헬퍼넘버 :"+helperVo.getHelperNo());
+		applyListVo.setHelperNo(helperVo.getHelperNo());
 		
 		List<Map> list = serviceapplylist.getApplyList(applyListVo);
 		model.addAttribute("serviceList",list);

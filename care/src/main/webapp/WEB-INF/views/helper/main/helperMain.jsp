@@ -38,7 +38,7 @@
 		  </div>
 		<br>
 		<div class="fam3">
-		  	<a href="#contact">
+		  	<a href="serviceapplylist.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/callService.png" style="height:90px"  />
 		  	</a>
 		  		<h3>요청리스트</h3>
