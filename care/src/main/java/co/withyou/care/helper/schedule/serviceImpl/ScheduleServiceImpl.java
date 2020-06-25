@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.withyou.care.helper.schedule.mapper.ScheduleMapper;
 import co.withyou.care.helper.schedule.service.ApplyVo;
 import co.withyou.care.helper.schedule.service.ScheduleService;
 
+@Service("scheduleService")
 public class ScheduleServiceImpl implements ScheduleService{
 	
 	@Autowired
@@ -16,7 +18,6 @@ public class ScheduleServiceImpl implements ScheduleService{
 	
 	@Override
 	public List<Map> getSchedule(ApplyVo vo) throws Exception {
-		// TODO Auto-generated method stub
 		return map.getSchedule(vo);
 	}
 

@@ -5,6 +5,5 @@ import java.util.Map;
 
 
 public interface ScheduleService {
-
-	List <Map> getSchedule(ApplyVo vo) throws Exception;
+	List<Map> getSchedule(ApplyVo vo) throws Exception;
 }
