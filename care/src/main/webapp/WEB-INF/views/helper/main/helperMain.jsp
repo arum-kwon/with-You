@@ -25,7 +25,7 @@
 <body>
 	<div class="menu" align="center">
 		<div class="fam1">
-		   	<a href="#contact">
+		   	<a href="scheduleList.do">
 		  	<img src="${pageContext.request.contextPath}/resources/img/menu/schedule.png" style="height:90px"  />
 		  	</a>
 		  		<h3>스케줄관리</h3>
