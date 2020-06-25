@@ -23,7 +23,6 @@ public class PatientUpdateController {
 	public String PatientGetSelect(FamilyVO vo, HttpServletRequest request, Model model) throws Exception{
 		HttpSession session = request.getSession();
 		vo=(FamilyVO)session.getAttribute("loginOk");
-		//vo = Pupdateservice.getSelect(vo);
 		PatientVO pvo = Pupdateservice.getSelect(vo);
 		model.addAttribute("getSelect",pvo);
 		return "family/update/patientUpdate";
@@ -44,10 +43,14 @@ public class PatientUpdateController {
 		HttpSession session = request.getSession();
 		FamilyVO familyVo = (FamilyVO)session.getAttribute("loginOk");
 		vo.setFamilyNo(familyVo.getFamilyNo());
-		int a = 0;
-		a = Pupdateservice.Update(vo);
+		int result = 0;
+		result = Pupdateservice.Update(vo);
 		
-		return "";
+		if(result != 0) {
+			return "family/main/FamilyMain";
+			}else {
+				return "patientgetSelect.do";
+			}
 	}
 	
 }

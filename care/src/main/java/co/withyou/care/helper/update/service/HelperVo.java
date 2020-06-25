@@ -1,11 +1,10 @@
 package co.withyou.care.helper.update.service;
 
-import java.util.Date;
 
 public class HelperVo {
 	private int helperNo;
 	private String helperName;
-	private Date helperBirth;
+	private String helperBirth;
 	private String helperSex;
 	private String helperTel;
 	private String helperEmail;
@@ -29,10 +28,10 @@ public class HelperVo {
 	public void setHelperName(String helperName) {
 		this.helperName = helperName;
 	}
-	public Date getHelperBirth() {
+	public String getHelperBirth() {
 		return helperBirth;
 	}
-	public void setHelperBirth(Date helperBirth) {
+	public void setHelperBirth(String helperBirth) {
 		this.helperBirth = helperBirth;
 	}
 	public String getHelperSex() {

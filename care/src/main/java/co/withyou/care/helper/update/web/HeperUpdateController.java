@@ -21,7 +21,6 @@ public class HeperUpdateController {
 	@RequestMapping("/helperGetSelect.do")
 	public String helperGetSelect(HelperVO vo, HttpServletRequest request, Model model) throws Exception {
 		HttpSession session = request.getSession();
-		System.out.println("helperNo"+session.getAttribute("loginOk"));
 		vo=(HelperVO) session.getAttribute("loginOk");
 		vo = Hupdateservice.getSelect(vo);
 		model.addAttribute("getSelect",vo);
@@ -31,14 +30,18 @@ public class HeperUpdateController {
 	
 	@RequestMapping("/helperUpdate.do")
 	public String helperUpdat(HelperVo vo, HttpServletRequest request) throws Exception {
-		int result=Hupdateservice.HelperUpdate(vo);
-		if(result==1) {
-			
-		}else {
-			return "helper/update/helperUpdat";
-		}
+		HttpSession session = request.getSession();
+		HelperVO Hvo = (HelperVO)session.getAttribute("loginOk");
+		vo.setHelperNo(Hvo.getHelperNo());
+		int result = 0;
+		result = Hupdateservice.HelperUpdate(vo);
 		
-		return "helperGetSelect.do";
-		
+		if(result != 0) {
+			return "helper/main/helperMain";
+			}else {
+				return "helperGetSelect.do";
+			}
 	}
+		
+	
 }

@@ -23,15 +23,8 @@ public class HelperUpdateServiceImpl implements HelperUpdateService{
 	@Override
 	public int HelperUpdate(HelperVo vo) throws Exception {
 		
-		int result=0;
-		try {
-			result=map.HelperUpdate(vo);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			return result;
-		}
-		return result;
+		
+		return map.HelperUpdate(vo);
 	}
 	
 	
