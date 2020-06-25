@@ -88,6 +88,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div align="center">
 	<a href="findLoadTest.do">길찾기Test example</a>
 </div>
+<div align="center">
+	<a href="goReview.do">후기 작성 추가,삭제,수정(아름)</a>
+</div>
 </header>
 
 </body> 
