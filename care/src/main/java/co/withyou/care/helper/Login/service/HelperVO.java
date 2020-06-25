@@ -3,7 +3,7 @@ package co.withyou.care.helper.Login.service;
 import java.util.Date;
 
 public class HelperVO {
-	private int helperNo;
+	private String helperNo;
 	private String helperName;
 	private Date helperBirth;
 	private String helperSex;
@@ -21,11 +21,11 @@ public class HelperVO {
 	public HelperVO() {
 	}
 
-	public int getHelperNo() {
+	public String getHelperNo() {
 		return helperNo;
 	}
 
-	public void setHelperNo(int helperNo) {
+	public void setHelperNo(String helperNo) {
 		this.helperNo = helperNo;
 	}
 
