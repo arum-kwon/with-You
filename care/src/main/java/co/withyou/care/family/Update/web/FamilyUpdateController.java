@@ -33,21 +33,30 @@ public class FamilyUpdateController {
 		}
 		
 		@RequestMapping("/familyUpdate.do")
-		public String familyUpdate(FamilyVO vo, HttpServletRequest request) throws Exception {
+		public String familyUpdate(FamilyUpdateVo vo, HttpServletRequest request) throws Exception {
 		//	System.out.println(vo.getFamily);
 		//	String birth = request.getParameter("familyBirth");
 //			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 //			Date to = transFormat.parse(birth);
 
 //			vo.setFamilyBirth(to);
-			int result = updateservice.Update(vo);
-			System.out.println("FamilyBirth :" + vo.getFamilyBirth());	
-			System.out.println("RESULT :"+result);
-			if(result!=0) {
+			HttpSession session = request.getSession();
+			FamilyVO familyVo = (FamilyVO)session.getAttribute("loginOk");
+			vo.setFamilyNo(familyVo.getFamilyNo());
+			int result = 0;
+			result = updateservice.Update(vo);
+		
+//			System.out.println("FamilyBirth :" + vo.getFamilyBirth());	
+//			System.out.println("RESULT :"+result);
+//			if(result!=0) {
+//			}else {
+//				return "family/main/FamilyMain";
+//			}
+			if(result != 0) {
+			return "family/main/FamilyMain";
 			}else {
-				return "family/main/FamilyMain";
+				return "familygetSelect.do";
 			}
-			return "familygetSelect.do";
 		}
 		
 		@RequestMapping("/familyLogout")

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script type="text/javascript">
 <%--	window.onload=function(){
@@ -59,7 +61,8 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>생년월일</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="familyBirth" name="familyBirth" value="${getSelect.familyBirth }" readonly>
+							<input class="w3-input w3-border" type="text" placeholder="" id="familyBirth" name="familyBirth" value="<fmt:formatDate value="${getSelect.familyBirth}" pattern="yyyy-MM-dd" />" readonly/>
+
 						</div>
 					</div>
 					<div class="w3-row">

@@ -1,63 +1,28 @@
-package co.withyou.care.family.Update.service;
+package co.withyou.care.family.patientUpdate.service;
 
 import java.util.Date;
 
-public class FamilyUpdateVo {
-	
-	private int familyNo;
-	private String familyEmail;
-	private String familyName;
-	private String familyBirth;
-	private String familyAddr;
-	private String familyTel;	
+public class PatientUpdateVO {
+	private int patientNo;
 	private String patientName;
-	private Date patientBirth;
+	private String patientBirth;
 	private String patientAddr;
 	private String patientSex;
 	private String patientTel;
 	private String patientFamilyTel;
 	private String patientBlood;
+	private int patientZone;
 	private String patientDisease;
 	private String patientGrade;
 	private String patientMedication;
 	private String patientUnique;
-	
-	
-	public int getFamilyNo() {
-		return familyNo;
+	private String patientVcode;
+	private int familyNo;
+	public int getPatientNo() {
+		return patientNo;
 	}
-	public void setFamilyNo(int familyNo) {
-		this.familyNo = familyNo;
-	}
-	public String getFamilyEmail() {
-		return familyEmail;
-	}
-	public void setFamilyEmail(String familyEmail) {
-		this.familyEmail = familyEmail;
-	}
-	public String getFamilyName() {
-		return familyName;
-	}
-	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
-	}
-	public String getFamilyBirth() {
-		return familyBirth;
-	}
-	public void setFamilyBirth(String familyBirth) {
-		this.familyBirth = familyBirth;
-	}
-	public String getFamilyAddr() {
-		return familyAddr;
-	}
-	public void setFamilyAddr(String familyAddr) {
-		this.familyAddr = familyAddr;
-	}
-	public String getFamilyTel() {
-		return familyTel;
-	}
-	public void setFamilyTel(String familyTel) {
-		this.familyTel = familyTel;
+	public void setPatientNo(int patientNo) {
+		this.patientNo = patientNo;
 	}
 	public String getPatientName() {
 		return patientName;
@@ -65,10 +30,10 @@ public class FamilyUpdateVo {
 	public void setPatientName(String patientName) {
 		this.patientName = patientName;
 	}
-	public Date getPatientBirth() {
+	public String getPatientBirth() {
 		return patientBirth;
 	}
-	public void setPatientBirth(Date patientBirth) {
+	public void setPatientBirth(String patientBirth) {
 		this.patientBirth = patientBirth;
 	}
 	public String getPatientAddr() {
@@ -101,6 +66,12 @@ public class FamilyUpdateVo {
 	public void setPatientBlood(String patientBlood) {
 		this.patientBlood = patientBlood;
 	}
+	public int getPatientZone() {
+		return patientZone;
+	}
+	public void setPatientZone(int patientZone) {
+		this.patientZone = patientZone;
+	}
 	public String getPatientDisease() {
 		return patientDisease;
 	}
@@ -125,7 +96,18 @@ public class FamilyUpdateVo {
 	public void setPatientUnique(String patientUnique) {
 		this.patientUnique = patientUnique;
 	}
+	public String getPatientVcode() {
+		return patientVcode;
+	}
+	public void setPatientVcode(String patientVcode) {
+		this.patientVcode = patientVcode;
+	}
+	public int getFamilyNo() {
+		return familyNo;
+	}
+	public void setFamilyNo(int familyNo) {
+		this.familyNo = familyNo;
+	}
 	
 	
 }
-

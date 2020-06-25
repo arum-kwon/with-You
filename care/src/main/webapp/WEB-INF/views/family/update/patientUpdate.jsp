@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,7 +15,7 @@
 		<div class="w3-row">
 			<div class="w3-col m4">&nbsp;</div>
 			<div class="w3-col m4">
-				<form id="updateForm" action="familyUpdate.do">
+				<form id="updateForm" action="patientUpdate.do">
 					<h1>환자정보</h1>
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이름</p></div>
@@ -37,7 +38,7 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>생년월일</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientBirth" name="patientBirth" value="${getSelect.patientBirth }" readonly>
+							<input class="w3-input w3-border" type="text" placeholder="" id="patientBirth" name="patientBirth" value="<fmt:formatDate value="${getSelect.patientBirth}" pattern="yyyy-MM-dd" />" readonly/>
 						</div>
 					</div>
 					<div class="w3-row">
@@ -85,7 +86,7 @@
 					</div>
 					<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 					&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey" id="updateButton"type="button" >&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey" id="updateButton"type="submit" >&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
 				</form>
 			</div>
 			<div class="w3-col m4">&nbsp;</div>
