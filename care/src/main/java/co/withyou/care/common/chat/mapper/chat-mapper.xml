@@ -2,4 +2,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="co.withyou.care.common.chat.mapper.ChatMapper">
 
+	<insert id="chatInsert" parameterType="ChatVo">
+		INSERT INTO CHAT (
+						CHATNO,
+						<if test='userType != null and userType =="f"'> 
+							SENDERNO, RECEIVERNO,
+						</if>
+						<if test='userType != null and userType =="h"'> 
+							SENDERNO, RECEIVERNO, 
+						</if>
+						CHATDATE, CHATCONTENTS, CHATCHECK
+						)	
+				VALUES (
+						chat_sq.nextval,
+						<if test='userType != null and userType =="f"'>
+							#{familyNo}, #{helperNo},
+						</if>
+						<if test='userType != null and userType =="h"'>
+							#{helperNo}, #{familyNo},
+						</if>
+						sysdate,
+						#{chatContents},
+						1
+						)
+		
+	</insert>
+	
+	<select id="chatSelectList" parameterType="ChatVo" resultType="map">
+		SELECT C.CHATNO "chatNo",
+		        C.SENDERNO "senderNo",
+		        C.RECEIVERNO "receiverNo",
+		        C.CHATDATE "chatDate",
+		        C.CHATCONTENTS "chatContents",
+		        C.CHATCHECK "chatCheck",
+		        F.FAMILYNAME "familyName",
+		        F.FAMILYNO "familyNo",
+		        H.HELPERNO "helperNo",
+		        H.HELPERNAME "helperName"
+		FROM CHAT C, FAMILY F, HELPER H
+		<where>
+			<if test='userType != null and userType =="f"'>
+				C.SENDERNO = F.FAMILYNO
+				AND C.RECEIVERNO = H.HELPERNO
+				AND C.SENDERNO = #{familyNo}
+				AND C.RECEIVERNO = #{helperNo}
+			</if>
+			<if test='userType != null and userType =="h"'>
+				C.SENDERNO = F.HELPERNO
+				AND C.RECEIVERNO = H.FAMILYNO
+				AND C.SENDERNO = #{helperNo}
+				AND C.RECEIVERNO = #{familyNo}
+			</if>
+		</where>
+		ORDER BY C.CHATDATE
+	</select>
 </mapper>

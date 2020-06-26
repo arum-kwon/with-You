@@ -10,7 +10,8 @@
 				service_sq.nextval, 
 				#{serviceStartTime }, 
 				(to_number(#{serviceEndTime})-to_number(#{serviceStartTime}))*(select codename from code where codeid='P01')
-					* (SELECT CODENAME FROM CODE 
+					* (SELECT CODENAME 
+						FROM CODE 
 						WHERE CODEID = (SELECT COMMISSIONGRADE FROM HELPER 
 										WHERE HELPERNO = #{helperNo})),
 				default,
@@ -38,6 +39,7 @@
 				 S.SERVICEDEMAND "serviceDemand",
         		 S.SERVICEAREA "serviceArea", 
         		 S.SERVICEPRICE "servicePrice",
+        		 S.FAMILYNO "familyNo",
         		 H.HELPERNO "helperNo",
         		 H.HELPERTEL "helperTel", 
         		 H.HELPERNAME "helperName", 

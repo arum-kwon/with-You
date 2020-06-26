@@ -34,7 +34,7 @@
 		<typeAlias type="co.withyou.care.common.geoLocation.service.PatientLocVO" alias="PatientLocVO"/>
 		<typeAlias type="co.withyou.care.family.bestLike.service.BestLikeVo" alias="BestLikeVo"/>
 		<typeAlias type="co.withyou.care.family.blackList.service.BlackListVo" alias="BlackListVo"/>
-		
+		<typeAlias type="co.withyou.care.common.chat.service.ChatVo" alias="ChatVo"/>
 		
 		
 		

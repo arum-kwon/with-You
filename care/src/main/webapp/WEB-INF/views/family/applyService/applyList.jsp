@@ -58,20 +58,25 @@
 								disabled>결제완료</button>
 							<br>
 						</c:when>
-						<c:otherwise>
+						<c:when test="${list.serviceStatus eq 'S04'}">
 							<button type="button" id="btnServiceDone" class="btn btn-dark"
 								disabled>서비스종료</button>
+							<br>
+						</c:when>
+						<c:otherwise>
+							<button type="button" id="btnReject" class="btn btn-warning"
+								disabled>수락거부</button>
 							<br>
 						</c:otherwise>
 					</c:choose>
 					<button type="button" id="btnLikeList" class="btn btn-light"
 						onclick="getServiceNo('${list.serviceNo}')">상세내역</button>
-					<br> <a onclick="callToHelper('${list.helperTel}')"> <img
-						src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png"
-						style="height: 42px" />
-					</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="chat.do"> <img
-						src="${pageContext.request.contextPath}/resources/img/chat/chat.png"
-						style="height: 42px" />
+					<br> 
+					<a onclick="callToHelper('${list.helperTel}')"> 
+						<img src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png" style="height: 42px" />
+					</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<a href="javascript:void(0);" onclick="chatPage('${list.helperNo}');"> 
+						<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height: 42px" />
 					</a>
 				</div>
 			</div>
@@ -81,6 +86,7 @@
 		</c:forEach>
 
 		<input type="hidden" id="serviceNo" name="serviceNo">
+		<input type="hidden" id="helperNo" name="helperNo">
 </form>
 
 	<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
@@ -88,9 +94,18 @@
 
 
 <script type="text/javascript">
+	//상세내역으로 가는 함수
 	function getServiceNo(key) {
 		document.sNoFrm.serviceNo.value=key;
 		console.log(key);
+		document.sNoFrm.submit();
+	}
+	
+	//채팅페이지로 가는 함수
+	function chatPage(key) {
+		document.sNoFrm.helperNo.value=key;
+		console.log(key);
+		document.sNoFrm.action="chat.do";
 		document.sNoFrm.submit();
 	}
 </script>
