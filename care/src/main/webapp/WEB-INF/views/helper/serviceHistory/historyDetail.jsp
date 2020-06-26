@@ -48,8 +48,8 @@ html,body,h1,h2,h3,h4,h5,h6 {
       </textarea>
     </div>	
     <div align="center">
-     <button class="w3-button w3-light-grey w3-round">취소</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 <button class="w3-button w3-indigo w3-round">저장</button>
+     <button type="button" class="w3-button w3-light-grey w3-round">취소</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <button type="button" class="w3-button w3-indigo w3-round">저장</button>
     </div>
 </div>	
 	

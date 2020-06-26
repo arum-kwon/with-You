@@ -8,7 +8,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.withyou.care.helper.Login.service.HelperVO;
@@ -32,11 +35,39 @@ public class ScheduleController {
 		mav.addObject("sceduleList", map);
 		mav.setViewName("helper/Schedule/scheduleList");
 		return mav;
-		
+	
 	}
 
+	@RequestMapping("/calendarList.do")
+	@ResponseBody
+	public Map calendarList(@RequestBody List<Map> list, ApplyVo vo) throws Exception {
+		
+		list = scheduleService.getSchedule(vo);
+		
+		
+		return (Map) list;
+
+	}
+
+	//상세보기
+	@RequestMapping("/scheduleDetail.do")
+	public ModelAndView scheduleDetail(@RequestParam("serviceNo") String sNo, ModelAndView mav, ApplyVo vo, HttpServletRequest request ) throws Exception {
+		//파라미터 가져오기
+		String serviceNo = sNo;
+		System.out.println("서비스넘버"+sNo);
+		HttpSession session = request.getSession();
+		HelperVO getSession = (HelperVO) session.getAttribute("loginOk");
+		vo.setHelperNo(getSession.getHelperNo());
+		System.out.println("세션에있는 간병인번호:"+getSession.getHelperNo());
+		
+		Map detailMap = scheduleService.getSelect(serviceNo);
+		mav.addObject("scheduleDetail", detailMap);
+		mav.setViewName("helper/Schedule/scheduleDetail");
+		
+		
+		return mav;
 	
-	
+	}
 	
 	
 } // end of Class

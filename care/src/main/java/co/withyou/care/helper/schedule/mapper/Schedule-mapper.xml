@@ -6,11 +6,25 @@
 		SELECT p.PATIENTNAME "patientName",
        	       TO_CHAR(s.SERVICEDATE,'YYYY/MM/DD') "serviceDate", 
        	       s.SERVICESTARTTIME "serviceStartTime", 
-       	       s.SERVICEENDTIME "serviceEndTime"
+       	       s.SERVICEENDTIME "serviceEndTime",
+       	       s.SERVICENO "serviceNo"
 		FROM PATIENT p, SERVICEAPPLY s
 		WHERE p.PATIENTNO = s.PATIENTNO
 		AND s.SERVICESTATUS = 'S03'
 		AND s.HELPERNO = #{helperNo}
 	</select>
 	
+	<select id="getSelect" parameterType="String" resultType="map">
+		SELECT f.FAMILYNAME "familyName", f.FAMILYTEL "familyTel", f.FAMILYEMAIL "familyEmail",
+		       p.PATIENTNAME "patientName", MONTHS_BETWEEN(TRUNC(SYSDATE,'YEAR'), TRUNC(p.PATIENTBIRTH,'YEAR') ) /12 +1 "patientBirth",
+		       p.PATIENTADDR "patientAddr", p.PATIENTMEDICATION "patientMedication", p.PATIENTBLOOD "patientBlood", p.PATIENTSEX "patientSex", 
+		       p.PATIENTTEL "patientTel", p.PATIENTFAMILYTEL "patientFamilyTel", p.PATIENTDISEASE "patientDisease",
+		       p.PATIENTGRADE "patientGrade", p.PATIENTUNIQUE "patientUnique",
+		       s.SERVICEDEMAND "serviceDemand", s.SERVICESTARTTIME "serviceStartTime", s.SERVICEENDTIME "serviceEndTime"
+		FROM PATIENT p, FAMILY f, SERVICEAPPLY s
+		WHERE s.PATIENTNO = p.PATIENTNO
+		AND s.FAMILYNO = f.FAMILYNO
+		AND s.SERVICENO = #{value}
+		
+	</select>
 </mapper>

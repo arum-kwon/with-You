@@ -21,4 +21,9 @@ public class ScheduleServiceImpl implements ScheduleService{
 		return map.getSchedule(vo);
 	}
 
+	@Override
+	public Map getSelect(String serviceNo) throws Exception {
+		return map.getSelect(serviceNo);
+	}
+
 }
