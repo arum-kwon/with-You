@@ -41,10 +41,30 @@
 </head>
 
 <body>
-
 	<div align="center">
 
 		<h1>간병인 회원</h1>
+
+
+<c:forEach items="${ helperlist }" var="list">
+	${ list.helperNo }
+	${ list.helperName }
+	${ list.helperBirth }
+	${ list.helperSex }
+	${ list.helperTel }	
+	${ list.helperEmail }	
+	<%-- ${ list.helperPw }	 
+	${ list.helperWorkArea }	
+	${ list.helperStartTime }	
+	${ list.helperEndTime }	
+	${ list.helperUnique }	
+	${ list.helperAddr }	
+	${ list.helperProfile }	
+	${ list.commissionGrade }	--%>
+	<br>
+	<br>
+</c:forEach>
+
 
 		<div>
 
@@ -54,9 +74,9 @@
 
 				onMouseOver="this.style.backgroundColor='silver';" onMouseOut="this.style.backgroundColor='';">
 
-					ID: ${list.id } &nbsp;&nbsp;
+					ID: ${adminhelperlist.list.id } &nbsp;&nbsp;
 
-					Name: ${list.name } <br />
+					Name: ${adminhelperlist.list.name } <br />
 
 				</div>
 

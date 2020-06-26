@@ -1,6 +1,6 @@
-package co.withyou.care.admin.member.adminfamily;
+package co.withyou.care.admin.adminfamily.service;
 
-public class FamilyVo {
+public class AdminFamilyVo {
 	
 
 	private int serviceNo;

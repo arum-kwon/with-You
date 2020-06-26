@@ -1,8 +1,8 @@
-package co.withyou.care.admin.member.adminpatient;
+package co.withyou.care.admin.adminpatient.service;
 
 import java.util.Date;
 
-public class PatientVo {
+public class AdminPatientVo {
 	private int patientNo;
 	private String patientName;
 	private Date patientBirth;

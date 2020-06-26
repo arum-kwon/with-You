@@ -1,8 +1,8 @@
-package co.withyou.care.admin.member.adminhelper;
+package co.withyou.care.admin.adminhelper.service;
 
 import java.util.Date;
 
-public class HelperVo {
+public class AdminHelperVo {
 
 	private int helperNo;
 	private String helperName;
