@@ -48,8 +48,8 @@
 				AND C.RECEIVERNO = #{helperNo}
 			</if>
 			<if test='userType != null and userType =="h"'>
-				C.SENDERNO = F.HELPERNO
-				AND C.RECEIVERNO = H.FAMILYNO
+				C.SENDERNO = H.HELPERNO
+				AND C.RECEIVERNO = F.FAMILYNO
 				AND C.SENDERNO = #{helperNo}
 				AND C.RECEIVERNO = #{familyNo}
 			</if>

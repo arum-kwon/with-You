@@ -4,6 +4,7 @@
 	
 	<select id="getSchedule" parameterType="ScheduleSelectVo" resultType="map">
 		SELECT p.PATIENTNAME "title",
+			   p.FAMILYNO "familyNo",
        	       TO_CHAR(s.SERVICEDATE,'YYYY-MM-DD')||'T'||s.SERVICESTARTTIME||':00:00'  "start", 
        	       TO_CHAR(s.SERVICEDATE,'YYYY-MM-DD')||'T'||s.SERVICEENDTIME||':00:00' "end", 
        	       s.SERVICESTARTTIME "serviceStartTime", 

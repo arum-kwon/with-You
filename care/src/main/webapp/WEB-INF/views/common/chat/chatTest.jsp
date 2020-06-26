@@ -25,7 +25,6 @@
 			</div>
 			<div class="container mt-3">
 				<div class="input-group mb-3">
-					<input type="hidden" id="helperNo" name="helperNo" value="${chatVo.helperNo }">
 				    <input type="text" id="chatContents" name="chatContents" class="form-control" placeholder="메시지를 입력하세요">
 				    <div class="input-group-append">
 				      <button type="submit" class="btn btn-primary" type="button">전송</button>  
@@ -33,6 +32,8 @@
 			     	</div>
 			  	</div>
 			</div>
+			<input type="hidden" id="helperNo" name="helperNo" value="${chatVo.helperNo }">
+			<input type="hidden" id="familyNo" name="familyNo" value="${chatVo.familyNo }">
 		</form>	
 	</div>
 </body>

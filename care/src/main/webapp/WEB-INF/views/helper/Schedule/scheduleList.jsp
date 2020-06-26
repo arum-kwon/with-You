@@ -105,7 +105,7 @@ ul.breadcrumb li a {
 			<h4>${sceduleList.title }님 </h4>
 			<h5>서비스 시간: ${sceduleList.serviceStartTime } - ${sceduleList.serviceEndTime }</h5><br>
 				<button type="button" onclick="getServiceNo('${sceduleList.serviceNo}')"class="w3-button w3-sand w3-round">상세정보</button>&nbsp;&nbsp;&nbsp;&nbsp;
-			    <a href="chat.do"> 
+			    <a href="javascript:void(0);" onclick="chatPage('${sceduleList.familyNo}');">
 			   		 <img src="${pageContext.request.contextPath}/resources/img/chat/chat2.png" style="height: 42px" />
 			    </a>				
        </div>
@@ -113,10 +113,22 @@ ul.breadcrumb li a {
     <br>
   </c:forEach>
     <input type="hidden" id="serviceNo" name="serviceNo">
+    <input type="hidden" id="familyNo" name="familyNo">
 <br>
 </div>
 </form>
 
+
+<!-- 채팅버튼 클릭시 컨트롤러 이동 함수 boy 찬진 -->
+<script type="text/javascript">
+	//채팅페이지로 가는 함수
+	function chatPage(key) {
+		document.scheduleListForm.familyNo.value=key;
+		console.log(key);
+		document.scheduleListForm.action="chat.do";
+		document.scheduleListForm.submit();
+	}
+</script>
 
 
 </body>

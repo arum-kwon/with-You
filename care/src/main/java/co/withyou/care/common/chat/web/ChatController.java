@@ -68,7 +68,12 @@ public class ChatController {
 		System.out.println("insert chat vo:" + chatVo);
 		chatService.chatInsert(chatVo);
 		
-		return "redirect:/chat.do?helperNo="+chatVo.getHelperNo();
+		//유저타입에 따라 필요한 값 물려서 페이지 리다이렉트
+		if (chatVo.getUserType().equals("f")) {
+			return "redirect:/chat.do?helperNo="+chatVo.getHelperNo();
+		} else {
+			return "redirect:/chat.do?familyNo="+chatVo.getFamilyNo();
+		} 
 				
 		
 	}
