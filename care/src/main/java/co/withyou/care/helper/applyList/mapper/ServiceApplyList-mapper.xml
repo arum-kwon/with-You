@@ -5,9 +5,9 @@
 
 	<select id="getApplyList" parameterType="ApplyListVo" resultType="map">
 
-		select f.familyName "familyName", s.servicestarttime "serviceStartTime",s.serviceendtime "serviceEndTime",s.servicedate "serviceDate",s.servicestatus "serviceStatus",s.serviceno "serviceNo"
+		select s.serviceno "serviceNo", f.familyName "familyName", s.servicestarttime "serviceStartTime",s.serviceendtime "serviceEndTime",s.servicedate "serviceDate",s.servicestatus "serviceStatus",s.serviceno "serviceNo"
 		from family f, serviceapply s, helper h
-		where h.helperNo = s.helperNo and h.helperNo = #{helperNo} and s.servicestatus ='S01'
+		where h.helperNo = s.helperNo and h.helperNo = #{helperNo} and s.servicestatus ='S01' and f.familyNo = s.familyNo
 		
 	</select>
 </mapper>

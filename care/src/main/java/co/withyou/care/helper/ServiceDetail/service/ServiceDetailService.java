@@ -1,5 +1,9 @@
 package co.withyou.care.helper.ServiceDetail.service;
 
-public class ServiceDetailService {
+import java.util.List;
+import java.util.Map;
 
+public interface ServiceDetailService {
+
+	Map getServiceDetail(ServiceDetailVo vo) throws Exception;
 }
