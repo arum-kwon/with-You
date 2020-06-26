@@ -50,6 +50,18 @@
 							<input class="w3-input w3-border" type="text" placeholder="" id="familyEmail" name="familyEmail" value="${getSelect.familyEmail }" readonly> 
 						</div>
 					</div>
+					<div class="w3-row">
+						<div class="w3-col s4 m4"><p>비밀번호</p></div>
+						<div class="w3-col s8 m8">
+							<input class="w3-input w3-border" type="password" placeholder="" id="familyPw" name="familyPw" value="" > 
+						</div>
+					</div>
+					<div class="w3-row">
+						<div class="w3-col s4 m4"><p>비밀번호 확인</p></div>
+						<div class="w3-col s8 m8">
+							<input class="w3-input w3-border" type="password" placeholder="" id="familyPwValie" name="familyPwValid" value="" > 
+						</div>
+					</div>
 					
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이름</p></div>
@@ -68,7 +80,7 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>주소</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="familyAddr" name="familyAddr" value="${getSelect.familyAddr }">
+							<input class="w3-input w3-border add-juso" type="text" placeholder="" id="familyAddr" name="familyAddr" value="${getSelect.familyAddr }"><button type="button" onclick="jusoPopup(0)">주소찾기</button>
 						</div>
 					</div>
 					<div class="w3-row">

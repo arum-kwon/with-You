@@ -3,11 +3,24 @@
 <mapper
 	namespace="co.withyou.care.helper.ServiceDetail.mapper.ServiceDetailMapper">
 
-	<select id="getApplyList" parameterType="ApplyListVo" resultType="map">
-
-		select f.familyName "familyName", s.servicestarttime "serviceStartTime",s.serviceendtime "serviceEndTime",s.servicedate "serviceDate",s.servicestatus "serviceStatus",s.serviceno "serviceNo"
-		from family f, serviceapply s, helper h
-		where h.helperNo = s.helperNo and h.helperNo = #{helperNo} and s.servicestatus ='S01'
-		
+	<select id="getServiceDetail" parameterType="DetailVo"
+		resultType="map">
+		SELECT p.patientno "patientNO",s.serviceno "serviceNo",
+			   p.patientname "patientName", p.patientaddr "patientAddr",
+			   p.patientsex "patientSex",p.patientbirth "patientBirth",
+			   p.patientfamilytel "patientFamilyTel", p.patientdisease "patientDisease",
+			   p.patientgrade "patientGrade", p.patientblood "patientBlood",
+			   p.patientmedication "patientMedication",p.patientunique "patientUnique",
+			   p.patienttel "patientTel",rn.helpername "helperName",
+		       s.servicestarttime "serviceStartTime",s.serviceendtime "serviceEndTime",
+		       s.servicedemand "serviceDemand",
+			   s.serviceprice "servicePrice", s.helperprice "helperPrice",
+			   s.serviceprice * (1-c.codename)
+		FROM patient p,serviceapply s, code c, helper h, review r,
+				(SELECT h.helpername
+				FROM review r, helper h
+				WHERE r.reviewwriter = h.helperno) rn
+		WHERE h.helperno = s.helperno and h.helperno = #{helperNo} and s.patientno =
+			p.patientno and	h.commissiongrade = c.codeid and s.serviceno = #{serviceNo}
 	</select>
 </mapper>

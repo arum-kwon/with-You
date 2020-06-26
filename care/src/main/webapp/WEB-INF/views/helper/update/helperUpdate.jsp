@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    
+<script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
+
+
+<script>
+function fnSubmit(){
+	   pwSHA256();
+	   $("#helperUpdate").submit();
+	}
+</script>   
 <!DOCTYPE html>
 <div class="w3-container w3-center">
 	<div class="w3-padding-large">
 		<div class="w3-row">
 			<div class="w3-col m4">&nbsp;</div>
 			<div class="w3-col m4">
-				<form action="helperUpdate.do">
+				<form action="helperUpdate.do" id="helperUpdate" name="helperUpdate">
 					<h1>간병인 회원가입</h1>
 				 	
 					<div class="w3-row">
@@ -20,13 +30,13 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>비밀번호</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="helperPw" name="helperPw" value="${getSelect.helperPw }">
+							<input class="w3-input w3-border pw-check" type="password" placeholder="" id="helperPw" name="helperPw" value="">
 						</div>
 					</div>
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>비밀번호확인</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="helperPw2" name="helperPw2" value="${getSelect.helperPw }">
+							<input class="w3-input w3-border pw-check" type="password2" placeholder="" id="helperPw2" name="helperPw2" value="">
 						</div>
 					</div>
 					<div class="w3-row">
@@ -50,7 +60,7 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>주소</p>	</div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="helperAddr" name="helperAddr" value="${getSelect.helperAddr }">
+							<input class="w3-input w3-border add-juso" type="text" placeholder="" id="helperAddr" name="helperAddr" value="${getSelect.helperAddr }"><button type="button" onclick="jusoPopup(0)">주소찾기</button>
 						</div>
 					</div>
 					<div class="w3-row">
@@ -92,7 +102,7 @@
 					</div>
 					<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 					&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey" type="submit">&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey" type="button" onclick="fnSubmit(false)">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
 				</form>
 
 			</div>

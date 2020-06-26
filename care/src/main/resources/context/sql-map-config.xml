@@ -47,6 +47,7 @@
  		<typeAlias type="co.withyou.care.helper.schedule.service.ApplyVo" alias="ScheduleSelectVo"/>
  		<typeAlias type="co.withyou.care.family.patientUpdate.service.PatientUpdateVO" alias="PatientUpdateVo"/>
 		<typeAlias type="co.withyou.care.helper.applyList.service.ServiceApplyListVo" alias="ApplyListVo"/>
+		<typeAlias type="co.withyou.care.helper.ServiceDetail.service.ServiceDetailService" alias="DetailVo"/>
 		<!-- <typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/> -->
  		
  		
