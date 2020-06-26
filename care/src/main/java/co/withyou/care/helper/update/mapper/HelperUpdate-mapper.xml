@@ -12,10 +12,13 @@
 	<update id="HelperUpdate" parameterType="UpdateHelperVo">
 		UPDATE Helper
 		<set> 
-		helperTel = #{helperTel},
-		helperPw = #{helperPw},
-		helperWorkArea = #{helperWorkArea},helperStartTime= #{helperStartTime},helperEndTime= #{helperEndTime},helperUnique = #{helperUnique},
-			helperAddr = #{helperAddr}
+		<if test="helperTel != null and ' '">helperTel = #{helperTel},</if>
+		<if test="helperPw != null and ' '">helperPw = #{helperPw},</if>
+		<if test="helperWorkArea != null and ' '">helperWorkArea = #{helperWorkArea},</if>
+		<if test="helperStartTime != null and ' '">helperStartTime= #{helperStartTime},</if>
+		<if test="helperEndTime != null and ' '">helperEndTime= #{helperEndTime},</if>
+		<if test="helperUnique != null and ' '">helperUnique = #{helperUnique},</if>
+		<if test="helperAddr != null and ' '">helperAddr = #{helperAddr}</if>
 		</set>
 		WHERE helperNo = #{helperNo}
 	</update>

@@ -9,5 +9,7 @@
 <body>
 	${serviceDetail.patientName}
 	${serviceDetail.serviceNo}
+	<button type="button" onclick="location.href='confirm.do'">수락</button>
+	<button type="button" onclick="location.href='reject.do'">거절</button>
 </body>
 </html>

@@ -7,10 +7,7 @@
 
 
 <script>
-function fnSubmit(){
-	   pwSHA256();
-	   $("#helperUpdate").submit();
-	}
+
 </script>   
 <!DOCTYPE html>
 <div class="w3-container w3-center">
@@ -100,9 +97,9 @@ function fnSubmit(){
 							<input class="w3-input w3-border" type="text" placeholder="" id="commissionGrade" name="commissionGrade" value="${getSelect.commissionGrade }">
 						</div>
 					</div>
-					<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey" type="reset" onclick="loaction.href=''">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 					&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey" type="button" onclick="fnSubmit(false)">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey"  type="submit">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
 				</form>
 
 			</div>

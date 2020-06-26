@@ -41,34 +41,11 @@
 				</div>
 				
 				<div class="w3-col w3-container m4 s4" align="center">
-					<c:choose>
-						<c:when test="${list.serviceStatus eq 'S01'}">
-							<button type="button" id="btnServiceReady" class="btn btn-info">상세보기</button>
-							<br>
-						</c:when>
-						<c:when test="${list.serviceStatus eq 'S02'}">
-							<button type="button" id="btnPayReady" class="btn btn-primary"
-								disabled>결제대기</button>
-							<br>
-						</c:when>
-						<c:when test="${list.serviceStatus eq 'S03'}">
-							<button type="button" id="btnPayDone" class="btn btn-success"
-								disabled>결제완료</button>
-							<br>
-						</c:when>
-						<c:otherwise>
-							<button type="button" id="btnServiceDone" class="btn btn-dark"
-								disabled>서비스종료</button>
-							<br>
-						</c:otherwise>
-					</c:choose>
+					<br>
 					<button type="button" id="btnLikeList" class="btn btn-light"
 						onclick="getServiceNo('${list.serviceNo}')">상세내역</button>
 					<br>
-					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#"> <img
-						src="${pageContext.request.contextPath}/resources/img/chat/chat.png"
-						style="height: 42px" />
-					</a>
+					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 				</div>
 			</div>
 

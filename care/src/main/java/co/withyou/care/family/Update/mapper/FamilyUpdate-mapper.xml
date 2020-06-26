@@ -13,7 +13,11 @@
 	
 	<update id="Update" parameterType="FamilyUpdateVo">
 		UPDATE family
-		SET familyAddr=#{familyAddr},familyTel=#{familyTel},familyPw=#{familyPw}
+		<set>
+		<if test="familyAddr != null"></if>familyAddr=#{familyAddr},
+		<if test="familyTel != null">familyTel=#{familyTel},</if>
+		<if test="familyPw != null">familyPw=#{familyPw}</if>		
+		</set>
 		WHERE familyNo=#{familyNo}
 	</update>
 </mapper>
