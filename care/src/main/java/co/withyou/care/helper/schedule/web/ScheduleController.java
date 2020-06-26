@@ -1,5 +1,8 @@
 package co.withyou.care.helper.schedule.web;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +33,13 @@ public class ScheduleController {
 		HelperVO getSession = (HelperVO) session.getAttribute("loginOk");
 		vo.setHelperNo(getSession.getHelperNo());
 		
+		if(vo.getServiceDate() ==null) {
+			SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyy-MM-dd");
+			Date currentTime = new Date ();
+			String mTime = mSimpleDateFormat.format ( currentTime );
+			vo.setServiceDate(mTime);
+
+		}
 		List<Map> map = scheduleService.getSchedule(vo);
 		
 		mav.addObject("sceduleList", map);
@@ -40,12 +50,15 @@ public class ScheduleController {
 
 	@RequestMapping("/calendarList.do")
 	@ResponseBody
-	public Map calendarList(@RequestBody List<Map> list, ApplyVo vo) throws Exception {
+	public List<Map> calendarList(ApplyVo vo, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		HelperVO getSession = (HelperVO) session.getAttribute("loginOk");
+		vo.setHelperNo(getSession.getHelperNo());
 		
-		list = scheduleService.getSchedule(vo);
-		
-		
-		return (Map) list;
+		List<Map> list = scheduleService.getCaleadar(vo);	
+
+
+		return list;
 
 	}
 

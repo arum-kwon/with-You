@@ -18,12 +18,19 @@ public class ScheduleServiceImpl implements ScheduleService{
 	
 	@Override
 	public List<Map> getSchedule(ApplyVo vo) throws Exception {
+		
 		return map.getSchedule(vo);
 	}
 
 	@Override
 	public Map getSelect(String serviceNo) throws Exception {
 		return map.getSelect(serviceNo);
+	}
+
+	@Override
+	public List<Map> getCaleadar(ApplyVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return map.getCaleadar(vo);
 	}
 
 }
