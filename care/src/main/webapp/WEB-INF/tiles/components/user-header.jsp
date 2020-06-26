@@ -95,8 +95,8 @@
 	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" />
 	                        	</a>
 		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-		                        	 <button class="dropdown-item" type="button">공지사항</button>
-		    						 <button class="dropdown-item" type="button">문의하기</button>
+		                        	 <button class="dropdown-item" type="button" >공지사항</button>
+		    						 <button class="dropdown-item" type="button" >문의하기</button>
 		    						 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
 		                        </div>
                         	</c:if>
@@ -107,7 +107,7 @@
 	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" />
 	                        	</a>
 		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-		                        	 <button class="dropdown-item" type="button">회원정보수정</button>		                        	 
+		                        	 <button class="dropdown-item" type="button" onclick="location.href='helperGetSelect.do'">회원정보수정</button>		                        	 
 		                        	 <button class="dropdown-item" type="button">공지사항</button>
 		    						 <button class="dropdown-item" type="button">문의하기</button>
 		    						 <button class="dropdown-item" type="button">알림</button>

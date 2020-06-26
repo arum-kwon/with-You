@@ -12,6 +12,7 @@
         <input type="date" id='Loctime' name='Loctime'/>
         <input type="submit" value="검색">
     </form>
+<button type="button" onclick="location.href='sevenLine.do'">1주일 보기</button>    
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 <script>
 

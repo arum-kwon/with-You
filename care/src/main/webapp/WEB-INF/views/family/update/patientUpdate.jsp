@@ -16,13 +16,14 @@
 			<div class="w3-col m4">&nbsp;</div>
 			<div class="w3-col m4">
 				<form id="updateForm" action="patientUpdate.do">
-					<h1>환자정보</h1>
+					<h1>환저정보 수정</h1>
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이름</p></div>
 						<div class="w3-col s8 m8">
 							<input class="w3-input w3-border" type="text" placeholder="" id="patientName" name="patientName" value="${getSelect.patientName }" readonly>
 						</div>
 					</div>
+					
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>성별</p></div>
 						<div class="w3-col s8 m8">
@@ -32,7 +33,8 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>주소</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="text" placeholder="" id="patientAddr" name="patientAddr" value="${getSelect.patientAddr }" >
+							<input class="w3-input w3-border add-juso" type="text" placeholder="" id="patientAddr" name="patientAddr" value="${getSelect.patientAddr }" >
+							<button type="button" onclick="jusoPopup(0)">주소찾기</button>
 						</div>
 					</div>
 					<div class="w3-row">

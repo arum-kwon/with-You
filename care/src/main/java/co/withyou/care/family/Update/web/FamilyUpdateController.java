@@ -26,7 +26,7 @@ public class FamilyUpdateController {
 		public String familygetSelect(FamilyVO vo, HttpServletRequest request, Model model) throws Exception{
 			HttpSession session = request.getSession();
 			vo=(FamilyVO)session.getAttribute("loginOk");
-			//vo = updateservice.getSelect(vo);
+			vo = updateservice.getSelect(vo);
 			model.addAttribute("getSelect",vo);
 			return "family/update/familygetSelect";
 			

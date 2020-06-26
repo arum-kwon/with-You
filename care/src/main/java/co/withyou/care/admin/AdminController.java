@@ -74,10 +74,10 @@ public class AdminController {
     	return "admin/admin-layout/ad_home";
 }
     //헬퍼조회컨트롤
-    @RequestMapping("/adminhelperList.do")
+    /*@RequestMapping("/adminhelperList.do")
       public String adminhelperlist(Locale locale, Model model){
          
       	return "admin/helper/adminhelperList";
-      }	   
+      }	 */  
 }
 

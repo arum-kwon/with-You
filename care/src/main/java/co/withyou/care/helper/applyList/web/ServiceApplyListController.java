@@ -28,7 +28,6 @@ public class ServiceApplyListController {
 		
 		session = request.getSession();
 		HelperVO helperVo = (HelperVO) session.getAttribute("loginOk");
-		System.out.println("여기헬퍼넘버 :"+helperVo.getHelperNo());
 		applyListVo.setHelperNo(helperVo.getHelperNo());
 		
 		List<Map> list = serviceapplylist.getApplyList(applyListVo);

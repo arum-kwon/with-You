@@ -45,7 +45,7 @@
 		  	<h3>가족 활동체크</h3>
 		</div>&nbsp;&nbsp;&nbsp;&nbsp;
 		<div class="fam4">
-		  	<a href="#">
+		  	<a href="patientgetSelect.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/alterPatient.png" style="height:90px"  />
 		  	</a>
 		  	<h3>가족 정보 수정</h3>

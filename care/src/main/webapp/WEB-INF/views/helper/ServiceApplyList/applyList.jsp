@@ -27,8 +27,7 @@
 </script>
 </head>
 <body>
-
-<form id="sNoFrm" name="sNoFrm" action="applyDetail.do" method="post">
+<form id="sNoFrm" name="sNoFrm" action="serviceDetail.do" method="post">
 		<c:forEach var="list" items="${serviceList }">
 			<div class="w3-row">
 				<div class="w3-col w3-container m2 s2" align="center">
@@ -40,6 +39,7 @@
 					${list.familyName} 님<br /> 요청서비스날짜 : ${list.serviceDate }<br />
 					요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지<br />
 				</div>
+				
 				<div class="w3-col w3-container m4 s4" align="center">
 					<c:choose>
 						<c:when test="${list.serviceStatus eq 'S01'}">
@@ -78,10 +78,6 @@
 
 		<input type="hidden" id="serviceNo" name="serviceNo">
 </form>
-
-	<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
-
-
 
 <script type="text/javascript">
 	function getServiceNo(key) {

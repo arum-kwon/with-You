@@ -11,8 +11,12 @@
 		
 	<update id="HelperUpdate" parameterType="UpdateHelperVo">
 		UPDATE Helper
-		SET helperTel = #{helperTel},helperPw = #{helperPw},helperWorkArea = #{helperWorkArea},helperStartTime= #{helperStartTime},helperEndTime= #{helperEndTime},helperUnique = #{helperUnique},
+		<set> 
+		helperTel = #{helperTel},
+		helperPw = #{helperPw},
+		helperWorkArea = #{helperWorkArea},helperStartTime= #{helperStartTime},helperEndTime= #{helperEndTime},helperUnique = #{helperUnique},
 			helperAddr = #{helperAddr}
+		</set>
 		WHERE helperNo = #{helperNo}
 	</update>
 </mapper>

@@ -4,8 +4,8 @@
 	namespace="co.withyou.care.family.Update.mapper.FamilyUpdateMapper">
 
 	<!-- 로그인 -->
-	<select id="getSelect" parameterType="LoginPatientVO"
-		resultType="LoginPatientVO">
+	<select id="getSelect" parameterType="LoginFamilyVO"
+		resultType="LoginFamilyVO">
 		SELECT familyName,familyBirth,familyAddr,familyTel,familyEmail,familySex
 		FROM family
 		WHERE familyNo=#{familyNo}
@@ -13,7 +13,7 @@
 	
 	<update id="Update" parameterType="FamilyUpdateVo">
 		UPDATE family
-		SET familyAddr=#{familyAddr},familyTel=#{familyTel}
+		SET familyAddr=#{familyAddr},familyTel=#{familyTel},familyPw=#{familyPw}
 		WHERE familyNo=#{familyNo}
 	</update>
 </mapper>

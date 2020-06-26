@@ -21,8 +21,16 @@ public class FamilyUpdateVo {
 	private String patientGrade;
 	private String patientMedication;
 	private String patientUnique;
+	private String familyPw;
 	
 	
+	
+	public String getFamilyPw() {
+		return familyPw;
+	}
+	public void setFamilyPw(String familyPw) {
+		this.familyPw = familyPw;
+	}
 	public int getFamilyNo() {
 		return familyNo;
 	}
