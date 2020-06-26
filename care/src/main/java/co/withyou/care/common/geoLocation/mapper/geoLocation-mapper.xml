@@ -6,4 +6,15 @@
 		INSERT INTO PATIENTLOC(PATIENTLOCNO, PATIENTLONGITUDE, PATIENTLATITUDE, PATIENTLOCTIME, PATIENTNO) 
 		VALUES(PLOC_SQ.NEXTVAL, #{patientLongitude}, #{patientLatitude}, #{patientLoctime} , #{patientNo})
 	</insert>
+	
+	<select id="getPatientLoc" parameterType="co.withyou.care.common.geoLocation.service.PatientLocVO"
+							   resultType="co.withyou.care.common.geoLocation.service.PatientLocVO">
+		SELECT PATIENTLATITUDE, PATIENTLONGITUDE 
+		FROM PATIENTLOC 
+		WHERE PATIENTNO = #{patientNo}
+		AND PATIENTLOCTIME = (SELECT MAX(PATIENTLOCTIME) 
+		    FROM PATIENTLOC 
+		    WHERE PATIENTNO = #{patientNo})
+	</select>
+	
 </mapper>

@@ -6,7 +6,20 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/help-manage.js"></script>
 <title>서비스이력 상세조회</title>
+<script type="text/javascript">
+function getCheckResult(isOK){
+	setResult(isOK);
+}
+
+$(function(){
+	
+	getStartTime(serviceNo);
+});
+
+</script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {
   font-family: 'Noto Sans KR', sans-serif;
@@ -41,6 +54,8 @@ a {
 		<img src="${pageContext.request.contextPath}/resources/img/family.png" style="height:50px"/><a>보호자 정보</a><br>
 	 </div>
 	 <div class="text">
+		서비스날짜:${scheduleDetail.serviceDate } <br> 
+		신청날짜:${scheduleDetail.applyDate } <br> 
 		이름:${scheduleDetail.familyName } <br>
 		연락처:${scheduleDetail.familyTel } <br>
 		이메일:${scheduleDetail.familyEmail } <br>
@@ -60,11 +75,16 @@ a {
 		복용중인 약:${scheduleDetail.patientMedication } <br>
 		특이사항:${scheduleDetail.patientUnique } <br>
 	</div>
-
-
-
+	<div>
+		<p>출근시간 : <span id="realStartTime"></span></p>
+		<p>퇴근시간 : <span id="realEndTime"></span></p>
+	</div>
+	<div>
+		<button onclick="btnStart(${scheduleDetail.patientNo}, ${scheduleDetail.serviceNo}, '${scheduleDetail.serviceDate}', ${scheduleDetail.serviceStartTime}, ${scheduleDetail.serviceEndTime})" type="button">출근</button>
+		<button onclick="btnEnd(${scheduleDetail.patientNo}, ${scheduleDetail.serviceNo}, '${scheduleDetail.serviceDate}', ${scheduleDetail.serviceEndTime})" type="button"> 퇴근시</button>
+	</div>
 </div>
-
+	
 
 
 

@@ -48,4 +48,12 @@ public class GeoLocationController {
 		int result = service.insertPatientLoc(vo);
 		return result;
 	}
+	
+	@RequestMapping(value = "/getPatientLoc.do")
+	@ResponseBody
+	public PatientLocVO getPatientLoc(PatientLocVO vo) {
+		vo = service.getPatientLoc(vo);
+		
+		return vo;
+	}
 }

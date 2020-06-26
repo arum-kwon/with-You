@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import co.withyou.care.helper.Login.service.HelperVO;
 import co.withyou.care.helper.schedule.service.ApplyVo;
 import co.withyou.care.helper.schedule.service.ScheduleService;
+import co.withyou.care.helper.schedule.service.ServiceHistoryVO;
 
 @Controller
 public class ScheduleController {
@@ -82,5 +83,35 @@ public class ScheduleController {
 	
 	}
 	
+	@RequestMapping("/setStartTime.do")
+	@ResponseBody
+	public Map setStartTime(ServiceHistoryVO vo) throws Exception {
+		scheduleService.insertStartTime(vo);
+		System.out.println(vo.getServiceNo());
+		Map map = scheduleService.getStartTime(vo.getServiceNo());
+		System.out.println(map.get("realStartTime"));
+		return map;
+	}	
+	
+	@RequestMapping("/setEndTime.do")
+	@ResponseBody
+	public Map setEndTime(ServiceHistoryVO vo) throws Exception {
+		scheduleService.updateEndTime(vo);
+		System.out.println(vo.getServiceNo());
+		Map map = scheduleService.getEndTime(vo.getServiceNo());
+		System.out.println(map.get("realEndTime"));
+		return map;
+	}	
+	
+
+	@RequestMapping("/getRealTimes.do")
+	@ResponseBody
+	public Map getRealTimes(ServiceHistoryVO vo) throws Exception {
+		Map map = scheduleService.getRealTimes(vo.getServiceNo());
+		System.out.println(map.get("realStartTime"));
+		System.out.println(map.get("realEndTime"));
+		return map;
+	}	
+
 	
 } // end of Class

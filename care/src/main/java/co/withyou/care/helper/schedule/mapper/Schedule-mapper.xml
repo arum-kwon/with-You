@@ -39,11 +39,42 @@
 		       p.PATIENTADDR "patientAddr", p.PATIENTMEDICATION "patientMedication", p.PATIENTBLOOD "patientBlood", p.PATIENTSEX "patientSex", 
 		       p.PATIENTTEL "patientTel", p.PATIENTFAMILYTEL "patientFamilyTel", p.PATIENTDISEASE "patientDisease",
 		       p.PATIENTGRADE "patientGrade", p.PATIENTUNIQUE "patientUnique",
-		       s.SERVICEDEMAND "serviceDemand", s.SERVICESTARTTIME "serviceStartTime", s.SERVICEENDTIME "serviceEndTime"
+		       s.SERVICEDEMAND "serviceDemand", s.SERVICESTARTTIME "serviceStartTime", s.SERVICEENDTIME "serviceEndTime", 
+               s.SERVICENO "serviceNo", s.SERVICEDATE "serviceDate", s.APPLYDATE "applyDate"
 		FROM PATIENT p, FAMILY f, SERVICEAPPLY s
 		WHERE s.PATIENTNO = p.PATIENTNO
 		AND s.FAMILYNO = f.FAMILYNO
 		AND s.SERVICENO = #{value}
 		
 	</select>
+	
+	<select id="getStartTime" parameterType="int" resultType="map" >
+		SELECT REALSTARTTIME "realStartTime"
+		FROM SERVICEHISTORY
+		WHERE SERVICENO = #{value}
+	</select>
+	
+	<select id="getEndTime" parameterType="int" resultType="map" >
+		SELECT REALENDTIME "realEndTime"
+		FROM SERVICEHISTORY 
+		WHERE SERVICENO = #{value}
+	</select>
+	
+	<select id="getRealTimes" parameterType="int" resultType="map" >
+		SELECT REALSTARTTIME "realStartTime",
+			   REALENDTIME "realEndTime"
+		FROM SERVICEHISTORY 
+		WHERE SERVICENO = #{value}
+	</select>
+	
+	<insert id="insertStartTime" parameterType="co.withyou.care.helper.schedule.service.ServiceHistoryVO">
+		INSERT INTO SERVICEHISTORY(SERVICENO, REALSTARTTIME)
+		VALUES (#{serviceNo}, SYSDATE)
+	</insert>
+	
+	<update id="updateEndTime" parameterType="co.withyou.care.helper.schedule.service.ServiceHistoryVO">
+		UPDATE SERVICEHISTORY
+		SET REALENDTIME = SYSDATE
+		WHERE SERVICENO = #{serviceNo}
+	</update>
 </mapper>

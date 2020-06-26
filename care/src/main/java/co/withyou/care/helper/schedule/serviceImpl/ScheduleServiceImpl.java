@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import co.withyou.care.helper.schedule.mapper.ScheduleMapper;
 import co.withyou.care.helper.schedule.service.ApplyVo;
 import co.withyou.care.helper.schedule.service.ScheduleService;
+import co.withyou.care.helper.schedule.service.ServiceHistoryVO;
 
 @Service("scheduleService")
 public class ScheduleServiceImpl implements ScheduleService{
@@ -32,5 +33,29 @@ public class ScheduleServiceImpl implements ScheduleService{
 		// TODO Auto-generated method stub
 		return map.getCaleadar(vo);
 	}
+	
+	@Override
+	public int insertStartTime(ServiceHistoryVO vo) {
+		return map.insertStartTime(vo);
+	}
 
+	@Override
+	public int updateEndTime(ServiceHistoryVO vo) {
+		return map.updateEndTime(vo);
+	}
+
+	@Override
+	public Map getStartTime(int no) {
+		return map.getStartTime(no);
+	}
+
+	@Override
+	public Map getEndTime(int no) {
+		return map.getEndTime(no);
+	}
+
+	@Override
+	public Map getRealTimes(int no) {
+		return map.getRealTimes(no);
+	}
 }
