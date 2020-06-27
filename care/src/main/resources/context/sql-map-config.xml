@@ -50,7 +50,7 @@
 		<typeAlias type="co.withyou.care.helper.ServiceDetail.service.ServiceDetailService" alias="DetailVo"/>
 		<typeAlias type="co.withyou.care.helper.confirm.service.ConfirmVo" alias="confirmVo"/>
 		<!-- <typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/> -->
- 		
+ 		<typeAlias type="co.withyou.care.helper.reject.service.HelperRejectService" alias="RejectUpdate"/>
  		
  		
  		
