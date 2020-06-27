@@ -19,7 +19,13 @@ public class TaltwoiController {
 	@Autowired
 	private TaltwoiService taltwoiservice;
 	
-	@RequestMapping("/taltwoi.do")
+	@RequestMapping("/goTaltowi.do")
+	public String GoTaltowi() {
+		return "helper/TalTowi/TalTowi";
+		
+	}
+	
+	@RequestMapping("/taltowi.do")
 	public String HelperTaltwoi(HelperTaltwoiVo vo,HttpServletRequest request,Model model,RedirectAttributes rttr) throws Exception {
 		
 		HttpSession session = request.getSession();
@@ -27,13 +33,11 @@ public class TaltwoiController {
 		String sessionPw = loginVo.getHelperPw();
 		String voPw=vo.getHelperPw();
 		vo.setHelperNo(loginVo.getHelperNo());
-		if(!(sessionPw.equals(voPw))) {
-			rttr.addFlashAttribute("msg",false);
-			return "redirect:/helper/TalTowi/TalTowi";
-		}
+		
+		model.addAttribute("sessionPw",sessionPw);
 		taltwoiservice.HelperTaltowi(vo);
 		session.invalidate();
-		return "redirect:/";
+		return "common/home/home";
 		
 	}
 }

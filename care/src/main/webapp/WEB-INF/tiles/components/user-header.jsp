@@ -112,7 +112,7 @@
 		                        	 <button class="dropdown-item" type="button">공지사항</button>
 		    						 <button class="dropdown-item" type="button">문의하기</button>
 		    						 <button class="dropdown-item" type="button">알림</button>
-		    						 <button class="dropdown-item" type="button" onclick="location.href='taltwoi.do'">회원탈퇴</button>
+		    						 <button class="dropdown-item" type="button" onclick="location.href='goTaltowi.do'">회원탈퇴</button>
 		    						 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
 		                        </div>
                         	</c:if>
