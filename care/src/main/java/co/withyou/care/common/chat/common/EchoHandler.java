@@ -11,12 +11,12 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import co.withyou.care.common.chat.service.ChatVO;
+import co.withyou.care.common.chat.service.ChatVo;
 
 public class EchoHandler extends TextWebSocketHandler {
 	
 	@Autowired
-	public ChatVO vo;
+	public ChatVo vo;
 	
 	private List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
 	private Map<String, WebSocketSession> map = new HashMap<String, WebSocketSession>();
