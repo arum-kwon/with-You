@@ -18,7 +18,7 @@ public class ConfirmContriller {
 	
 	@RequestMapping("/confirm.do")
 	public String Confrim(@RequestParam("serviceNo") int sNo,ConfirmVo vo,Model model) throws Exception{
-		confirmservice.ConfirmUpdate(vo);
+		//confirmservice.ConfirmUpdate(vo);
 		vo.setServiceNo(sNo);
 		int result = 0;
 		result = confirmservice.ConfirmUpdate(vo);

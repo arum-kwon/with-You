@@ -10,4 +10,4 @@
 		where h.helperNo = s.helperNo and h.helperNo = #{helperNo} and s.servicestatus ='S01' and f.familyNo = s.familyNo
 		
 	</select>
-</mapper>
+</mapper> 

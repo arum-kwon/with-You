@@ -33,7 +33,7 @@
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>비밀번호확인</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border pw-check" type="password2" placeholder="" id="helperPw2" name="helperPw2" value="">
+							<input class="w3-input w3-border pw-check" type="password" placeholder="" id="helperPw2" name="helperPw2" value="">
 						</div>
 					</div>
 					<div class="w3-row">
