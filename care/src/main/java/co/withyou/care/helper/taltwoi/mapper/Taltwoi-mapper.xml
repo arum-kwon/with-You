@@ -3,8 +3,8 @@
 <mapper
 	namespace="co.withyou.care.helper.taltwoi.mapper.TaltwoiMapper">
 
-	<update id="HelperTaltowi" parameterType="HelperTaltwoiVo">
+	<delete id="HelperTaltowi" parameterType="HelperTaltwoiVo">
 		delete from helper
 		where helperNo = #{helperNo}
-	</update>
+	</delete>
 </mapper>

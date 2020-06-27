@@ -26,7 +26,7 @@ public class TaltwoiController {
 	}
 	
 	@RequestMapping("/taltowi.do")
-	public String HelperTaltwoi(HelperTaltwoiVo vo,HttpServletRequest request,Model model,RedirectAttributes rttr) throws Exception {
+	public String HelperTaltwoi(HelperTaltwoiVo vo,HttpServletRequest request,Model model) throws Exception {
 		
 		HttpSession session = request.getSession();
 		HelperVO loginVo=(HelperVO) session.getAttribute("loginOk");
