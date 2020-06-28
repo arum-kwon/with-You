@@ -4,26 +4,24 @@
 	namespace="co.withyou.care.hospital.GwangMyeong.mapper.GwnagMyeongMapper">
 
 	<insert id="gwangmyeonginsert" parameterType="GwangMyeongVo">
-		INSERT INTO GwangMyeong
+		INSERT INTO Hospital(hospitalName,hospitalAddr,hospitalSickBad,hospitalLRm,hospitalMedstaf,hospitalLogt,hospitalLat)
 		VALUES(#{BIZPLC_NM},
-			   #{REFINE_WGS84_LOGT},
-			   #{REFINE_WGS84_LAT},
 			   #{REFINE_ROADNM_ADDR},
+			   #{SICKBD_CNT},
 			   #{HOSPTLRM_CNT},
-			   #{MEDSTAF_CNT}),
-			   #{SICKBD_CNT}),
-			   #{TOT_PSN_CNT})
+			   #{MEDSTAF_CNT},			   
+			   #{REFINE_WGS84_LOGT},
+			   #{REFINE_WGS84_LAT})
 	</insert>
 	<insert id="SeoulInsert" parameterType="SeoulVo">
-		INSERT INTO Seoul
+		INSERT INTO Hospital
 		VALUES(#{NM},
 			   #{ADDR},
-			   #{BED_NUM},
-			   #{MEDICAL_STAFF_NUM},
-			   #{HOSPITAL_ROOM_NUM},
 			   #{TEL},
+			   #{BED_NUM},
+			   #{HOSPITAL_ROOM_NUM},
+			   #{MEDICAL_STAFF_NUM},
 			   #{XCODE},
-			   #{YCODE},
-			   #{TOTAL_PEOPLE})
+			   #{YCODE})			 
 	</insert>
 </mapper>

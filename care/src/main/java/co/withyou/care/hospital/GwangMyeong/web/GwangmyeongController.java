@@ -70,7 +70,6 @@ public class GwangmyeongController {
 				vo.setHOSPTLRM_CNT(obj.get("HOSPTLRM_CNT").toString());
 				vo.setMEDSTAF_CNT(obj.get("MEDSTAF_CNT").toString());
 				vo.setSICKBD_CNT(obj.get("SICKBD_CNT").toString());
-				vo.setTOT_PSN_CNT(obj.get("TOT_PSN_CNT").toString());
 			System.out.println("vo : "+vo);
 			try {
 				insert.gwangmyeonginsert(vo);
@@ -126,7 +125,6 @@ public class GwangmyeongController {
 			vo.setHOSPITAL_ROOM_NUM(obj.get("HOSPITAL_ROOM_NUM").toString());
 			vo.setXCODE(obj.get("XCODE").toString());
 			vo.setYCODE(obj.get("YCODE").toString());
-			vo.setTOTAL_PEOPLE(obj.get("TOTAL_PEOPLE").toString());
 			System.out.println("vo : "+vo);
 			try {
 				insert.SeoulInsert(vo);
