@@ -55,7 +55,7 @@
  		<typeAlias type="co.withyou.care.family.familyTaltoe.service.PatientTaltoeVo" alias="PatientTaltoeVo"/>
  		<typeAlias type="co.withyou.care.hospital.GwangMyeong.service.GwangMyeongVo" alias="GwangMyeongVo"/>
  		<typeAlias type="co.withyou.care.hospital.GwangMyeong.service.SeoulVo" alias="SeoulVo"/>
- 		
+ 		<typeAlias type="co.withyou.care.hospital.GwangMyeong.service.HospitalVo" alias="HospitalVo"/>
  		
  		
  		

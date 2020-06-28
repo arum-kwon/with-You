@@ -1,6 +1,8 @@
 package co.withyou.care.hospital.GwangMyeong.web;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -22,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.withyou.care.hospital.GwangMyeong.service.GwangMyeongService;
 import co.withyou.care.hospital.GwangMyeong.service.GwangMyeongVo;
+import co.withyou.care.hospital.GwangMyeong.service.HospitalVo;
 import co.withyou.care.hospital.GwangMyeong.service.SeoulVo;
 
 @Controller
@@ -137,5 +140,16 @@ public class GwangmyeongController {
 		model.addAttribute("Seoul",Seoul);
 		
 		return response;
+	}
+	
+	@RequestMapping("/hospital.do")
+	public String Hospital(HospitalVo vo,Model model) throws Exception {
+		
+		List<Map> list = insert.selectList(vo);
+		System.out.println("요양병원리스트 :"+list);
+		model.addAttribute("selectList",list);
+		
+		return "hospital/Hospital";
+		
 	}
 }

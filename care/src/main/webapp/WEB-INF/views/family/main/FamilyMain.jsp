@@ -37,7 +37,7 @@
 		  </div>
 		<br>
 		<div class="fam3">
-		  	<a href="#contact">
+		  	<a href="hospital.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/hospital.png" style="height:90px"  />
 		  	</a>
 		  	<h3>시설 조회</h3>

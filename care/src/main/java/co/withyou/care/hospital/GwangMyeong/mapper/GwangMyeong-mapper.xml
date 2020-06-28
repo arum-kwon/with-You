@@ -24,4 +24,15 @@
 			   #{XCODE},
 			   #{YCODE})			 
 	</insert>
+	<select id="selectList" parameterType="HospitalVo" resultType="map">
+		SELECT trim('"' from hospitalName) as hospitalName,
+			   trim('"' from hospitaladdr) as hospitalAddr,
+			   trim('"' from hospitaltel) as hospitalTel,
+			   trim('"' from hospitalsickbad) as hospitalSickbad,
+       		   trim('"' from hospitallrm) as hospitalLrm,
+       		   trim('"' from hospitalmedstaf) hospitalMedstaf,
+       		   trim('"' from hospitallogt) hospitalLogt,
+       		   trim('"' from hospitallat) hospitalLat
+		FROM hospital
+	</select>
 </mapper>
