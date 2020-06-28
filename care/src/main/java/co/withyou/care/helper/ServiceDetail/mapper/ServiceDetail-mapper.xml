@@ -15,7 +15,7 @@
 		       s.servicestarttime "serviceStartTime",s.serviceendtime "serviceEndTime",
 		       s.servicedemand "serviceDemand",
 			   s.serviceprice "servicePrice", s.helperprice "helperPrice",
-			   s.serviceprice * (1-c.codename)
+			   s.serviceprice * (1-c.codename) as "commission"
 		FROM patient p,serviceapply s, code c, helper h, review r,
 				(SELECT h.helpername
 				FROM review r, helper h
