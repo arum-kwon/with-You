@@ -49,13 +49,12 @@
 		<typeAlias type="co.withyou.care.helper.applyList.service.ServiceApplyListVo" alias="ApplyListVo"/>
 		<typeAlias type="co.withyou.care.helper.ServiceDetail.service.ServiceDetailVo" alias="DetailVo"/>
 		<typeAlias type="co.withyou.care.helper.confirm.service.ConfirmVo" alias="confirmVo"/>
-		<!-- <typeAlias type="co.withyou.care.hospital.GwangMyeong.GHospitalVO" alias="GHospitalVO"/> -->
  		<typeAlias type="co.withyou.care.helper.reject.service.RejectVo" alias="RejectVo"/>
  		<typeAlias type="co.withyou.care.helper.taltwoi.service.HelperTaltwoiVo" alias="HelperTaltwoiVo"/>
  		<typeAlias type="co.withyou.care.family.familyTaltoe.service.FamilyTaltoeVo" alias="FamilyTaltoeVo"/>
  		<typeAlias type="co.withyou.care.family.familyTaltoe.service.PatientTaltoeVo" alias="PatientTaltoeVo"/>
- 		
- 		
+ 		<typeAlias type="co.withyou.care.hospital.GwangMyeong.service.GwangMyeongVo" alias="GwangMyeongVo"/>
+ 		<typeAlias type="co.withyou.care.hospital.GwangMyeong.service.SeoulVo" alias="SeoulVo"/>
  		
  		
  		

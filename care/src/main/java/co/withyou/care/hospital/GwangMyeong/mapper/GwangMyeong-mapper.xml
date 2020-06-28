@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="co.withyou.care.hospital.GwangMyeong.mapper.GwnagMyeongMapper">
+
+	<insert id="gwangmyeonginsert" parameterType="GwangMyeongVo">
+		INSERT INTO GwangMyeong
+		VALUES(#{BIZPLC_NM},
+			   #{REFINE_WGS84_LOGT},
+			   #{REFINE_WGS84_LAT},
+			   #{REFINE_ROADNM_ADDR},
+			   #{HOSPTLRM_CNT},
+			   #{MEDSTAF_CNT}),
+			   #{SICKBD_CNT}),
+			   #{TOT_PSN_CNT})
+	</insert>
+	<insert id="SeoulInsert" parameterType="SeoulVo">
+		INSERT INTO Seoul
+		VALUES(#{NM},
+			   #{ADDR},
+			   #{BED_NUM},
+			   #{MEDICAL_STAFF_NUM},
+			   #{HOSPITAL_ROOM_NUM},
+			   #{TEL},
+			   #{XCODE},
+			   #{YCODE},
+			   #{TOTAL_PEOPLE})
+	</insert>
+</mapper>
