@@ -4,7 +4,7 @@
 	namespace="co.withyou.care.helper.reject.mapper.HelperRejectMapper">
 
 	<update id="RejectUpdate" parameterType="RejectVo">
-		UDATE serviceapply
+		UPDATE serviceapply
 		SET servicestatus='S05'
 		WHERE serviceNo = #{serviceNo}
 	</update>

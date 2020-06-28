@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/review.js"></script>
+<link href="${pageContext.request.contextPath}/resources/common/css/review.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -86,20 +89,82 @@
 	
 	
 	
-	<!--  후기 및 평점 작성  -->
-	<div>
-	<form>
-		<label for="comment">후기 및 평점:</label>
-    	<textarea class="form-control" rows="5" id="" name=""></textarea>
-    	
-   	<!-- 취소 저장 메인 버튼 모음 -->
-   	
-    	<div><br/></div>
-    	<button type=button>취소</button>
-    	<button type=button>저장</button>
-    	<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
+<!--  후기 및 평점 작성  -->
+<div class="form-group">
+	<label for="exampleTextarea">후기 및 평점:</label>
+	<form action="insertFamilyReview.do" id="reviewFrm" name="reviewFrm">
+		<div>
+			<c:choose>
+				<%-- 후기가 없을 경우 --%>
+				<c:when test="${empty reviewVo}">
+					<div>
+						<div class="starRev">
+							<span class="starR1 on"></span>
+							<span class="starR2"></span>
+							<span class="starR1"></span>
+							<span class="starR2"></span>
+							<span class="starR1"></span>
+							<span class="starR2"></span>
+							<span class="starR1"></span>
+							<span class="starR2"></span>
+							<span class="starR1"></span>
+							<span class="starR2"></span>
+						</div>
+					</div>
+					<c:choose>
+						<%-- 서비스 신청가 종료된 상태일때 : 활성화 --%>
+						<c:when test="${applyDetail.serviceStatus == 'S04'}">
+							<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5"></textarea>
+							<input type="file" id="reviewFile" name="reviewFile" >
+							<input type="hidden" id="reviewStar" name="reviewStar" >
+							<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
+					    	<button class="" type="reset" >취소</button>
+							<button class="" type="button" onclick="sendReview()" >저장</button>
+				    		<button class="" type="button" onclick="location.href='familyMain.do'" >메인</button>
+						</c:when>
+						<%--그 외 상태일 때 : 비활성화 --%>
+						<c:otherwise>
+							<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5" placeholder="서비스 종료 후 작성할 수 있습니다." readonly></textarea>
+							<input type="file" id="reviewFile" name="reviewFile" disabled>
+					    </c:otherwise>
+					</c:choose>
+				</c:when>
+				<%--후기가 있을 경우 --%>
+				<c:otherwise>
+					<div id="star">
+						<c:forEach var="i" begin="1" end="${reviewVo.reviewStar}">
+							<span class="review-star on"></span>
+						</c:forEach>
+					</div>
+					<div id="review-content">
+						<p>${reviewVo.reviewStar}</p>
+						<p>${reviewVo.reviewContents}</p>
+						<p>${reviewVo.reviewFile}</p>
+						<p>${reviewVo.reviewDate}</p>
+						<button class="" type="button" onclick="deleteReview()" >삭제</button>
+			    		<button class="" type="button" onclick="updateFrmReview()" >수정</button>	
+					</div>
+					<%-- 후기 수정 폼 --%>
+					<div id="updateFrm" style="display: none;">
+						<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5">${reviewVo.reviewContents}</textarea>
+						<input type="file" id="reviewFile" name="reviewFile" value="${reviewVo.reviewFile}">
+						<input type="hidden" id="reviewNo" name="reviewNo" value="${reviewVo.reviewNo }">
+						<input type="hidden" id="reviewStar" name="reviewStar" >
+						<input type="hidden" id="writerType" name="writerType" value="f">
+						<input type="hidden" id="serviceNo" name="serviceNo" value="${reviewVo.serviceNo }">
+						<br><br>
+				    	<button class="" type="reset" onclick="updateReviewReset()" >수정취소</button>
+						<button class="" type="button" onclick="updateReview()" >수정저장</button>
+			    		<button class="" type="button" onclick="location.href='familyMain.do'" >메인</button>
+		    		</div>		
+			    </c:otherwise>
+			</c:choose>
+			<br><br>
+		</div> 
+
 	</form>
-	</div>
+</div>	
+<!--  후기 및 평점 작성 끝  -->
 </div>
 
 
@@ -180,7 +245,8 @@
 	                    		apply_num:rsp.apply_num, 
 	                    		paid_amount: rsp.paid_amount, 
 	                    		buyer_name:rsp.buyer_name,
-	                    		buyer_addr:rsp.buyer_addr
+	                    		buyer_addr:rsp.buyer_addr,
+	                    		helper_no:'${applyDetail.helperNo}'
 	                    	}
 	                    
 	                }).done(function(data) {
@@ -195,9 +261,11 @@
 				        msg += '주문자 성명 : ' + rsp.buyer_postcode + '\n';
 				        msg += '주문자 연락처 : ' + rsp.buyer_tel + '\n';
 				        msg += '서비스신청번호: ' + rsp.buyer_addr + '\n';
+				        msg += '간병인 정보 : ' + ${applyDetail.helperNo} + '\n';
 				        //document.console.log(rsp.imp_uid);
 				        alert(msg);
-				        location.href='<%=request.getContextPath()%>/applyList.do';
+				        likeFrm.action = "payResult.do";
+				        likeFrm.submit();
 				    })
 			    }else {
 				        var msg = '결제에 실패하였습니다.';

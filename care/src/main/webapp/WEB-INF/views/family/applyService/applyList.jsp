@@ -97,6 +97,7 @@
 	//상세내역으로 가는 함수
 	function getServiceNo(key) {
 		document.sNoFrm.serviceNo.value=key;
+		document.sNoFrm.helperNo.value=0;
 		console.log(key);
 		document.sNoFrm.submit();
 	}

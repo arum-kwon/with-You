@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.withyou.care.common.review.service.ReviewService;
+import co.withyou.care.common.review.service.ReviewVO;
 import co.withyou.care.family.Login.service.FamilyVO;
 import co.withyou.care.family.apply.service.ApplyService;
 import co.withyou.care.family.apply.service.ApplyServiceVo;
@@ -22,10 +24,17 @@ public class ApplyController {
 	@Autowired
 	public ApplyService applyService;
 	
+	@Autowired
+	public ReviewService reviewService;
+	
 	//서비스 신청하기 메뉴
 	@RequestMapping("applyService.do")
-	public String applyService (ApplyServiceVo applyVo) throws Exception {
+	public String applyService (ApplyServiceVo applyVo, Model model) throws Exception {
 		applyService.applyResultInsert(applyVo);
+
+		//알람을 위해 값을 전달함
+		applyVo.setServiceNo(applyService.getSelectLatest(applyVo));
+		model.addAttribute("applyVo", applyVo);
 		
 		return "family/main/FamilyMain";
 	}
@@ -47,7 +56,9 @@ public class ApplyController {
 	
 	//서비스 신청내역 -> 상세내역 메뉴
 	@RequestMapping("applyDetail.do")
-	public String applyDetail (@RequestParam("serviceNo") String sNo, Model model, ApplyServiceVo applyVo, HttpServletRequest request, HttpSession session) throws Exception {
+	public String applyDetail (@RequestParam("serviceNo") String sNo, Model model, 
+								ApplyServiceVo applyVo, ReviewVO reviewVo, 
+								HttpServletRequest request, HttpSession session) throws Exception {
 		//앞에서 가져온 파라미터 serviceNo를 꺼냄
 		String serviceNo = sNo;
 		System.out.println(serviceNo);
@@ -55,8 +66,7 @@ public class ApplyController {
 		//세션에서 familyNo 받기
 		session = request.getSession();
 		FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
-		applyVo.setFamilyNo(familyVo.getFamilyNo());
-		
+		applyVo.setFamilyNo(familyVo.getFamilyNo());		
 		//상세내역 뷰 출력을 위한 셀렉트
 		Map map = applyService.getSelect(serviceNo);
 		model.addAttribute("applyDetail", map);
@@ -78,6 +88,12 @@ public class ApplyController {
 		//블랙리스트 데이터에따라 아이콘 활성화 유무를 위한 셀렉트
 		Map map5 = applyService.getSelect5(applyVo);
 		model.addAttribute("applyDetail5", map5);
+		
+		//리뷰 정보 가져오기
+		reviewVo.setServiceNo(applyVo.getServiceNo());
+		reviewVo.setReviewWriter(familyVo.getFamilyNo());
+		reviewVo = reviewService.selectReview(reviewVo);
+		model.addAttribute("reviewVo", reviewVo);
 		
 		return "family/applyService/applyDetail";
 	}

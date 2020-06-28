@@ -81,7 +81,64 @@
 						class="co.withyou.care.patient.Login.interceptor.PostHandlerInterceptor">
 			</beans:bean>
 		</interceptor>	
+		
+		<!-- 알림 관련 handler -->
+		<interceptor>
+			<mapping path="/applyService.do"/>			
+			<beans:bean id="PostchangeServiceStateS01" 
+						class="co.withyou.care.common.alarm.interceptor.PostchangeServiceStateS01">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/payResult.do"/>			
+			<beans:bean id="PostChangeServiceStateS03" 
+						class="co.withyou.care.common.alarm.interceptor.PostChangeServiceStateS03">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/setStartTime.do"/>			
+			<beans:bean id="PreHelperStart" 
+						class="co.withyou.care.common.alarm.interceptor.PreHelperStart">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/setEndTime.do"/>			
+			<beans:bean id="PreHelperEnd" 
+						class="co.withyou.care.common.alarm.interceptor.PreHelperEnd">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/helperLeave.do"/>			
+			<beans:bean id="PreHelperLeave" 
+						class="co.withyou.care.common.alarm.interceptor.PreHelperLeave">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/outOfTheArea.do"/>			
+			<beans:bean id="PreOutOfTheArea" 
+						class="co.withyou.care.common.alarm.interceptor.PreOutOfTheArea">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/chatInsert.do"/>			
+			<beans:bean id="PostInsertMsg" 
+						class="co.withyou.care.common.alarm.interceptor.PostInsertMsg">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/confirm.do"/>			
+			<beans:bean id="PostChangeServiceStateS02" 
+						class="co.withyou.care.common.alarm.interceptor.PostChangeServiceStateS02">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/reject.do"/>			
+			<beans:bean id="PostChangeServiceStateS05" 
+						class="co.withyou.care.common.alarm.interceptor.PostChangeServiceStateS05">
+			</beans:bean>
+		</interceptor>
 	</interceptors>
+	
 	
 	<context:component-scan base-package="co.withyou.care" />
 	

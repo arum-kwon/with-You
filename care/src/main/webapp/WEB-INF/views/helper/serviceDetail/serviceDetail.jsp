@@ -93,8 +93,24 @@
   </table>
 </div>	
 <div>
-	<button type="button" id="confirm" onclick="location.href='confirm.do'">수락</button>
-	<button type="button" id="rejct" onclick="location.href='reject.do'">거절</button>
+<!-- 컨트롤러에 값을 전달하기 위해 태그 추가-->
+<form action="" id="serviceFrm" name="serviceFrm">
+	<input type="hidden" id="familyNo" name="familyNo" value="${serviceDetail.familyNo }">
+	<input type="hidden" id="serviceNo" name="serviceNo" value="${serviceDetail.serviceNo }">
+	<button type="button" id="confirm" onclick="btnConfirm()">수락</button>
+	<button type="button" id="rejct" onclick="btnReject()">거절</button>
+</form>
 </div>	
+
+<script type="text/javascript">
+function btnConfirm(){
+	serviceFrm.action = 'confirm.do';
+	serviceFrm.submit();
+}
+function btnReject(){
+	serviceFrm.action = 'reject.do';
+	serviceFrm.submit();
+}
+</script>
 </body>
 </html>

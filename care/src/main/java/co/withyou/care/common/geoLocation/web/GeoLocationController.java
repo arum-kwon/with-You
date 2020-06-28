@@ -48,6 +48,23 @@ public class GeoLocationController {
 		int result = service.insertPatientLoc(vo);
 		return result;
 	}
+
+	/**
+	 * 간병인이 환자와 멀어짐
+	 */
+	@RequestMapping(value = "/helperLeave.do")
+	@ResponseBody
+	public void helperLeave() {
+	}
+
+	/**
+	 * 환자가 안심구역을 벗어남
+	 */
+	@RequestMapping(value = "/outOfTheArea.do")
+	@ResponseBody
+	public int outOfTheArea() {
+		return 0;
+	}
 	
 	@RequestMapping(value = "/getPatientLoc.do")
 	@ResponseBody

@@ -14,10 +14,6 @@ function getCheckResult(isOK){
 	setResult(isOK);
 }
 
-$(function(){
-	
-	getStartTime(serviceNo);
-});
 
 </script>
 <style>
@@ -80,8 +76,11 @@ a {
 		<p>퇴근시간 : <span id="realEndTime"></span></p>
 	</div>
 	<div>
-		<button onclick="btnStart(${scheduleDetail.patientNo}, ${scheduleDetail.serviceNo}, '${scheduleDetail.serviceDate}', ${scheduleDetail.serviceStartTime}, ${scheduleDetail.serviceEndTime})" type="button">출근</button>
-		<button onclick="btnEnd(${scheduleDetail.patientNo}, ${scheduleDetail.serviceNo}, '${scheduleDetail.serviceDate}', ${scheduleDetail.serviceEndTime})" type="button"> 퇴근시</button>
+		<input type="hidden" id="patientNo" name="patientNo" value="${scheduleDetail.patientNo}">
+		<input type="hidden" id="serviceNo" name="serviceNo" value="${scheduleDetail.serviceNo}">
+		<input type="hidden" id="fmailyNo" name="fmailyNo" value="${scheduleDetail.familyNo}">
+		<button onclick="btnStart('${scheduleDetail.serviceDate}', ${scheduleDetail.serviceStartTime}, ${scheduleDetail.serviceEndTime})" type="button">출근</button>
+		<button onclick="btnEnd('${scheduleDetail.serviceDate}', ${scheduleDetail.serviceEndTime})" type="button"> 퇴근시</button>
 	</div>
 </div>
 	

@@ -111,4 +111,14 @@
 						AND SERVICENO = #{serviceNo})
 	</select>
 	
+	<!--알림을 위한 부분, 가장 최근 서비스신청번호 조회 -->
+	<select id="getSelectLatest" parameterType="ApplyServiceVo" resultType="int">
+		SELECT MAX(SERVICENO)
+		FROM SERVICEAPPLY
+		WHERE HELPERNO = #{helperNo}
+		AND FAMILYNO = #{familyNo}
+		AND SERVICESTARTTIME = #{serviceStartTime}
+		AND SERVICEENDTIME = #{serviceEndTime}
+		AND SERVICEDATE = #{serviceDate}
+	</select>
 </mapper>

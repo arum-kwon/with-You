@@ -67,6 +67,9 @@ public class ChatController {
 		//msg insert into DB table name 'CHAT'
 		System.out.println("insert chat vo:" + chatVo);
 		chatService.chatInsert(chatVo);
+
+		//알람을 위해 값을 전달함
+		model.addAttribute("chatVo", chatVo);
 		
 		//유저타입에 따라 필요한 값 물려서 페이지 리다이렉트
 		if (chatVo.getUserType().equals("f")) {

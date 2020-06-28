@@ -36,6 +36,7 @@
 		</where>
 	</select>
 	
+	<!--경력과 자격증이 없으면 목록에 안떠서 아우터조인으로 수정함-->
 	<select id="getSelect" parameterType="String" resultType="map">
 		SELECT H.HELPERNO "helperNo",
 				H.HELPERNAME "helperName",
@@ -53,8 +54,8 @@
 				TO_CHAR(CA.CAREERSTART, 'YYYY-MM-DD') "careerStart",
 				TO_CHAR(CA.CAREEREND, 'YYYY-MM-DD') "careerEnd"
 		 FROM HELPER H, CERTIFICATION C, CARRER CA
-		 WHERE H.HELPERNO = C.HELPERNO
-		 AND H.HELPERNO = CA.HELPERNO
+		 WHERE H.HELPERNO = C.HELPERNO(+)
+		 AND H.HELPERNO = CA.HELPERNO(+)
 		 AND H.HELPERNO = #{value}
 	</select>
 </mapper>

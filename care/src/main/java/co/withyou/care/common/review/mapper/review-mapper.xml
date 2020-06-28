@@ -5,14 +5,14 @@
 	<select id="selectReview" resultType="co.withyou.care.common.review.service.ReviewVO" parameterType="co.withyou.care.common.review.service.ReviewVO">
 		SELECT * FROM REVIEW 
 		WHERE SERVICENO = #{serviceNo}
-		AND REVIEWWRITER = #{reviewWriter};
+		AND REVIEWWRITER = #{reviewWriter}
 	</select>
 	
 	<insert id="insertReview" parameterType="co.withyou.care.common.review.service.ReviewVO">
 		INSERT INTO REVIEW (REVIEWNO, REVIEWWRITER, REVIEWDATE, REVIEWCONTENTS, 
 							REVIEWFILE, REVIEWSTAR, SERVICENO) 
-		VALUES (0, #{reviewWriter}, SYSDATE, #{reviewStar}, 
-				#{reviewContents}, #{reviewFile}, #{serviceNo})
+		VALUES (0, #{reviewWriter}, SYSDATE, #{reviewContents}, 
+				#{reviewFile}, #{reviewStar}, #{serviceNo})
 	</insert>
 	
 	<delete id="deleteReview" parameterType="int">
@@ -21,7 +21,7 @@
 	
 	<update id="updateReview" parameterType="co.withyou.care.common.review.service.ReviewVO">
 		UPDATE REVIEW 
-		SET REVIEWDATE = #{reviewDate}, 
+		SET REVIEWDATE = SYSDATE, 
 		REVIEWCONTENTS = #{reviewContents}, 
 		REVIEWSTAR = #{reviewStar}, 
 		REVIEWFILE = #{reviewFile} 

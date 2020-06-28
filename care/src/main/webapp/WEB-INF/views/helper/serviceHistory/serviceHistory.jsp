@@ -68,9 +68,9 @@ function getServiceNo(key) {
 	    	<button type="button" onclick="getServiceNo('${list.serviceNo}')" class="w3-button w3-blue w3-round-large">상세보기</button>
 	    </div>
 	 </div> 
-	 <input type="hidden" id="serviceNo" name="serviceNo">
 	<hr style="border:1px color= silver;" width="100%">
 </c:forEach>
+<input type="hidden" id="serviceNo" name="serviceNo">
 </form>
 
 

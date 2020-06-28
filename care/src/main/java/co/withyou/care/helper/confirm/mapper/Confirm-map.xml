@@ -6,7 +6,7 @@
 	
 		
 	<update id="ConfirmUpdate" parameterType="confirmVo">
-		UDATE serviceapply
+		UPDATE serviceapply
 		SET servicestatus='S02'
 		WHERE serviceNo = #{serviceNo}
 	</update>

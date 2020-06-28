@@ -33,13 +33,13 @@
 
 
 
-	
+	<!-- 알람을 위해 일부 컬럼 추가함-->
 	<select id="getSelect" parameterType="String" resultType="map">
-		SELECT f.FAMILYNAME "familyName", f.FAMILYTEL "familyTel", f.FAMILYEMAIL "familyEmail",
+		SELECT f.FAMILYNAME "familyName", f.FAMILYTEL "familyTel", f.FAMILYEMAIL "familyEmail", f.FAMILYNO "familyNo",
 		       p.PATIENTNAME "patientName", MONTHS_BETWEEN(TRUNC(SYSDATE,'YEAR'), TRUNC(p.PATIENTBIRTH,'YEAR') ) /12 +1 "patientBirth",
 		       p.PATIENTADDR "patientAddr", p.PATIENTMEDICATION "patientMedication", p.PATIENTBLOOD "patientBlood", p.PATIENTSEX "patientSex", 
 		       p.PATIENTTEL "patientTel", p.PATIENTFAMILYTEL "patientFamilyTel", p.PATIENTDISEASE "patientDisease",
-		       p.PATIENTGRADE "patientGrade", p.PATIENTUNIQUE "patientUnique",
+		       p.PATIENTGRADE "patientGrade", p.PATIENTUNIQUE "patientUnique", p.PATIENTNO "patientNo",
 		       s.SERVICEDEMAND "serviceDemand", s.SERVICESTARTTIME "serviceStartTime", s.SERVICEENDTIME "serviceEndTime", 
                s.SERVICENO "serviceNo", s.SERVICEDATE "serviceDate", s.APPLYDATE "applyDate"
 		FROM PATIENT p, FAMILY f, SERVICEAPPLY s

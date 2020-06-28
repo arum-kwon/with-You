@@ -3,6 +3,7 @@
 <mapper
 	namespace="co.withyou.care.helper.ServiceDetail.mapper.ServiceDetailMapper">
 
+	<!--알람을 위해 일부 컬럼 추가-->
 	<select id="getServiceDetail" parameterType="DetailVo"
 		resultType="map">
 		SELECT p.patientno "patientNO",s.serviceno "serviceNo",
@@ -13,7 +14,7 @@
 			   p.patientmedication "patientMedication",p.patientunique "patientUnique",
 			   p.patienttel "patientTel",rn.helpername "helperName",
 		       s.servicestarttime "serviceStartTime",s.serviceendtime "serviceEndTime",
-		       s.servicedemand "serviceDemand",
+		       s.servicedemand "serviceDemand", s.familyNo "familyNo",
 			   s.serviceprice "servicePrice", s.helperprice "helperPrice",
 			   s.serviceprice * (1-c.codename) as "commission"
 		FROM patient p,serviceapply s, code c, helper h, review r,

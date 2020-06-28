@@ -4,7 +4,7 @@ function jusoPopup(index){
 	jusoIndex = index;
 	var pop = window.open("jusoPopup.do","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
 }
-
+//주소 팝업에서 콜백됨
 function jusoCallBack(roadFullAddr){
 	$(".add-juso").eq(jusoIndex).val(roadFullAddr);
 }

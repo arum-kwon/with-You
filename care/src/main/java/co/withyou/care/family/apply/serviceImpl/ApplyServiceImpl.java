@@ -20,44 +20,42 @@ public class ApplyServiceImpl implements ApplyService{
 
 	@Override
 	public void applyResultInsert(ApplyServiceVo applyVo) throws Exception {
-		// TODO Auto-generated method stub
 		applyMap.applyResultInsert(applyVo);
 	}
 
 	@Override
 	public List<Map> getSelectList(ApplyServiceVo applyVo) throws Exception {
-		// TODO Auto-generated method stub
 		return applyMap.getSelectList(applyVo);
 	}
 
 	@Override
 	public Map getSelect(String serviceNo) throws Exception {
-		// TODO Auto-generated method stub
 		return applyMap.getSelect(serviceNo);
 	}
 
 	@Override
 	public Map getSelect2(String serviceNo) throws Exception {
-		// TODO Auto-generated method stub
 		return applyMap.getSelect2(serviceNo);
 	}
 
 	@Override
 	public Map getSelect3(String serviceNo) throws Exception {
-		// TODO Auto-generated method stub
 		return applyMap.getSelect3(serviceNo);
 	}
 
 	@Override
 	public Map getSelect4(ApplyServiceVo applylVo) throws Exception {
-		// TODO Auto-generated method stub
 		return applyMap.getSelect4(applylVo);
 	}
 
 	@Override
 	public Map getSelect5(ApplyServiceVo applylVo) throws Exception {
-		// TODO Auto-generated method stub
 		return applyMap.getSelect5(applylVo);
+	}
+
+	@Override
+	public int getSelectLatest(ApplyServiceVo applyVo) throws Exception {
+		return applyMap.getSelectLatest(applyVo);
 	}
 	
 }

@@ -15,6 +15,7 @@
 		AND s.HELPERNO = #{helperNo}
 	</select>
 	
+	<!--알람 떄문에 일부 칼럼 추가함-->
 	<select id="getSelect" parameterType="String" resultType="map">
 		SELECT p.PATIENTNAME "patientName", p.PATIENTSEX "patientSex", 
 		       MONTHS_BETWEEN(TRUNC(SYSDATE,'YEAR'), TRUNC(p.PATIENTBIRTH,'YEAR') ) /12 +1 "patientBirth", 
@@ -22,7 +23,7 @@
        		   p.PATIENTDISEASE "patientDisease", p.PATIENTGRADE "patientGrade",  
                TO_CHAR(s.SERVICEDATE,'YYYY/MM/DD') "serviceDate", 
                s.SERVICESTARTTIME "serviceStartTime", s.SERVICEENDTIME "serviceEndTime", s.HELPERPRICE "helperPrice",
-               s.SERVICEDEMAND "serviceDemand",
+               s.SERVICEDEMAND "serviceDemand", s.SERVICENO "serviceNo", 
                h.REALSTARTTIME "realStartTime", h.REALENDTIME "realEndTime"    
 	    FROM PATIENT p, SERVICEAPPLY s, SERVICEHISTORY h
         WHERE p.PATIENTNO = s.PATIENTNO

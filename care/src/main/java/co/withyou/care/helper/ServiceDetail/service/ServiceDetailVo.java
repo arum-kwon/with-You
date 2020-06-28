@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ServiceDetailVo {
 	private int helperNo;
+	private int familyNo;
 	private String helperName;
 	private Date helperBirth;
 	private String helperSex;
@@ -19,7 +20,13 @@ public class ServiceDetailVo {
 	private String commissionGrade;
 	private String serviceNo;
 	
-	
+	//알람을 위해 FamilyNo 필드 메서드 추가
+	public int getFamilyNo() {
+		return familyNo;
+	}
+	public void setFamilyNo(int familyNo) {
+		this.familyNo = familyNo;
+	}
 	public String getServiceNo() {
 		return serviceNo;
 	}
