@@ -18,5 +18,10 @@ public class ServiceDetailServiceImpl implements ServiceDetailService{
 		// TODO Auto-generated method stub
 		return map.getServiceDetail(vo);
 	}
+	@Override
+	public Map getPatientReview(ServiceDetailVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return map.getPatientReview(vo);
+	}
 
 }

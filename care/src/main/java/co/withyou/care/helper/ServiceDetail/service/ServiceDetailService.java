@@ -6,4 +6,5 @@ import java.util.Map;
 public interface ServiceDetailService {
 
 	Map getServiceDetail(ServiceDetailVo vo) throws Exception;
+	Map getPatientReview(ServiceDetailVo vo) throws Exception;
 }

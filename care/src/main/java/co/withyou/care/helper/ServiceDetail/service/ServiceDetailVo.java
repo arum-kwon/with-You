@@ -18,26 +18,19 @@ public class ServiceDetailVo {
 	private String helperAddr;
 	private String helperProfile;
 	private String commissionGrade;
-	private String serviceNo;
+	private int serviceNo;
 	
-	//알람을 위해 FamilyNo 필드 메서드 추가
-	public int getFamilyNo() {
-		return familyNo;
-	}
-	public void setFamilyNo(int familyNo) {
-		this.familyNo = familyNo;
-	}
-	public String getServiceNo() {
-		return serviceNo;
-	}
-	public void setServiceNo(String serviceNo) {
-		this.serviceNo = serviceNo;
-	}
 	public int getHelperNo() {
 		return helperNo;
 	}
 	public void setHelperNo(int helperNo) {
 		this.helperNo = helperNo;
+	}
+	public int getFamilyNo() {
+		return familyNo;
+	}
+	public void setFamilyNo(int familyNo) {
+		this.familyNo = familyNo;
 	}
 	public String getHelperName() {
 		return helperName;
@@ -117,6 +110,13 @@ public class ServiceDetailVo {
 	public void setCommissionGrade(String commissionGrade) {
 		this.commissionGrade = commissionGrade;
 	}
+	public int getServiceNo() {
+		return serviceNo;
+	}
+	public void setServiceNo(int serviceNo) {
+		this.serviceNo = serviceNo;
+	}
+	
 	
 	
 }

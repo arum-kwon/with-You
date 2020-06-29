@@ -38,26 +38,34 @@ select {
 .main {
  	margin:30px;
 }
-
+#bad,#room,#staf{
+	text-align : center;
+}
+.bad,.room,.staf{
+	text-align : center;
+}
 </style>
 <body>
 
 
 <div><br/></div>
 <div class="main" align="center">
-	<form id="frm" action="searchHospital.do" method="post">
-		<input type="text" name="search" size="15">
-		<input type="submit" value="검색">
-	</form>
+	<div>
+		<form id="frm" action="searchHospital.do" method="post">
+			<input type="text" name="search" size="15">
+			<input type="submit" value="검색">	
+		</form>
+		<br>
+	</div>
 	<table class="table table-hover">
 		<tr class="table-light">
-			<th>병원이름</th>
-			<th>주소</th>
-			<th>연락처</th>
-			<th>병상</th>
-			<th>돌봄종료시간</th>
-			<th>돌봄종료시간</th>
-			<th>돌봄종료시간</th>			
+			<th></th>
+			<th id="name">병원이름</th>
+			<th id="addr">주소</th>
+			<th id="tell">연락처</th>
+			<th id="bad">병상</th>
+			<th id="room">입원실</th>
+			<th id="staf">의료진</th>
 		</tr>
 		<c:forEach var="list" items="${selectList}">
 		<tr>
@@ -65,9 +73,9 @@ select {
 			<td scope="row">${list.HOSPITALNAME }</td>
 			<td scope="row">${list.HOSPITALADDR  }</td>
 			<td scope="row">${list.HOSPITALTEL  }</td>
-			<td scope="row">${list.HOSPITALSICKBAD  }</td>	
-			<td scope="row">${list.HOSPITALLRM }</td>
-        	<td scope="row">${list.HOSPITALMEDSTAF }</td>	
+			<td scope="row" class="bad">${list.HOSPITALSICKBAD  }</td>	
+			<td scope="row" class="room">${list.HOSPITALLRM }</td>
+        	<td scope="row" class="staf">${list.HOSPITALMEDSTAF }</td>	
 		</tr>
 		</c:forEach>
 	</table>

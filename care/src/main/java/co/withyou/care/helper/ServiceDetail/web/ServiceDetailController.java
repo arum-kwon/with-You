@@ -22,8 +22,9 @@ public class ServiceDetailController {
 	@Autowired
 	public ServiceDetailService serviceDetail;
 	
+	
 	@RequestMapping("serviceDetail.do")
-	public String ServiceDetail(@RequestParam("serviceNo") String sNo,Model model, HttpServletRequest request,ServiceDetailVo vo,HttpSession session) throws Exception {
+	public String ServiceDetail(@RequestParam("serviceNo") int sNo,Model model, HttpServletRequest request,ServiceDetailVo vo,HttpSession session) throws Exception {
 		session = request.getSession();
 		vo.setServiceNo(sNo);
 		
@@ -33,6 +34,8 @@ public class ServiceDetailController {
 		Map list = serviceDetail.getServiceDetail(vo);
 		model.addAttribute("serviceDetail",list);
 		System.out.println("응여기리스트으으으"+list);
+		Map reviewList = serviceDetail.getPatientReview(vo);
+		
 		return "helper/serviceDetail/serviceDetail";
 		
 	}
