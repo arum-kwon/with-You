@@ -24,6 +24,7 @@ public class ConfirmContriller {
 	public String Confrim(@RequestParam("serviceNo") int sNo,ConfirmVo vo, HttpServletRequest request, Model model) throws Exception{
 		//confirmservice.ConfirmUpdate(vo);
 		//알람을 위해 값을 전달함
+		System.out.println("여기가 sNo"+sNo);
 		HttpSession session = request.getSession();
 		HelperVO helperVo = (HelperVO) session.getAttribute("loginOk");
 
@@ -33,6 +34,8 @@ public class ConfirmContriller {
 		result = confirmservice.ConfirmUpdate(vo);
 		model.addAttribute("confirm",vo);
 		
-		return null;
+		return "helper/main/helperMain";
+		
 	}
+	
 }

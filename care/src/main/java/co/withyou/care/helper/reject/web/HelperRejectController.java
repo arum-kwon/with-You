@@ -25,7 +25,8 @@ public class HelperRejectController {
 
 		HttpSession session = request.getSession();
 		HelperVO helperVo = (HelperVO) session.getAttribute("loginOk");
-
+		
+		System.out.println("거절serviceNo :"+sNo);
 		vo.setHelperNo(helperVo.getHelperNo());
 		vo.setServiceNo(sNo);
 		int result=0;
@@ -33,6 +34,6 @@ public class HelperRejectController {
 		
 		//알람을 위해 넘겨주는값
 		model.addAttribute("RejectVo", vo);
-		return null;
+		return "helper/main/helperMain";
 	}
 }

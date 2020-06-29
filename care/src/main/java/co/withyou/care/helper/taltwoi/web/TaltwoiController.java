@@ -20,7 +20,11 @@ public class TaltwoiController {
 	private TaltwoiService taltwoiservice;
 	
 	@RequestMapping("/goTaltowi.do")
-	public String GoTaltowi() {
+	public String GoTaltowi(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		HelperVO loginHvo = (HelperVO)session.getAttribute("loginOk");
+		String sessionPw = loginHvo.getHelperPw();
+		model.addAttribute("sessionPw",sessionPw);
 		return "helper/TalTowi/TalTowi";
 		
 	}
