@@ -11,7 +11,7 @@
 	<insert id="insertReview" parameterType="co.withyou.care.common.review.service.ReviewVO">
 		INSERT INTO REVIEW (REVIEWNO, REVIEWWRITER, REVIEWDATE, REVIEWCONTENTS, 
 							REVIEWFILE, REVIEWSTAR, SERVICENO) 
-		VALUES (0, #{reviewWriter}, SYSDATE, #{reviewContents}, 
+		VALUES (REVIEW_SQ.NEXTVAL, #{reviewWriter}, SYSDATE, #{reviewContents}, 
 				#{reviewFile}, #{reviewStar}, #{serviceNo})
 	</insert>
 	
