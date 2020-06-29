@@ -31,4 +31,11 @@ public class SearchServiceImpl implements SearchService{
 		return map.getSelect(helperNo);
 	}
 
+	@Override
+	public List<Map> getSelectList2(String helperNo) throws Exception {
+		// TODO Auto-generated method stub
+		return map.getSelectList2(helperNo);
+	}
+
+
 }

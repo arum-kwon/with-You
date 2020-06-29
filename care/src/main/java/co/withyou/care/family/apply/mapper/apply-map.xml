@@ -52,6 +52,7 @@
 			                                     FROM FAMILY F, PATIENT P
 			                                     WHERE F.FAMILYNO = P.FAMILYNO
 			                                     AND F.FAMILYNO=#{familyNo}))
+		ORDER BY S.SERVICEDATE			                                     
 	</select>
 	
 	<select id="getSelect" parameterType="String" resultType="map">
