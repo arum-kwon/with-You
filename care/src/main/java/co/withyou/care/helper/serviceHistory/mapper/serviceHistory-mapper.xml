@@ -27,7 +27,7 @@
                h.REALSTARTTIME "realStartTime", h.REALENDTIME "realEndTime"    
 	    FROM PATIENT p, SERVICEAPPLY s, SERVICEHISTORY h
         WHERE p.PATIENTNO = s.PATIENTNO
-	    AND s.SERVICENO = h.SERVICENO
+	    AND s.SERVICENO = h.SERVICENO(+)
 		AND s.SERVICENO = #{value}
 
 	</select>
