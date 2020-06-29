@@ -12,9 +12,9 @@
        		   trim('"' from hospitallogt) hospitalLogt,
        		   trim('"' from hospitallat) hospitalLat
 from hospital
-where hospitalName like '%'+#{searchKey}+'%' or 
-	  hospitalAddr like '%'+#{searchKey}+'%' or 
-	  hospitalTel like '%'+#{searchKey}+'%' 
+where hospitalName like '%'||#{searchKey}||'%' or 
+	  hospitalAddr like '%'||#{searchKey}||'%' or 
+	  hospitalTel like '%'||#{searchKey}||'%' 
 	
 	</select>
 </mapper>
