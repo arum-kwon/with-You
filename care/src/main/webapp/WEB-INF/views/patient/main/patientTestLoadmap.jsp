@@ -46,8 +46,9 @@ geocoder.addressSearch("${patientAddr}", function(result, status) {
 	   var lng = result[0].x;
 	   console.log("lat :" + lat);
 	   console.log("lng :" + lng);
-	   
-	   document.getElementById("addr").setAttribute("href","https://map.kakao.com/link/to/${patientAddr}," + lat + "," + lng);
+	   var addr = "${patientAddr}".split(',');
+	   console.log(addr[0]);
+	   document.getElementById("addr").setAttribute("href","https://map.kakao.com/link/to/"+ addr[0] + "," + lat + "," + lng);
 	}
 	
 });
@@ -58,7 +59,7 @@ geocoder.addressSearch("${patientAddr}", function(result, status) {
 	<div align="center">
 		<div align="center" style="margin: 40px;">
 			<a id="addr" style="color: black"
-				href="https://map.kakao.com/link/to/${patientAddr},lat,126.57049341667">
+			   href="https://map.kakao.com/link/to/${patientAddr},126.57049341667,126.57049341667"> 
 				<img src="${pageContext.request.contextPath}/resources/img/menu/findLoad.png" style="height: 90px" />
 			</a>
 			<h2>길찾기</h2>

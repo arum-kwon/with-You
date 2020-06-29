@@ -7,4 +7,5 @@
 		SELECT * FROM PATIENT WHERE PATIENTVCODE = #{patientVcode}
 	</select>
 
+
 </mapper>
