@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import co.withyou.care.family.searchHospital.service.SearchHospitalService;
 import co.withyou.care.family.searchHospital.service.SearchHospitalVo;
 
-@Service
 public class SearchHospitalServiceImpl implements SearchHospitalService{
 
 		@Autowired

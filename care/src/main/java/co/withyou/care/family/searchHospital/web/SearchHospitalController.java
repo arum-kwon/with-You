@@ -24,8 +24,10 @@ public class SearchHospitalController {
 	public String SearchHospital(HttpServletRequest request,SearchHospitalVo vo,Model model) throws Exception {
 		String Search = request.getParameter("search");
 		vo.setSearchKey(Search);
+		System.out.println("SearchKey :"+vo.getSearchKey());
 		List<Map> list = search.selectList(vo);
-		return "";
+		model.addAttribute("selectList",list);
+		return "family/hospital/Hospital";
 				
 	}
 }
