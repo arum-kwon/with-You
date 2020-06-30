@@ -22,23 +22,49 @@
 	.m4{
 		font-family: 'Nanum Gothic', sans-serif;		
 	}
-
-	.title{
-		margin-top : 30;
+	.add-juso, {
+		margin-bottom : 5px;
 	}
+	
+	.add-btn{
+		margin-bottom : 5px;
+		border-radius : 4px;
+		width : 100%;
+	}
+	.input, {
+		margin-botton : 5px;
+	}
+	option{
+		border-radius : 6px;
+	}
+	.confrim{
+		margin-left : 100px;
+	}
+	.title{
+		margin-bottom : 15px;
+	}
+	.time, .file{
+		margin : auto;
+	}
+	
 </style>
+
 <body>
-	<div class="m4 container">
+<div class="">
+<div class="">
+
+<div class="">&nbsp;</div>
+<div class="container">
 	<form action="createMemberHelper.do" id="mainFrm" name="mainFrm" method="post" encType="multipart/form-data">
 		<h1 align="center" class="m4 title">회원가입</h1>
-	
+		<div class="w3-row form-group">
 			<div class="w3-col s4 m4 etop"><p>이메일*</p></div>
 			<div class="w3-col s8 m8">
 				<input class="form-control input" type="email" placeholder="abc@def.com" id="helperEmail" name="helperEmail" required> 
 				<span id="email-success" style="display: none;">사용 가능</span>
 				<span id="email-danger" style="display: none; color: #d92742; font-weight: bold; ">사용 불가</span>
 			</div>
-	
+		</div>
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>비밀번호*</p></div>
 			<div class="w3-col s8 m8">
