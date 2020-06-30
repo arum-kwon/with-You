@@ -20,6 +20,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <!-- 로그인 비밀번호 암호화 -->
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
 <style>
 .errorMsg, .errorMsg2 {
