@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <title>간병인신청 메뉴 페이지</title>
 <style>
 .myButton {
@@ -13,7 +15,8 @@
 	display:inline-block;
 	cursor:pointer;
 	color:#000000;
-	font-family:Arial;
+	font-family: 'Jua', sans-serif;
+	width:350px;
 	font-size:28px;
 	padding:5px 67px;
 	text-decoration:none;
@@ -28,12 +31,9 @@
 }
 
 
-.d1, .d2, .d3 {
-	margin:10px;
-}
-
 .w3-center {
-	margin:100px;
+	margin-top:180px;
+	
 }
 
 </style>

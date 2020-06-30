@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>서비스 신청 페이지</title>
 </head>
@@ -25,10 +30,10 @@ select::-ms-expand {
 }
 select { 
 	width: 200px; /* 원하는 너비설정 */ 
-	padding: .8em .5em; /* 여백으로 높이 설정 */ 
+	padding: .4em .5em; /* 여백으로 높이 설정 */ 
 	font-family: inherit; /* 폰트 상속 */ 
-	background-color: white;
-	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */
+	background-color: #f5f4f4;
+	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 100% 40%; /* 네이티브 화살표 대체 */
     border: 2px solid white; 
     border-radius: 10px; 
     -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
@@ -37,14 +42,23 @@ select {
 
 .main {
  	margin:30px;
+ 	font-family: 'Noto Serif KR', serif;
 }
-
+.btn{
+	font-family: 'Jua', sans-serif;
+	font-size:20px;
+}
+th, td{
+	font-family: 'Noto Serif KR', serif;
+	font-size:15px;
+}
 </style>
 <body>
 
 <div class="main" align="center">
 	<form id="frm" name="frm" action="helperList.do" method="post">
-		<label for="helperWorkArea">근무지역</label>
+	  <div>
+		<label for="helperWorkArea">근무지역 :</label>&nbsp;
 			<select name="helperWorkArea" id="helperWorkArea">
 				<option value="" selected="selected">선택</option>
 				<option value="대구" ${param.helperWorkArea eq "대구" ? "selected" :""}>대구</option>
@@ -64,7 +78,10 @@ select {
 				<option value="전북" ${param.helperWorkArea eq "전북" ? "selected" :""}>전북</option>
 				<option value="제주" ${param.helperWorkArea eq "제주" ? "selected" :""}>제주</option>
 			</select>
-		<label for="helperStartTime">돌봄시작시간</label>
+	  </div>
+			<br>	
+	  <div>
+		<label for="helperStartTime">시작시간 :</label>
 			<select name="helperStartTime" id="helperStartTime">
 				<option value="" selected="selected">선택</option>
 				<option value="0" ${param.helperStartTime eq "0" ? "selected" :""}>00</option>
@@ -93,8 +110,10 @@ select {
 				<option value="23" ${param.helperStartTime eq "23" ? "selected" :""}>23</option>
 				<option value="24" ${param.helperStartTime eq "24" ? "selected" :""}>24</option>
 			</select>	
-		
-		<label for="helperEndTime">돌봄종료시간</label>
+	  </div>		
+			<br>
+	  <div>
+		<label for="helperEndTime">종료시간 :</label>
 			<select name="helperEndTime" id="helperEndTime">
 				<option value="" selected="selected">선택</option>
 				<option value="0" ${param.helperEndTime eq "0" ? "selected" :""}>00</option>
@@ -123,18 +142,21 @@ select {
 				<option value="23" ${param.helperEndTime eq "23" ? "selected" :""}>23</option>
 				<option value="24" ${param.helperEndTime eq "24" ? "selected" :""}>24</option>
 			</select>
-			
-		<label for="certifiName">자격증보유</label>
+	  </div>
+			<br>
+	  <div>
+		<label for="certifiName">자격증보유 :</label>
 			<select name="certifiName" id="certifiName" >
 				<option value="" selected="selected">선택</option>
 				<option value="y" ${param.certifiName eq "y" ? "selected" :"" }>보유</option>
 				<option value="n" ${param.certifiName eq "n" ? "selected" :"" }>미보유</option>				
 			</select>
-			
+	  </div>
+			<br>
 			<input type="hidden" id="helperNo" name="helperNo" >			
 			&nbsp;&nbsp;&nbsp;
 
-		<button type="button" onclick="formCheck()" class="btn btn-secondary btn-lg" id="sbmt" name="sbmt">검색</button>
+		<button type="button" onclick="formCheck()" class="btn btn-secondary" id="sbmt" name="sbmt">검색</button>
 
 	</form>
 </div>
@@ -142,26 +164,23 @@ select {
 <div align="center">
 	<table class="table table-hover">
 		<tr class="table-light">
-			<th>프로필</th>
+			<th>사진</th>
 			<th>이름</th>
 			<th>근무지역</th>
-			<th>돌봄시작시간</th>
-			<th>돌봄종료시간</th>
+			<th>시작시간</th>
+			<th>종료시간</th>
 		</tr>
 		<c:forEach var="list" items="${searchList }">
 		<tr id="listTr" onclick="selectOne('${list.helperNo }')">
 			<td scope="row"><img src="${pageContext.request.contextPath}/resources/upload/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
 			<td scope="row">${list.helperName }</td>
 			<td scope="row">${list.helperWorkArea }</td>
-			<td scope="row">${list.helperStartTime }</td>
-			<td scope="row">${list.helperEndTime }</td>		
+			<td scope="row">${list.helperStartTime }시</td>
+			<td scope="row">${list.helperEndTime }시</td>		
 		</tr>
 		</c:forEach>
 	</table>
-	<div><br />
-		<input type="button" name="main" value="보호자메인" onclick="location.href='familyMain.do'">
-	</div>
-	
+
 </div>
 	
 

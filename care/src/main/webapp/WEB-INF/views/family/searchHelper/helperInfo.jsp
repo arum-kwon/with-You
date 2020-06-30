@@ -5,69 +5,77 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<!-- 글꼴  -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <title>Insert title here</title>
+
 <style type="text/css">
-	.container-fluid {
-		border: solid 1px;
-	}
+.container-fluid {
+	border: solid 1px;
+}
+.title{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 38px;
+}
+.content {
+	
+	font-family: 'Do Hyeon', sans-serif;
+	font-size:17px;
+}
+.btn {
+	font-family: 'Jua', sans-serif;
+	font-size:18px;
+}
 </style>
 
 </head>
 <body>
 <div class="container">
-	<h1>간병인 정보</h1>
-	<div>
-	<img src="uploadProfile/${view.profile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
-		${helperInfo.helperName }님 / ${helperInfo.helperSex }<br />
-		<div><br/></div>
-		
+<div align="center" style="margin:30px;">
+	<a class="title"> 보호자 로그인</a>
+		<img src="${pageContext.request.contextPath}/resources/upload/${helperInfo.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
+		<div class="content">
+		${helperInfo.helperName }님 / ${helperInfo.helperSex }<br />		
 		희망근무지역: ${helperInfo.helperWorkArea }<br />
 		돌봄가능시간: ${helperInfo.helperStartTime }시~${helperInfo.helperEndTime }시<br />
 		특이사항: ${helperInfo.helperUnique }<br />
-		프로필사진: ${helperInfo.helperProfile }<br />
 		자격증명: ${helperInfo.certifiName }<br />
 		<br />
 
 		<!-- 후기 및 평점 영역 -->
+		<img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height: 30px" />
 		후기 및 평점 :<br />
-			<c:choose>
-				<c:when test="${empty reviewList}">
-					<img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height:50px"  /><br/>
+				<c:choose>
+					<c:when test="${empty reviewList}">
+						<br />
 					아직 작성된 후기가 없습니다.
 				</c:when>
-				<c:otherwise>
-					<c:forEach var="list" items="${reviewList }">
-						<div class="container-fluid">
-							<div>
-							별점 : ${list.reviewStar } / 10
+					<c:otherwise>
+						<c:forEach var="list" items="${reviewList }">
+							<div class="container-fluid">
+								<div>별점 : ${list.reviewStar } / 10</div>
+								<div>작성자 : ${list.familyName }</div>
+								<div>작성일자: ${list.reviewDate }</div>
+								<div>내용 : ${list.reviewContents }</div>
+								<div>사진첨부 : ${list.reviewFile }</div>
 							</div>
-							<div>
-							작성자 : ${list.familyName }
-							</div>
-							<div>
-							작성일자: ${list.reviewDate }
-							</div>
-							<div>
-							내용 : ${list.reviewContents }		
-							</div>
-							<div>
-							사진첨부 : ${list.reviewFile }		
-							</div>
-						</div><br/>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		
+							<br />
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</div>
 	</div>
-	<div><br />
-		<input type="button" name="main" value="보호자메인" onclick="location.href='familyMain.do'">
-		<input type="button" name="helperList" value="조회목록" onclick="location.href='helperList.do'">
+	<div align="center">
+		<input type="button" class="btn btn-secondary" name="helperList" value="조회목록" onclick="location.href='helperList.do'">
+	</div><br>
+	<div align="center">
+		<a class="title">서비스 신청하기</a>
 	</div>
-	<div><br /></div>
-<h1>서비스 신청하기</h1>
-	<div>
+	<div align="center">
 		<form id="orderFrm" name="orderFrm" action="applyService.do" method="post">
+		 <div class="content">
 			서비스 요청시간 : ${searchFilterVo.helperStartTime }시 부터~${searchFilterVo.helperEndTime }시 까지 <br />
 			서비스 지역 : ${searchFilterVo.helperWorkArea }<br />
 			자격보유 : 
@@ -82,9 +90,8 @@
 		      <label for="comment">보호자 요청사항:</label>
 		      <textarea class="form-control" rows="5" id="serviceDemand" name="serviceDemand"></textarea>
    			</div>
-			<div><br /></div>
-			<input type="button" id="btnOrder" name="btnOrder" value="신청하기" onclick="orderInfo()">
-			<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
+		 </div>	
+			<input type="button" class="btn btn-warning w3-round" id="btnOrder" name="btnOrder" value="신청하기" onclick="orderInfo()">
 			<input type="hidden" id="serviceStartTime" name="serviceStartTime" value="${searchFilterVo.helperStartTime }">
 			<input type="hidden" id="serviceEndTime" name="serviceEndTime" value="${searchFilterVo.helperEndTime }">
 			<input type="hidden" id="serviceArea" name="serviceArea" value="${searchFilterVo.helperWorkArea }">

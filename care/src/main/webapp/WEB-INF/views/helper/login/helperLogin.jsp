@@ -17,7 +17,9 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/css/util.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/css/main.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <!-- 로그인 비밀번호 암호화 -->
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
@@ -26,14 +28,14 @@
 <style>
 .errorMsg, .errorMsg2 {
 	color:#ec2020; 
-	font-weight:bold;
 	font-size: 18px;
-	font-family: Montserrat-Regular;
+	font-family: 'Do Hyeon', sans-serif;
 }
-
+.label-checkbox100, .input100 {
+    font-family: 'Do Hyeon', sans-serif;
+}
 .title{
-	font-weight:bold;
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Do Hyeon', sans-serif;
 	font-size: 38px;
 	
 }
@@ -41,7 +43,9 @@
 .login100-form{
 	padding-top: 0px;
 }
-
+.login100-form-btn {
+	font-family: 'Jua', sans-serif;
+}
 
 </style>
 

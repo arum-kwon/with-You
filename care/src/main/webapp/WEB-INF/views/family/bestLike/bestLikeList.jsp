@@ -5,17 +5,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 글꼴  -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
 <title>Insert title here</title>
+<style>
+.title{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 38px;
+}
+th, td{
+	font-family: 'Noto Serif KR', serif;
+	font-size:18px;
+}
+</style>
 </head>
 <body>
 <div class="container">
-  <h2>즐겨찾기 리스트</h2>
-  <div><br/></div>
-  <table class="table">
+ <div align="center">
+	 <a class="title">즐겨찾기 리스트</a>
+ </div>
+ <br>
+  <table class="table table-hover">
     <thead align="center">
-      <tr>
-        <th></th>
-        <th>프로필 사진</th>
+      <tr class="table-light">
+        <th>사진</th>
         <th>간병인 성명</th>
         <th>성별</th>
       </tr>
@@ -24,13 +38,6 @@
     <tbody align="center">
       <tr id="listTr" onclick="selectOne('${list.helperNo }')" 
 		onMouseOver="this.style.cursor='pointer';" onMouseOut="this.style.cursor='';">
-        <td>
-			<c:choose>
-				<c:when test="${not empty list.familyNo}"> 
-			  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:30px"  />
-				</c:when>
-			</c:choose> 
-        </td>
         <td><img src="uploadProfile/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
         <td>${list.helperName }</td>
         <td>${list.helperSex }</td>

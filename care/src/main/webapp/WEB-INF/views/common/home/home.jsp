@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- 글꼴 스타일  -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
 </head> 
 <title>메인화면</title> 
 <script type="text/javascript">
@@ -26,7 +30,7 @@ html, body {
 .button {
   width: 250px;
   height: 55px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jua', sans-serif;
   font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -51,7 +55,19 @@ html, body {
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
-
+.title{
+	font-family: 'Chewy', cursive;
+	font-size: 48px;
+	
+}
+.subtitle {
+	font-family: 'Chewy', cursive;
+	font-family: 'Jua', sans-serif;
+	font-size: 25px;
+}
+button{
+	font-family: 'Jua', sans-serif;
+}
 </style>
 </head>
 
@@ -61,9 +77,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 	 class="adminlogin" onclick="location.href='adminlogin.do'"> 관리자 </button>
 </div>
 <!-- Header -->
-<header class="w3-center" style="padding:80px 16px">
-  <h1 class="w3-margin w3-jumbo">Care WithU</h1>
-  <p class="w3-xlarge">사용자 유형을 선택해주세요.</p><br>
+<header class="w3-center" style="padding:50px 16px">
+<div align="center" style="margin:65px;">
+  <a class="title">Care WithU</a>
+</div>
+  <p class="subtitle">사용자 유형을 선택해주세요.</p><br>
 
 
   <button class="button" onclick="location.href='patientLogin.do'">환자</button><br><br>

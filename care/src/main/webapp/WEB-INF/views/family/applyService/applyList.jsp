@@ -5,10 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 글꼴  -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style>
 .btn {
-	width:60%;
+	width:50%;
 }
 .text {
 	text-align:left;
@@ -16,6 +18,10 @@
 .w3-row {
 	margin:30px;
 	line-height: 34px
+}
+.w3-col{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 17px;
 }
 </style>
 <script>
@@ -32,16 +38,18 @@
 <form id="sNoFrm" name="sNoFrm" action="applyDetail.do" method="post">
 		<c:forEach var="list" items="${applyList }">
 			<div class="w3-row">
-				<div class="w3-col w3-container m2 s2" align="center">
+				<div class="w3-col w3-container m6 s6" align="center">
 					<img src="${pageContext.request.contextPath}/resources/upload/${list.helperProfile}"
 						onerror='this.src="resources/img/no_image.png"' id="viewProfile"
-						class="rounded-circle" width="100" height="100">&nbsp;&nbsp;
+						class="rounded-circle" width="95" height="100">&nbsp;&nbsp;
 				</div>
 				<div class="w3-col w3-container m6 s6 text">
-					${list.helperName} 님<br /> 요청서비스날짜 : ${list.serviceDate }<br />
-					요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지 <br />
-				</div>
-				<div class="w3-col w3-container m4 s4" align="center">
+					${list.helperName} 님<br /> 
+					요청서비스날짜 : ${list.serviceDate }<br />
+					요청서비스시간 : <br>
+					${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지 <br />
+				</div><br>
+				<div align="right">
 					<c:choose>
 						<c:when test="${list.serviceStatus eq 'S01'}">
 							<button type="button" id="btnServiceReady" class="btn btn-info"
@@ -71,18 +79,20 @@
 					</c:choose>
 					<button type="button" id="btnLikeList" class="btn btn-light"
 						onclick="getServiceNo('${list.serviceNo}')">상세내역</button>
-					<br> 
+				</div>
+				<div align="right">
 					<c:choose>
 						<c:when test="${list.serviceStatus eq 'S01' || list.serviceStatus eq 'S02' || list.serviceStatus eq 'S03' }">
 							<a onclick="callToHelper('${list.helperTel}')"> 
-								<img src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png" style="height: 42px" />
-							</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+								<img src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png" style="height: 38px" />
+							</a> 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="javascript:void(0);" onclick="chatPage('${list.helperNo}');"> 
-								<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height: 42px" />
+								<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height: 38px" />
 							</a>
 						</c:when>
 					</c:choose>
-				</div>
+				</div>					
 			</div>
 
 			<div align="right" class="" id="centerDiv"></div>
@@ -92,10 +102,6 @@
 		<input type="hidden" id="serviceNo" name="serviceNo">
 		<input type="hidden" id="helperNo" name="helperNo">
 </form>
-
-	<button type="button" name="main" onclick="location.href='familyMain.do'">메인</button>
-
-
 
 <script type="text/javascript">
 	//상세내역으로 가는 함수

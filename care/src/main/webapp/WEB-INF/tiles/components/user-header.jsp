@@ -13,8 +13,8 @@
  <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
  <script src="${pageContext.request.contextPath}/resources/common/js/alarm.js"></script>
  <!-- Google fonts-->
- <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
- <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+ <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
  <!-- Third party plugin CSS-->
  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
  <!-- Core theme CSS (includes Bootstrap)-->
@@ -23,8 +23,15 @@
  html,body,h1,h2,h3,h4,h5,h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
-
-
+.w3-container{
+	font-family: 'Chewy', cursive;
+	font-size: 34px;
+	padding-left:0px;
+}
+.w3-container2,.dropdown-item{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 18px;
+}
  </style>
  </head>
     <body id="page-top">
@@ -33,16 +40,16 @@
             <div class="container">
             	<c:choose>
             		<c:when test="${userType == 'h' || hloginCookie != null}">
-	                <a class="w3-container w3-myfont w3-xxlarge" href="helperMain.do" style="color:black;">Care With.U</a>           	
+	                <a class="w3-container" href="helperMain.do" style="color:black;">Care WithU</a>           	
             		</c:when>
             		<c:when test="${userType == 'f' || floginCookie != null}">
-	                <a class="w3-container w3-myfont w3-xxlarge" href="familyMain.do" style="color:black;">Care With.U</a>           	
+	                <a class="w3-container" href="familyMain.do" style="color:black;">Care WithU</a>           	
             		</c:when>            		
             		<c:when test="${userType == 'p' || ploginCookie != null }">
-	                <a class="w3-container w3-myfont w3-xxlarge" href="patientMain.do" style="color:black;">Care With.U</a>           	
+	                <a class="w3-container" href="patientMain.do" style="color:black;">Care WithU</a>           	
             		</c:when>            		         		            		
             		<c:when test="${userType == null }">
-	                <a class="w3-container w3-myfont w3-xxlarge" href="home.do" style="color:black;">Care With.U</a>           	
+	                <a class="w3-container" href="home.do" style="color:black;">Care WithU</a>           	
             		</c:when>
             	</c:choose>
 
@@ -70,13 +77,13 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="w3-container w3-myfont w3-large">
                             <c:if test="${userType == 'h' }">
-								<a class="w3-container w3-myfont w3-large" style="color:black;">${loginOk.helperName }님 어서오세요.</a>
+								<a class="w3-container2" style="color:black;">${loginOk.helperName }님 어서오세요.</a>
 							</c:if>
 							<c:if test="${userType == 'f' }">
-								<a class="w3-container w3-myfont w3-large" style="color:black;">${loginOk.familyName }님 어서오세요.</a>
+								<a class="w3-container2" style="color:black;">${loginOk.familyName }님 어서오세요.</a>
 							</c:if>
 						    <c:if test="${userType == 'p' }">
-								<a class="w3-container w3-myfont w3-large" style="color:black;">${loginOk.patientName }님 어서오세요.</a>
+								<a class="w3-container2" style="color:black;">${loginOk.patientName }님 어서오세요.</a>
 							</c:if>
                         </li>
                         <li class="dropdown">

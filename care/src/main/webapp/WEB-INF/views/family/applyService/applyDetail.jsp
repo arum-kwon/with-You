@@ -8,29 +8,58 @@
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/review.js"></script>
 <link href="${pageContext.request.contextPath}/resources/common/css/review.css" rel="stylesheet">
+<!-- 글꼴  -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <title>Insert title here</title>
+<style>
+.img{
+	margin-top:20px;
+}
+.content,.form-group {
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 18px;
+}
+.star{
+	margin-top:18px;
+}
+</style>
 </head>
 <body>
-
 <div class="container">
-	<div class="col-xl-6 col-md-12 col-sm-12" >
-		<br> 
+  <div class="star" align="right">
+	<!-- 즐겨찾기 버튼 + Form -->
+	<form id="likeFrm" name="likeFrm" action="bestLike.do" method="post">
+	<c:choose>
+		<c:when test="${empty applyDetail4.familyNo}">
+			<a href="#" onClick="addlike(); return false;">
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:30px"  />
+		  	</a>
+		</c:when>
+		<c:when test="${not empty applyDetail4.familyNo}"> 
+			<a href="javascript:void(0);" onClick="disLike();">
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:30px"  />
+		  	</a>
+		</c:when>
+	</c:choose>
+	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
+	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
+	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
+	</form>
+  </div>
+	<div class="img" align="center">
 		<img src="uploadProfile/${applyDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
+	</div>
+	<div class="col-xl-6 col-md-12 col-sm-12 content" align="center" >
+		<br> 
 		간병인 : ${applyDetail.helperName} 님<br/>
 		요청서비스날짜 : ${applyDetail.serviceDate }<br/>
 		돌봄시작시간 : ${applyDetail.serviceStartTime }시<br/>
 		돌봄종료시간 : ${applyDetail.serviceEndTime }시<br/>
-		<div><br/></div>
-	</div>
-	
-	<div class="col-xl-6 col-md-12 col-sm-12" id="centerDiv">
-	<div><br/></div>
 		실제출근시간 : ${applyDetail2.realStartTime }<br/>
 		실제퇴근시간 : ${applyDetail2.realEndTime }<br/>
 		보호자요청사항 : ${applyDetail.serviceDemand }<br/>
 		결제예정금액 : ${applyDetail.servicePrice }원<br/>
 	</div>
-		<div><br/></div>
 		<c:choose>
 			<c:when test="${applyDetail.serviceStatus eq 'S02' }">
 				<button type="button" id="btnServiceReady" class="btn btn-primary" onclick="requestPay()">결제하기</button>
@@ -39,58 +68,9 @@
 				<button type="button" id="btnServiceReady" class="btn btn-success" onclick="requestPay()" disabled>결제완료</button>
 			</c:when>
 		</c:choose>
-	<div><br/></div>
-	
-	
-	
-<!-- 즐겨찾기 버튼 + Form -->
-<form id="likeFrm" name="likeFrm" action="bestLike.do" method="post">
-	<c:choose>
-		<c:when test="${empty applyDetail4.familyNo}">
-			<a href="#" onClick="addlike(); return false;">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:30px"  />
-		  		<h4>즐겨찾기 등록</h4>
-		  	</a>
-		</c:when>
-		<c:when test="${not empty applyDetail4.familyNo}"> 
-			<a href="javascript:void(0);" onClick="disLike();">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:30px"  />
-		  		<h4>즐겨찾기 삭제</h4>
-		  	</a>
-		</c:when>
-	</c:choose> 
-	<div><br/></div>
-	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
-	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
-	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
-</form>
-<!-- 좋아요 버튼 + Form 끝-->
 
-<!-- 블랙리스트 버튼 + Form -->
-<form id="blackFrm" name="blackFrm" action="" method="post">
-	<c:choose>
-		<c:when test="${empty applyDetail5.familyNo}">
-			<a href="#" onClick="addBlack(); return false;">
-		  		<h4>블랙리스트 등록</h4>
-		  	</a>
-		</c:when>
-		<c:when test="${not empty applyDetail5.familyNo}"> 
-			<a href="javascript:void(0);" onClick="removeBlack();">
-		  		<h4>블랙리스트 삭제</h4>
-		  	</a>
-		</c:when>
-	</c:choose> 
-	<div><br/></div>
-	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
-	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
-	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
-</form>
-<!-- 블랙리스트 버튼 + Form 끝-->
-	
-	
-	
 <!--  후기 및 평점 작성  -->
-<div class="form-group">
+<div class="form-group" align="center">
 	<label for="exampleTextarea">후기 및 평점:</label>
 	<form action="insertFamilyReview.do" id="reviewFrm" name="reviewFrm">
 		<div>
@@ -163,6 +143,26 @@
 		</div> 
 
 	</form>
+<!-- 블랙리스트 버튼 + Form -->
+<form id="blackFrm" name="blackFrm" action="" method="post">
+	<c:choose>
+		<c:when test="${empty applyDetail5.familyNo}">
+			<a href="#" onClick="addBlack(); return false;">
+		  		<h4>블랙리스트 등록</h4>
+		  	</a>
+		</c:when>
+		<c:when test="${not empty applyDetail5.familyNo}"> 
+			<a href="javascript:void(0);" onClick="removeBlack();">
+		  		<h4>블랙리스트 삭제</h4>
+		  	</a>
+		</c:when>
+	</c:choose> 
+	<div><br/></div>
+	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
+	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
+	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
+</form>
+<!-- 블랙리스트 버튼 + Form 끝-->
 </div>	
 <!--  후기 및 평점 작성 끝  -->
 </div>
