@@ -29,4 +29,10 @@ public class ChatServiceImpl implements ChatService{
 		// TODO Auto-generated method stub
 		return chatMap.chatSelectList(chatVo);
 	}
+
+	@Override
+	public void chatUpdate(ChatVo chatVo) throws Exception {
+		// TODO Auto-generated method stub
+		chatMap.chatUpdate(chatVo);
+	}
 }

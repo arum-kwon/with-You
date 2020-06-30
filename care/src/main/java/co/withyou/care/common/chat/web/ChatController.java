@@ -33,19 +33,40 @@ public class ChatController {
 			//get familyNo from session
 			FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
 			chatVo.setFamilyNo(familyVo.getFamilyNo());
+			
+			//chatVo에 helperNo 항상 갖고 있게 하기 (페이지 새로고침시 필요 값)
+			if(chatVo.getHelperNo() == 0) {
+				chatVo.setHelperNo((Integer)session.getAttribute("chatHelperNo"));
+			} else {
+				session.setAttribute("chatHelperNo", chatVo.getHelperNo());
+			}
 		} else {
 			//get helperNo from session
 			HelperVO helperVo = (HelperVO) session.getAttribute("loginOk");
 			chatVo.setHelperNo(helperVo.getHelperNo());
+			
+			//chatVo에 familyNo 항상 갖고 있게 하기 (페이지 새로고침시 필요 값)
+			if(chatVo.getFamilyNo() == 0) {
+				chatVo.setFamilyNo((Integer)session.getAttribute("chatFamilyNo"));
+			} else {
+				session.setAttribute("chatFamilyNo", chatVo.getFamilyNo());
+			}
 		}
 		
-		System.out.println(chatVo);
+		//체팅방 읽음 메시지 업데이트
+		chatService.chatUpdate(chatVo);
 		
+		//채팅메시지 리스트 뿌려주는 셀렉트
 		List <Map> list = chatService.chatSelectList(chatVo);
 		model.addAttribute("chatList", list);
 		System.out.println(list);
 		
-		return "common/chat/chatTest";
+		//접속자 유형에 따라 리턴페이지 경로 구분
+		if (chatVo.getUserType().equals("f")) {
+			return "family/chat/chatTest";
+		} else {
+			return "helper/chat/chatTest";
+		} 
 	}
 	
 	@RequestMapping("chatInsert.do")
@@ -72,13 +93,13 @@ public class ChatController {
 		model.addAttribute("chatVo", chatVo);
 		
 		//유저타입에 따라 필요한 값 물려서 페이지 리다이렉트
-		if (chatVo.getUserType().equals("f")) {
-			return "redirect:/chat.do?helperNo="+chatVo.getHelperNo();
-		} else {
-			return "redirect:/chat.do?familyNo="+chatVo.getFamilyNo();
-		} 
+//		if (chatVo.getUserType().equals("f")) {
+//			return "redirect:/chat.do?helperNo="+chatVo.getHelperNo();
+//		} else {
+//			return "redirect:/chat.do";
+//		} 
 				
-		
+		return "redirect:/chat.do";
 	}
 	
 }

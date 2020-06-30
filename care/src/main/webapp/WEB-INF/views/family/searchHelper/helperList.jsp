@@ -40,30 +40,104 @@ select {
 }
 
 </style>
+
+<script type="text/javascript">
+
+	function categoryChange(e) {
+		
+		var seoul = ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", 
+					"마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"];
+		var busan = ["강서구", "금정구", "기장군", "남구", "동구",	"동래구",	"부산진구", "북구",	"사상구",	"사하구",	"서구", "수영구", "연제구",
+					"영도구",	"중구", "해운대구"];
+		var daegu = ["남구",	"달서구",	"달성군",	"동구", "북구", "서구",	"수성구",	"중구"];
+		var incheon = ["강화군",	"계양구",	"남동구",	"동구", "미추홀구",	"부평구",	"서구", "연수구", "옹진군", "중구"];
+		var gwangju = ["광산구", "남구", "동구", "북구", "서구"];
+		var daejeon = ["대덕구", "동구", "서구", "유성구", "중구"];
+		var ulsan = ["남구", "동구", "북구", "울주군", "중구"];
+		var sejong = ["세종"];
+		var kyunggi = ["가평군", "고양시",	"고양시 덕양구",	 "고양시 일산구", "고양시 일산동구",	"고양시 일산서구", "과천시", "광명시", "광주시", "구리시",
+						"군포시",	"김포시",	"남양주시", "동두천시",	"부천시",	"성남시",	"성남시 분당구", "성남시 수정구", "성남시 중원구", "수원시", 
+						"수원시 권선구", "수원시 영통구", "수원시 장안구", "수원시 팔달구", "시흥시", "안산시", "안산시 단원구", "안산시 상록구",	"안성시",
+						"안양시",	"안양시 동안구", "안양시 만안구", "양주시", "양평군", "여주시", "연천군", "오산시", "용인시", "용인시 기흥구", "용인시 수지구",
+						"용인시 처인구", "의왕시", "의정부시", "이천시", "파주시", "평택시", "포천군", "포천시", "하남시", "화성시"];
+		var kangwon = ["강릉시", "고성군", "동해시", "삼척시", "속초시", "양구군", "양양군",	"영월군",	"원주시",	"인제군",	"정선군",	"철원군",
+						"춘천시",	"태백시",	"평창군",	"홍천군",	"화천군",	"횡성군"];
+		var choongbook = ["괴산군", "단양군", "보은군", "영동군", "옥천군", "음성군", "제천시", "증평군", "진천군", "청원군", "청주시", "청주시 상당구",
+						"청주시 서원구", "청주시 청원구", "청주시 흥덕구", "충주시"];
+		var choongnam = ["계룡시", "공주시", "금산군", "논산시", "당진시", "보령시", "부여군", "서산시", "서천군", "아산시", "연기군", "예산군", "천안시",
+						"천안시 동남구", "천안시 서북구", "청양군", "태안군", "홍성군"];
+		var jeonbook = ["고창군", "군산시", "김제시", "남원시", "무주군", "부안군", "순창군", "완주군", "익산시", "임실군", "장수군", "전주시", 
+						"전주시 덕진구", "전주시 완산구", "정읍시", "진안군"];
+		var jeonnam = ["강진군", "고흥군", "곡성군", "광양시", "구례군", "나주시", "담양군", "목포시", "무안군", "보성군", "순천시", "신안군", 
+						"여수시", "영광군", "영암군", "완도군", "장성군", "장흥군", "진도군", "함평군", "해남군", "화순군"];
+		var kyungbook = ["경산시", "경주시", "고령군", "구미시", "군위군", "김천시", "문경시", "봉화군", "상주시", "성주군", "안동시", "영덕군", "영양군",
+						"영주시", "영천시", "예천군", "울릉군", "울진군", "의성군", "청도군", "청송군", "칠곡군", "포항시", "포항시 남구", "포항시 북구"];
+		var kyungnam = ["거제시", "거창군", "고성군", "김해시", "남해군", "밀양시", "사천시", "산청군", "양산시", "의령군", "진주시", "창녕군", "창원시", 
+						"창원시 마산합포구", "창원시 마산회원구", "창원시 성산구", "창원시 의창구", "창원시 진해구", "통영시", "하동군", "함안군", "함양군", "합천군"];
+		var jeju = ["서귀포시", "제주시"];
+
+		var target = document.getElementById("helperWorkArea2");
+
+		if (e.value == "서울") var temp = seoul;
+		else if (e.value == "부산") var temp = busan;
+		else if (e.value == "대구") var temp = daegu;
+		else if (e.value == "인천") var temp = incheon;
+		else if (e.value == "광주") var temp = gwangju;
+		else if (e.value == "대전") var temp = daejeon;
+		else if (e.value == "울산") var temp = ulsan;
+		else if (e.value == "세종") var temp = sejong;
+		else if (e.value == "경기") var temp = kyunggi;
+		else if (e.value == "강원") var temp = kangwon;
+		else if (e.value == "충북") var temp = choongbook;
+		else if (e.value == "충남") var temp = choongnam;
+		else if (e.value == "전북") var temp = jeonbook;
+		else if (e.value == "전남") var temp = jeonnam;
+		else if (e.value == "경북") var temp = kyungbook;
+		else if (e.value == "경남") var temp = kyungnam;
+		else if (e.value == "제주") var temp = jeju;
+
+		target.options.length = 0;
+
+		for (x in temp) {
+			var opt = document.createElement("option");
+			opt.value = temp[x];
+			opt.innerHTML = temp[x];
+			target.appendChild(opt);
+		}
+	}
+</script>
+
 <body>
 
 <div class="main" align="center">
 	<form id="frm" name="frm" action="helperList.do" method="post">
-		<label for="helperWorkArea">근무지역</label>
-			<select name="helperWorkArea" id="helperWorkArea">
-				<option value="" selected="selected">선택</option>
-				<option value="대구" ${param.helperWorkArea eq "대구" ? "selected" :""}>대구</option>
-				<option value="서울" ${param.helperWorkArea eq "서울" ? "selected" :""}>서울</option>
-				<option value="인천" ${param.helperWorkArea eq "인천" ? "selected" :""}>인천</option>
-				<option value="부산" ${param.helperWorkArea eq "부산" ? "selected" :""}>부산</option>
-				<option value="경북" ${param.helperWorkArea eq "경북" ? "selected" :""}>경북</option>
-				<option value="경남" ${param.helperWorkArea eq "경남" ? "selected" :""}>경남</option>
-				<option value="경기" ${param.helperWorkArea eq "경기" ? "selected" :""}>경기</option>
-				<option value="대전" ${param.helperWorkArea eq "대전" ? "selected" :""}>대전</option>
-				<option value="광주" ${param.helperWorkArea eq "광주" ? "selected" :""}>광주</option>
-				<option value="울산" ${param.helperWorkArea eq "울산" ? "selected" :""}>울산</option>
-				<option value="충북" ${param.helperWorkArea eq "충북" ? "selected" :""}>충북</option>
-				<option value="충남" ${param.helperWorkArea eq "충남" ? "selected" :""}>충남</option>
-				<option value="세종" ${param.helperWorkArea eq "세종" ? "selected" :""}>세종</option>
-				<option value="전남" ${param.helperWorkArea eq "전남" ? "selected" :""}>전남</option>
-				<option value="전북" ${param.helperWorkArea eq "전북" ? "selected" :""}>전북</option>
-				<option value="제주" ${param.helperWorkArea eq "제주" ? "selected" :""}>제주</option>
+		<label for="helperWorkArea1">근무지역</label>
+			<select name="helperWorkArea1" id="helperWorkArea1" onchange="categoryChange(this)">
+				<option value="" selected="selected">시도</option>
+				<option value="서울" ${param.helperWorkArea1 eq "서울" ? "selected" :""}>서울</option>
+				<option value="부산" ${param.helperWorkArea1 eq "부산" ? "selected" :""}>부산</option>
+				<option value="대구" ${param.helperWorkArea1 eq "대구" ? "selected" :""}>대구</option>
+				<option value="인천" ${param.helperWorkArea1 eq "인천" ? "selected" :""}>인천</option>
+				<option value="광주" ${param.helperWorkArea1 eq "광주" ? "selected" :""}>광주</option>
+				<option value="대전" ${param.helperWorkArea1 eq "대전" ? "selected" :""}>대전</option>
+				<option value="울산" ${param.helperWorkArea1 eq "울산" ? "selected" :""}>울산</option>
+				<option value="세종" ${param.helperWorkArea1 eq "세종" ? "selected" :""}>세종</option>
+				<option value="경기" ${param.helperWorkArea1 eq "경기" ? "selected" :""}>경기</option>
+				<option value="강원" ${param.helperWorkArea1 eq "강원" ? "selected" :""}>강원</option>
+				<option value="충북" ${param.helperWorkArea1 eq "충북" ? "selected" :""}>충북</option>
+				<option value="충남" ${param.helperWorkArea1 eq "충남" ? "selected" :""}>충남</option>
+				<option value="전북" ${param.helperWorkArea1 eq "전북" ? "selected" :""}>전북</option>
+				<option value="전남" ${param.helperWorkArea1 eq "전남" ? "selected" :""}>전남</option>
+				<option value="경북" ${param.helperWorkArea1 eq "경북" ? "selected" :""}>경북</option>
+				<option value="경남" ${param.helperWorkArea1 eq "경남" ? "selected" :""}>경남</option>
+				<option value="제주" ${param.helperWorkArea1 eq "제주" ? "selected" :""}>제주</option>
+			</select> 
+			
+		<label for="helperWorkArea2">근무지역</label>
+			<select name="helperWorkArea2" id="helperWorkArea2">
+				<option value="" selected="selected">시군구</option>
 			</select>
+			
 		<label for="helperStartTime">돌봄시작시간</label>
 			<select name="helperStartTime" id="helperStartTime">
 				<option value="" selected="selected">선택</option>
@@ -150,7 +224,7 @@ select {
 		</tr>
 		<c:forEach var="list" items="${searchList }">
 		<tr id="listTr" onclick="selectOne('${list.helperNo }')">
-			<td scope="row"><img src="${pageContext.request.contextPath}/resources/upload/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
+			<td scope="row"><img src="uploadProfile/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
 			<td scope="row">${list.helperName }</td>
 			<td scope="row">${list.helperWorkArea }</td>
 			<td scope="row">${list.helperStartTime }</td>
@@ -176,10 +250,14 @@ select {
 		
 		//필수 조건 선택여부 체크 함수
 		function formCheck() {
-			if(document.frm.helperWorkArea.value == '') {
-				alert('돌봄서비스 지역을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
-				document.frm.helperWorkArea.focus();
+			if(document.frm.helperWorkArea1.value == '') {
+				alert('돌봄서비스 지역(시,도)을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
+				document.frm.helperWorkArea1.focus();
 			} 
+			else if(document.frm.helperWorkArea2.value == '') {
+				alert('돌봄서비스 지역(시,군,구)을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
+				document.frm.helperWorkArea2.focus();
+			}
 			else if(document.frm.helperStartTime.value == '') {
 				alert('돌봄서비스 시작시간을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
 				document.frm.helperStartTime.focus();

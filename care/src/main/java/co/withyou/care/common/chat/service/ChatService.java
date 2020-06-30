@@ -8,4 +8,5 @@ public interface ChatService {
 
 	public void chatInsert(ChatVo chatVo) throws Exception;
 	List <Map> chatSelectList(ChatVo chatVo) throws Exception;
+	public void chatUpdate(ChatVo chatVo) throws Exception;
 }
