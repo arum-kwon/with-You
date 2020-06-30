@@ -124,7 +124,6 @@ th, td{
 
 <div class="main" align="center">
 	<form id="frm" name="frm" action="helperList.do" method="post">
-<<<<<<< HEAD
 	  <div>
 		<label for="helperWorkArea">근무지역 :</label>&nbsp;
 			<select name="helperWorkArea" id="helperWorkArea">
@@ -272,7 +271,7 @@ th, td{
 		</tr>
 		<c:forEach var="list" items="${searchList }">
 		<tr id="listTr" onclick="selectOne('${list.helperNo }')">
-			<td scope="row"><img src="uploadProfile/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
+			<td scope="row"><img src="${pageContext.request.contextPath}/resources/upload/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
 			<td scope="row">${list.helperName }</td>
 			<td scope="row">${list.helperWorkArea }</td>
 			<td scope="row">${list.helperStartTime }시</td>
@@ -295,9 +294,9 @@ th, td{
 		
 		//필수 조건 선택여부 체크 함수
 		function formCheck() {
-			if(document.frm.helperWorkArea1.value == '') {
-				alert('돌봄서비스 지역(시,도)을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
-				document.frm.helperWorkArea1.focus();
+			if(document.frm.helperWorkArea.value == '') {
+				alert('돌봄서비스 지역을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
+				document.frm.helperWorkArea.focus();
 			} 
 			else if(document.frm.helperWorkArea2.value == '') {
 				alert('돌봄서비스 지역(시,군,구)을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
