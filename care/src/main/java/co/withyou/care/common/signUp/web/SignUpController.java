@@ -75,13 +75,11 @@ public class SignUpController {
 							+ request.getParameter("familyBirthD");
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		fVO.setFamilyBirth(df.parse(familyBirth));
-		fVO.setFamilySex(request.getParameter("f-gender"));
 		
 		String patientBirth = request.getParameter("patientBirthY") + "-" 
 							+ request.getParameter("patientBirthY") + "-"
 							+ request.getParameter("patientBirthY");
 		pVO.setPatientBirth(df.parse(patientBirth));
-		pVO.setPatientSex(request.getParameter("p-gender"));
 		
 		signUpService.insertFamilyAndPatient(fVO, pVO);
 		return "family/signUp/result";
@@ -97,6 +95,12 @@ public class SignUpController {
 							+ request.getParameter("helperBirthD");
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		hVO.setHelperBirth(df.parse(helperBirth));
+		
+		String area1 = request.getParameter("helperWorkArea1");
+		String area2 = request.getParameter("helperWorkArea2");
+		String area = area1 + " " + area2;
+		hVO.setHelperWorkArea(area);
+		
 		//첨부파일 업로드 처리
 		MultipartFile uploadFile = hVO.getUploadFile();
 		String fileName = null;

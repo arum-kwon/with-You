@@ -14,7 +14,10 @@ function pwSHA256(){
 	$('.pw-check:eq(0)').val(CryptoJS.SHA256($('.pw-check:eq(0)').val()).toString()); 
 }
 
+
 //숫자만 입력 받기 numberOnly
-$("input:text[numberOnly]").on("keyup", function() {
-    $(this).val($(this).val().replace(/[^0-9]/g,""));
+$(function(){
+	$("input:text[numberOnly]").on("keyup", function() {
+	    $(this).val($(this).val().replace(/[^0-9]/g,""));
+	});
 });

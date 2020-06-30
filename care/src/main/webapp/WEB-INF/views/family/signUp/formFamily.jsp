@@ -45,13 +45,13 @@
 			<div class="w3-col s4 m4"><p>성별*</p></div>
 			<div class="w3-col s4 m4">
 				<p>
-				<input type="radio" id="f-male" name="f-gender" value="남" required>
+				<input type="radio" id="f-male" name="familySex" value="남" required>
 				<label for="f-male">남</label>
 				</p>
 			</div>
 			<div class="w3-col s4 m4">
 				<p>
-				<input type="radio" id="f-female" name="f-gender" value="여">
+				<input type="radio" id="f-female" name="familySex" value="여">
 				<label for="f-female">여</label>
 				</p>
 			</div>
@@ -92,13 +92,13 @@
 			<div class="w3-col s4 m4"><p>성별*</p></div>
 			<div class="w3-col s4 m4">
 				<p>
-				<input type="radio" id="p-male" name="p-gender" value="남" required>
+				<input type="radio" id="p-male" name="patientSex" value="남" required>
 				<label for="p-male">남</label>
 				</p>
 			</div>
 			<div class="w3-col s4 m4">
 				<p>
-				<input type="radio" id="p-female" name="p-gender" value="여">
+				<input type="radio" id="p-female" name="patientSex" value="여">
 				<label for="p-female">여</label>
 				</p>
 			</div>
@@ -176,7 +176,7 @@
 			</div>
 		</div>
 		<div class="w3-row">
-			<div class="w3-col s4 m4"><p>안심구역</p></div>
+			<div class="w3-col s4 m4"><p>안심구역*</p></div>
 			<div class="w3-col s8 m8">
 				<input class="w3-input w3-border" type="text" placeholder="예)5000m(숫자만 입력)" id="patientZone" name="patientZone" numberOnly>
 			</div>

@@ -3,6 +3,8 @@ package co.withyou.care.family.search.web;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,13 @@ public class SearchController {
 	
 	//간병인 조회 
 	@RequestMapping("helperList.do")
-	public String helperList(SearchFilterVo searchFilterVo, Model model) throws Exception {
+	public String helperList(SearchFilterVo searchFilterVo, Model model, HttpServletRequest request) throws Exception {
+		//서비스 지역 한 문장으로 합치기
+		String area1 = request.getParameter("helperWorkArea1");
+		String area2 = request.getParameter("helperWorkArea2");
+		String area = area1 + " " + area2;
+		
+		searchFilterVo.setHelperWorkArea(area);
 		if(searchFilterVo.getHelperWorkArea() == null) {
 			return "family/searchHelper/helperList";
 		} else {
@@ -35,7 +43,6 @@ public class SearchController {
 			model.addAttribute("searchList", list);
 			System.out.println(searchFilterVo);
 		}
-		
 		
 		return "family/searchHelper/helperList";
 	}

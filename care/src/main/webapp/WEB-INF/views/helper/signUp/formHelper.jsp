@@ -17,6 +17,7 @@
 <script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sign.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/select-area.js"></script>
 </head>
 <style>
 	.m4{
@@ -60,7 +61,7 @@
 		<div class="w3-row form-group">
 			<div class="w3-col s4 m4 etop"><p>이메일*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="form-control input" type="email" placeholder="abc@def.com" id="helperEmail" name="helperEmail" required> 
+				<input class="form-control input email-check" type="email" placeholder="abc@def.com" id="helperEmail" name="helperEmail" required> 
 				<span id="email-success" style="display: none;">사용 가능</span>
 				<span id="email-danger" style="display: none; color: #d92742; font-weight: bold; ">사용 불가</span>
 			</div>
@@ -124,7 +125,30 @@
 		<div class="w3-row">
 			<div class="w3-col s4 m4 hope"><p>희망근무지역*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border form-control input" type="text" placeholder="" id="helperWorkArea" name="helperWorkArea" required>
+				<select name="helperWorkArea1" id="helperWorkArea1" onchange="categoryChange(this)">
+				<option value="" selected="selected">시도</option>
+				<option value="서울">서울</option>
+				<option value="부산">부산</option>
+				<option value="대구">대구</option>
+				<option value="인천">인천</option>
+				<option value="광주">광주</option>
+				<option value="대전">대전</option>
+				<option value="울산">울산</option>
+				<option value="세종">세종</option>
+				<option value="경기">경기</option>
+				<option value="강원">강원</option>
+				<option value="충북">충북</option>
+				<option value="충남">충남</option>
+				<option value="전북">전북</option>
+				<option value="전남">전남</option>
+				<option value="경북">경북</option>
+				<option value="경남">경남</option>
+				<option value="제주">제주</option>
+			</select> 
+			
+			<select name="helperWorkArea2" id="helperWorkArea2">
+				<option value="" selected="selected">시군구</option>
+			</select>	
 			</div>
 		</div>
 		<div class="w3-row">
@@ -200,6 +224,9 @@
 				<input class="w3-input w3-border file" type="file" placeholder="" id="uploadFile" name="uploadFile">
 			</div>
 		</div>
+		<input type="text" placeholder="" id="" name="test">
+		<input type="text" placeholder="" id="" name="test">
+		
 		<button class="w3-button w3-round w3-dark-grey confrim" type="button" onclick="fnSubmit(false)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
 				&nbsp;&nbsp;&nbsp;
 		<button class="w3-button w3-round w3-dark-grey cancle" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>

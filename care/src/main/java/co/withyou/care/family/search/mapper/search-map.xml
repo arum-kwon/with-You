@@ -12,7 +12,7 @@
 		FROM HELPER
 		<where>
 			<if test="helperWorkArea != null and helperWorkArea != ''">
-				HELPERWORKAREA = #{helperWorkArea}
+				HELPERWORKAREA LIKE #{helperWorkArea}
 			</if>
 			
 			<if test="helperStartTime != null and helperStartTime != ''">

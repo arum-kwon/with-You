@@ -3,13 +3,12 @@ var mailCheek = false;
 var jusoIndex = 0;
 
 //입력 양식 확인하고 submit
-function fnSubmit(isFam){
-	changeZone(isFam);
+function fnSubmit(){
 	
-	if(!pwCheek){
+	if(pwCheek){
 		$(".pw-check:eq(0)").focus();
 		alert("비밀번호를 확인해주세요");
-		if(!mailCheek){
+		if(mailCheek){
 			$(".email-check:eq(0)").focus();
 			alert("유효하지 않는 이메일입니다.");
 		}
@@ -19,14 +18,150 @@ function fnSubmit(isFam){
 	}
 }
 
-//보호자>환자 안심범위 초기화
-function changeZone(isFam){
-	if (isFam){
-	    var zone = $('#patientZone').val();
-		if(zone == ""){
-			$('#patientZone').val(0);
-		}
+function formCheckF(){
+	//보호자 정보 유효성 검사
+	if($('#familyEmail').val() == ""){
+		$('#familyEmail').focus();
+		alart("이메일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#familyPw').val() == ""){
+		$('#familyPw').focus();
+		alart("비밀번호를 비워둘 수 없습니다.");
+		return;
+	} else if($('#familyName').val() == ""){
+		$('#familyName').focus();
+		alart("이름을 비워둘 수 없습니다.");
+		return;
+	} else if($('#familySex').val() == ""){
+		$('#familySex').focus();
+		alart("성별을 비워둘 수 없습니다.");
+		return;
+	} else if($('#familyBirthY').val() == ""){
+		$('#familyBirthY').focus();
+		alart("생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#familyBirthM').val() == ""){
+		$('#familyBirthM').focus();
+		alart("생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#familyBirthD').val() == ""){
+		$('#familyBirthD').focus();
+		alart("생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#familyTel').val() == ""){
+		$('#familyTel').focus();
+		alart("전화번호를 비워둘 수 없습니다.");
+		return;
+	} else if($('#familyAddr').val() == ""){
+		$('#familyAddr').focus();
+		alart("주소를 비워둘 수 없습니다.");
+		return;
+		
+		//환자 정보 유효성 검사
+	} else if($('#patientName').val() == ""){
+		$('#patientName').focus();
+		alart("환자의 이름을 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientSex').val() == ""){
+		$('#patientSex').focus();
+		alart("환자의 성별을 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientBirthY').val() == ""){
+		$('#patientBirthY').focus();
+		alart("환자의 생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientBirthM').val() == ""){
+		$('#patientBirthM').focus();
+		alart("환자의 생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientBirthD').val() == ""){
+		$('#patientBirthD').focus();
+		alart("환자의 생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientTel').val() == ""){
+		$('#patientTel').focus();
+		alart("환자의 전화번호를 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientAddr').val() == ""){
+		$('#patientAddr').focus();
+		alart("환자의 주소를 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientFamilyTel').val() == ""){
+		$('#patientFamilyTel').focus();
+		alart("환자의 비상연락처를 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientBlood').val() == ""){
+		$('#patientBlood').focus();
+		alart("환자의 혈액형을 비워둘 수 없습니다.");
+		return;
+	} else if($('#patientZone').val() == ""){
+		$('#patientZone').focus();
+		alart("안심구역을 비워둘 수 없습니다.");
+		return;
+	} else {
+		fnSubmit();
 	}
+}
+
+function formCheckH(){
+	if($('#helperEmail').val() == ""){
+		$('#helperEmail').focus();
+		alart("이메일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperPw').val() == ""){
+		$('#helperPw').focus();
+		alart("비밀번호를 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperName').val() == ""){
+		$('#helperName').focus();
+		alart("이름을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperSex').val() == ""){
+		$('#helperSex').focus();
+		alart("성별을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperBirthY').val() == ""){
+		$('#helperBirthY').focus();
+		alart("생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperBirthM').val() == ""){
+		$('#helperBirthM').focus();
+		alart("생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperBirthD').val() == ""){
+		$('#helperBirthD').focus();
+		alart("생년월일을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperTel').val() == ""){
+		$('#helperTel').focus();
+		alart("전화번호를 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperAddr').val() == ""){
+		$('#helperAddr').focus();
+		alart("주소를 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperWorkArea1').val() == ""){
+		$('#helperWorkArea1').focus();
+		alart("희망근무지역을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperWorkArea2').val() == ""){
+		$('#helperWorkArea2').focus();
+		alart("희망근무지역을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperStartTime').val() == ""){
+		$('#helperStartTime').focus();
+		alart("희망근무시작시간을 비워둘 수 없습니다.");
+		return;
+	} else if($('#helperEndTime').val() == ""){
+		$('#helperEndTime').focus();
+		alart("희망근무종료시간을 비워둘 수 없습니다.");
+		return;
+	} else {
+		if($('#helperWorkArea2').val() == "%"){
+			$('#helperWorkArea2').val("전체");
+		}
+		fnSubmit();
+	}  
 }
 
 $(function(){
