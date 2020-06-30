@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +16,31 @@
 	#confirm{
 		margin-left
 	}
+	#head{
+		text-align : center;
+		font-size : 25px;
+	}
+	th,td{
+		font-size : 15px;
+	}
 </style>
+<script>
+	
+</script>
 <body>
 
 <div class="container">         
   <table class="table table-bordered">
     <thead>
     <tr>
-    	<th colspan="4">환자정보</th>
+    	<th colspan="4" id="head">환자정보</th>
     </tr>
       <tr>
        	<th>이름</th>
         <td>${serviceDetail.patientName }</td>
         <th>생년월일</th>
-        <td>${serviceDetail.patientBirth }</td>
+        <td><fmt:formatDate value="${serviceDetail.patientBirth}" pattern="YYYY.MM.DD" /></td>
+        
       </tr>
     </thead>
     <tbody>
@@ -59,7 +72,7 @@
         <td colspan="2">${serviceDetail.patientUnique }</td>           
        </tr>    
        <tr>
-       	<th colspan="4">간병인</th>
+       	<th colspan="4" id="head">간병인정보</th>
        </tr>
        <tr>
        		<th>근무시작시간</th>
@@ -80,7 +93,7 @@
             <td colspan="3">${serviceDetail.helperPrice }</td>
        </tr>
        <tr>
-       	<th >요구사항</th>
+       	<th>요구사항</th>
         <td colspan="3">${serviceDetail.serviceDemand }</td>
        </tr>
        <tr>
@@ -94,23 +107,26 @@
 </div>	
 <div>
 <!-- 컨트롤러에 값을 전달하기 위해 태그 추가-->
-<form action="" id="serviceFrm" name="serviceFrm">
+<form action="confirm.do" id="serviceFrm" name="serviceFrm">
 	<input type="hidden" id="familyNo" name="familyNo" value="${serviceDetail.familyNo }">
 	<input type="hidden" id="serviceNo" name="serviceNo" value="${serviceDetail.serviceNo }">
-	<button type="button" id="confirm" onclick="btnConfirm()">수락</button>
-	<button type="button" id="rejct" onclick="btnReject()">거절</button>
+	<button type="button" id="confirm" onclick="getServiceNo('${serviceDetail.serviceNo }')">수락</button>
+	<button type="button" id="reject" onclick="getRejectNo('${serviceDetail.serviceNo}')">거절</button>
+	<input type="hidden" id="serviceNo" name="serviceNo">
 </form>
-</div>	
-
+</div>
 <script type="text/javascript">
-function btnConfirm(){
-	serviceFrm.action = 'confirm.do';
-	serviceFrm.submit();
+function getServiceNo(key){
+	alert("요청을 수락했습니다.");
+	document.serviceFrm.action="confirm.do";
+	document.serviceFrm.submit();
 }
-function btnReject(){
-	serviceFrm.action = 'reject.do';
-	serviceFrm.submit();
+function getRejectNo(key){
+	alert("요청을 거절했습니다.")
+	document.serviceFrm.action="reject.do";
+	document.serviceFrm.submit();
 }
+
 </script>
 </body>
 </html>

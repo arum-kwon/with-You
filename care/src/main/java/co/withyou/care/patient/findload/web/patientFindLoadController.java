@@ -5,13 +5,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.withyou.care.patient.Login.service.PatientVO;
 import co.withyou.care.patient.findload.service.FamilyVO;
 import co.withyou.care.patient.findload.service.patientCallService;
+import javafx.scene.web.WebView;
 
 
 
@@ -37,12 +37,24 @@ public class patientFindLoadController {
 		mav.addObject("familyVO", vo);
 		mav.addObject("patientAddr", addr);
 		
-		mav.setViewName("patient/findLoad/patientTestLoadmap");
+		mav.setViewName("patient/main/patientTestLoadmap");
 		
 		return mav;		
 	}	
 
-	
+//	public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//        if (url.startsWith("tel:")) {
+//                Intent intent = new Intent(Intent.ACTION_DIAL,
+//                        Uri.parse(url));
+//                startActivity(intent);
+//        }else if(url.startsWith("http:") || url.startsWith("https:")) {
+//            view.loadUrl(url);
+//        ﻿﻿}
+//​​﻿​​﻿        return true;
+//    }
+//﻿​​﻿
+//}
+
 	
 	
 	

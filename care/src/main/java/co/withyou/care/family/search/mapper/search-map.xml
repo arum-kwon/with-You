@@ -58,4 +58,22 @@
 		 AND H.HELPERNO = CA.HELPERNO(+)
 		 AND H.HELPERNO = #{value}
 	</select>
+	
+	<!-- 후기 셀렉트  -->
+	<select id="getSelectList2" parameterType="String" resultType="map">
+		SELECT R.REVIEWWRITER "reviewWriter", 
+				R.REVIEWDATE "reviewDate", 
+				R.REVIEWCONTENTS "reviewContents", 
+				R.REVIEWSTAR "reviewStar", 
+				R.REVIEWFILE "reviewFile", 
+				R.SERVICENO "serviceNo", 
+				F.FAMILYEMAIL "familyEmail", 
+				F.FAMILYNAME "familyName",
+				S.HELPERNO "helperNo"
+		FROM REVIEW R, SERVICEAPPLY S, FAMILY F
+		WHERE R.SERVICENO = S.SERVICENO
+		AND R.REVIEWWRITER = F.FAMILYNO
+		AND S.HELPERNO = #{helperNo}
+	</select>
+	
 </mapper>

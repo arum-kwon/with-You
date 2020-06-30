@@ -149,7 +149,7 @@ public class GwangmyeongController {
 		System.out.println("요양병원리스트 :"+list);
 		model.addAttribute("selectList",list);
 		
-		return "hospital/Hospital";
+		return "family/hospital/Hospital";
 		
 	}
 }

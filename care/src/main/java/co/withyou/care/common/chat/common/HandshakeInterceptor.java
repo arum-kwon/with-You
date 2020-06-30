@@ -19,10 +19,10 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor{
 		ServletServerHttpRequest ssreq = (ServletServerHttpRequest) request;
 		HttpServletRequest req = ssreq.getServletRequest();
 		
-//		String familyEmail = (String) req.getSession().getAttribute("loginOk");
-//		attributes.put("familyEmail",  familyEmail);
+		String familyEmail = (String) req.getSession().getAttribute("loginOk");
+		attributes.put("familyEmail",  familyEmail);
 		
-		attributes.put("familyNo", req.getSession().getAttribute("loginOk"));
+//		attributes.put("familyEmail", req.getSession().getAttribute("loginOk"));
 		
 //		attributes.put(UserConstant.HEADER_USER_KEY, userService.findBy(user.getId()));
 		return super.beforeHandshake(request, response, wsHandler, attributes);

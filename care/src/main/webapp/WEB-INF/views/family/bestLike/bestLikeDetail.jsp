@@ -6,6 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<style type="text/css">
+	.container-fluid {
+		border: solid 1px;
+	}
+</style>
+
 </head>
 <body>
 
@@ -23,16 +30,40 @@
 		자격면허: ${likeDetail.certifiName }<br/>
 		경력사항: ${likeDetail.careerOrgan } / ${likeDetail.careerStart } 부터 ~ ${likeDetail.careerEnd } 까지<br/>
 		<br/>
-		후기 및 평점:
+
 		<!-- 후기 및 평점 영역 -->
-		
-		
+		후기 및 평점 :<br />
+			<c:choose>
+				<c:when test="${empty reviewList}">
+					<img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height:50px"  /><br/>
+					아직 작성된 후기가 없습니다.
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="list" items="${reviewList }">
+						<div class="container-fluid">
+							<div>
+							별점 : ${list.reviewStar } / 10
+							</div>
+							<div>
+							작성자 : ${list.familyName }
+							</div>
+							<div>
+							작성일자: ${list.reviewDate }
+							</div>
+							<div>
+							내용 : ${list.reviewContents }		
+							</div>
+							<div>
+							사진첨부 : ${list.reviewFile }		
+							</div>
+						</div><br/>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 		
 	</div>
 </div>
 
-<div><br/></div>
-<div><br/></div>
 <div><br/></div>
 <div><br/></div>
 <!-- 간병인 상세정보 섹션 끗 -->

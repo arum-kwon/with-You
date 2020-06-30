@@ -70,27 +70,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <button class="button" onclick="location.href='familyLogin.do'">보호자</button><br><br>
   <button class="button" onclick="location.href='helperLogin.do'">간병인</button><br><br>
 
-
-<!-- 임시 a링크들 boy 찬진 -->
-<div><br/></div>
-<div id=temp align="center">
-	<h3>기능 테스트를 위한 임시 링크(찬진)</h3>
-	<a href=chat.do>채팅</a><br/>
-	<a href=pay.do>결제</a><br/>
-	<a href=helperList.do>보호자의 간병인 조회/신청</a><br/>
-</div>
-<div align="center">
-	<a href="scheduleEx.do">schedule example</a>
-</div>
-<div align="center">
-	<a href="patientLine.do">환자라인 example</a>
-</div>
-<div align="center">
-	<a href="findLoadTest.do">길찾기Test example</a>
-</div>
-<div align="center">
-	<a href="goReview.do">후기 작성 추가,삭제,수정(아름)</a>
-</div>
 </header>
 
 </body> 

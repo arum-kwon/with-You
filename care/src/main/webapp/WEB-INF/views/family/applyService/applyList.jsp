@@ -72,12 +72,16 @@
 					<button type="button" id="btnLikeList" class="btn btn-light"
 						onclick="getServiceNo('${list.serviceNo}')">상세내역</button>
 					<br> 
-					<a onclick="callToHelper('${list.helperTel}')"> 
-						<img src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png" style="height: 42px" />
-					</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-					<a href="javascript:void(0);" onclick="chatPage('${list.helperNo}');"> 
-						<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height: 42px" />
-					</a>
+					<c:choose>
+						<c:when test="${list.serviceStatus eq 'S01' || list.serviceStatus eq 'S02' || list.serviceStatus eq 'S03' }">
+							<a onclick="callToHelper('${list.helperTel}')"> 
+								<img src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png" style="height: 42px" />
+							</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							<a href="javascript:void(0);" onclick="chatPage('${list.helperNo}');"> 
+								<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height: 42px" />
+							</a>
+						</c:when>
+					</c:choose>
 				</div>
 			</div>
 

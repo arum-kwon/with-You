@@ -7,4 +7,5 @@ public interface SearchService {
 
 	List <Map> getSelectList(SearchFilterVo searchFilterVo) throws Exception;
 	Map getSelect (String helperNo) throws Exception;
+	List <Map> getSelectList2(String helperNo) throws Exception;
 }

@@ -89,6 +89,9 @@ public class BestLikeController {
 		Map map = searchService.getSelect(helperNo);
 		model.addAttribute("likeDetail", map);
 		
+		//간병인 후기 셀렉트
+		List <Map> list = searchService.getSelectList2(helperNo);
+		model.addAttribute("reviewList", list);
 		
 		return "family/bestLike/bestLikeDetail";
 	}

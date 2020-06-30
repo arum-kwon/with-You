@@ -31,26 +31,28 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg" id="mainNav">
             <div class="container">
-                <c:if test="${loginOk == null }">
+            	<c:choose>
+            		<c:when test="${userType == 'h' || hloginCookie != null}">
+	                <a class="w3-container w3-myfont w3-xxlarge" href="helperMain.do" style="color:black;">Care With.U</a>           	
+            		</c:when>
+            		<c:when test="${userType == 'f' || floginCookie != null}">
+	                <a class="w3-container w3-myfont w3-xxlarge" href="familyMain.do" style="color:black;">Care With.U</a>           	
+            		</c:when>            		
+            		<c:when test="${userType == 'p' || ploginCookie != null }">
+	                <a class="w3-container w3-myfont w3-xxlarge" href="patientMain.do" style="color:black;">Care With.U</a>           	
+            		</c:when>            		         		            		
+            		<c:when test="${userType == null }">
 	                <a class="w3-container w3-myfont w3-xxlarge" href="home.do" style="color:black;">Care With.U</a>           	
-                </c:if>
-            	<c:if test="${userType == 'h' }">
-                	<a class="w3-container w3-myfont w3-xxlarge" href="helperMain.do" style="color:black;">Care With.U</a>
-            	</c:if>
-            	<c:if test="${userType == 'f' }">
-                	<a class="w3-container w3-myfont w3-xxlarge" href="familyMain.do" style="color:black;">Care With.U</a>
-            	</c:if>
-            	<c:if test="${userType == 'p' }">
-                	<a class="w3-container w3-myfont w3-xxlarge" href="patientMain.do" style="color:black;">Care With.U</a>
-            	</c:if>
-            	
+            		</c:when>
+            	</c:choose>
+
             	<!-- 창 줄어들 때 흰색배경에 나오는 아이들 -->
                 <a class="navbar-toggler navbar-toggler-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenu2" >              		
               		<c:if test="${userType == 'h' || userType == 'f' || userType == 'p'}">
               		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" /><span class="alarm-count"></span>
               		</c:if>
               	</a>
-               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                	<c:if test="${userType == 'h' || userType == 'f' || userType == 'p'}">
                	 <button class="dropdown-item" type="button" onclick="location.href='familygetSelect.do'">회원정보수정</button>
                	 <button class="dropdown-item" type="button" onclick="location.href='patientgetSelect.do'">환자정보수정</button>
@@ -60,7 +62,8 @@
 				 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
                	</c:if>
                </div>
-                
+               
+             
                 
                 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -120,7 +123,7 @@
                         	</c:if>
                         </li>
                     </ul>
-                    <br><br>
+                    <br><br>	
                 </div>
             </div>
         </nav>
