@@ -18,8 +18,9 @@
 		<if test="helperStartTime != null and ' '">helperStartTime= #{helperStartTime},</if>
 		<if test="helperEndTime != null and ' '">helperEndTime= #{helperEndTime},</if>
 		<if test="helperUnique != null and ' '">helperUnique = #{helperUnique},</if>
-		<if test="helperAddr != null and ' '">helperAddr = #{helperAddr}</if>
+		<if test="helperAddr != null and ' '">helperAddr = #{helperAddr},</if>
+		helperProfile = #{helperProfile}
 		</set>
 		WHERE helperNo = #{helperNo}
 	</update>
-</mapper>
+</mapper>	
