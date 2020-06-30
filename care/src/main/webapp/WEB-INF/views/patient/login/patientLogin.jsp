@@ -17,20 +17,22 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/vendor/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/css/util.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/login/css/main.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <style>
-.main {
-	margin:80px;
-	
-}
-
 .errorMsg, .errorMsg2 {
 	color:#ec2020; 
 	font-weight:bold;
 	font-size: 18px;
 	font-family: Montserrat-Regular;
 }
-
-
+.title{
+	font-weight:bold;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 38px;
+}
+.login100-form{
+	padding-top: 0px;
+}
 </style>
 
 <script>
@@ -59,12 +61,12 @@ function enterKeyCheck(){
 </script>
 </head>
 <body>
-
 	<div class="limiter">
-
+		<div align="center" style="margin:30px;">
+			<a class="title"> 환자 로그인</a>
+		</div>
 			<div class="main" align="center">
 				<form name="pLoginForm" action="patientLoginCheck.do" method="post" class="login100-form validate-form">
-					<span class="w3-xxlarge"> 환자 로그인</span>
 					<br><br>					
 					<div class="wrap-input100 validate-input"
 						 data-validate="인증코드를 입력해주세요.: ">

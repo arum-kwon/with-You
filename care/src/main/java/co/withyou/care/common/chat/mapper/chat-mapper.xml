@@ -29,31 +29,32 @@
 	</insert>
 	
 	<select id="chatSelectList" parameterType="ChatVo" resultType="map">
+		WITH N AS (SELECT FAMILYNO, FAMILYNAME, 'f' userType
+                    FROM FAMILY
+                    UNION ALL
+                    SELECT HELPERNO, HELPERNAME, 'h' userType 
+                    FROM HELPER)
 		SELECT C.CHATNO "chatNo",
 		        C.SENDERNO "senderNo",
 		        C.RECEIVERNO "receiverNo",
 		        C.CHATDATE "chatDate",
 		        C.CHATCONTENTS "chatContents",
 		        C.CHATCHECK "chatCheck",
-		        F.FAMILYNAME "familyName",
-		        F.FAMILYNO "familyNo",
-		        H.HELPERNO "helperNo",
-		        H.HELPERNAME "helperName"
-		FROM CHAT C, FAMILY F, HELPER H
-		<where>
-			<if test='userType != null and userType =="f"'>
-				C.SENDERNO = F.FAMILYNO
-				AND C.RECEIVERNO = H.HELPERNO
-				AND C.SENDERNO = #{familyNo}
-				AND C.RECEIVERNO = #{helperNo}
-			</if>
-			<if test='userType != null and userType =="h"'>
-				C.SENDERNO = H.HELPERNO
-				AND C.RECEIVERNO = F.FAMILYNO
-				AND C.SENDERNO = #{helperNo}
-				AND C.RECEIVERNO = #{familyNo}
-			</if>
-		</where>
+		        (SELECT USERTYPE
+	                FROM N
+	                WHERE C.SENDERNO = N.FAMILYNO) "userType",
+		        (SELECT FAMILYNAME
+	                FROM N
+	                WHERE C.SENDERNO=N.FAMILYNO) "senderName",		        		        
+		        (SELECT FAMILYNAME
+	                FROM N
+	                WHERE C.RECEIVERNO=N.FAMILYNO) "receiverName",
+	            (select familyNo
+                    from N
+                    where C.receiverNo=n.familyNo) "familyNo"
+		FROM CHAT C
+		WHERE	( C.SENDERNO = #{familyNo} AND C.RECEIVERNO = #{helperNo} ) 
+				OR ( C.SENDERNO = #{helperNo} AND C.RECEIVERNO = #{familyNo} )
 		ORDER BY C.CHATDATE
 	</select>
 </mapper>

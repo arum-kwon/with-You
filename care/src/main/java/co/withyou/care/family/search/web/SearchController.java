@@ -46,8 +46,13 @@ public class SearchController {
 		String helperNo = hNo;
 		System.out.println(helperNo);
 		
+		//간병인 정보 셀렉트
 		Map map = searchService.getSelect(helperNo);
 		model.addAttribute("helperInfo", map);
+		
+		//간병인 후기 셀렉트
+		List <Map> list = searchService.getSelectList2(helperNo);
+		model.addAttribute("reviewList", list);
 		
 		return "family/searchHelper/helperInfo";
 	}

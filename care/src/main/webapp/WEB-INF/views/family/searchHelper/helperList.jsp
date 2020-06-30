@@ -131,7 +131,7 @@ select {
 				<option value="n" ${param.certifiName eq "n" ? "selected" :"" }>미보유</option>				
 			</select>
 			
-			<input type="hidden" id="helperNo" name="helperNo">			
+			<input type="hidden" id="helperNo" name="helperNo" >			
 			&nbsp;&nbsp;&nbsp;
 
 		<button type="button" onclick="formCheck()" class="btn btn-secondary btn-lg" id="sbmt" name="sbmt">검색</button>

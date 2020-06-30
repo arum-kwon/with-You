@@ -26,7 +26,7 @@ public class PatientLoginController {
 	// 메인 화면 가기
 	@RequestMapping("/patientMain.do")
 	public String patientMain() {
-		return "patient/main/patientMain";
+		return "redirect:findload.do";
 	}
 	
 	// 로그인 유효성 검사
