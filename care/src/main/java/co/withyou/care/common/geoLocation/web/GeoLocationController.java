@@ -38,7 +38,7 @@ public class GeoLocationController {
 	public int insertLocation(PatientLocVO vo, HttpServletRequest request) {
 		String time = request.getParameter("time");
         SimpleDateFormat df = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
-        
+        System.out.println(time);
 		try {
 			Date locTime = df.parse(time);
 			vo.setPatientLoctime(locTime);

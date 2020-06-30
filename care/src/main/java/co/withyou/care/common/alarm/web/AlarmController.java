@@ -28,14 +28,15 @@ public class AlarmController {
 	public int getAlarmCount(Model model, HttpSession session, HttpServletRequest request) {
 		session = request.getSession();
 		String type = (String)session.getAttribute("userType");
-		
 		int result=0;
-		if(type.equals("f")) {
-			FamilyVO vo = (FamilyVO)session.getAttribute("loginOk");
-			result  = alarmService.getAlarmCount(vo.getFamilyNo());
-		} else if (type.equals("h")) {
-			HelperVO vo = (HelperVO)session.getAttribute("loginOk");
-			result  = alarmService.getAlarmCount(vo.getHelperNo());
+		if(type != null) {
+			if(type.equals("f")) {
+				FamilyVO vo = (FamilyVO)session.getAttribute("loginOk");
+				result  = alarmService.getAlarmCount(vo.getFamilyNo());
+			} else if (type.equals("h")) {
+				HelperVO vo = (HelperVO)session.getAttribute("loginOk");
+				result  = alarmService.getAlarmCount(vo.getHelperNo());
+			}
 		}
 		return result;
 	}
