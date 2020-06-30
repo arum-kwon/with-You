@@ -144,7 +144,7 @@ th, td{
 				<option value="전남" ${param.helperWorkArea eq "전남" ? "selected" :""}>전남</option>
 				<option value="전북" ${param.helperWorkArea eq "전북" ? "selected" :""}>전북</option>
 				<option value="제주" ${param.helperWorkArea eq "제주" ? "selected" :""}>제주</option>
-=======
+			</select>
 		<label for="helperWorkArea1">근무지역</label>
 			<select name="helperWorkArea1" id="helperWorkArea1" onchange="categoryChange(this)">
 				<option value="" selected="selected">시도</option>
@@ -170,17 +170,13 @@ th, td{
 		<label for="helperWorkArea2">근무지역</label>
 			<select name="helperWorkArea2" id="helperWorkArea2">
 				<option value="" selected="selected">시군구</option>
->>>>>>> branch 'master' of https://github.com/arum-kwon/with-You.git
 			</select>
-<<<<<<< HEAD
 	  </div>
 			<br>	
 	  <div>
 		<label for="helperStartTime">시작시간 :</label>
-=======
 			
 		<label for="helperStartTime">돌봄시작시간</label>
->>>>>>> branch 'master' of https://github.com/arum-kwon/with-You.git
 			<select name="helperStartTime" id="helperStartTime">
 				<option value="" selected="selected">선택</option>
 				<option value="0" ${param.helperStartTime eq "0" ? "selected" :""}>00</option>
