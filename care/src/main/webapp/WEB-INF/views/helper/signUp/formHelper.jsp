@@ -42,7 +42,7 @@
 	.title{
 		margin-bottom : 15px;
 	}
-	.time, .file, .add-btn{
+	.time, .file{
 		margin : auto;
 	}
 	
