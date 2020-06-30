@@ -6,8 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
 <title>간병인 메인홈메뉴</title>
 <style>
+h3{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 .menu {
 	margin:50px;
 }
@@ -28,7 +32,7 @@
 		   	<a href="scheduleList.do">
 		  	<img src="${pageContext.request.contextPath}/resources/img/menu/schedule.png" style="height:90px"  />
 		  	</a>
-		  		<h3>스케줄관리</h3>
+		  		<h3>일정관리</h3>
 		</div>
 		  <div class="fam2">
 		  	<a href="helperGetSelect.do">
@@ -41,7 +45,7 @@
 		  	<a href="serviceapplylist.do">
 		  		<img src="${pageContext.request.contextPath}/resources/img/menu/callService.png" style="height:90px"  />
 		  	</a>
-		  		<h3>요청리스트</h3>
+		  		<h3>요청내역</h3>
 		</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<div class="fam4">
 		  	<a href="serviceHistory.do">

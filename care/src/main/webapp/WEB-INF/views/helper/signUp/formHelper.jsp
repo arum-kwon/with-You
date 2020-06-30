@@ -1,22 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sign.js"></script>
+</head>
+<style>
+	.m4{
+		font-family: 'Nanum Gothic', sans-serif;		
+	}
+	.add-juso, {
+		margin-bottom : 5px;
+	}
+	
+	.add-btn{
+		margin-bottom : 5px;
+		border-radius : 4px;
+		width : 100%;
+	}
+	.input, {
+		margin-botton : 5px;
+	}
+	option{
+		border-radius : 6px;
+	}
+	.confrim{
+		margin-left : 100px;
+	}
+	.title{
+		margin-bottom : 15px;
+	}
+	.time, .file{
+		margin : auto;
+	}
+	
+</style>
 
+<body>
 <div class="">
 <div class="">
 
 <div class="">&nbsp;</div>
-<div class="">
-	<form action="createMemberHelper.do" id="mainFrm" name="mainFrm" method="post" encType="multipart/form-data">>
-		<h1>간병인 회원가입</h1>
-		<div class="w3-row">
-			<div class="w3-col s4 m4"><p>이메일*</p></div>
+<div class="container">
+	<form action="createMemberHelper.do" id="mainFrm" name="mainFrm" method="post" encType="multipart/form-data">
+		<h1 align="center" class="m4 title">회원가입</h1>
+		<div class="w3-row form-group">
+			<div class="w3-col s4 m4 etop"><p>이메일*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border email-check" type="email" placeholder="abc@def.com" id="helperEmail" name="helperEmail" required> 
+				<input class="form-control input" type="email" placeholder="abc@def.com" id="helperEmail" name="helperEmail" required> 
 				<span id="email-success" style="display: none;">사용 가능</span>
 				<span id="email-danger" style="display: none; color: #d92742; font-weight: bold; ">사용 불가</span>
 			</div>
@@ -24,13 +68,13 @@
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>비밀번호*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border pw-check" type="password" placeholder="" id="helperPw" name="helperPw" required>
+				<input class="w3-input w3-border pw-check form-control input" type="password" placeholder="" id="helperPw" name="helperPw" required>
 			</div>
 		</div>
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>비밀번호확인*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border pw-check" type="password" placeholder="" id="helperPw2" name="helperPw2" required>
+				<input class="w3-input w3-border pw-check form-control input" type="password" placeholder="" id="helperPw2" name="helperPw2" required>
 				<span id="pw-success" style="display: none;">비밀번호 일치</span>
 				<span id="pw-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호 불일치</span>
 			</div>
@@ -38,51 +82,59 @@
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>이름*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border" type="text" placeholder="" id="helperName" name="helperName" required>
+				<input class="input w3-input w3-border form-control" type="text" placeholder="" id="helperName" name="helperName" required>
 			</div>
 		</div>
-		<div class="w3-row">
+		<div class="w3-row form-check">
 			<div class="w3-col s4 m4"><p>성별*</p></div>
-			<div class="w3-col s4 m4">
+			<div class="w3-col s4 m4 form-check-label">
 				<p>
-				<input type="radio" id="h-male" name="helperSex" value="남" required>
-				<label for="h-male">남</label>
+				<input class="form-check-input" type="radio" id="h-male" name="helperSex" value="남" required>
+				<label class="form-check-label" for="h-male">남</label>
 				</p>
 			</div>
-			<div class="w3-col s4 m4">
+			<div class="w3-col s4 m4 form-check-label">
 				<p>
-				<input type="radio" id="h-female" name="helperSex" value="여">
-				<label for="h-female">여</label>
+				<input class="form-check-input" type="radio" id="h-female" name="helperSex" value="여">
+				<label class="form-check-label" for="h-female">여</label>
 				</p>
 			</div>
 		</div>
+		
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>생년월일*</p></div>
-			<div class="w3-col s4 m4"><input class="w3-input w3-border" type="text" placeholder="년" id="helperBirthY" name="helperBirthY" numberOnly required></div>
-			<div class="w3-col s2 m2"><input class="w3-input w3-border" type="text" placeholder="월" id="helperBirthM" name="helperBirthM" numberOnly required></div>
-			<div class="w3-col s2 m2"><input class="w3-input w3-border" type="text" placeholder="일" id="helperBirthD" name="helperBirthD" numberOnly required></div>
-		</div>
-		<div class="w3-row">
-			<div class="w3-col s4 m4"><p>주소*</p></div>
-			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border add-juso" type="text" placeholder="" id="helperAddr" name="helperAddr" required readOnly><button type="button" onclick="jusoPopup(0)">주소찾기</button>
-			</div>
+			<div class="w3-col s4 m4"><input class="w3-input w3-border form-control input" type="text" placeholder="년" id="helperBirthY" name="helperBirthY" numberOnly required></div>
+			<div class="w3-col s2 m2"><input class="w3-input w3-border form-control input" type="text" placeholder="월" id="helperBirthM" name="helperBirthM" numberOnly required></div>
+			<div class="w3-col s2 m2"><input class="w3-input w3-border form-control input" type="text" placeholder="일" id="helperBirthD" name="helperBirthD" numberOnly required></div>
 		</div>
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>연락처*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border" type="text" placeholder="숫자만" id="helperTel" name="helperTel" numberOnly required>
+				<input class="w3-input w3-border form-control input" type="text" placeholder="숫자만" id="helperTel" name="helperTel" numberOnly required>
 			</div>
 		</div>
+		<div class="w3-row">
+			<div class="w3-col s4 m4"><p>주소*</p></div>
+			<div class="w3-col s8 m8">
+				<input class="w3-input w3-border add-juso form-control input " type="text" placeholder="" id="helperAddr" name="helperAddr" required readOnly><button class="add-btn"type="button" onclick="jusoPopup(0)">주소찾기</button>
+			</div>
+		</div>
+		
 
 		<div class="w3-row">
-			<div class="w3-col s4 m4"><p>희망근무지역*</p></div>
+			<div class="w3-col s4 m4 hope"><p>희망근무지역*</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border" type="text" placeholder="" id="helperWorkArea" name="helperWorkArea" required>
+				<input class="w3-input w3-border form-control input" type="text" placeholder="" id="helperWorkArea" name="helperWorkArea" required>
 			</div>
 		</div>
 		<div class="w3-row">
-			<div class="w3-col s4 m4"><p>희망근무시간*</p></div>
+			<div class="w3-col s4 m4"><p>특이사항</p></div>
+			<div class="w3-col s8 m8">
+				<input class="w3-input w3-border form-control" type="text" placeholder="" id="helperUnique" name="helperUnique"><br>
+			</div>
+		</div>
+		<div class="w3-row">
+			<div class="w3-col s4 m4 time"><p>희망근무시간*</p></div>
 			<div class="w3-col s8 m8">
 				<select name="helperStartTime" required>
 				  <option value="">시작</option>
@@ -141,29 +193,25 @@
 				</select>
 			</div>
 		</div>
+		
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>프로필 사진</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border" type="file" placeholder="" id="uploadFile" name="uploadFile">
+				<input class="w3-input w3-border file" type="file" placeholder="" id="uploadFile" name="uploadFile">
 			</div>
 		</div>
-		<div class="w3-row">
-			<div class="w3-col s4 m4"><p>특이사항</p></div>
-			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border" type="text" placeholder="" id="helperUnique" name="helperUnique">
-			</div>
-		</div>
-
-		<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
-		&nbsp;&nbsp;&nbsp;
-		<button class="w3-button w3-round w3-dark-grey" type="button" onclick="fnSubmit(false)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
+		<button class="w3-button w3-round w3-dark-grey confrim" type="button" onclick="fnSubmit(false)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
+				&nbsp;&nbsp;&nbsp;
+		<button class="w3-button w3-round w3-dark-grey cancle" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
+		
 	</form>
 </div>
 <div class="w3-col m4">&nbsp;</div>
 
 </div>
 </div>
-
+</body>
+</html>
 
 
 

@@ -17,27 +17,64 @@
  	.chatRight {
  		text-align:right;
  	}
+ 	.balloonLeft {
+		 position:relative;
+		 margin: 50px;
+		 width:200px;
+		 height:70px;
+		  background: pink;
+		  border-radius: 10px;
+	}
+	.balloonLeft:after {
+		 border-top:15px solid pink;
+		 border-left: 15px solid transparent;
+		 border-right: 0px solid transparent;
+		 border-bottom: 0px solid transparent;
+		 content:"";
+		 position:absolute;
+		 top:10px;
+		 left:-15px;
+	}
+	.dateFont {
+		font-size: 12px;
+	}
+	.senderFont {
+		font-weight: bold;
+		font-size: 17px;
+	}
+	
  </style>
+ 
+
+ 
 </head>
 <body>
-채팅
 	<div class="container">
 		<form id="msgFrm" name="msgFrm" action="chatInsert.do" method="post">
-			<div class="container p-3 my-3 bg-dark text-white">
+			<div class="container p-3 my-3 bg-white text-dark">
 				<c:forEach var="list" items="${chatList }">
 					<c:set var="chatType" value="chatLeft"></c:set>
 						<c:if test="${list.userType eq 'f' }"> 
-						<c:set var="chatType" value="chatRight"></c:set>
-					 </c:if>
-					<div class="${chatType }" >
-							${list.senderName } : <br/>
-							(${list.chatDate }) ${list.chatContents }<br/>
-					</div>
+							<c:set var="chatType" value="chatRight"></c:set>
+					 	</c:if>
+						<div class="${chatType }" >
+							<span class="senderFont">${list.senderName }</span>
+							<span class="dateFont">(${list.chatDate })</span><br/>
+							${list.chatContents }
+							<c:choose>
+								<c:when test="${list.chatCheck == 1 }">
+									<span class="dateFont">읽지않음</span><br/>
+								</c:when>
+								<c:otherwise>
+									<span class="dateFont">읽음</span><br/>
+								</c:otherwise>
+							</c:choose>
+						</div><br/>
 				</c:forEach>
 			</div>
 			<div class="container mt-3">
 				<div class="input-group mb-3">
-				    <input type="text" id="chatContents" name="chatContents" class="form-control" placeholder="메시지를 입력하세요">
+				    <input type="text" id="chatContents" name="chatContents" class="form-control" placeholder="메시지를 입력하세요" autofocus="autofocus">
 				    <div class="input-group-append">
 				      <button type="submit" class="btn btn-primary" type="button">전송</button>  
 				      <button type="reset" class="btn btn-danger" type="button">취소</button>  
@@ -58,5 +95,16 @@
 			</c:choose>
 		</div>
 	</div>
+	
+<script type="text/javascript">
+function reloadFn(){  
+	location.reload();
+	/* document.getElementById('chatContents').focus(); */
+	/* window.location.href = window.location.href;	*/ 
+	}
+ 	/* setInterval(reloadFn,5000); */
+	document.body.scrollTop = document.body.scrollHeight;
+	
+</script>
 </body>
 </html>

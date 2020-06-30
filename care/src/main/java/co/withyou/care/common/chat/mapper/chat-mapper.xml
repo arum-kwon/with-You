@@ -37,7 +37,7 @@
 		SELECT C.CHATNO "chatNo",
 		        C.SENDERNO "senderNo",
 		        C.RECEIVERNO "receiverNo",
-		        C.CHATDATE "chatDate",
+		        TO_CHAR(C.CHATDATE, 'MM-DD hh24:MI') "chatDate",
 		        C.CHATCONTENTS "chatContents",
 		        C.CHATCHECK "chatCheck",
 		        (SELECT USERTYPE
@@ -45,16 +45,28 @@
 	                WHERE C.SENDERNO = N.FAMILYNO) "userType",
 		        (SELECT FAMILYNAME
 	                FROM N
-	                WHERE C.SENDERNO=N.FAMILYNO) "senderName",		        		        
+	                WHERE C.SENDERNO = N.FAMILYNO) "senderName",		        		        
 		        (SELECT FAMILYNAME
 	                FROM N
-	                WHERE C.RECEIVERNO=N.FAMILYNO) "receiverName",
+	                WHERE C.RECEIVERNO = N.FAMILYNO) "receiverName",
 	            (select familyNo
                     from N
-                    where C.receiverNo=n.familyNo) "familyNo"
+                    where C.receiverNo = N.familyNo) "familyNo"
 		FROM CHAT C
 		WHERE	( C.SENDERNO = #{familyNo} AND C.RECEIVERNO = #{helperNo} ) 
 				OR ( C.SENDERNO = #{helperNo} AND C.RECEIVERNO = #{familyNo} )
 		ORDER BY C.CHATDATE
 	</select>
+	
+	<update id="chatUpdate" parameterType="ChatVo">
+		UPDATE CHAT
+		SET CHATCHECK = 0
+		WHERE 
+		<if test='userType != null and userType =="f"'>
+			SENDERNO = #{helperNo} AND RECEIVERNO = #{familyNo}
+		</if>
+		<if test='userType != null and userType =="h"'>
+			SENDERNO = #{familyNo} AND RECEIVERNO = #{helperNo}
+		</if>
+	</update>
 </mapper>

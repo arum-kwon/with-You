@@ -143,6 +143,7 @@
 	<context:component-scan base-package="co.withyou.care" />
 	
 	<!-- 웹소켓 boy 찬진 -->
+	<!-- 
 	<beans:bean id="echoHandler" class="co.withyou.care.common.chat.common.EchoHandler" />	
 	<websocket:handlers>
 		<websocket:mapping handler="echoHandler" path="/care" />
@@ -151,6 +152,7 @@
 		</websocket:handshake-interceptors>
 		<websocket:sockjs />
 	</websocket:handlers>
+	 -->
 	<!-- 웹소켓 끗 -->
 	
 	<!-- 파일 업로드 재선  -->

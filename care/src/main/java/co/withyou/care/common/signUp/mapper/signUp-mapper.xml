@@ -40,16 +40,16 @@
 	
 		INSERT INTO HELPER(HELPERNO, HELPERNAME, HELPERBIRTH, HELPERSEX, HELPERADDR
 	            , HELPERTEL, HELPEREMAIL, HELPERPW, HELPERWORKAREA, HELPERSTARTTIME
-	            , HELPERENDTIME, HELPERUNIQUE, HELPERJOINDATE,
+	            , HELPERENDTIME, HELPERUNIQUE, HELPERJOINDATE
 	            <if test="helperProfile != null and helperProfile != ''">
-	            HELPERPROFILE
+	            ,HELPERPROFILE
 	            </if>
 	            )
 	    VALUES(HELPER_SQ.NEXTVAL, #{helperName}, #{helperBirth}, #{helperSex}, #{helperAddr}
 	            , #{helperTel}, #{helperEmail}, #{helperPw}, #{helperWorkArea}, #{helperStartTime}
-	            , #{helperEndTime}, #{helperUnique}, SYSDATE, 
+	            , #{helperEndTime}, #{helperUnique}, SYSDATE 
 	            <if test="helperProfile != null and helperProfile != ''">
-	            #{helperProfile}
+	            ,#{helperProfile}
 	            </if>
 	            )
 	</insert>
