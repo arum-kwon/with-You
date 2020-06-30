@@ -150,7 +150,7 @@ select {
 		</tr>
 		<c:forEach var="list" items="${searchList }">
 		<tr id="listTr" onclick="selectOne('${list.helperNo }')">
-			<td scope="row"><img src="uploadProfile/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
+			<td scope="row"><img src="${pageContext.request.contextPath}/resources/upload/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
 			<td scope="row">${list.helperName }</td>
 			<td scope="row">${list.helperWorkArea }</td>
 			<td scope="row">${list.helperStartTime }</td>

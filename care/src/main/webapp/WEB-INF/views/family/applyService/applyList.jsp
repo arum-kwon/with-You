@@ -33,13 +33,13 @@
 		<c:forEach var="list" items="${applyList }">
 			<div class="w3-row">
 				<div class="w3-col w3-container m2 s2" align="center">
-					<img src="uploadProfile/no.jpg"
+					<img src="${pageContext.request.contextPath}/resources/upload/${list.helperProfile}"
 						onerror='this.src="resources/img/no_image.png"' id="viewProfile"
 						class="rounded-circle" width="100" height="100">&nbsp;&nbsp;
 				</div>
 				<div class="w3-col w3-container m6 s6 text">
 					${list.helperName} 님<br /> 요청서비스날짜 : ${list.serviceDate }<br />
-					요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지<br />
+					요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지 <br />
 				</div>
 				<div class="w3-col w3-container m4 s4" align="center">
 					<c:choose>

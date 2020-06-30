@@ -83,6 +83,13 @@ ul.breadcrumb li a {
 		console.log(key);
 		document.scheduleListForm.submit();
 	}
+	
+	// 간병인이 보호자에게 전화 걸기
+	function callToFamily(num) {
+		location.href = "tel:" + num;	
+}	
+	
+	
 </script>
 </head>
 <body>
@@ -105,6 +112,10 @@ ul.breadcrumb li a {
 			<h4>${sceduleList.title }님 </h4>
 			<h5>서비스 시간: ${sceduleList.serviceStartTime } - ${sceduleList.serviceEndTime }</h5><br>
 				<button type="button" onclick="getServiceNo('${sceduleList.serviceNo}')"class="w3-button w3-sand w3-round">상세정보</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a onclick="callToFamily('${sceduleList.familyTel}')"> 
+					<img src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png" style="height: 42px" />
+				</a> 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			    <a href="javascript:void(0);" onclick="chatPage('${sceduleList.familyNo}');">
 			   		 <img src="${pageContext.request.contextPath}/resources/img/chat/chat2.png" style="height: 42px" />
 			    </a>				

@@ -36,12 +36,22 @@
 	</insert>
 	
 	<insert id="insertHelper" parameterType="signUpHelperVO">
+
+	
 		INSERT INTO HELPER(HELPERNO, HELPERNAME, HELPERBIRTH, HELPERSEX, HELPERADDR
 	            , HELPERTEL, HELPEREMAIL, HELPERPW, HELPERWORKAREA, HELPERSTARTTIME
-	            , HELPERENDTIME, HELPERUNIQUE, HELPERPROFILE, HELPERJOINDATE)
+	            , HELPERENDTIME, HELPERUNIQUE, HELPERJOINDATE,
+	            <if test="helperProfile != null and helperProfile != ''">
+	            HELPERPROFILE
+	            </if>
+	            )
 	    VALUES(HELPER_SQ.NEXTVAL, #{helperName}, #{helperBirth}, #{helperSex}, #{helperAddr}
 	            , #{helperTel}, #{helperEmail}, #{helperPw}, #{helperWorkArea}, #{helperStartTime}
-	            , #{helperEndTime}, #{helperUnique}, #{helperProfile}, SYSDATE)
+	            , #{helperEndTime}, #{helperUnique}, SYSDATE, 
+	            <if test="helperProfile != null and helperProfile != ''">
+	            #{helperProfile}
+	            </if>
+	            )
 	</insert>
 	
 	

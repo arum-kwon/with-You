@@ -2,6 +2,7 @@ package co.withyou.care.common.signUp.web;
 
 
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import co.withyou.care.common.signUp.service.FamilyVO;
 import co.withyou.care.common.signUp.service.HelperVO;
@@ -95,6 +97,18 @@ public class SignUpController {
 							+ request.getParameter("helperBirthD");
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		hVO.setHelperBirth(df.parse(helperBirth));
+		//첨부파일 업로드 처리
+		MultipartFile uploadFile = hVO.getUploadFile();
+		String fileName = null;
+		if(uploadFile !=null && !uploadFile.isEmpty() && uploadFile.getSize()>0) {
+		fileName = uploadFile.getOriginalFilename();
+		String path = request.getServletContext().getRealPath("/");
+		String attachPath = "resources/upload/";
+		uploadFile.transferTo(new File( path + attachPath +  fileName));		
+		
+		}
+		
+		hVO.setHelperProfile(fileName);
 		
 		signUpService.insertHelper(hVO);
 		return "helper/signUp/result";

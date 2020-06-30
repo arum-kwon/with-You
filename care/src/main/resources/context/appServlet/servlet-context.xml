@@ -143,8 +143,7 @@
 	<context:component-scan base-package="co.withyou.care" />
 	
 	<!-- 웹소켓 boy 찬진 -->
-	<beans:bean id="echoHandler" class="co.withyou.care.common.chat.common.EchoHandler" />
-	
+	<beans:bean id="echoHandler" class="co.withyou.care.common.chat.common.EchoHandler" />	
 	<websocket:handlers>
 		<websocket:mapping handler="echoHandler" path="/care" />
 		<websocket:handshake-interceptors>
@@ -153,5 +152,12 @@
 		<websocket:sockjs />
 	</websocket:handlers>
 	<!-- 웹소켓 끗 -->
+	
+	<!-- 파일 업로드 재선  -->
+	<!-- MultipartResolver 설정-->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<beans:property name="maxUploadSize" value="100000000" />
+	<beans:property name="maxInMemorySize" value="100000000" />
+	</beans:bean>
 	
 </beans:beans>

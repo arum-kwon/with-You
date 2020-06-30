@@ -19,7 +19,7 @@
 }
 </style>
 <script>
-// 보호자가 간병인에게 전화 걸기
+// 간병인이 보호자에게 전화 걸기
 	function callToHelper(num) {
 		location.href = "tel:" + num;	
 }

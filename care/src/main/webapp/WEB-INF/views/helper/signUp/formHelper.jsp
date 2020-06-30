@@ -11,7 +11,7 @@
 
 <div class="">&nbsp;</div>
 <div class="">
-	<form action="createMemberHelper.do" id="mainFrm" name="mainFrm" method="post">
+	<form action="createMemberHelper.do" id="mainFrm" name="mainFrm" method="post" encType="multipart/form-data">>
 		<h1>간병인 회원가입</h1>
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>이메일*</p></div>
@@ -144,7 +144,7 @@
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>프로필 사진</p></div>
 			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border" type="file" placeholder="" id="helperProfile" name="helperProfile">
+				<input class="w3-input w3-border" type="file" placeholder="" id="uploadFile" name="uploadFile">
 			</div>
 		</div>
 		<div class="w3-row">

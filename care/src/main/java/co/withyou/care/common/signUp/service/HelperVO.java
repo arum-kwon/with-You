@@ -2,6 +2,8 @@ package co.withyou.care.common.signUp.service;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class HelperVO {
 	private int helperNo;
 	private String helperName;
@@ -17,8 +19,17 @@ public class HelperVO {
 	private String helperAddr;
 	private String helperProfile;
 	private String commissionGrade;
+	private MultipartFile uploadFile; //첨부파일
 	
 	public HelperVO() {
+	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 	public int getHelperNo() {
@@ -140,8 +151,11 @@ public class HelperVO {
 				+ ", helperPw=" + helperPw + ", helperWorkArea=" + helperWorkArea + ", helperStartTime="
 				+ helperStartTime + ", helperEndTime=" + helperEndTime + ", helperUnique=" + helperUnique
 				+ ", helperAddr=" + helperAddr + ", helperProfile=" + helperProfile + ", commissionGrade="
-				+ commissionGrade + "]";
+				+ commissionGrade + ", uploadFile=" + uploadFile + "]";
 	}
+
+	
+
 	
 	
 }
