@@ -39,7 +39,7 @@
        	<th>이름</th>
         <td>${serviceDetail.patientName }</td>
         <th>생년월일</th>
-        <td><fmt:formatDate value="${serviceDetail.patientBirth}" pattern="YYYY.MM.DD" /></td>
+        <td><fmt:formatDate value="${serviceDetail.patientBirth}" pattern="YY.MM.DD" /></td>
         
       </tr>
     </thead>
@@ -97,11 +97,26 @@
         <td colspan="3">${serviceDetail.serviceDemand }</td>
        </tr>
        <tr>
-       		 <th colspan="4">후기</th>      		 
+       		 <th colspan="4">후기</th>      		
+       		  
        </tr>
        <tr>
        		<td colspan="4"><textarea></textarea></td>            
+       </tr>       
+      		<c:forEach var="rList" items="${reviewList}"> 
+       <tr>
+       		<td colspan="4">
+
+       			별점 : ${rList.reviewStar }<br>
+       			작성일 : <fmt:formatDate value="${rList.reviewDate}" pattern="yy.MM.dd HH:MM" /><br>
+       			
+       			내용<br>
+       			${rList.reviewContents } 
+        			     		    
+       		</td>
        </tr>
+       </c:forEach>
+      
     </tbody>
   </table>
 </div>	

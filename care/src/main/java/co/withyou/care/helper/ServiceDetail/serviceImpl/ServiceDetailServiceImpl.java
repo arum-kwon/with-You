@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import co.withyou.care.helper.ServiceDetail.mapper.ServiceDetailMapper;
+import co.withyou.care.helper.ServiceDetail.service.PatientReviewVo;
 import co.withyou.care.helper.ServiceDetail.service.ServiceDetailService;
 import co.withyou.care.helper.ServiceDetail.service.ServiceDetailVo;
 
@@ -19,9 +20,9 @@ public class ServiceDetailServiceImpl implements ServiceDetailService{
 		return map.getServiceDetail(vo);
 	}
 	@Override
-	public Map getPatientReview(ServiceDetailVo vo) throws Exception {
+	public List<Map> getPatientReview(PatientReviewVo rVo) throws Exception {
 		// TODO Auto-generated method stub
-		return map.getPatientReview(vo);
+		return map.getPatientReview(rVo);
 	}
 
 }

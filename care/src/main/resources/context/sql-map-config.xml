@@ -57,7 +57,7 @@
  		<typeAlias type="co.withyou.care.hospital.GwangMyeong.service.SeoulVo" alias="SeoulVo"/>
  		<typeAlias type="co.withyou.care.hospital.GwangMyeong.service.HospitalVo" alias="HospitalVo"/>
  		<typeAlias type="co.withyou.care.family.searchHospital.service.SearchHospitalVo" alias="SearchHospitalVo"/>
- 		
+ 		<typeAlias type="co.withyou.care.helper.ServiceDetail.service.PatientReviewVo" alias="PatientReviewVo"/>
  		
  		<!-- 치수  -->
  		
