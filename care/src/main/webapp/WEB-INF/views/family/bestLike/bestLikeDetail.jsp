@@ -136,7 +136,7 @@ select {
 			      <label for="comment">보호자 요청사항:</label>
 			      <textarea class="form-control" rows="5" id="serviceDemand" name="serviceDemand"></textarea>
 	   			</div>
-			<div><br/>
+			<div align="center">
 				<button type="button" id="btnApply" class="btn btn-primary" onclick="serviceApply()">신청하기</button>
 			</div>	
 			
