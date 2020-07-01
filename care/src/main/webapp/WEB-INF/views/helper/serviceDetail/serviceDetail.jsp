@@ -7,12 +7,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <style>
+.th,.td{
+		font-family: 'Nanum Gothic', sans-serif;		
+	}
 	#confirm{
 		margin-left : 15px;
 		margin-bottom : 15px;
@@ -22,7 +33,10 @@
 		font-size : 25px;
 	}
 	th,td{
-		font-size : 15px;
+		
+		font-size : 13px;
+		text-align : center;
+		font-family: 'Nanum Gothic', sans-serif;	
 	}
 </style>
 <script>
@@ -34,11 +48,11 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-    	<th colspan="4" id="head">환자정보</th>
+    	<th colspan="4" id="head" style="border-right:hidden; border-left:hidden;">환자정보</th>
     </tr>
       <tr>
-       	<th>이름</th>
-        <td>${serviceDetail.patientName }</td>
+       	<th style="width : 70px;">이름</th>
+        <td style="width : 75px;">${serviceDetail.patientName }</td>
         <th>생년월일</th>
         <td><fmt:formatDate value="${serviceDetail.patientBirth}" pattern="YY.MM.DD" /></td>
         
@@ -69,11 +83,11 @@
         <td>${serviceDetail.patientMedication }</td>
        </tr>
        <tr>
-        <th colspan="2">특이사항</th>         
-        <td colspan="2">${serviceDetail.patientUnique }</td>           
+        <th><p style="margin-bottom : 2px;">특이</p>사항</th>         
+        <td colspan="3">${serviceDetail.patientUnique }</td>           
        </tr>    
        <tr>
-       	<th colspan="4" id="head">간병인정보</th>
+       	<th colspan="4" id="head" style="border-right:hidden; border-left:hidden;">간병인정보</th>
        </tr>
        <tr>
        		<th>근무시작시간</th>
@@ -82,7 +96,7 @@
             <td>${serviceDetail.serviceEndTime }</td>
        </tr>
        <tr>
-       		<th>결제금액</th>
+       		<th><p style="margin-bottom : 2px;">결제</p>금액</th>
 			<td colspan="3">${serviceDetail.servicePrice }</td>
        </tr>
        <tr>
@@ -90,11 +104,11 @@
             <td colspan="3">${serviceDetail.commission }</td>
        </tr>
        <tr>
-       		<th>수령금액</th>            
+       		<th><p style="margin-bottom : 2px;">수령</p>금액</th>            
             <td colspan="3">${serviceDetail.helperPrice }</td>
        </tr>
        <tr>
-       	<th>요구사항</th>
+       	<th><p style="margin-bottom : 2px;">요구</p>사항</th>
         <td colspan="3">${serviceDetail.serviceDemand }</td>
        </tr>
        <tr>
