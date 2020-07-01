@@ -49,7 +49,7 @@ public class SearchController {
 	
 	//조회된 간병인 상세정보
 	@RequestMapping("helperInfo.do")
-	public String memberInfo(@RequestParam("helperNo") String hNo, Model model, SearchFilterVo searchFilterVo) throws Exception {
+	public String memberInfo(@RequestParam("helperNo") String hNo, Model model, SearchFilterVo searchFilterVo, HttpServletRequest request) throws Exception {
 		String helperNo = hNo;
 		System.out.println(helperNo);
 		
@@ -60,6 +60,13 @@ public class SearchController {
 		//간병인 후기 셀렉트
 		List <Map> list = searchService.getSelectList2(helperNo);
 		model.addAttribute("reviewList", list);
+		
+		//서비스 지역 한 문장으로 합치기
+		String area1 = request.getParameter("helperWorkArea1");
+		String area2 = request.getParameter("helperWorkArea2");
+		String area = area1 + " " + area2;
+		
+		searchFilterVo.setHelperWorkArea(area);
 		
 		return "family/searchHelper/helperInfo";
 	}
