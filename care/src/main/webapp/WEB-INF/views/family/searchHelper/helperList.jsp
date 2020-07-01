@@ -222,6 +222,10 @@ th, td{
 				alert('돌봄서비스 종료시간을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
 				document.frm.helperEndTime.focus();
 			}
+			else if(document.frm.helperEndTime.value <= document.frm.helperStartTime.value) {
+				alert('돌봄종료시간은 시작시간보다 커야합니다');
+				document.frm.helperEndTime.focus();
+			}
 			else if(document.frm.certifiName.value == '') {
 				alert('간병인 자격유무를 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
 				document.frm.certifiName.focus();
