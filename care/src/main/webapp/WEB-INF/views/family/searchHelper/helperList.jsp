@@ -92,7 +92,7 @@ th, td{
 	  </div>
 			<br>	
 	  <div>
-		<label for="helperStartTime">돌봄시작시간 :</label>
+		<label for="helperStartTime">시작시간 :</label>
 			<select name="helperStartTime" id="helperStartTime">
 				<option value="" selected="selected">선택</option>
 				<option value="0" ${param.helperStartTime eq "0" ? "selected" :""}>00</option>
@@ -124,7 +124,7 @@ th, td{
 	  </div>		
 			<br>
 	  <div>
-		<label for="helperEndTime">돌봄시작시간 :</label>
+		<label for="helperEndTime">종료시간 :</label>
 			<select name="helperEndTime" id="helperEndTime">
 				<option value="" selected="selected">선택</option>
 				<option value="0" ${param.helperEndTime eq "0" ? "selected" :""}>00</option>
