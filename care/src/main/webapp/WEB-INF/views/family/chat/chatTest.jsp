@@ -102,7 +102,7 @@ function reloadFn(){
 	/* document.getElementById('chatContents').focus(); */
 	/* window.location.href = window.location.href;	*/ 
 	}
- 	/* setInterval(reloadFn,5000); */
+ 	setInterval(reloadFn, 15000);
 	document.body.scrollTop = document.body.scrollHeight;
 	
 </script>

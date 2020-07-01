@@ -5,12 +5,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
 <title>Insert title here</title>
 
 <style type="text/css">
+/* 후기 테두리 */ 
 	.container-fluid {
 		border: solid 1px;
 	}
+	
+select { 
+	/* 네이티브 외형 감추기 */ 
+	-webkit-appearance: none; 
+	-moz-appearance: none; 
+	appearance: none; 
+	background-color: white;
+	/* 화살표 모양의 이미지 */ 
+	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; 
+}
+
+select::-ms-expand { 
+/* IE 10, 11의 네이티브 화살표 숨기기 */ 
+	display: none; 
+}
+
+select { 
+	width: 77.5px; /* 원하는 너비설정 */ 
+	padding: .4em .5em; /* 여백으로 높이 설정 */ 
+	font-family: inherit; /* 폰트 상속 */ 
+	background-color: #f5f4f4;
+	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 100% 40%; /* 네이티브 화살표 대체 */
+    border: 2px solid white; 
+    border-radius: 10px; 
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+    -moz-appearance: none; appearance: none; 
+}
+
+.main {
+ 	margin:30px;
+ 	font-family: 'Noto Serif KR', serif;
+}
+.btn{
+	font-family: 'Jua', sans-serif;
+	font-size:20px;
+}
 </style>
 
 </head>
@@ -18,12 +61,12 @@
 
 <!-- 간병인 상세정보 섹션 -->
 <div class="container">
-	<h1>즐겨찾기 목록 - 간병인 정보</h1>
+	<h3 align="center">즐겨찾기 목록 - 간병인 정보</h3>
 	<div class="">
-		<img src="uploadProfile/${likeDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
+		<img src="uploadProfile/${likeDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100">
+		<br/><br/>
 		${likeDetail.helperName }님 / ${likeDetail.helperSex }<br />
-		<div><br/></div>
-		
+		<br/>
 		희망근무지역: ${likeDetail.helperWorkArea }<br/>
 		희망근무시간: ${likeDetail.helperStartTime } 시 ~ ${likeDetail.helperEndTime }시<br/>
 		특이사항: ${likeDetail.helperUnique }<br/>
@@ -71,35 +114,37 @@
 
 <!-- 즐겨찾기 안에서 서비스 신청하기 섹션 -->
 <div class="container">
-	<h1>즐겨찾기 목록 - 서비스신청</h1>
-	<form id="applyFrm" name="applyFrm" action="applyInLike.do" method="post">
-		<label for="serviceStartTime">돌봄시작시간</label>
-			<select name="serviceStartTime" id="serviceStartTime">
-				<option value="" selected="selected">선택</option>
-					<c:forEach begin="${likeDetail.helperStartTime}" end="${likeDetail.helperEndTime }" var="startTime">
-				 		<option value="${startTime }">${startTime }</option>
-					</c:forEach>
-			</select>
-		<label for="serviceEndTime">돌봄종료시간</label>
-			<select name="serviceEndTime" id="serviceEndTime">
-				<option value="" selected="selected">선택</option>
-					<c:forEach begin="${likeDetail.helperStartTime}" end="${likeDetail.helperEndTime }" var="endTime">
-						<option value="${endTime }">${endTime }</option>
-					</c:forEach>
-			</select>
-		희망 요청 날짜 <input type="date" id="serviceDate" name="serviceDate"><br/>
-		<div class="form-group">
-		      <label for="comment">보호자 요청사항:</label>
-		      <textarea class="form-control" rows="5" id="serviceDemand" name="serviceDemand"></textarea>
-   			</div>
-		<div><br/>
-			<button type="button" id="btnApply" class="btn btn-primary" onclick="serviceApply()">신청하기</button>
-		</div>	
-		
-		<input type="hidden" id="serviceArea" name="serviceArea" value="${likeDetail.helperWorkArea }">
-		<input type="hidden" id="familyNo" name="familyNo" value="${loginOk.familyNo }">
-		<input type="hidden" id="helperNo" name="helperNo" value="${likeDetail.helperNo }">
-	</form>
+	<h3 align="center">서비스신청</h3>
+	<div class="main" align="">
+		<form id="applyFrm" name="applyFrm" action="applyInLike.do" method="post">
+			<label for="serviceStartTime">시작시간</label>
+				<select name="serviceStartTime" id="serviceStartTime">
+					<option value="" selected="selected">선택</option>
+						<c:forEach begin="${likeDetail.helperStartTime}" end="${likeDetail.helperEndTime }" var="startTime">
+					 		<option value="${startTime }">${startTime }</option>
+						</c:forEach>
+				</select>
+			<label for="serviceEndTime">종료시간</label>
+				<select name="serviceEndTime" id="serviceEndTime">
+					<option value="" selected="selected">선택</option>
+						<c:forEach begin="${likeDetail.helperStartTime}" end="${likeDetail.helperEndTime }" var="endTime">
+							<option value="${endTime }">${endTime }</option>
+						</c:forEach>
+				</select>
+			<br/>희망 요청 날짜 <input type="date" id="serviceDate" name="serviceDate"><br/>
+			<div class="form-group">
+			      <label for="comment">보호자 요청사항:</label>
+			      <textarea class="form-control" rows="5" id="serviceDemand" name="serviceDemand"></textarea>
+	   			</div>
+			<div align="center">
+				<button type="button" id="btnApply" class="btn btn-primary" onclick="serviceApply()">신청하기</button>
+			</div>	
+			
+			<input type="hidden" id="serviceArea" name="serviceArea" value="${likeDetail.helperWorkArea }">
+			<input type="hidden" id="familyNo" name="familyNo" value="${loginOk.familyNo }">
+			<input type="hidden" id="helperNo" name="helperNo" value="${likeDetail.helperNo }">
+		</form>
+	</div>
 </div>
 
 <script type="text/javascript">
