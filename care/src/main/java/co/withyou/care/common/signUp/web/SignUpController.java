@@ -81,7 +81,8 @@ public class SignUpController {
 							+ request.getParameter("patientBirthY");
 		pVO.setPatientBirth(df.parse(patientBirth));
 		
-		signUpService.insertFamilyAndPatient(fVO, pVO);
+		String code = signUpService.insertFamilyAndPatient(fVO, pVO);
+		model.addAttribute("code", code);
 		return "family/signUp/result";
 	}
 	

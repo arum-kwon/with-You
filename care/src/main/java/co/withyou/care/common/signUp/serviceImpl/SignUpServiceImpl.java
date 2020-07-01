@@ -2,6 +2,7 @@ package co.withyou.care.common.signUp.serviceImpl;
 
 import java.util.Random;
 
+import org.apache.ibatis.executor.ReuseExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,11 @@ public class SignUpServiceImpl implements SignUpService {
 		return map.checkEmailHelper(vo);
 	}
 
+	/**
+	 * 환자와 보호자 정보를 넣고, 환자코드를 리턴합니다.
+	 */
 	@Override
-	public void insertFamilyAndPatient(FamilyVO fVO, PatientVO pVO) throws Exception {
+	public String insertFamilyAndPatient(FamilyVO fVO, PatientVO pVO) throws Exception {
 
 		//보호자 insert
 		map.insertFamily(fVO);
@@ -39,6 +43,7 @@ public class SignUpServiceImpl implements SignUpService {
 		pVO.setPatientVcode(code);
 		//환자 insert
 		map.insertPatient(pVO);
+		return code;
 	}
 
 	@Override

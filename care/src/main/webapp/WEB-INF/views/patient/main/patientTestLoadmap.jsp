@@ -24,6 +24,7 @@
 </head>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7d32000692658cb31291420c5c084e6d&libraries=services"></script>
+
 <script>
 //전화걸기
 function callNumber(num){
@@ -33,8 +34,11 @@ function callNumber(num){
 //주소 좌표 얻어내기
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
+
 //주소로 좌표를 검색합니다
-geocoder.addressSearch("${patientAddr}", function(result, status) {
+var addr = ("${patientVO.patientAddr}").split(',');
+console.log("주소 :" + addr[0]);
+geocoder.addressSearch(addr[0], function(result, status) {
 	
 	// 정상적으로 검색이 완료됐으면 
     if (status === kakao.maps.services.Status.OK) {
@@ -46,10 +50,10 @@ geocoder.addressSearch("${patientAddr}", function(result, status) {
 	   var lng = result[0].x;
 	   console.log("lat :" + lat);
 	   console.log("lng :" + lng);
-	   var addr = "${patientAddr}".split(',');
-	   console.log(addr[0]);
+	   
 	   document.getElementById("addr").setAttribute("href","https://map.kakao.com/link/to/"+ addr[0] + "," + lat + "," + lng);
-	}
+	   window.MyApp.patientStartService(${patientVO.patientNo},${patientVO.familyNo},${patientVO.patientZone}, lat, lng);
+    }
 	
 });
 

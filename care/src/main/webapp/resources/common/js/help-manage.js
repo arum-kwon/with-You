@@ -1,6 +1,7 @@
 var sNo;
 var pNo;
 var fNo;
+var hNo;
 var type=0; //0:디폴트, 1:출근, 2:퇴근
 var yyyy;
 var mm;
@@ -12,9 +13,9 @@ var today;
 
 function initialize(date, startTime, endTime){
 	//초기 변수값 세팅
-	sNo = $('#serviceNo').val();
-	pNo = $('#patientNo').val();
-	fNo = $('#fmailyNo').val();
+	sNo = parseInt($('#serviceNo').val());
+	pNo = parseInt($('#patientNo').val());
+	fNo = parseInt($('#fmailyNo').val());
     yyyy = date.substr(0,4);
     mm = date.substr(5,2);
     dd = date.substr(8,2);
@@ -33,20 +34,22 @@ function initialize(date, startTime, endTime){
 }
 
 
-function clickStart(){
+function clickStart(helperNo){
 	type = 1;
 	var text = $('#realStartTime').text();
+	hNo = helperNo;
+	console.log(hNo);
 	if(text==""){ //출근 안 했음. 해야됨
 	    
 	    if(applyStartDate > today){
 	    	console.log("입실 가능");
-	    	helperStartCheck();
+	    	helperLcoCheck();
 	    }else if(applyStartDate < today){
 	    	console.log("님 지각");
-	    	helperStartCheck();
+	    	helperLcoCheck();
 	    }else if(applyEndDate < today){
 	    	console.log("님 결석");
-	    	helperStartCheck();
+	    	helperLcoCheck();
 	    }
 	}else{
     	console.log("이미 출근함");
@@ -54,36 +57,25 @@ function clickStart(){
 }
 
 function clickEnd(date, endTime){
-	serviceNo = sNo;
 	type = 2;
-	var text = $('#realStartTime').text();
-	if(text==""){
-		//출근 안 했음. 출근부터 해야됨
-    	console.log("출근부터하셈");
+	
+	text = $('#realEndTime').text();
+	if(text==""){ //퇴근처리
+		
+	    if(applyEndDate > today){
+	    	console.log("조퇴");
+	    	helperLcoCheck();
+	    }else if(applyEndDate < today){
+	    	console.log("정상퇴근");
+	    	helperLcoCheck();
+	    }
 	}else{
-		text = $('#realEndTime').text();
-		if(text==""){ //퇴근처리
-			var yyyy = date.substr(0,4);
-		    var mm = date.substr(5,2);
-		    var dd = date.substr(8,2);
-		    
-		    var applyEndDate = new Date(yyyy, mm-1, dd, endTime);
-			var today = new Date();
-		    if(applyEndDate > today){
-		    	console.log("조퇴");
-		    	helperStartCheck();
-		    }else if(applyEndDate < today){
-		    	console.log("정상퇴근");
-		    	helperStartCheck();
-		    }
-		}else{
-	    	console.log("이미 퇴근 했음");
-		}
+    	console.log("이미 퇴근 했음");
 	}
 }
 
 //안드로이드로 환자 위치 전달
-function helperStartCheck(){
+function helperLcoCheck(){
 	$.ajax({
 	    type: "post",
 	    url: "getPatientLoc.do",
@@ -91,6 +83,12 @@ function helperStartCheck(){
 	    success : function(result) {
 	    	//가져온 위치를 앱으로 보낸다.
 	    	window.MyApp.helperLocCheck(result.patientLongitude, result.patientLatitude);
+	    	if(type==1){
+		    	window.MyApp.helperStartService(hNo, fNo, sNo, 1, 1);
+		    	alert(sNo + ", " + pNo + ", " + fNo);
+	    	}else if(type==2){
+		    	window.MyApp.helperStopService();
+	    	}
 	    }, 
 	    error : function(xhr, textStatus, errorThrown){
 	    	console.log(xhr, textStatus, errorThrown);
@@ -118,6 +116,7 @@ function setResult(isOK){
 			    	//출근 시간을 표시
 					$('#realStartTime').text(result.realStartTime);
 					$("#btnStart").attr('disabled', true);
+					$("#btnEnd").attr('disabled', false);
 		    	}else if(type == 2){
 			    	//퇴근 시간을 표시
 					$('#realEndTime').text(result.realEndTime);
@@ -144,16 +143,15 @@ function getStartTime(){
 	    	//출퇴근 시간을 표시
 	    	//시작 버튼이 비활성화 되어야하는 조건 : 너무 일찍 왔다. 퇴근 시간 넘어서 왔다. (아작스후)이미 출근한 상태이다.
 	    	//종료 버튼이 비활성화 되어야하는 조건 : 							(아작스후)출근도 안한 상태이다. 이미 퇴근했다.
-			$('#realStartTime').text(result.realStartTim);
-			$('#realEndTime').text(result.realEndTime);
-		
 			if(result.realStartTime != null){
+				$('#realStartTime').text(result.realStartTime);
 				$("#btnStart").attr('disabled', true); //이미 출근해서 비활성화 
-		    	console.log("이미 출근 했음");
+		    	console.log("이미 출근 했음" + result.realStartTime);
 		    	
 				if(result.realEndTime != null){
+					$('#realEndTime').text(result.realEndTime);
 					$("#btnEnd").attr('disabled', true); //이미 퇴근해서 비활성화
-			    	console.log("이미 퇴근 했음");
+			    	console.log("이미 퇴근 했음" + result.realEndTime);
 				}
 			}else{
 				$("#btnEnd").attr('disabled', true); //출근 먼저해야해서 비활성화

@@ -16,9 +16,9 @@ function getCheckResult(isOK){
 
 $(function(){
 	//페이지 로딩하면서 출퇴근시간 표시
+	initialize('${scheduleDetail.serviceDate}', ${scheduleDetail.serviceStartTime}, ${scheduleDetail.serviceEndTime});
 	getStartTime();
 	
-	initialize('${scheduleDetail.serviceDate}', ${scheduleDetail.serviceStartTime}, ${scheduleDetail.serviceEndTime});
 });
 
 </script>
@@ -85,7 +85,7 @@ a {
 		<input type="hidden" id="patientNo" name="patientNo" value="${scheduleDetail.patientNo}">
 		<input type="hidden" id="serviceNo" name="serviceNo" value="${scheduleDetail.serviceNo}">
 		<input type="hidden" id="fmailyNo" name="fmailyNo" value="${scheduleDetail.familyNo}">
-		<button type="button" id="btnStart" onclick="clickStart()">출근</button>
+		<button type="button" id="btnStart" onclick="clickStart(${loginOk.helperNo})">출근</button>
 		<button type="button" id="btnEnd" onclick="clickEnd()"> 퇴근시</button>
 	</div>
 </div>

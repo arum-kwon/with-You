@@ -65,12 +65,22 @@ public class GeoLocationController {
 	public int outOfTheArea() {
 		return 0;
 	}
+
+	/**
+	 * 환자의 위치를 가져욤
+	 */
+	@RequestMapping(value = "/getPatientLocServiceNo.do")
+	@ResponseBody
+	public PatientLocVO getPatientLocServiceNo(HttpServletRequest request) {
+		int serviceNo = Integer.parseInt(request.getParameter("serviceNo"));
+		PatientLocVO pVO = service.getPatientLoc(serviceNo);
+		return pVO;
+	}
 	
 	@RequestMapping(value = "/getPatientLoc.do")
 	@ResponseBody
 	public PatientLocVO getPatientLoc(PatientLocVO vo) {
 		vo = service.getPatientLoc(vo);
-		
 		return vo;
 	}
 }

@@ -20,7 +20,7 @@
 </head> 
 <title>메인화면</title> 
 <script type="text/javascript">
-	window.MyApp.jsToAppStopService();
+	window.MyApp.homeStopService();
 </script>
 <style type = "text/css">
 html, body {

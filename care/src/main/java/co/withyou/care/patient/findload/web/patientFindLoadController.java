@@ -35,7 +35,7 @@ public class patientFindLoadController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("familyVO", vo);
-		mav.addObject("patientAddr", addr);
+		mav.addObject("patientVO", name);
 		
 		mav.setViewName("patient/main/patientTestLoadmap");
 		

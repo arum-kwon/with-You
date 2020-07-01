@@ -9,21 +9,34 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import co.withyou.care.common.alarm.service.AlarmService;
 import co.withyou.care.common.alarm.service.AlarmVO;
+import co.withyou.care.common.geoLocation.service.GeoLocationService;
+import co.withyou.care.common.geoLocation.service.PatientLocVO;
 
 public class PreHelperLeave extends HandlerInterceptorAdapter {
 	
 	@Autowired
 	AlarmService alarmService;
-
+	
+	int RANGE = 100;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 
+		int familyNo = Integer.parseInt(request.getParameter("familyNo"));
+		int serviceNo = Integer.parseInt(request.getParameter("serviceNo"));
+		int helperNo = Integer.parseInt(request.getParameter("helperNo"));
+		
+		
+		
+		
+		
+		
 		AlarmVO alarmVO = new AlarmVO();
 		alarmVO.setAlarmType("AF06");
-		alarmVO.setAlarmReceiverNo(Integer.parseInt(request.getParameter("familyNo")));
-		alarmVO.setAlarmSenderNo(Integer.parseInt(request.getParameter("helperNo")));
-		alarmVO.setServiceNo(Integer.parseInt(request.getParameter("serviceNo")));
+		alarmVO.setAlarmReceiverNo(familyNo);
+		alarmVO.setAlarmSenderNo(helperNo);
+		alarmVO.setServiceNo(serviceNo);
 		alarmService.insertAlarm(alarmVO);
 		return true;
 	}

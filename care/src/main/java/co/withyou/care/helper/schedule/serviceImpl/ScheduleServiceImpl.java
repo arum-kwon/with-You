@@ -45,17 +45,17 @@ public class ScheduleServiceImpl implements ScheduleService{
 	}
 
 	@Override
-	public Map getStartTime(int no) {
+	public ServiceHistoryVO getStartTime(int no) {
 		return map.getStartTime(no);
 	}
 
 	@Override
-	public Map getEndTime(int no) {
+	public ServiceHistoryVO getEndTime(int no) {
 		return map.getEndTime(no);
 	}
 
 	@Override
-	public Map getRealTimes(int no) {
+	public ServiceHistoryVO getRealTimes(int no) {
 		return map.getRealTimes(no);
 	}
 }

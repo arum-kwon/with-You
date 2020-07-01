@@ -22,4 +22,9 @@ public class GeoLocationServiceImpl implements GeoLocationService {
 	public PatientLocVO getPatientLoc(PatientLocVO vo) {
 		return map.getPatientLoc(vo);
 	}
+
+	@Override
+	public PatientLocVO getPatientLoc(int serviceNo) {
+		return map.getPatientLoc(serviceNo);
+	}
 }

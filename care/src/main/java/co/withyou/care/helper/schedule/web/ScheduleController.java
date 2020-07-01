@@ -85,32 +85,26 @@ public class ScheduleController {
 	
 	@RequestMapping("/setStartTime.do")
 	@ResponseBody
-	public Map setStartTime(ServiceHistoryVO vo) throws Exception {
+	public ServiceHistoryVO setStartTime(ServiceHistoryVO vo) throws Exception {
 		scheduleService.insertStartTime(vo);
-		System.out.println(vo.getServiceNo());
-		Map map = scheduleService.getStartTime(vo.getServiceNo());
-		System.out.println(map.get("realStartTime"));
-		return map;
+		vo = scheduleService.getStartTime(vo.getServiceNo());
+		return vo;
 	}	
 	
 	@RequestMapping("/setEndTime.do")
 	@ResponseBody
-	public Map setEndTime(ServiceHistoryVO vo) throws Exception {
+	public ServiceHistoryVO setEndTime(ServiceHistoryVO vo) throws Exception {
 		scheduleService.updateEndTime(vo);
-		System.out.println(vo.getServiceNo());
-		Map map = scheduleService.getEndTime(vo.getServiceNo());
-		System.out.println(map.get("realEndTime"));
-		return map;
+		vo = scheduleService.getEndTime(vo.getServiceNo());
+		return vo;
 	}	
 	
 
 	@RequestMapping("/getRealTimes.do")
 	@ResponseBody
-	public Map getRealTimes(ServiceHistoryVO vo) throws Exception {
-		Map map = scheduleService.getRealTimes(vo.getServiceNo());
-		System.out.println(map.get("realStartTime"));
-		System.out.println(map.get("realEndTime"));
-		return map;
+	public ServiceHistoryVO getRealTimes(ServiceHistoryVO vo) throws Exception {
+		vo = scheduleService.getRealTimes(vo.getServiceNo());
+		return vo;
 	}	
 
 	

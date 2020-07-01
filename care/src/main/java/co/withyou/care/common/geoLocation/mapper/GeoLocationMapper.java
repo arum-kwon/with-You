@@ -8,4 +8,5 @@ import co.withyou.care.common.geoLocation.service.PatientLocVO;
 public interface GeoLocationMapper {
 	int insertPatientLoc(PatientLocVO vo);
 	PatientLocVO getPatientLoc(PatientLocVO vo);
+	PatientLocVO getPatientLoc(int serviceNo);
 }

@@ -51,19 +51,19 @@
 		
 	</select>
 	
-	<select id="getStartTime" parameterType="int" resultType="map" >
+	<select id="getStartTime" parameterType="int" resultType="co.withyou.care.helper.schedule.service.ServiceHistoryVO" >
 		SELECT REALSTARTTIME "realStartTime"
 		FROM SERVICEHISTORY
 		WHERE SERVICENO = #{value}
 	</select>
 	
-	<select id="getEndTime" parameterType="int" resultType="map" >
+	<select id="getEndTime" parameterType="int" resultType="co.withyou.care.helper.schedule.service.ServiceHistoryVO" >
 		SELECT REALENDTIME "realEndTime"
 		FROM SERVICEHISTORY 
 		WHERE SERVICENO = #{value}
 	</select>
 	
-	<select id="getRealTimes" parameterType="int" resultType="map" >
+	<select id="getRealTimes" parameterType="int" resultType="co.withyou.care.helper.schedule.service.ServiceHistoryVO" >
 		SELECT REALSTARTTIME "realStartTime",
 			   REALENDTIME "realEndTime"
 		FROM SERVICEHISTORY 
