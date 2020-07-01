@@ -9,7 +9,7 @@
 	
 	<select id="getPatientLoc" parameterType="co.withyou.care.common.geoLocation.service.PatientLocVO"
 							   resultType="co.withyou.care.common.geoLocation.service.PatientLocVO">
-		SELECT PATIENTLATITUDE, PATIENTLONGITUDE 
+		SELECT DISTINCT PATIENTLATITUDE, PATIENTLONGITUDE 
 		FROM PATIENTLOC 
 		WHERE PATIENTNO = #{patientNo}
 		AND PATIENTLOCTIME = (SELECT MAX(PATIENTLOCTIME) 
@@ -18,11 +18,11 @@
 	</select>
 	
 	<select id="getPatientLocInt" parameterType="int" resultType="co.withyou.care.common.geoLocation.service.PatientLocVO">
-		SELECT PATIENTLATITUDE, PATIENTLONGITUDE 
+		SELECT DISTINCT PATIENTLATITUDE, PATIENTLONGITUDE 
 		FROM PATIENTLOC 
 		WHERE PATIENTNO = (SELECT PATIENTNO FROM SERVICEAPPLY WHERE SERVICENO = #{value})
 		AND PATIENTLOCTIME = (SELECT MAX(PATIENTLOCTIME) 
 							FROM PATIENTLOC 
-		    				WHERE PATIENTNO = (SELECT PATIENTNO FROM SERVICEAPPLY WHERE SERVICENO = #{value}));
+		    				WHERE PATIENTNO = (SELECT PATIENTNO FROM SERVICEAPPLY WHERE SERVICENO = #{value}))
 	</select>
 </mapper>

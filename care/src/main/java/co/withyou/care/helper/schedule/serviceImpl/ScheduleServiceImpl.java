@@ -58,4 +58,9 @@ public class ScheduleServiceImpl implements ScheduleService{
 	public ServiceHistoryVO getRealTimes(int no) {
 		return map.getRealTimes(no);
 	}
+
+	@Override
+	public int updateServiceStatus(int serviceNo) {
+		return map.updateServiceStatus(serviceNo);
+	}
 }

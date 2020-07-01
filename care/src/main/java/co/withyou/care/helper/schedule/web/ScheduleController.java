@@ -83,6 +83,14 @@ public class ScheduleController {
 	
 	}
 	
+	/**
+	 * ServiceHistory에 데이터를 insert하고  내용을 다시 조회하여 가져옴. 
+	 * insert 항목 serviceNo, realStartTime
+	 * 
+	 * @param vo
+	 * @return 
+	 * @throws Exception
+	 */
 	@RequestMapping("/setStartTime.do")
 	@ResponseBody
 	public ServiceHistoryVO setStartTime(ServiceHistoryVO vo) throws Exception {
@@ -91,10 +99,18 @@ public class ScheduleController {
 		return vo;
 	}	
 	
+	/**
+	 * ServiceHistory에 데이터를 update하고 내용을 다시 조회해서 가져옴. 
+	 * update 항목 realEndTime
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/setEndTime.do")
 	@ResponseBody
 	public ServiceHistoryVO setEndTime(ServiceHistoryVO vo) throws Exception {
 		scheduleService.updateEndTime(vo);
+		scheduleService.updateServiceStatus(vo.getServiceNo());
 		vo = scheduleService.getEndTime(vo.getServiceNo());
 		return vo;
 	}	

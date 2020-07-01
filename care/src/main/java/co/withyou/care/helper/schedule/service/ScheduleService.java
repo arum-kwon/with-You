@@ -14,4 +14,5 @@ public interface ScheduleService {
 	
 	int insertStartTime(ServiceHistoryVO vo);
 	int updateEndTime(ServiceHistoryVO vo);
+	int updateServiceStatus(int serviceNo);
 }

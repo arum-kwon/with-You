@@ -80,4 +80,10 @@
 		SET REALENDTIME = SYSDATE
 		WHERE SERVICENO = #{serviceNo}
 	</update>
+	
+	<update id="updateServiceStatus" parameterType="int">
+		UPDATE SERVICEAPPLY
+		SET SERVICESTATUS = 'S04'
+		WHERE SERVICENO = #{serviceNo}
+	</update>
 </mapper>
