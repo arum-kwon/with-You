@@ -28,8 +28,8 @@ function Dsearch() {
  <form name="insertDate" action="patientGetLine.do" method="post">
         <input type="date" class="date" id='Loctime' name='Loctime'/>
         <button type="button" id="Dbtn" name="Dbtn" class="btn btn-warning w3-round" onclick="Dsearch()">검색</button>
+		<button type="button" class="btn btn-warning w3-round" onclick="location.href='sevenLine.do'">1주일 보기</button>    
     </form>
-<button type="button" class="btn btn-warning w3-round" onclick="location.href='sevenLine.do'">1주일 보기</button>    
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 <script>
 

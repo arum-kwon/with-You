@@ -32,12 +32,10 @@
 		method="post">
 		<input type="date" class="date" id="Loctime" name="Loctime" />
 		<%--    <input type="submit" class="btn btn-warning w3-round" value="검색"> --%>
-		<button type="button" id="Dbtn" name="Dbtn"
+		<button type="button" class="btn btn-warning w3-round" id="Dbtn" name="Dbtn"
 			onclick="Dsearch()">검색</button>
+		<button type="button" class="btn btn-warning w3-round" onclick="location.href='sevenLine.do'">1주일 보기</button>
 	</form>
-	&nbsp;&nbsp;
-	<button type="button" class="btn btn-warning w3-round"
-		onclick="location.href='sevenLine.do'">1주일 보기</button>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 	<script>

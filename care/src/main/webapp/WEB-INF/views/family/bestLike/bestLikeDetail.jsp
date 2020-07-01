@@ -35,7 +35,7 @@ select::-ms-expand {
 }
 
 select { 
-	width: 77.5px; /* 원하는 너비설정 */ 
+	width: 70px; /* 원하는 너비설정 */ 
 	padding: .4em .5em; /* 여백으로 높이 설정 */ 
 	font-family: inherit; /* 폰트 상속 */ 
 	background-color: #f5f4f4;
