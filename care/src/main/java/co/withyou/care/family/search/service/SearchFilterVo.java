@@ -5,7 +5,14 @@ public class SearchFilterVo {
 	private String helperStartTime;
 	private String helperEndTime;
 	private String certifiName;
+	private int familyNo;
 	
+	public int getFamilyNo() {
+		return familyNo;
+	}
+	public void setFamilyNo(int familyNo) {
+		this.familyNo = familyNo;
+	}
 	public String getHelperWorkArea() {
 		return helperWorkArea;
 	}
@@ -31,10 +38,11 @@ public class SearchFilterVo {
 	public void setCertifiName(String certifiName) {
 		this.certifiName = certifiName;
 	}
+
 	@Override
 	public String toString() {
-		return "CheckResultVo [helperWorkArea=" + helperWorkArea + ", helperStartTime=" + helperStartTime
-				+ ", helperEndTime=" + helperEndTime + ", certifiName=" + certifiName + "]";
+		return "SearchFilterVo [helperWorkArea=" + helperWorkArea + ", helperStartTime=" + helperStartTime
+				+ ", helperEndTime=" + helperEndTime + ", certifiName=" + certifiName + ", familyNo=" + familyNo + "]";
 	}
 	
 }

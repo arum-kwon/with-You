@@ -44,6 +44,14 @@ html,body,h1,h2,h3,h4,h5,h6 {
 	수령금액:${historyDetail.helperPrice }원<br> 
 	요구사항:${historyDetail.serviceDemand }<br>
 	
+<div><br/></div>
+<div><br/></div>
+<!--  블랙리스트 등록/삭제 영역 -->
+
+
+
+<!--  블랙리스트 등록/삭제 영역 끝-->
+	
 <!--  후기 및 평점 작성  -->
 <div class="form-group">
 	<label for="exampleTextarea">후기 및 평점:</label>

@@ -24,15 +24,17 @@
 			</if>
 			
 			<if test='certifiName != null and certifiName == "y"'>
-				AND exists ( select CERTIFINAME "certifiNo" from certification 
-							where helper.helperno=certification.helperno
-						) 
+				AND EXISTS ( SELECT CERTIFINAME "certifiNo" FROM CERTIFICATION 
+								WHERE HELPER.HELPERNO = CERTIFICATION.HELPERNO)
 			</if>
+			
 			<if test='certifiName != null and certifiName == "n"'>
-				AND not exists ( select CERTIFINAME "certifiName" from certification 
-							where helper.helperno=certification.helperno
-						) 
+				AND NOT EXISTS ( SELECT CERTIFINAME "certifiName" FROM CERTIFICATION 
+										WHERE HELPER.HELPERNO = CERTIFICATION.HELPERNO)
 			</if>
+			
+				AND HELPERNO NOT IN (SELECT HELPERNO "helperNo" FROM BLACKLIST 
+													WHERE FAMILYNO = #{familyNo})
 		</where>
 	</select>
 	

@@ -64,4 +64,4 @@ function categoryChange(e) {
 		}
 		target.appendChild(opt);
 	}
-}
+}		

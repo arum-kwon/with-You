@@ -92,6 +92,7 @@
 		AND SERVICENO = #{value}
 	</select>
 	
+	<!--  즐겨찾기 정보 조회 -->
 	<select id="getSelect4" parameterType="ApplyServiceVo" resultType="map">
 		SELECT	FAMILYNO "familyNo",
 				HELPERNO "helperNo" 
@@ -102,6 +103,7 @@
 						AND SERVICENO = #{serviceNo})
 	</select>
 	
+	<!-- 블랙리스트 정보 조회 -->
 	<select id="getSelect5" parameterType="ApplyServiceVo" resultType="map">
 		SELECT	FAMILYNO "familyNo",
 				HELPERNO "helperNo" 

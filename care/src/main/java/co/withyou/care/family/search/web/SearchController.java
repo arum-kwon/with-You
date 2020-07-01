@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.withyou.care.family.Login.service.FamilyVO;
 import co.withyou.care.family.search.service.SearchFilterVo;
 import co.withyou.care.family.search.service.SearchService;
 
@@ -29,7 +31,12 @@ public class SearchController {
 	
 	//간병인 조회 
 	@RequestMapping("helperList.do")
-	public String helperList(SearchFilterVo searchFilterVo, Model model, HttpServletRequest request) throws Exception {
+	public String helperList(SearchFilterVo searchFilterVo, Model model, HttpServletRequest request, HttpSession session) throws Exception {
+		//세션에서 familyNo 받기
+		session = request.getSession();
+		FamilyVO familyVo = (FamilyVO) session.getAttribute("loginOk");
+		searchFilterVo.setFamilyNo(familyVo.getFamilyNo());	
+		
 		//서비스 지역 한 문장으로 합치기
 		String area1 = request.getParameter("helperWorkArea1");
 		String area2 = request.getParameter("helperWorkArea2");
