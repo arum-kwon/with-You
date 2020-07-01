@@ -16,7 +16,7 @@
 			<div class="w3-col m4">&nbsp;</div>
 			<div class="w3-col m4">
 				<form id="updateForm" action="patientUpdate.do">
-					<h1>환저정보 수정</h1>
+					<h1>환자정보 수정</h1>
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이름</p></div>
 						<div class="w3-col s8 m8">

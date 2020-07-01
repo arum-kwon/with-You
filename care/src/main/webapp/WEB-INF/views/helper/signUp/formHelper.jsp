@@ -20,32 +20,18 @@
 <script src="${pageContext.request.contextPath}/resources/common/js/select-area.js"></script>
 </head>
 <style>
-	.m4{
+	.m4, .m3{
 		font-family: 'Nanum Gothic', sans-serif;		
+		margin : auto;
 	}
-	.add-juso, {
-		margin-bottom : 5px;
-	}
-	
 	.add-btn{
-		margin-bottom : 5px;
-		border-radius : 4px;
 		width : 100%;
 	}
-	.input, {
-		margin-botton : 5px;
-	}
-	option{
-		border-radius : 6px;
-	}
 	.confrim{
-		margin-left : 100px;
+		margin-left : 70px;
 	}
 	.title{
-		margin-bottom : 15px;
-	}
-	.time, .file{
-		margin : auto;
+		margin-bottom : 10px;
 	}
 	
 </style>
@@ -87,14 +73,15 @@
 			</div>
 		</div>
 		<div class="w3-row form-check">
-			<div class="w3-col s4 m4"><p>성별*</p></div>
-			<div class="w3-col s4 m4 form-check-label">
+			<div class="w3-col s3 m3 sex"><p>성별*</p></div>
+			<div class="w3-col s3 m3 "><p></p></div>
+			<div class="w3-col s3 m3 form-check-label">
 				<p>
 				<input class="form-check-input" type="radio" id="h-male" name="helperSex" value="남" required>
 				<label class="form-check-label" for="h-male">남</label>
 				</p>
 			</div>
-			<div class="w3-col s4 m4 form-check-label">
+			<div class="w3-col s3 m3 form-check-label">
 				<p>
 				<input class="form-check-input" type="radio" id="h-female" name="helperSex" value="여">
 				<label class="form-check-label" for="h-female">여</label>
@@ -122,6 +109,13 @@
 		</div>
 		
 
+		
+		<div class="w3-row">
+			<div class="w3-col s4 m4"><p>특이사항</p></div>
+			<div class="w3-col s8 m8">
+				<input class="w3-input w3-border form-control" type="text" placeholder="" id="helperUnique" name="helperUnique"><br>
+			</div>
+		</div>
 		<div class="w3-row">
 			<div class="w3-col s4 m4 hope"><p>희망근무지역*</p></div>
 			<div class="w3-col s8 m8">
@@ -149,12 +143,6 @@
 			<select name="helperWorkArea2" id="helperWorkArea2">
 				<option value="" selected="selected">시군구</option>
 			</select>	
-			</div>
-		</div>
-		<div class="w3-row">
-			<div class="w3-col s4 m4"><p>특이사항</p></div>
-			<div class="w3-col s8 m8">
-				<input class="w3-input w3-border form-control" type="text" placeholder="" id="helperUnique" name="helperUnique"><br>
 			</div>
 		</div>
 		<div class="w3-row">
@@ -224,8 +212,6 @@
 				<input class="w3-input w3-border file" type="file" placeholder="" id="uploadFile" name="uploadFile">
 			</div>
 		</div>
-		<input type="text" placeholder="" id="" name="test">
-		<input type="text" placeholder="" id="" name="test">
 		
 		<button class="w3-button w3-round w3-dark-grey confrim" type="button" onclick="fnSubmit(false)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
 				&nbsp;&nbsp;&nbsp;
