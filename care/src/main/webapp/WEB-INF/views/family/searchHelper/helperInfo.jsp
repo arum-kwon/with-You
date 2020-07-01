@@ -73,11 +73,19 @@
 	<div align="center">
 		<a class="title">서비스 신청하기</a>
 	</div>
-	<div align="center">
+	<div align="">
 		<form id="orderFrm" name="orderFrm" action="applyService.do" method="post">
 		 <div class="content">
 			서비스 요청시간 : ${searchFilterVo.helperStartTime }시 부터~${searchFilterVo.helperEndTime }시 까지 <br />
-			서비스 지역 : ${searchFilterVo.helperWorkArea }<br />
+			
+			<c:choose>
+				<c:when test="${param.helperWorkArea2  eq '%'}">
+					서비스 지역 : ${param.helperWorkArea1 } 전체 <br/>
+				</c:when>
+			<c:otherwise>
+				서비스 지역 : ${searchFilterVo.helperWorkArea } <br/>
+			</c:otherwise>
+			</c:choose>
 			자격보유 : 
 				<c:choose>
 					<c:when test="${searchFilterVo.certifiName eq 'y'}">${helperInfo.certifiName }</c:when>
@@ -85,18 +93,20 @@
 				</c:choose>
 				
 			<br />
-			서비스 날짜:<input type="date" id="serviceDate" name="serviceDate"><br />
+			서비스 날짜: <input type="date" id="serviceDate" name="serviceDate"><br />
 			<div class="form-group">
 		      <label for="comment">보호자 요청사항:</label>
 		      <textarea class="form-control" rows="5" id="serviceDemand" name="serviceDemand"></textarea>
    			</div>
-		 </div>	
+		 </div>
+		 <div align="center">		 
 			<input type="button" class="btn btn-warning w3-round" id="btnOrder" name="btnOrder" value="신청하기" onclick="orderInfo()">
 			<input type="hidden" id="serviceStartTime" name="serviceStartTime" value="${searchFilterVo.helperStartTime }">
 			<input type="hidden" id="serviceEndTime" name="serviceEndTime" value="${searchFilterVo.helperEndTime }">
 			<input type="hidden" id="serviceArea" name="serviceArea" value="${searchFilterVo.helperWorkArea }">
 			<input type="hidden" id="familyNo" name="familyNo" value="${loginOk.familyNo }">
 			<input type="hidden" id="helperNo" name="helperNo" value="${helperInfo.helperNo }">
+		 </div>
 		</form>
 	</div>
 </div>

@@ -55,8 +55,7 @@ th, td{
 }
 </style>
 
-<script type="text/javascript">
-</script>
+
 
 <body>
 
@@ -87,12 +86,12 @@ th, td{
 			
 		<label for="helperWorkArea2">근무지역</label>
 			<select name="helperWorkArea2" id="helperWorkArea2">
-				<option value="" selected="selected">시군구</option>
+				<option value="${param.helperWorkArea2}" selected="selected">시군구</option>
 			</select>
 	  </div>
 			<br>	
 	  <div>
-		<label for="helperStartTime">시작시간 :</label>
+		<label for="helperStartTime">시작시간</label>
 			<select name="helperStartTime" id="helperStartTime">
 				<option value="" selected="selected">선택</option>
 				<option value="0" ${param.helperStartTime eq "0" ? "selected" :""}>00</option>
@@ -124,7 +123,7 @@ th, td{
 	  </div>		
 			<br>
 	  <div>
-		<label for="helperEndTime">종료시간 :</label>
+		<label for="helperEndTime">종료시간</label>
 			<select name="helperEndTime" id="helperEndTime">
 				<option value="" selected="selected">선택</option>
 				<option value="0" ${param.helperEndTime eq "0" ? "selected" :""}>00</option>
@@ -156,7 +155,7 @@ th, td{
 	  </div>
 			<br>
 	  <div>
-		<label for="certifiName">자격증보유 :</label>
+		<label for="certifiName">자격증 보유</label>
 			<select name="certifiName" id="certifiName" >
 				<option value="" selected="selected">선택</option>
 				<option value="y" ${param.certifiName eq "y" ? "selected" :"" }>보유</option>
@@ -222,7 +221,7 @@ th, td{
 				alert('돌봄서비스 종료시간을 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
 				document.frm.helperEndTime.focus();
 			}
-			else if(document.frm.helperEndTime.value <= document.frm.helperStartTime.value) {
+			else if(parseInt(document.frm.helperEndTime.value) <= parseInt(document.frm.helperStartTime.value)) {
 				alert('돌봄종료시간은 시작시간보다 커야합니다');
 				document.frm.helperEndTime.focus();
 			}
@@ -235,6 +234,7 @@ th, td{
 			}
 		}
 	</script>
+	
 
 </body>
 </html>
