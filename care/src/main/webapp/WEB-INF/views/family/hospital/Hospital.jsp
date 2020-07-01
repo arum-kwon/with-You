@@ -7,81 +7,82 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 글꼴  -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <title>서비스 신청 페이지</title>
 </head>
 <style>
- select { 
-	/* 네이티브 외형 감추기 */ 
-	-webkit-appearance: none; 
-	-moz-appearance: none; 
-	appearance: none; 
-	background-color: white;
-	/* 화살표 모양의 이미지 */ 
-	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; 
+.search {
+ 	margin-top:30px;
 }
-select::-ms-expand { 
-/* IE 10, 11의 네이티브 화살표 숨기기 */ 
-	display: none; 
+ul.breadcrumb { 
+  margin:0px;
+  padding: 6px;
+  list-style: none;
+  background-color: white;
 }
-select { 
-	width: 200px; /* 원하는 너비설정 */ 
-	padding: .8em .5em; /* 여백으로 높이 설정 */ 
-	font-family: inherit; /* 폰트 상속 */ 
-	background-color: white;
-	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */
-    border: 2px solid white; 
-    border-radius: 10px; 
-    -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
-    -moz-appearance: none; appearance: none; 
+ul.breadcrumb li {
+  display: inline;
 }
-
-.main {
- 	margin:30px;
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
 }
-#bad,#room,#staf{
-	text-align : center;
+ul.breadcrumb li a {
+  color: #4f0e0e;
+  text-decoration: none;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size:20px;
+  text-align:center;
 }
-.bad,.room,.staf{
-	text-align : center;
+.w3-border{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 18px;
+}
+.btn{
+	font-family: 'Jua', sans-serif;
+	font-size:20px;
+	color:#432c19;
+}
+.w3-col{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size:17px;
+}	
+.content{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size:17px;
+	margin-right:18px;
+	
 }
 </style>
 <body>
 
-
-<div><br/></div>
 <div class="main" align="center">
-	<div>
+	<div class="search">
 		<form id="frm" action="searchHospital.do" method="post">
-			<input type="text" name="search" size="15">
-			<input type="submit" value="검색">	
+			<input type="text" class="w3-border" name="search" size="28px"placeholder="검색어를 입력해주세요.">
+			<input type="submit" class="btn" value="검색">	
 		</form>
 		<br>
 	</div>
-	<table class="table table-hover">
-		<tr class="table-light">
-			<th></th>
-			<th id="name">병원이름</th>
-			<th id="addr">주소</th>
-			<th id="tell">연락처</th>
-			<th id="bad">병상</th>
-			<th id="room">입원실</th>
-			<th id="staf">의료진</th>
-		</tr>
-		<c:forEach var="list" items="${selectList}">
-		<tr>
-			<td scope="row"><img src="uploadProfile/${list.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="" width="50" height="50"></td>
-			<td scope="row">${list.HOSPITALNAME }</td>
-			<td scope="row">${list.HOSPITALADDR  }</td>
-			<td scope="row">${list.HOSPITALTEL  }</td>
-			<td scope="row" class="bad">${list.HOSPITALSICKBAD  }</td>	
-			<td scope="row" class="room">${list.HOSPITALLRM }</td>
-        	<td scope="row" class="staf">${list.HOSPITALMEDSTAF }</td>	
-		</tr>
-		</c:forEach>
-	</table>
-	<div><br />
-		<input type="button" name="main" value="보호자메인" onclick="location.href='familyMain.do'">
+	<hr style="border: 1px solid white;" width="100%">
+	<c:forEach var="list" items="${selectList}">
+	<div class="w3-row">
+			<a class="w3-col w3-container m4 s4">${list.HOSPITALNAME }</a>
+			<a class="w3-col w3-container m4 s4">${list.HOSPITALADDR  }</a>
+			<a class="w3-col w3-container m4 s4">${list.HOSPITALTEL  }</a>
 	</div>
+	<div class="w3-row" align="right">
+		<a class="content">병상:${list.HOSPITALSICKBAD  }</a>	
+		<a class="content">입원실:${list.HOSPITALLRM }</a>
+       	<a class="content">의료진:${list.HOSPITALMEDSTAF }</a>
+	</div>
+	<hr style="border: 1px solid white;" width="100%">
+	</c:forEach>
+		<br>
 	
 </div>
 </body>

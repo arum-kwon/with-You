@@ -35,7 +35,7 @@ select::-ms-expand {
 }
 
 select { 
-	width: 70px; /* 원하는 너비설정 */ 
+	width: 90px; /* 원하는 너비설정 */ 
 	padding: .4em .5em; /* 여백으로 높이 설정 */ 
 	font-family: inherit; /* 폰트 상속 */ 
 	background-color: #f5f4f4;
@@ -45,14 +45,18 @@ select {
     -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
     -moz-appearance: none; appearance: none; 
 }
-
-.main {
- 	margin:30px;
- 	font-family: 'Noto Serif KR', serif;
+.title{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 38px;
+	
 }
 .btn{
 	font-family: 'Jua', sans-serif;
 	font-size:20px;
+}
+.content{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 18px;
 }
 </style>
 
@@ -61,8 +65,10 @@ select {
 
 <!-- 간병인 상세정보 섹션 -->
 <div class="container">
-	<h3 align="center">즐겨찾기 목록 - 간병인 정보</h3>
-	<div class="">
+  <div align="center" style="margin-top:30px;">
+	<a class="title">간병인 정보</a>
+  </div>
+  <div class="content" align="center">
 		<img src="uploadProfile/${likeDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100">
 		<br/><br/>
 		${likeDetail.helperName }님 / ${likeDetail.helperSex }<br />
@@ -75,10 +81,10 @@ select {
 		<br/>
 
 		<!-- 후기 및 평점 영역 -->
+		<img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height:30px"  />
 		후기 및 평점 :<br />
 			<c:choose>
 				<c:when test="${empty reviewList}">
-					<img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height:50px"  /><br/>
 					아직 작성된 후기가 없습니다.
 				</c:when>
 				<c:otherwise>
@@ -105,17 +111,16 @@ select {
 			</c:choose>
 		
 	</div>
-</div>
-
-<div><br/></div>
-<div><br/></div>
+  </div>
 <!-- 간병인 상세정보 섹션 끗 -->
 
 
 <!-- 즐겨찾기 안에서 서비스 신청하기 섹션 -->
 <div class="container">
-	<h3 align="center">서비스신청</h3>
-	<div class="main" align="">
+  <div align="center" style="margin-top:30px;">
+	<a class="title">서비스신청</a>
+  </div>
+  <div class="content" align="center">
 		<form id="applyFrm" name="applyFrm" action="applyInLike.do" method="post">
 			<label for="serviceStartTime">시작시간</label>
 				<select name="serviceStartTime" id="serviceStartTime">
@@ -145,7 +150,8 @@ select {
 			<input type="hidden" id="helperNo" name="helperNo" value="${likeDetail.helperNo }">
 		</form>
 	</div>
-</div>
+  </div>
+
 
 <script type="text/javascript">
 	function serviceApply(){

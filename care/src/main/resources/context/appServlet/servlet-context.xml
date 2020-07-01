@@ -38,7 +38,9 @@
 	</beans:bean>
 	<interceptors>
 	
-		<!--PreHandle 코드  -->
+	
+	
+		<!--로그인 PreHandle 코드 재선 -->
 		<interceptor>
 			<mapping path="/familyLogin.do"/> 	
 			<mapping path="/home.do"/> 	
@@ -62,7 +64,7 @@
 			</beans:bean>
 		</interceptor>	
 			
-		<!--PostHandle 코드  -->
+		<!--로그인 PostHandle 코드  재선-->
 		<interceptor>
 			<mapping path="/loginCheck.do"/>			
 			<beans:bean id="floginPostIntercep" 
@@ -82,6 +84,21 @@
 			</beans:bean>
 		</interceptor>	
 		
+	<!-- 세션확인 -->
+      <interceptor>
+           <mapping path="*.do"/>   
+           <exclude-mapping path="/familyLogin.do"/> <!-- 로그인 / 회원가입 / 메인 홈으로 가는 컨트롤러 제외 -->
+           <exclude-mapping path="/helperLogin.do"/>
+           <exclude-mapping path="/patientLogin.do"/>
+           <exclude-mapping path="/home.do"/>
+           <exclude-mapping path="/signUpFormFamily.do"/>
+           <exclude-mapping path="/signUpFormHelper.do"/>
+           <exclude-mapping path="/sessionAlert.do"/>
+         <beans:bean id="sessionPreIntercep" 
+                  class="co.withyou.care.common.session.interceptor.SessionPreHandler">
+         </beans:bean>
+      </interceptor>
+      
 		<!-- 알림 관련 handler -->
 		<interceptor>
 			<mapping path="/applyService.do"/>			
