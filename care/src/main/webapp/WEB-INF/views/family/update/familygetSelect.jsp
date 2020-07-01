@@ -45,7 +45,18 @@
    
    }
    --%>
- 
+   function validPw(){
+	   if(updateForm.familyPw.value == ""){
+	 	alert("비밀번호를 입력하세요.")
+	  }else if(updateForm.familyPwValie.value=="" ) {
+		  alert("비밀번호를 확인하세요")
+	  }else if (updateForm.familyPw.value != updateForm.familyPwValie.value){
+		  alert("비밀번호가 일치하지 않습니다.");
+	  }else{
+		  document.updateForm.submit();
+		  
+	  }
+   }
 </script>
 <style>
 	.title{
@@ -74,7 +85,7 @@
 		<div class="w3-row">
 			<div class="w3-col m4">&nbsp;</div>
 			<div class="w3-col m4">
-				<form id="updateForm" action="familyUpdate.do">
+				<form id="updateForm" name="updateForm" class="updateForm" action="familyUpdate.do">
 					<h1 class="title">보호자 정보수정</h1>
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이메일</p></div>
@@ -121,7 +132,7 @@
 							<input class="w3-input w3-border form-control tell" type="text" placeholder="" id="familyTel" name="familyTel" value="${getSelect.familyTel }">
 						</div>
 					</div>
-					<button class="w3-button w3-round w3-dark-grey confirm" id="updateButton" type="submit">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey confirm" id="updateButton" type="button" onclick="validPw()">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
 										&nbsp;&nbsp;&nbsp;
 					<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 				</form>

@@ -44,6 +44,20 @@
 		margin-left : 60px;
 	}
 </style>
+<script>
+function validPw(){
+	   if(helperUpdate.helperPw.value == ""){
+	 	alert("비밀번호를 입력하세요.")
+	  }else if(helperUpdate.helperPw2.value=="" ) {
+		  alert("비밀번호를 확인하세요")
+	  }else if (helperUpdate.helperPw.value != helperUpdate.helperPw2.value){
+		  alert("비밀번호가 일치하지 않습니다.");
+	  }else{
+		  document.helperUpdate.submit();
+		  
+	  }
+}
+</script>
 <!DOCTYPE html>
 	<div class="w3-padding-large">
 			<div class="m4 container">
@@ -135,7 +149,7 @@
 							<input class="w3-input w3-border" type="file" placeholder="" id="helperProfile" name="helperProfile">
 						</div>
 					</div>
-					<button class="w3-button w3-round w3-dark-grey confirm"  type="submit">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey confirm"  type="button" onclick="validPw()">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
 					&nbsp;&nbsp;&nbsp;
 					<button class="w3-button w3-round w3-dark-grey cancle" type="reset" onclick="loaction.href=''">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 				</form>

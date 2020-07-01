@@ -20,14 +20,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
-<style>
-.th,.td{
-		font-family: 'Nanum Gothic', sans-serif;		
-	}
-	#confirm{
-		margin-left : 15px;
-		margin-bottom : 15px;
-	}
+<style>	
+	
 	#head{
 		text-align : center;
 		font-size : 25px;
@@ -37,6 +31,10 @@
 		font-size : 13px;
 		text-align : center;
 		font-family: 'Nanum Gothic', sans-serif;	
+	}
+	.confirm{
+		margin-left : 130px;
+		margin-bottom : 10px;
 	}
 </style>
 <script>
@@ -137,7 +135,7 @@
 <form action="confirm.do" id="serviceFrm" name="serviceFrm">
 	<input type="hidden" id="familyNo" name="familyNo" value="${serviceDetail.familyNo }">
 	<input type="hidden" id="serviceNo" name="serviceNo" value="${serviceDetail.serviceNo }">
-	<button type="button" id="confirm" onclick="getServiceNo('${serviceDetail.serviceNo }')">수락</button>
+	<button type="button" id="confirm" class="confirm" onclick="getServiceNo('${serviceDetail.serviceNo }')">수락</button>
 	<button type="button" id="reject" onclick="getRejectNo('${serviceDetail.serviceNo}')">거절</button>
 	<input type="hidden" id="serviceNo" name="serviceNo">
 </form>
