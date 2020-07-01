@@ -14,7 +14,8 @@
 </head>
 <style>
 	#confirm{
-		margin-left
+		margin-left : 15px;
+		margin-bottom : 15px;
 	}
 	#head{
 		text-align : center;
@@ -100,20 +101,17 @@
        		 <th colspan="4">후기</th>      		
        		  
        </tr>
-       <tr>
-       		<td colspan="4"><textarea></textarea></td>            
-       </tr>       
+          
       		<c:forEach var="rList" items="${reviewList}"> 
        <tr>
        		<td colspan="4">
 
        			별점 : ${rList.reviewStar }<br>
        			작성일 : <fmt:formatDate value="${rList.reviewDate}" pattern="yy.MM.dd HH:MM" /><br>
-       			
-       			내용<br>
-       			${rList.reviewContents } 
-        			     		    
+				내용 :	${rList.reviewContents }
+				
        		</td>
+       		
        </tr>
        </c:forEach>
       
