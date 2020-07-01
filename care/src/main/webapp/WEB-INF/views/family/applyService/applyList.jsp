@@ -7,10 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- 글꼴  -->
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style>
 .btn {
 	width:50%;
+	font-family: 'Jua', sans-serif;
+	font-size: 17px;
 }
 .text {
 	text-align:left;

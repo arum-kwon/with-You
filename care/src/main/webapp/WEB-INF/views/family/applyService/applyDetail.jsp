@@ -10,6 +10,7 @@
 <link href="${pageContext.request.contextPath}/resources/common/css/review.css" rel="stylesheet">
 <!-- 글꼴  -->
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style>
 .img{
@@ -21,6 +22,11 @@
 }
 .star{
 	margin-top:18px;
+}
+.btn {
+	width:30%;
+	font-family: 'Jua', sans-serif;
+	font-size: 17px;
 }
 </style>
 </head>
@@ -60,6 +66,7 @@
 		보호자요청사항 : ${applyDetail.serviceDemand }<br/>
 		결제예정금액 : ${applyDetail.servicePrice }원<br/>
 	</div>
+	<div align="center">
 		<c:choose>
 			<c:when test="${applyDetail.serviceStatus eq 'S02' }">
 				<button type="button" id="btnServiceReady" class="btn btn-primary" onclick="requestPay()">결제하기</button>
@@ -68,7 +75,8 @@
 				<button type="button" id="btnServiceReady" class="btn btn-success" onclick="requestPay()" disabled>결제완료</button>
 			</c:when>
 		</c:choose>
-
+	</div>
+	<br>
 <!--  후기 및 평점 작성  -->
 <div class="form-group" align="center">
 	<label for="exampleTextarea">후기 및 평점:</label>
