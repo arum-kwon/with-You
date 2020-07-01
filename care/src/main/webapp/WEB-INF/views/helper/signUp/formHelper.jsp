@@ -15,9 +15,10 @@
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/sign.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/select-area.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/user-info.js?v=<%=System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/sign.js?v=<%=System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/select-area.js?v=<%=System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/add-form.js?v=<%=System.currentTimeMillis() %>"></script>
 </head>
 <style>
 	.m4, .m3{
@@ -107,9 +108,6 @@
 				<input class="w3-input w3-border add-juso form-control input " type="text" placeholder="" id="helperAddr" name="helperAddr" required readOnly><button class="add-btn"type="button" onclick="jusoPopup(0)">주소찾기</button>
 			</div>
 		</div>
-		
-
-		
 		<div class="w3-row">
 			<div class="w3-col s4 m4"><p>특이사항</p></div>
 			<div class="w3-col s8 m8">
@@ -213,8 +211,24 @@
 			</div>
 		</div>
 		
-		<button class="w3-button w3-round w3-dark-grey confrim" type="button" onclick="fnSubmit(false)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
-				&nbsp;&nbsp;&nbsp;
+		<!-- 자격증과 경력 추가 입력란 -->
+		<!-- 경력 추가 위치 -->
+		<br>
+		<h1 align="center" class="m4 title">경력</h1>
+		<div id="career-list"></div>
+		<button class="w3-button w3-round w3-grey confrim" type="button" onclick="careerAddForm()"> 경력 등록 </button>
+		
+		<!-- 자격증 추가 위치 -->
+		<br>
+		<h1 align="center" class="m4 title">자격증</h1>
+		<div id="certification-list"></div>
+		<button class="w3-button w3-round w3-grey confrim" type="button" onclick="certificationAddForm()"> 자격증 등록 </button>
+		<!--  자격증과 경력 추가 입력란  end -->
+		
+		<br>
+		<br>
+		<button class="w3-button w3-round w3-dark-grey confrim" type="button" onclick="formCheckH(0)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
+		&nbsp;&nbsp;&nbsp;
 		<button class="w3-button w3-round w3-dark-grey cancle" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 		
 	</form>

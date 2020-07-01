@@ -4,11 +4,10 @@ var jusoIndex = 0;
 
 //입력 양식 확인하고 submit
 function fnSubmit(){
-	
-	if(pwCheek){
+	if(!pwCheek){
 		$(".pw-check:eq(0)").focus();
 		alert("비밀번호를 확인해주세요");
-		if(mailCheek){
+		if(!mailCheek){
 			$(".email-check:eq(0)").focus();
 			alert("유효하지 않는 이메일입니다.");
 		}
@@ -104,6 +103,13 @@ function formCheckF(){
 }
 
 function formCheckH(){
+	/*
+	if(true){ //자격증, 경력 유효 확인
+		for(var i=0; i < $(".certification-form").length; i++){
+			alart($(".certification-form").length + "gogogogo");
+		}
+	}
+	*/
 	if($('#helperEmail').val() == ""){
 		$('#helperEmail').focus();
 		alart("이메일을 비워둘 수 없습니다.");
@@ -156,6 +162,11 @@ function formCheckH(){
 		$('#helperEndTime').focus();
 		alart("희망근무종료시간을 비워둘 수 없습니다.");
 		return;
+	} else if(true){ //자격증, 경력 유효 확인
+		for(var i=0; i < $(".certification-form").length; i++){
+			alart($(".certification-form").length);
+			return;
+		}
 	} else {
 		if($('#helperWorkArea2').val() == "%"){
 			$('#helperWorkArea2').val("전체");
