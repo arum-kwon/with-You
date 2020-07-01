@@ -6,7 +6,7 @@
   
 </head>
 <body>
-<div id="map" style="width:100%;height:800px;"></div>
+<div id="map" style="width:100%;height:565px;"></div>
 <%-- 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 --%>
