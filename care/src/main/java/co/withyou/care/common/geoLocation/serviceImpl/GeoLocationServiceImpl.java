@@ -25,6 +25,6 @@ public class GeoLocationServiceImpl implements GeoLocationService {
 
 	@Override
 	public PatientLocVO getPatientLoc(int serviceNo) {
-		return map.getPatientLoc(serviceNo);
+		return map.getPatientLocInt(serviceNo);
 	}
 }

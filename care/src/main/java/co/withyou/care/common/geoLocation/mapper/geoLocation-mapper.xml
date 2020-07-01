@@ -17,7 +17,7 @@
 		    WHERE PATIENTNO = #{patientNo})
 	</select>
 	
-	<select id="getPatientLoc" parameterType="int" resultType="co.withyou.care.common.geoLocation.service.PatientLocVO">
+	<select id="getPatientLocInt" parameterType="int" resultType="co.withyou.care.common.geoLocation.service.PatientLocVO">
 		SELECT PATIENTLATITUDE, PATIENTLONGITUDE 
 		FROM PATIENTLOC 
 		WHERE PATIENTNO = (SELECT PATIENTNO FROM SERVICEAPPLY WHERE SERVICENO = #{value})
