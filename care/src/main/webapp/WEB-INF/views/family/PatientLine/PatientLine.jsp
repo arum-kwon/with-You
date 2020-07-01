@@ -3,16 +3,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">    
+<meta charset="utf-8">    
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<style>
+.btn,.date {
+	font-family: 'Jua', sans-serif;
+	font-size:18px;
+}
+</style>  
 </head>
 <body>
 
 <div id="map" style="width:100%;height:350px;"></div>    
  <form name="insertDate" action="patientGetLine.do" method="post">
-        <input type="date" id='Loctime' name='Loctime'/>
-        <input type="submit" value="검색">
+        <input type="date" class="date" id='Loctime' name='Loctime'/>
+        <input type="submit" class="btn btn-warning w3-round" value="검색">
     </form>
-<button type="button" onclick="location.href='sevenLine.do'">1주일 보기</button>    
+<button type="button" class="btn btn-warning w3-round" onclick="location.href='sevenLine.do'">1주일 보기</button>    
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 <script>
 

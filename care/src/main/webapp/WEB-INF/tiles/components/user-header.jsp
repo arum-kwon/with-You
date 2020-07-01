@@ -76,13 +76,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="w3-container w3-myfont w3-large">
-                            <c:if test="${userType == 'h' }">
+                            <c:if test="${userType == 'h' || hloginCookie != null}">
 								<a class="w3-container2" style="color:black;">${loginOk.helperName }님 어서오세요.</a>
 							</c:if>
-							<c:if test="${userType == 'f' }">
+							<c:if test="${userType == 'f' || floginCookie != null }">
 								<a class="w3-container2" style="color:black;">${loginOk.familyName }님 어서오세요.</a>
 							</c:if>
-						    <c:if test="${userType == 'p' }">
+						    <c:if test="${userType == 'p' || ploginCookie != null  }">
 								<a class="w3-container2" style="color:black;">${loginOk.patientName }님 어서오세요.</a>
 							</c:if>
                         </li>
