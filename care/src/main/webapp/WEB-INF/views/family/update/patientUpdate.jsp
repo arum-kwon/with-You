@@ -27,6 +27,7 @@
 		font-family: 'Nanum Gothic', sans-serif;		
 	}
 	.title{
+		font-size : 35px;	
 		margin-bottom : 20px;
 		margin-left : 50px;
 		
@@ -48,9 +49,19 @@
 		margin-left : 60px;
 	}
 	.add-btn{
-		width : 100%;
+	width : 100%;
+	margin-top : 5px;
+	margin-bottom : 5px;
+	height : 35px;
+	background-color :#F0F8FF;
+	border : 2px solid #464646;
 	}
+	
+	
 </style>
+<script>
+
+</script>
 <body>
 <div class="w3-padding-large">
 		<div class="m4 container">
@@ -74,7 +85,7 @@
 						<div class="w3-col s4 m4"><p>林家</p></div>
 						<div class="w3-col s8 m8">
 							<input class="w3-input w3-border add-juso form-control" type="text" placeholder="" id="patientAddr" name="patientAddr" value="${getSelect.patientAddr }" >
-							<button class="add-btn"type="button" onclick="jusoPopup(0)">林家茫扁</button>
+							<button class="add-btn w3-round"type="button" onclick="jusoPopup(0)">林家茫扁</button>
 						</div>
 					</div>
 					<div class="w3-row">
