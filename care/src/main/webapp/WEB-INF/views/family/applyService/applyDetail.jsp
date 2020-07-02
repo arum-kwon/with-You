@@ -14,14 +14,15 @@
 <title>Insert title here</title>
 <style>
 .img{
-	margin-top:20px;
+	margin-top:10px;
 }
 .content,.form-group {
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 18px;
 }
-.star{
-	margin-top:18px;
+.star, .black{
+	margin-top:9px;
+	display:inline-block;
 }
 .btn {
 	width:30%;
@@ -32,18 +33,19 @@
 </head>
 <body>
 <div class="container">
-  <div class="star" align="right">
+ <div align="right">
+  <div class="star">
 	<!-- 즐겨찾기 버튼 + Form -->
 	<form id="likeFrm" name="likeFrm" action="bestLike.do" method="post">
 	<c:choose>
 		<c:when test="${empty applyDetail4.familyNo}">
 			<a href="#" onClick="addlike(); return false;">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:30px"  />
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:39px"  />
 		  	</a>
 		</c:when>
 		<c:when test="${not empty applyDetail4.familyNo}"> 
 			<a href="javascript:void(0);" onClick="disLike();">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:30px"  />
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:39px"  />
 		  	</a>
 		</c:when>
 	</c:choose>
@@ -51,9 +53,31 @@
 	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
 	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
 	</form>
-  </div>
+ </div>
+<!-- 블랙리스트 버튼 + Form -->
+ <div class="black">
+	<form id="blackFrm" name="blackFrm" action="" method="post">
+	<c:choose>
+		<c:when test="${empty applyDetail5.familyNo}">
+			<a href="#" onClick="addBlack(); return false;">
+		  	  <img alt="블랙리스트 등록" src="${pageContext.request.contextPath}/resources/img/chat/nonBlackList.png" style="height: 40px">
+		  	</a>
+		</c:when>
+		<c:when test="${not empty applyDetail5.familyNo}"> 
+			<a href="javascript:void(0);" onClick="removeBlack();">
+		  		<img alt="블랙리스트 삭제" src="${pageContext.request.contextPath}/resources/img/chat/checkBlackList.png" style="height: 40px">
+		  	</a>
+		</c:when>
+	</c:choose> 
+	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
+	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
+	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
+	</form>
+ </div>
+ </div>
+<!-- 블랙리스트 버튼 + Form 끝-->
 	<div class="img" align="center">
-		<img src="uploadProfile/${applyDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
+		<img src="uploadProfile/${applyDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="110" height="120"><br/>
 	</div>
 	<div class="col-xl-6 col-md-12 col-sm-12 content" align="center" >
 		<br> 
@@ -66,6 +90,7 @@
 		보호자요청사항 : ${applyDetail.serviceDemand }<br/>
 		결제예정금액 : ${applyDetail.servicePrice }원<br/>
 	</div>
+	<br>
 	<div align="center">
 		<c:choose>
 			<c:when test="${applyDetail.serviceStatus eq 'S02' }">
@@ -151,26 +176,6 @@
 		</div> 
 
 	</form>
-<!-- 블랙리스트 버튼 + Form -->
-<form id="blackFrm" name="blackFrm" action="" method="post">
-	<c:choose>
-		<c:when test="${empty applyDetail5.familyNo}">
-			<a href="#" onClick="addBlack(); return false;">
-		  		<h4>블랙리스트 등록</h4>
-		  	</a>
-		</c:when>
-		<c:when test="${not empty applyDetail5.familyNo}"> 
-			<a href="javascript:void(0);" onClick="removeBlack();">
-		  		<h4>블랙리스트 삭제</h4>
-		  	</a>
-		</c:when>
-	</c:choose> 
-	<div><br/></div>
-	<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
-	<input type="hidden" id="helperNo" name="helperNo" value="${applyDetail.helperNo }">
-	<input type="hidden" id="familyNo" name="familyNo" value="${applyDetail.familyNo }">
-</form>
-<!-- 블랙리스트 버튼 + Form 끝-->
 </div>	
 <!--  후기 및 평점 작성 끝  -->
 </div>

@@ -10,8 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style>
+.errorMsg {
+	color:#ec2020; 	
+	font-size: 18px;
+	font-family: 'Do Hyeon', sans-serif;
+}
+.btn1,.btn2 {
+	display:inline-block;
+	margin-top:10px;
+}
 .btn {
-	width:50%;
+	width:130%;
 	font-family: 'Jua', sans-serif;
 	font-size: 17px;
 }
@@ -25,6 +34,9 @@
 .w3-col{
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 17px;
+}
+.icon{
+	margin-top:8px;
 }
 </style>
 <script>
@@ -52,52 +64,62 @@
 					요청서비스시간 : <br>
 					${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지 <br />
 				</div><br>
-				<div align="right">
+			<div align="center">
+				<div class="btn1">
 					<c:choose>
 						<c:when test="${list.serviceStatus eq 'S01'}">
 							<button type="button" id="btnServiceReady" class="btn btn-info"
 								disabled>수락대기</button>
-							<br>
 						</c:when>
 						<c:when test="${list.serviceStatus eq 'S02'}">
 							<button type="button" id="btnPayReady" class="btn btn-primary"
 								disabled>결제대기</button>
-							<br>
 						</c:when>
 						<c:when test="${list.serviceStatus eq 'S03'}">
 							<button type="button" id="btnPayDone" class="btn btn-success"
 								disabled>결제완료</button>
-							<br>
 						</c:when>
 						<c:when test="${list.serviceStatus eq 'S04'}">
 							<button type="button" id="btnServiceDone" class="btn btn-dark"
 								disabled>서비스종료</button>
-							<br>
 						</c:when>
 						<c:otherwise>
 							<button type="button" id="btnReject" class="btn btn-warning"
 								disabled>수락거부</button>
-							<br>
 						</c:otherwise>
 					</c:choose>
+				</div>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="btn2">
 					<button type="button" id="btnLikeList" class="btn btn-light"
 						onclick="getServiceNo('${list.serviceNo}')">상세내역</button>
 				</div>
-				<div align="right">
+			</div>
+
+				<div class="icon" align="center">
 					<c:choose>
-						<c:when test="${list.serviceStatus eq 'S01' || list.serviceStatus eq 'S02' || list.serviceStatus eq 'S03' }">
+						<c:when test="${ list.serviceStatus eq 'S03' }">
 							<a onclick="callToHelper('${list.helperTel}')"> 
 								<img src="${pageContext.request.contextPath}/resources/img/chat/callToHelper.png" style="height: 38px" />
 							</a> 
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="javascript:void(0);" onclick="chatPage('${list.helperNo}');"> 
 								<img src="${pageContext.request.contextPath}/resources/img/chat/chat.png" style="height: 38px" />
+							</a>
+						</c:when>
+						<c:when test="${ list.serviceStatus eq 'S01' || list.serviceStatus eq 'S02'}">
+							<a href="#"> 
+								<img src="${pageContext.request.contextPath}/resources/img/chat/disableCall.png" style="height: 38px" />
+							</a> 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#"> 
+								<img src="${pageContext.request.contextPath}/resources/img/chat/disableChat.png" style="height: 38px" />
 							</a>
 						</c:when>
 					</c:choose>
 				</div>					
 			</div>
-
+			<hr style="border: 1px solid f6f6f6;" width="100%">
 			<div align="right" class="" id="centerDiv"></div>
 			<br>
 		</c:forEach>
