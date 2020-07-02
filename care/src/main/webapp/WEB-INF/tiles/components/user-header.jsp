@@ -62,10 +62,9 @@
               	</a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                	<c:if test="${userType =='h' }">
-               	 <button class="dropdown-item" type="button" onclick="location.href='familygetSelect.do'">회원정보수정</button>
-               	 <button class="dropdown-item" type="button" onclick="location.href='patientgetSelect.do'">환자정보수정</button>
-               	 <button class="dropdown-item" type="button" onclick="location.href='goTaltowi.do'">회원탈퇴</button>
+               	 <button class="dropdown-item" type="button" onclick="location.href='helperGetSelect.do'">회원정보수정</button>
 				 <button class="dropdown-item" type="button" onclick="location.href='getAlarmList.do'">알림<span class="alarm-count"></span></button>
+               	 <button class="dropdown-item" type="button" onclick="location.href='goTaltowi.do'">회원탈퇴</button>
 				 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
                	</c:if><c:if test="${userType =='f' }">
                	 <button class="dropdown-item" type="button" onclick="location.href='familygetSelect.do'">회원정보수정</button>
