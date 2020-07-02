@@ -77,8 +77,8 @@ public class SignUpController {
 		fVO.setFamilyBirth(df.parse(familyBirth));
 		
 		String patientBirth = request.getParameter("patientBirthY") + "-" 
-							+ request.getParameter("patientBirthY") + "-"
-							+ request.getParameter("patientBirthY");
+							+ request.getParameter("patientBirthM") + "-"
+							+ request.getParameter("patientBirthD");
 		pVO.setPatientBirth(df.parse(patientBirth));
 		
 		String code = signUpService.insertFamilyAndPatient(fVO, pVO);
