@@ -227,7 +227,7 @@
 		
 		<br>
 		<br>
-		<button class="w3-button w3-round w3-dark-grey confrim" type="button" onclick="formCheckH(0)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
+		<button class="w3-button w3-round w3-dark-grey confrim" type="button" onclick="formCheckH()" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
 		&nbsp;&nbsp;&nbsp;
 		<button class="w3-button w3-round w3-dark-grey cancle" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 		
