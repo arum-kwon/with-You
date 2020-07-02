@@ -32,24 +32,49 @@
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 18px;
 }
+.sidePatient {
+	background:#89c1a5;	
+	height:80px;
+	width:32px;
+}
+.sideHelper {
+	background:#c6e2ff;	
+	height:80px;
+	width:32px;
+}
+.sideFamily {
+	background:#f8ca90;
+	height:80px;
+	width:32px;
+}
+
  </style>
  </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg" id="mainNav">
+        <nav class="navbar navbar-expand-lg" id="mainNav" style="padding:.0rem 0rem;">
             <div class="container">
             	<c:choose>
             		<c:when test="${userType == 'h' || hloginCookie != null}">
-	                <a class="w3-container" href="helperMain.do" style="color:black;">Care WithU</a>           	
+            		<div class="sideHelper">
+        				<a style="color:#c6e2ff;">.</a>
+        			</div>	
+	                <a class="w3-container" href="helperMain.do" style="color:black; padding:0px 80px 0px 0px;">Care WithU</a>           	
             		</c:when>
             		<c:when test="${userType == 'f' || floginCookie != null}">
-	                <a class="w3-container" href="familyMain.do" style="color:black;">Care WithU</a>           	
+            		<div class="sideFamily">
+        				<a style="color:#f8ca90;">.</a>
+        			</div>	
+	                <a class="w3-container" href="familyMain.do" style="color:black; padding:0px 80px 0px 0px;">Care WithU</a>           	
             		</c:when>            		
             		<c:when test="${userType == 'p' || ploginCookie != null }">
-	                <a class="w3-container" href="patientMain.do" style="color:black;">Care WithU</a>           	
+            		<div class="sidePatient">
+        				<a style="color:#89c1a5;">.</a>
+        			</div>	
+	                <a class="w3-container" href="patientMain.do" style="color:black; padding:0px 80px 0px 0px;">Care WithU</a>           	
             		</c:when>            		         		            		
             		<c:when test="${userType == null }">
-	                <a class="w3-container" href="home.do" style="color:black;">Care WithU</a>           	
+	                <a class="w3-container" href="home.do" style="color:black; padding:10px 20px;">Care WithU</a>           	
             		</c:when>
             	</c:choose>
 

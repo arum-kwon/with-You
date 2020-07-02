@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- 글꼴  -->
- <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 <title>환자 메인 화면</title>
 

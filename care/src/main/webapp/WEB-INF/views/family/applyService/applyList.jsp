@@ -119,7 +119,7 @@
 					</c:choose>
 				</div>					
 			</div>
-			<hr style="border: 1px solid f6f6f6;" width="100%">
+			<hr style="border: 1px solid #f6f6f6;" width="100%">
 			<div align="right" class="" id="centerDiv"></div>
 			<br>
 		</c:forEach>

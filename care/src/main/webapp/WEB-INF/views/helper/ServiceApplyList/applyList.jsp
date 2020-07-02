@@ -5,51 +5,62 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 글꼴  -->
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style>
-.btn , .text{
-	width:50%;
-	font-family:'Jua',sans-serif;
-	font-size:17px;
+.title{
+  margin-top:30px;
+}
+#title{
+  font-family: 'Do Hyeon', sans-serif;
+  margin:35px;
+  font-size: 30px;
+  color: black;
+  text-decoration: none;
+}
+.btn {
+  width:50%;
+  font-family:'Jua',sans-serif;
+  font-size:17px;
 }
 .text {
-	text-align:left;
+  margin-top:30px;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 17px;
+  text-align:left;
 }
-.w3-row {
-	margin:30px;
-	line-height: 34px
-}
-.w3-col{
-	font-family:'Do Hyeon', sans-serif;
-	font-size: 17px;
+.w3-blue{
+  font-family: 'Jua', sans-serif;
+  font-size: 17px;
+  margin-right: 30px;
 }
 </style>
 </head>
 <body>
+ <div class="title" align="center">
+	<a id="title">서비스 요청 리스트</a><br>
+ </div>
 <form id="sNoFrm" name="sNoFrm" action="serviceDetail.do" method="post">
 		<c:forEach var="list" items="${serviceList }">
 			<div class="w3-row">
-				<div class="w3-col w3-container m6 s6" align="center">
-					<img src="uploadProfile/no.jpg"
-						onerror='this.src="resources/img/no_image.png"' id="viewProfile"
-						class="rounded-circle" width="95" height="100">&nbsp;&nbsp;
-				</div>
-				<div class="w3-col w3-container m6 s6 text">
-					${list.familyName} 님<br /> 요청서비스날짜 : ${list.serviceDate }<br />
+				<div class="w3-col w3-container m12 s12 text">
+					요청인:${list.familyName} 님<br /> 요청서비스날짜 : ${list.serviceDate }<br />
 					요청서비스시간 : ${list.serviceStartTime }시부터 ~ ${list.serviceEndTime }시까지<br />
 				</div>
 				
 					<br>
 					<div align="right">
-					<button type="button" id="btnLikeList" class="btn btn-light"
+					<button type="button" id="btnLikeList" class="w3-button w3-blue w3-round-large"
 						onclick="getServiceNo('${list.serviceNo}')">상세내역</button>
 					</div>
 			</div>
 
 			<div align="right" class="" id="centerDiv"></div>
-			<br>
+			<hr style="border:1px solid black;" width="100%">
 		</c:forEach>
 
 		<input type="hidden" id="serviceNo" name="serviceNo">

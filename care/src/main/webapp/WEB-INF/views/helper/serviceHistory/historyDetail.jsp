@@ -9,34 +9,55 @@
 <script src="${pageContext.request.contextPath}/resources/common/js/review.js"></script>
 <link href="${pageContext.request.contextPath}/resources/common/css/review.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<!-- 글꼴  -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>간병인 서비스 이력 상세 페이지</title>
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {
-  font-family: 'Noto Sans KR', sans-serif;
+.content{
+  margin-top:20px;
 }
-
-.w3-container{
-	margin:38px;
-	text-align:center;
+.title{
+  font-family: 'Do Hyeon', sans-serif;
+  margin:35px;
+  font-size: 38px;
+  color: black;
+  text-decoration: none;
+}
+.text{
+  margin-top:10px;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 18px;
+  text-align:center;
+}
+.form-group{
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 18px;
+  text-align:center;
 }
 .w3-button{
-
+  font-family: 'Jua', sans-serif;
+  font-size: 17px;
 }
+
 </style>
 </head>
 
 <body>
+<div class="content" align="center">
+	<a class="title">환자 정보</a><br>
 <div class="w3-container">
-	<h4>
-		${historyDetail.patientName } /${historyDetail.patientBirth }/${historyDetail.patientSex }<br>
-	</h4>	
+  <div class="text">
+	${historyDetail.patientName }님 /${historyDetail.patientBirth }세/${historyDetail.patientSex }<br>
 	복용중인약:${historyDetail.patientMedication }<br>
 	혈액형:${historyDetail.patientMedication }<br>
 	질환:${historyDetail.patientDisease }<br> 
 	치매등급:${historyDetail.patientGrade }<br> 
-	주소:${historyDetail.patientAddr }<br> 
+	주소:<br>${historyDetail.patientAddr }<br> 
 	서비스날짜:${historyDetail.serviceDate }<br> 
 	서비스시작시간:${historyDetail.serviceStartTime }시<br> 
 	서비스종료시간:${historyDetail.serviceEndTime }시<br> 
@@ -44,14 +65,8 @@ html,body,h1,h2,h3,h4,h5,h6 {
 	퇴근시간:${historyDetail.realEndTime }<br> 
 	수령금액:${historyDetail.helperPrice }원<br> 
 	요구사항:${historyDetail.serviceDemand }<br>
-	
-<div><br/></div>
-<div><br/></div>
-<!--  블랙리스트 등록/삭제 영역 -->
-
-
-
-<!--  블랙리스트 등록/삭제 영역 끝-->
+  </div>
+</div>
 	
 <!--  후기 및 평점 작성  -->
 <div class="form-group">
@@ -79,9 +94,8 @@ html,body,h1,h2,h3,h4,h5,h6 {
 						<input type="hidden" id="reviewStar" name="reviewStar" >
 						<input type="hidden" id="serviceNo" name="serviceNo" value="${historyDetail.serviceNo }">
 						<br><br>
-				    	<button class="" type="reset" >취소</button>
-						<button class="" type="button" onclick="sendReview()" >저장</button>
-			    		<button class="" type="button" onclick="location.href='familyMain.do'" >메인</button>
+				    	<button class="w3-button w3-purple w3-round" type="reset" >취소</button>
+						<button class="w3-button w3-purple w3-round" type="button" onclick="sendReview()" >저장</button>
 					</div>
 				</c:when>
 				<%--후기가 있을 경우 --%>
@@ -91,13 +105,14 @@ html,body,h1,h2,h3,h4,h5,h6 {
 							<span class="review-star on"></span>
 						</c:forEach>
 					</div>
+					
 					<div id="review-content">
 						<p>별점 : ${reviewVo.reviewStar}</p>
 						<p>내용 : ${reviewVo.reviewContents}</p>
 						<p>첨부파일 : ${reviewVo.reviewFile}</p>
 						<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy-MM-dd" /></p>
-						<button class="" type="button" onclick="deleteReview()" >삭제</button>
-			    		<button class="" type="button" onclick="updateFrmReview()" >수정</button>	
+						<button class="w3-button w3-purple w3-round" type="button" onclick="deleteReview()" >후기삭제</button>
+			    		<button class="w3-button w3-purple w3-round" type="button" onclick="updateFrmReview()" >후기수정</button>	
 					</div>
 					<%-- 후기 수정 폼 --%>
 					<div id="updateFrm" style="display: none;">
@@ -108,15 +123,12 @@ html,body,h1,h2,h3,h4,h5,h6 {
 						<input type="hidden" id="writerType" name="writerType" value="h">
 						<input type="hidden" id="serviceNo" name="serviceNo" value="${reviewVo.serviceNo }">
 						<br><br>
-				    	<button class="" type="reset" onclick="updateReviewReset()" >수정취소</button>
-						<button class="" type="button" onclick="updateReview()" >수정저장</button>
-			    		<button class="" type="button" onclick="location.href='familyMain.do'" >메인</button>
+				    	<button class="w3-button w3-purple w3-round" type="reset" onclick="updateReviewReset()" >수정취소</button>
+						<button class="w3-button w3-purple w3-round" type="button" onclick="updateReview()" >수정저장</button>
 		    		</div>		
 			    </c:otherwise>
 			</c:choose>
-			<br><br>
 		</div> 
-
 	</form>
 </div>	
 <!--  후기 및 평점 작성 끝  -->	

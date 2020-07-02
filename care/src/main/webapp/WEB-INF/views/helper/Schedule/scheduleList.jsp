@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>스케줄 리스트 가져오는 화면</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <%-- 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,9 +21,12 @@
 <link href="${pageContext.request.contextPath}/resources/schedule/lib/main.css" rel='stylesheet' />
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 }
-
+.card-body {
+  font-family: 'Noto Serif KR', serif;
+  font-size:18px;
+}
 ul.breadcrumb { 
   margin:10px;
   padding: 10px 16px;
@@ -31,7 +35,7 @@ ul.breadcrumb {
 }
 ul.breadcrumb li {
   display: inline;
-  font-size: 18px;
+  font-size: 22px;
 }
 ul.breadcrumb li+li:before {
   padding: 8px;
@@ -41,11 +45,13 @@ ul.breadcrumb li+li:before {
 ul.breadcrumb li a {
   color: #0275d8 !important;
   text-decoration: none;
-  font-weight:bold;
+  font-family: 'Do Hyeon', sans-serif;
 }
-
 #calendar {
 	width: 100%;
+}
+.w3-button{
+	font-family: 'Jua', sans-serif;
 }
 </style>
 <script>
@@ -112,12 +118,12 @@ ul.breadcrumb li a {
 	<div class="card bg-secondary text-white ">
        <div class="card-body">
 			<h4>${sceduleList.title }님 </h4>
-			<h5>서비스 시간: ${sceduleList.serviceStartTime } - ${sceduleList.serviceEndTime }</h5><br>
+			<h5>서비스 시간: ${sceduleList.serviceStartTime } - ${sceduleList.serviceEndTime }</h5>
 				<button type="button" onclick="getServiceNo('${sceduleList.serviceNo}')"class="w3-button w3-sand w3-round">상세정보</button>&nbsp;&nbsp;&nbsp;&nbsp;
 				<a onclick="callToFamily('${sceduleList.familyTel}')"> 
 					<img src="${pageContext.request.contextPath}/resources/img/chat/callWhite.png" style="height: 42px" />
 				</a> 
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;
 			    <a href="javascript:void(0);" onclick="chatPage('${sceduleList.familyNo}');">
 			   		 <img src="${pageContext.request.contextPath}/resources/img/chat/chat2.png" style="height: 42px" />
 			    </a>				
