@@ -54,21 +54,30 @@
             	</c:choose>
 
             	<!-- 창 줄어들 때 흰색배경에 나오는 아이들 -->
-                <a class="navbar-toggler navbar-toggler-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenu2" >              		
+                <a class="navbar-toggler navbar-toggler-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="dropdownMenu2" >              		
+              		
               		<c:if test="${userType == 'h' || userType == 'f' || userType == 'p'}">
               		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" /><span class="alarm-count"></span>
               		</c:if>
               	</a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-               	<c:if test="${userType == 'h' || userType == 'f' || userType == 'p'}">
+               	<c:if test="${userType =='h' }">
                	 <button class="dropdown-item" type="button" onclick="location.href='familygetSelect.do'">회원정보수정</button>
                	 <button class="dropdown-item" type="button" onclick="location.href='patientgetSelect.do'">환자정보수정</button>
-               	 <button class="dropdown-item" type="button">공지사항</button>
-				 <button class="dropdown-item" type="button">문의하기</button>
+               	 <button class="dropdown-item" type="button" onclick="location.href='goTaltowi.do'">회원탈퇴</button>
 				 <button class="dropdown-item" type="button" onclick="location.href='getAlarmList.do'">알림<span class="alarm-count"></span></button>
+				 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
+               	</c:if><c:if test="${userType =='f' }">
+               	 <button class="dropdown-item" type="button" onclick="location.href='familygetSelect.do'">회원정보수정</button>
+               	 <button class="dropdown-item" type="button" onclick="location.href='patientgetSelect.do'">환자정보수정</button>
+               	 <button class="dropdown-item" type="button" onclick="location.href='gofamilyTaltoe.do'">회원탈퇴</button>
+				 <button class="dropdown-item" type="button" onclick="location.href='getAlarmList.do'">알림<span class="alarm-count"></span></button>
+				 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
+               	</c:if>	<c:if test="${userType =='p' }">       
 				 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
                	</c:if>
                </div>
+             
                
              
                 
@@ -88,7 +97,7 @@
                         </li>
                         <li class="dropdown">
                         	<c:if test="${userType == 'f' }">
-	                        	<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                        	<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" /><span class="alarm-count"></span>
 	                        	</a>
 		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
@@ -104,7 +113,7 @@
                         </li>
 						<li class="dropdown">
                         	<c:if test="${userType == 'p' }">
-	                        	<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                        	<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="ty">
 	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" /><span class="alarm-count"></span>
 	                        	</a>
 		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
@@ -120,9 +129,7 @@
 	                        		<img src="${pageContext.request.contextPath}/resources/img/user.png" style="height:50px" /><span class="alarm-count"></span>
 	                        	</a>
 		                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-		                        	 <button class="dropdown-item" type="button" onclick="location.href='helperGetSelect.do'">회원정보수정</button>		                        	 
-		                        	 <button class="dropdown-item" type="button">공지사항</button>
-		    						 <button class="dropdown-item" type="button">문의하기</button>
+		                        	 <button class="dropdown-item" type="button" onclick="location.href='helperGetSelect.do'">회원정보수정</button>		                        	 		                        	 
 		    						 <button class="dropdown-item" type="button" onclick="location.href='getAlarmList.do'">알림<span class="alarm-count"></span></button>
 		    						 <button class="dropdown-item" type="button" onclick="location.href='goTaltowi.do'">회원탈퇴</button>
 		    						 <button class="dropdown-item" type="button" onclick="location.href='logout.do'">로그아웃</button>
