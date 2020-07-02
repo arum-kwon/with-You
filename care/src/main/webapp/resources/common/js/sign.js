@@ -162,12 +162,7 @@ function formCheckH(){
 		$('#helperEndTime').focus();
 		alart("희망근무종료시간을 비워둘 수 없습니다.");
 		return;
-	} else if(true){ //자격증, 경력 유효 확인
-		for(var i=0; i < $(".certification-form").length; i++){
-			alart($(".certification-form").length);
-			return;
-		}
-	} else {
+	}  else {
 		if($('#helperWorkArea2').val() == "%"){
 			$('#helperWorkArea2').val("전체");
 		}
