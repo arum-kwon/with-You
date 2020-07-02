@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,7 +95,7 @@ html,body,h1,h2,h3,h4,h5,h6 {
 						<p>별점 : ${reviewVo.reviewStar}</p>
 						<p>내용 : ${reviewVo.reviewContents}</p>
 						<p>첨부파일 : ${reviewVo.reviewFile}</p>
-						<p>작성날짜 : ${reviewVo.reviewDate}</p>
+						<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy-MM-dd" /></p>
 						<button class="" type="button" onclick="deleteReview()" >삭제</button>
 			    		<button class="" type="button" onclick="updateFrmReview()" >수정</button>	
 					</div>
