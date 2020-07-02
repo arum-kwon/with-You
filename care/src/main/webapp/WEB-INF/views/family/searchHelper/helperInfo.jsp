@@ -34,14 +34,14 @@
 <body>
 <div class="container">
 <div align="center" style="margin:30px;">
-	<a class="title"> 보호자 로그인</a>
+	<a class="title">간병인 정보</a>
 		<img src="${pageContext.request.contextPath}/resources/upload/${helperInfo.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
 		<div class="content">
 		${helperInfo.helperName }님 / ${helperInfo.helperSex }<br />		
 		희망근무지역: ${helperInfo.helperWorkArea }<br />
 		돌봄가능시간: ${helperInfo.helperStartTime }시~${helperInfo.helperEndTime }시<br />
 		특이사항: ${helperInfo.helperUnique }<br />
-		자격증명: ${helperInfo.certifiName }<br />
+		<%-- 자격증명: ${helperInfo.certifiName }<br /> --%>
 		<br />
 
 		<!-- 후기 및 평점 영역 -->
@@ -86,13 +86,14 @@
 				서비스 지역 : ${searchFilterVo.helperWorkArea } <br/>
 			</c:otherwise>
 			</c:choose>
+			<%-- 
 			자격보유 : 
 				<c:choose>
 					<c:when test="${searchFilterVo.certifiName eq 'y'}">${helperInfo.certifiName }</c:when>
 					<c:otherwise>미보유</c:otherwise>
 				</c:choose>
-				
-			<br />
+			<br /> 
+			--%>
 			서비스 날짜: <input type="date" id="serviceDate" name="serviceDate"><br />
 			<div class="form-group">
 		      <label for="comment">보호자 요청사항:</label>
@@ -124,11 +125,11 @@
 				'<신청내용>' +'\n'+
 				'신청자 성명: ' + '${loginOk.familyName}'+'\n'+
 				'간병인 성명: ' + '${helperInfo.helperName}'+'\n'+
-				'요청시간 : ' + ${searchFilterVo.helperStartTime }+ ' 시부터~'+${searchFilterVo.helperEndTime }+' 시까지 ('+(parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))+'시간)' +'\n'+
-				'요청지역 : ' +	 '${searchFilterVo.helperWorkArea }' +'\n'+
-				'요청날짜 : ' + document.orderFrm.serviceDate.value +'\n'+
+				'돌봄시간 : ' + ${searchFilterVo.helperStartTime }+ ' 시부터~'+${searchFilterVo.helperEndTime }+' 시까지 ('+(parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))+'시간)' +'\n'+
+				'돌봄지역 : ' +	 '${helperInfo.helperWorkArea }' +'\n'+
+				'돌봄날짜 : ' + document.orderFrm.serviceDate.value +'\n'+
 				'요청메모 : ' + document.orderFrm.serviceDemand.value +'\n'+
-				'결제예정금액 : ' + (parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))*10000 +'\n'+
+				'결제예정금액 : ' + (parseInt('${searchFilterVo.helperEndTime }')-parseInt('${searchFilterVo.helperStartTime }'))*10000 +'원'+'\n'+
 				'    * (금액 = 시간 X 10,000원)'
 				) == true) {
 			alert("신청이 완료 되었습니다"+"\n"+"'신청내역'메뉴에서 내용을 확인 하실 수 있습니다.")

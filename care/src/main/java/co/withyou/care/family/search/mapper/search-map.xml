@@ -23,6 +23,7 @@
 				AND HELPERENDTIME >= #{helperEndTime}
 			</if>
 			
+			<!-- 
 			<if test='certifiName != null and certifiName == "y"'>
 				AND EXISTS ( SELECT CERTIFINAME "certifiNo" FROM CERTIFICATION 
 								WHERE HELPER.HELPERNO = CERTIFICATION.HELPERNO)
@@ -31,7 +32,8 @@
 			<if test='certifiName != null and certifiName == "n"'>
 				AND NOT EXISTS ( SELECT CERTIFINAME "certifiName" FROM CERTIFICATION 
 										WHERE HELPER.HELPERNO = CERTIFICATION.HELPERNO)
-			</if>
+			</if> 
+			-->
 			
 				AND HELPERNO NOT IN (SELECT HELPERNO "helperNo" FROM BLACKLIST 
 													WHERE FAMILYNO = #{familyNo})
