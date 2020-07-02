@@ -76,7 +76,7 @@ select {
 		희망근무지역: ${likeDetail.helperWorkArea }<br/>
 		희망근무시간: ${likeDetail.helperStartTime } 시 ~ ${likeDetail.helperEndTime }시<br/>
 		특이사항: ${likeDetail.helperUnique }<br/>
-		자격면허: ${likeDetail.certifiName }<br/>
+		<%-- 자격면허: ${likeDetail.certifiName }<br/> --%>
 		경력사항: ${likeDetail.careerOrgan } / ${likeDetail.careerStart } 부터 ~ ${likeDetail.careerEnd } 까지<br/>
 		<br/>
 
@@ -180,9 +180,9 @@ select {
 				'<신청내용>' +'\n'+
 				'신청자 성명: ' + '${loginOk.familyName}'+'\n'+
 				'간병인 성명: ' + '${likeDetail.helperName}'+'\n'+
-				'요청시간 : ' + doc.serviceStartTime.value + ' 시부터 ~ '+ doc.serviceEndTime.value +' 시까지 ('+ (doc.serviceEndTime.value - doc.serviceStartTime.value) +'시간)' +'\n'+
-				'요청지역 : ' +	 '${likeDetail.helperWorkArea }' +'\n'+
-				'요청날짜 : ' + doc.serviceDate.value +'\n'+
+				'돌봄시간 : ' + doc.serviceStartTime.value + ' 시부터 ~ '+ doc.serviceEndTime.value +' 시까지 ('+ (doc.serviceEndTime.value - doc.serviceStartTime.value) +'시간)' +'\n'+
+				'돌봄지역 : ' +	 '${likeDetail.helperWorkArea }' +'\n'+
+				'돌봄날짜 : ' + doc.serviceDate.value +'\n'+
 				'요청메모 : ' + doc.serviceDemand.value +'\n'+
 				'결제예정금액 : ' + (doc.serviceEndTime.value - doc.serviceStartTime.value)*10000 +'원'+'\n'+
 				'    * (금액 = 시간 X 10,000원)'
