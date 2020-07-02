@@ -56,7 +56,7 @@
 
                           <i class="icon_desktop"></i>
 
-                          <span>UI Fitures</span>
+                          <span>관리 시스템</span>
 
                           <span class="menu-arrow arrow_carrot-right"></span>
 
@@ -64,11 +64,11 @@
 
             <ul class="sub">
 
-              <li><a class="" href="general.html">Components</a></li>
+              <li><a class="" href="AdminPayList.do">결제</a></li>
 
-              <li><a class="" href="buttons.html">Buttons</a></li>
+              <li><a class="" href="">간병인등급</a></li>
 
-              <li><a class="" href="grids.html">Grids</a></li>
+              <li><a class="" href="AdminApplyList.do">서비스 내역</a></li>
 
             </ul>
 

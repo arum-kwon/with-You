@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 7. 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="co.withyou.care.admin.AdminPayResult.mapper.AdminPayMapper">
+
+	<select id="PayselectAll" resultType="co.withyou.care.admin.AdminPayResult.service.AdminPayVo"> <!-- 맵퍼아이 -->
+		SELECT * from payresult
+		
+	</select>
+
+</mapper>

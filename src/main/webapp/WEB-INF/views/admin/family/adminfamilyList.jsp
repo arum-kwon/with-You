@@ -68,7 +68,7 @@
 						<td>${ list.familyEmail }</td>
 						<td>${ list.familyJoinDate }</td>
 						<td>${ list.patientNo }</td>
-					</tr>
+					</tr>    
 				</c:forEach>
 			</body>
 		</table>

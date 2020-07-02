@@ -23,7 +23,7 @@ public class AdminFamilyController {
 	@RequestMapping("/adminFamilyService.do")
 	public String adminfamilyService (AdminFamilyVo adminfamilyVo, Model model) throws Exception {
 		
-		return "admin/family/adminfamily";
+		return "admin/family/ {	y";
 		 
 	}
 	@RequestMapping("/adminfamilyList.do")
