@@ -26,24 +26,13 @@ public class AdminHelperController {
 	@Autowired
 	AdminHelperService adminhelperService;
 	
-	@RequestMapping("/adminhelperService.do")
-	public String adminhelperService (AdminHelperVo adminhelperVo,Model model) throws Exception {
-		
-		
-		return "admin/helper/adminhelperMain";
-	}
-	
 	
 	@RequestMapping("/adminhelperList.do")
-	public String adminhelperList (AdminHelperVo adminhelperVo, Model model, HttpServletRequest request, HttpSession session) throws Exception {
+	public String adminhelperList (AdminHelperVo adminhelperVo, Model model) throws Exception {
 		List<AdminHelperVo> checkVo = adminhelperService.HelperselectAll();
 		model.addAttribute("helperlist", checkVo);
 		
-		List <Map> list = adminhelperService.getSelectList(adminhelperVo);
-		model.addAttribute("adminhelperList", list);
-		
-		return "admin/helper/adminhelperList";
+		return "admin/member/adminhelperList";
 	}
-	
 
-	}
+}

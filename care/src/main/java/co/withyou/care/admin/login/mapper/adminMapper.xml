@@ -13,12 +13,12 @@
     </select> 
     
     <select id="viewAdmin" resultType="co.withyou.care.admin.vo.AdminVO">
-    SELECT 
-    adminid AS ID,
-    adminpw AS PW,
-    email AS Email
-    FROM ADMIN
-    WHERE admin_id = #{adminId} AND admin_pw = #{adminPw}
+	    SELECT 
+	    adminid AS ID,
+	    adminpw AS PW,
+	    email AS Email
+	    FROM ADMIN
+	    WHERE admin_id = #{adminId} AND admin_pw = #{adminPw}
     </select>
  
 </mapper>

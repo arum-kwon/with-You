@@ -4,7 +4,5 @@ import java.util.List;
 
 public interface AdminPatientService {
 
-	List<AdminPatientVo> selectAll() throws Exception;
-	AdminPatientVo selectPt(AdminPatientVo vo) throws Exception;
-	int PatientDelete(AdminPatientVo vo) throws Exception;
+	List<AdminPatientVo> PatientselectAll() throws Exception;
 }

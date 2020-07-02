@@ -1,4 +1,4 @@
-package co.withyou.care.admin.service;
+package co.withyou.care.admin.login.serviceImpl;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -6,8 +6,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.withyou.care.admin.last.mapper.AdminMapper;
-import co.withyou.care.admin.vo.AdminVO;
+import co.withyou.care.admin.login.mapper.AdminMapper;
+import co.withyou.care.admin.login.service.AdminService;
+import co.withyou.care.admin.login.service.AdminVO;
 
 //3. 관리자 관련 서비스 구현
 @Service
@@ -28,7 +29,7 @@ public class AdminServiceImpl implements AdminService {
 		} else {
 			bresult = false;
 		}
-			return bresult;
+		return bresult;
 	}
 	// AdminVO vo2 = viewAdmin(vo);
 	// // 세션 변수 등록

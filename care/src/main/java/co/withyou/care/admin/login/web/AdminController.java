@@ -1,4 +1,4 @@
-package co.withyou.care.admin;
+package co.withyou.care.admin.login.web;
 
 import java.util.Locale;
 
@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.withyou.care.admin.service.AdminService;
-import co.withyou.care.admin.vo.AdminVO;
+import co.withyou.care.admin.login.service.AdminService;
+import co.withyou.care.admin.login.service.AdminVO;
 
 //1.
-@Controller // 현재 클래스를 스프링에서 관리하는 컨트롤러 bean으로 생성
+// 현재 클래스를 스프링에서 관리하는 컨트롤러 bean으로 생성
 // 모든맵핑은 /admin/를 상속
+@Controller
 public class AdminController {
     // 로깅을 위한 변수
     private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
@@ -39,11 +40,8 @@ public class AdminController {
     // 02. 로그인 처리
     @RequestMapping(value = "adminloginCheck.do") //, method=RequestMethod.POST)
     public ModelAndView loginCheck(@ModelAttribute AdminVO vo, HttpSession session) throws Exception{
-        
-    	System.out.println();
-    	boolean result = adminService.loginCheck(vo, session);
-        
     	
+    	boolean result = adminService.loginCheck(vo, session);
         ModelAndView mav = new ModelAndView();
         if (result == true) { // 로그인 성공
             // main.로 이동
@@ -72,7 +70,7 @@ public class AdminController {
 	public String ad_home(Locale locale,Model model) {
 		
     	return "admin/admin-layout/ad_home";
-}
+    }
     //헬퍼조회컨트롤
     /*@RequestMapping("/adminhelperList.do")
       public String adminhelperlist(Locale locale, Model model){

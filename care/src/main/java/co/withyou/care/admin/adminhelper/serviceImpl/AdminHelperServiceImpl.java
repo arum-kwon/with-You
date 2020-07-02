@@ -21,29 +21,4 @@ public class AdminHelperServiceImpl implements AdminHelperService {
 		return map.HelperselectAll();
 	}
 
-	@Override
-	public AdminHelperVo selectHp(AdminHelperVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return map.selectHp(vo);
-	}
-
-	@Override
-	public int HelperDelete(AdminHelperVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return map.HelperDelete(vo);
-	
-	}
-
-	@Override
-	public List<Map> getSelectList(AdminHelperVo helperVo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void helperResultselect(AdminHelperVo helperVo) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
