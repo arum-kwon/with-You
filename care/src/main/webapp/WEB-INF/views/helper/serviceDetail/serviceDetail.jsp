@@ -54,7 +54,7 @@
 	</div>
 	<div class="text">
 		이름 : ${serviceDetail.patientName }님<br>
-		생년월일 :${serviceDetail.patientBirth}<br>
+	<fmt:formatDate value="${serviceDetail.patientBirth}" pattern="yyyy-MM-dd" /><br>
 		성별 : ${serviceDetail.patientSex }<br>
 	         보호자 연락처 :${serviceDetail.patientFamilyTel }<br>
 	         주소 :<br>${serviceDetail.patientAddr }<br>
