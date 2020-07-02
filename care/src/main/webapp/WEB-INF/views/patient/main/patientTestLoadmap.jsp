@@ -5,20 +5,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 글꼴  -->
+ <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-<title>환자 집으로가기 화면</title>
+<title>환자 메인 화면</title>
 
 <style type="text/css"> 
-#urgent { 
-  font-family:sans-serif;
-  font-size:x-large;
-  font-style: italic;
-  color:#1E90FF;
+.menu {
+	margin:38px;
 }
 
 .patient1,.patient2 {
 	display:inline-block;
-	margin:35px;
+	margin-top:20px;
+}
+.patient3 {
+	margin-top:20px;
+}
+.menuTitle{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size:30px;
 }
 </style>
 </head>
@@ -60,27 +66,28 @@ geocoder.addressSearch(addr[0], function(result, status) {
 </script>
 
 <body>
-	<div align="center">
-		<div align="center" style="margin: 40px;">
+	<div class="menu" align="center">
+		<div class="patient1">
 			<a id="addr" style="color: black"
 			   href="https://map.kakao.com/link/to/${patientAddr},126.57049341667,126.57049341667"> 
 				<img src="${pageContext.request.contextPath}/resources/img/menu/findLoad.png" style="height: 90px" />
-			</a>
-			<h2>길찾기</h2>
+			</a><br>
+			<a class="menuTitle">길찾기</a>
 		</div>
+		<br>
 		<!-- 자바스크립트 이용시  -->
-		<div class="patient1">
+		<div class="patient2">
 			<a onclick="callNumber('${ familyVO.familyTel }')"> <!--보호자번호  -->
 				<img src="${pageContext.request.contextPath}/resources/img/menu/call.png" style="height: 90px" />
-			</a>
-			<h3>가족에게</h3>
+			</a><br>
+			<a class="menuTitle">가족에게</a>
 		</div>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<div class="patient2">
+		
+		<div class="patient3">
 			<a id="urgent" href="tel:112">
 				<img src="${pageContext.request.contextPath}/resources/img/menu/cap.png" style="height: 90px" />
-			</a>
-				<h1>112</h1>
+			</a><br>
+			<a class="menuTitle">112</a>
 		</div>
 	</div>
 </body>
