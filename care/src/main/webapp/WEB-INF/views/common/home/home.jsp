@@ -73,8 +73,8 @@ button{
 
 <body>
 <div class="w3-right" style="padding:4px; margin:4px">
-<button class="w3-button w3-flat-emerald w3-padding-large w3-hover-white w3-large w3-round-large" 
-	 class="adminlogin" onclick="location.href='adminlogin.do'"> 관리자 </button>
+<button class="w3-button w3-flat-white w3-padding-large w3-hover-white w3-large w3-round-large" 
+	 class="adminlogin" onclick="location.href='adminlogin.do'">★</button>
 </div>
 <!-- Header -->
 <header class="w3-center" style="padding:50px 16px">
@@ -84,9 +84,9 @@ button{
   <p class="subtitle">사용자 유형을 선택해주세요.</p><br>
 
 
-  <button class="button" onclick="location.href='patientLogin.do'">환자</button><br><br>
-  <button class="button" onclick="location.href='familyLogin.do'">보호자</button><br><br>
-  <button class="button" onclick="location.href='helperLogin.do'">간병인</button><br><br>
+  <button class="button" style="background:white;" onclick="location.href='patientLogin.do'">환자</button><br><br>
+  <button class="button" style="background:white;" onclick="location.href='familyLogin.do'">보호자</button><br><br>
+  <button class="button" style="background:white;" onclick="location.href='helperLogin.do'">간병인</button><br><br>
 
 </header>
 

@@ -154,6 +154,7 @@ th, td{
 			</select>
 	  </div>
 			<br>
+	  <%-- 
 	  <div>
 		<label for="certifiName">자격증 보유</label>
 			<select name="certifiName" id="certifiName" >
@@ -161,7 +162,8 @@ th, td{
 				<option value="y" ${param.certifiName eq "y" ? "selected" :"" }>보유</option>
 				<option value="n" ${param.certifiName eq "n" ? "selected" :"" }>미보유</option>				
 			</select>
-	  </div>
+	  </div> 
+	  --%>
 			<br>
 			<input type="hidden" id="helperNo" name="helperNo" >			
 			&nbsp;&nbsp;&nbsp;
@@ -225,10 +227,12 @@ th, td{
 				alert('돌봄종료시간은 시작시간보다 커야합니다');
 				document.frm.helperEndTime.focus();
 			}
+			/* 
 			else if(document.frm.certifiName.value == '') {
 				alert('간병인 자격유무를 선택해주세요'+'\n'+' * 필수 조건은 서비스 신청시 적용됩니다.');
 				document.frm.certifiName.focus();
-			}
+			} 
+			*/
 			else {
 				document.frm.submit();
 			}

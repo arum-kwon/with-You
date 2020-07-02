@@ -2,14 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- 글꼴  -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
@@ -19,30 +22,34 @@
 
 </script>   
 <style>
-.m4{
-		font-family: 'Nanum Gothic', sans-serif;		
-	}
-	.title{
-		margin-bottom : 20px;
-		margin-left : 50px;
-		
-	}
-	input{
-		margin-bottom : 5px;
-		border-radius : 4px;
-		width : 1200px;
-	}
-	.searchAdd{
-		margin-bottom : 5px;
+.title{
+  margin-top:10px;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 38px;
+  color: black;
+}
+input{
+	margin-bottom : 5px;
+	border-radius : 4px;
+	width : 1200px;
+}
+.searchAdd{
+	margin-bottom : 5px;
 
-		width :200px;
-	}
-	.m4 {
-		left-margin : 50px;
-	}
-	.confirm{
-		margin-left : 60px;
-	}
+	width :200px;
+}
+.confirm{
+	margin-left : 60px;
+}
+.w3-col{
+  font-size: 17px;
+  font-family: 'Do Hyeon', sans-serif;	
+}
+.w3-button{
+  font-family: 'Jua', sans-serif;
+  font-size: 18px;
+  width:70px;
+}
 </style>
 <script>
 function validPw(){
@@ -61,10 +68,11 @@ function validPw(){
 <!DOCTYPE html>
 	<div class="w3-padding-large">
 			<div class="m4 container">
-				<form action="helperUpdate.do" id="helperUpdate" name="helperUpdate">
-					<h1 class="m4 title">회원정보 수정</h1>
-				 	
-					<div class="">
+			 	<div class="title" align="center">
+					<a class="title">회원정보 수정</a>
+			 	</div>
+				<form action="helperUpdate.do" id="helperUpdate" name="helperUpdate">			 	
+					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이메일</p></div>
 						<div class="w3-col s8 m8">
 							<input class="w3-input w3-border form-control" type="text" placeholder="" id="helperEmail" name="helperEmail" value="${getSelect.helperEmail }" style="width : 200px" readonly>
@@ -149,15 +157,12 @@ function validPw(){
 							<input class="w3-input w3-border" type="file" placeholder="" id="helperProfile" name="helperProfile">
 						</div>
 					</div>
-					<button class="w3-button w3-round w3-dark-grey confirm"  type="button" onclick="validPw()">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey confirm"  type="button" onclick="validPw()">수정</button>
 					&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey cancle" type="reset" onclick="loaction.href=''">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey cancle" type="reset" onclick="loaction.href=''">취소</button>
 				</form>
 
 			</div>
 			<div class="w3-col m4">&nbsp;</div>
 		</div>
 
-
-	</div>
-</div>
