@@ -70,12 +70,12 @@ ul.breadcrumb li a {
 	</div>
 	<hr style="border: 1px solid white;" width="100%">
 	<c:forEach var="list" items="${selectList}">
-	<div class="w3-row">
-			<a class="w3-col w3-container m4 s4">${list.HOSPITALNAME }</a>
-			<a class="w3-col w3-container m4 s4">${list.HOSPITALADDR  }</a>
-			<a class="w3-col w3-container m4 s4">${list.HOSPITALTEL  }</a>
+	<div align="left">
+			<a class="content">이름:${list.HOSPITALNAME }</a><br>
+			<a class="content">주소:${list.HOSPITALADDR  }</a><br>
+			<a class="content">번호:${list.HOSPITALTEL  }</a><br>
 	</div>
-	<div class="w3-row" align="right">
+	<div class="w3-row" align="left">
 		<a class="content">병상:${list.HOSPITALSICKBAD  }</a>	
 		<a class="content">입원실:${list.HOSPITALLRM }</a>
        	<a class="content">의료진:${list.HOSPITALMEDSTAF }</a>
