@@ -23,7 +23,13 @@ public class HeperUpdateController {
 		HttpSession session = request.getSession();
 		vo=(HelperVO) session.getAttribute("loginOk");
 		vo = Hupdateservice.getSelect(vo);
+		
+		String area = vo.getHelperWorkArea();
+		String[] array = area.split(" ");
+
 		model.addAttribute("getSelect",vo);
+		model.addAttribute("helperWorkArea1",array[0]);
+		model.addAttribute("helperWorkArea2",array[1]);
 		return "helper/update/helperUpdate";
 		
 	}
@@ -32,6 +38,13 @@ public class HeperUpdateController {
 	public String helperUpdat(HelperVo vo, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		HelperVO Hvo = (HelperVO)session.getAttribute("loginOk");
+
+		String area1 = request.getParameter("helperWorkArea1");
+		String area2 = request.getParameter("helperWorkArea2");
+		String area = area1 + " " + area2;
+		System.out.println(area);
+		vo.setHelperWorkArea(area);
+		
 		vo.setHelperNo(Hvo.getHelperNo());
 		int result = 0;
 		result = Hupdateservice.HelperUpdate(vo);

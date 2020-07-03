@@ -20,6 +20,16 @@
 					<li><a class="" href="adminhelperList.do">간병인 회원</a></li>
 				</ul>
 			</li>
+			<li class="">
+				<a href="#" class=""> 
+					<i class="icon_document_alt"></i> 
+					<span> 서비스 관리</span> 
+					<span class=" arrow_carrot-right"></span>
+				</a>
+				<ul class="">
+					<li><a class="" href="AdminPayList.do">결제 정보</a></li>
+				</ul>
+			</li>
 		</ul>
 		<!-- sidebar menu end-->
 	</div>

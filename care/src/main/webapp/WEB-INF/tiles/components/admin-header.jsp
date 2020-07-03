@@ -36,7 +36,15 @@
       </li>
       <!-- alert notification end-->
       <!-- user login dropdown start-->
+      <li id="alert_notificatoin_bar" class="dropdown">
+      </li>
       <li class="dropdown">
+	     <a class="dropdown-toggle" href="adminlogin.do">
+           <span class="profile-ava">
+              <img alt="" src="img/avatar1_small.jpg">
+           </span>
+           <span class="username">Logout</span>
+      	</a>
       </li>
       <!-- user login dropdown end -->
     </ul>

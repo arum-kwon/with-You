@@ -99,6 +99,7 @@
            <exclude-mapping path="/signUpFormHelper*"/>
            <exclude-mapping path="/sessionAlert.do"/>
            <exclude-mapping path="/resources/**"/>
+           <exclude-mapping path="/checkEmail.do"/>
          <beans:ref bean="sessionPreIntercep"/>
       </interceptor>
       
