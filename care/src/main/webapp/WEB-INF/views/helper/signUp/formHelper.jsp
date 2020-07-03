@@ -211,19 +211,6 @@
 			</div>
 		</div>
 		
-		<!-- 자격증과 경력 추가 입력란 -->
-		<!-- 경력 추가 위치 -->
-		<br>
-		<h1 class="m4">경력</h1>
-		<div id="career-list"></div>
-		<button class="w3-button w3-round w3-grey confrim" type="button" onclick="careerAddForm()"> 경력 등록 </button>
-		
-		<!-- 자격증 추가 위치 -->
-		<br>
-		<h1 class="m4">자격증</h1>
-		<div id="certification-list"></div>
-		<button class="w3-button w3-round w3-grey confrim" type="button" onclick="certificationAddForm()"> 자격증 등록 </button>
-		<!--  자격증과 경력 추가 입력란  end -->
 		
 		<br>
 		<br>
