@@ -1,77 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sign.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <script type="text/javascript">
 
-   function validPw(){
-	   if(updateForm.familyPw.value == ""){
-	 	alert("비밀번호를 입력하세요.")
-	  }else if(updateForm.familyPwValie.value=="" ) {
-		  alert("비밀번호를 확인하세요")
-	  }else if (updateForm.familyPw.value != updateForm.familyPwValie.value){
-		  alert("비밀번호가 일치하지 않습니다.");
-	  }else if (updateForm.familyAddr.value == ""){
-		 	alert("주소를 입력하세요");
-	  }else if(updateForm.familyTel.value==""){
-		  alert("연락처를 입력하세요")
-	  }
-	  else{
-		  document.updateForm.submit();
-		  
-	  }
-   }
+function validPw(){
+ if(updateForm.familyPw.value == ""){
+alert("비밀번호를 입력하세요.")
+}else if(updateForm.familyPwValie.value=="" ) {
+ alert("비밀번호를 확인하세요")
+}else if (updateForm.familyPw.value != updateForm.familyPwValie.value){
+ alert("비밀번호가 일치하지 않습니다.");
+}else if (updateForm.familyAddr.value == ""){
+	alert("주소를 입력하세요");
+}else if(updateForm.familyTel.value==""){
+ alert("연락처를 입력하세요")
+}
+else{
+ document.updateForm.submit();
+ 
+}
+}
 </script>
 <style>
-	.m4{
-		font-family: 'Nanum Gothic', sans-serif;			
-	}
-	.title{
-	font-family:'Nanum Gothic', sans-serif;	
-		font-size : 35px;
-		text-align : center;
-		margin-bottom : 15px;
-	}
-	.m4{
-	font-family: 'Nanum Gothic', sans-serif;
-	font-size : 15px;		
-	text-align : left;
-	}
-	.add-btn{
-	width : 100%;
-	margin-top : 5px;
-	margin-bottom : 5px;
-	height : 35px;
-	background-color :#F0F8FF;
-	border : 2px solid #464646;
-	}
-	.confirm{
-	margin-left : 65px;
-	}
-	.tell{
-		margin-bottom : 15px;
-	}
+.w3-button{
+  font-family: 'Jua', sans-serif;
+  font-size: 18px;
+  width:70px;
+}
+.title{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 38px;
+	
+}
+.w3-col{
+  font-size: 17px;
+  font-family: 'Do Hyeon', sans-serif;	
+}
+
 </style>
 <div class="w3-pading-large w3-center">
 	<div class="w3-padding-large container">
 
 		<div class="w3-row">
-			<div class="w3-col m4">&nbsp;</div>
 			<div class="w3-col m4">
+			  <div align="center" style="margin-top:17px;">
+				<a class="title">환자정보 수정</a>
+ 			  </div>
+ 			  <br>
 				<form id="updateForm" name="updateForm" class="updateForm" action="familyUpdate.do">
-					<h1 class=" title">보호자 정보수정</h1>
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>이메일</p></div>
 						<div class="w3-col s8 m8">
@@ -117,12 +109,14 @@
 							<input class="w3-input w3-border form-control tell" type="text" placeholder="" id="familyTel" name="familyTel" value="${getSelect.familyTel }">
 						</div>
 					</div>
-					<button class="w3-button w3-round w3-dark-grey confirm" id="updateButton" type="button" onclick="validPw()">&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
+					<br>
+					<div align="center">
+					<button class="w3-button w3-round w3-dark-grey confirm" id="updateButton" type="button" onclick="validPw()">수정</button>
 										&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey" onclick="location.href='familyMain.do'" type="reset">취소</button>
+					</div>
 				</form>
 			</div>
-			<div class="w3-col m4">&nbsp;</div>
 		</div>
 
 	</div>

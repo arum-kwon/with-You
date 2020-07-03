@@ -1,7 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<head>
+<style>
+body {
 
+  font-size: 17px;
+  font-family: 'Do Hyeon', sans-serif;	
+
+}
+.contain{
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+<div class="contain">
 <c:forEach items="${list }" var="alarm">
 	${alarm.alarmNo }  : 
 	<c:choose>
@@ -25,3 +46,6 @@
 	</c:choose>
 	<br><hr>
 </c:forEach>
+</div>
+</body>
+</html>

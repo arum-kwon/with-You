@@ -69,7 +69,7 @@ select {
 	<a class="title">간병인 정보</a>
   </div>
   <div class="content" align="center">
-		<img src="uploadProfile/${likeDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100">
+		<img src="${pageContext.request.contextPath}/resources/upload/${likeDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100">
 		<br/><br/>
 		${likeDetail.helperName }님 / ${likeDetail.helperSex }<br />
 		<br/>

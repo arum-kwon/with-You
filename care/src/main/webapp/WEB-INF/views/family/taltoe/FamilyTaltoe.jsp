@@ -2,13 +2,33 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 <script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
 <script src="${pageContext.request.contextPath}/resources/common/js/sign.js"></script>
-
-
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<style>
+.title{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 38px;
+	
+}
+.w3-button{
+  font-family: 'Jua', sans-serif;
+  font-size: 18px;
+  width:90px;
+}
+.w3-col{
+  font-size: 17px;
+  font-family: 'Do Hyeon', sans-serif;	
+}
+</style>
 <script>
 	var loginPw = "${sessionPw}";
 	console.log(loginPw);
@@ -23,15 +43,16 @@
 		document.familyDelete.submit();
 	}
 }
-</script>   
-<!DOCTYPE html>
+</script> 
+<body>
 <div class="w3-container w3-center">
 	<div class="w3-padding-large">
 		<div class="w3-row">
-			<div class="w3-col m4">&nbsp;</div>
+		  <div align="center" style="margin-top:17px;">
+			<a class="title">환자정보 수정</a>
+  		  </div><br>
 			<div class="w3-col m4">
-				<form action="familyTaltoe.do" id="familyDelete" name="familyDelete">
-					<h1>간병인 탈퇴</h1>		
+				<form action="familyTaltoe.do" id="familyDelete" name="familyDelete">					
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>비밀번호</p></div>
 						<div class="w3-col s8 m8">
@@ -47,9 +68,11 @@
 						</div>
 					</div>
 					<br>
-					<button class="w3-button w3-round w3-dark-grey"  type="button" id="btn" name="btn" onclick="validate()">&nbsp;&nbsp;회원탈퇴&nbsp;&nbsp;</button>
+					<div align="center">
+					<button class="w3-button w3-round w3-dark-grey"  type="button" id="btn" name="btn" onclick="validate()">회원탈퇴</button>
 					&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey" type="button" onclick="location.href='familyMain.do'">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
+					<button class="w3-button w3-round w3-dark-grey" type="button" onclick="location.href='familyMain.do'">취소</button>
+					</div>
 				</form>
 				
 			</div>
@@ -58,3 +81,5 @@
 
 	</div>
 </div>
+</body>  
+</html>

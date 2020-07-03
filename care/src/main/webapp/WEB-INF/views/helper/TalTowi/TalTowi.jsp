@@ -15,7 +15,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <script>
 	var loginPw = "${sessionPw}";
 	console.log(loginPw);
@@ -32,31 +35,36 @@
 }
 </script>
 <style>
-	.title,.m4{
-		font-family: 'Nanum Gothic', sans-serif;		
-	}
-	.confirm{
-		width:100px;
-		font-size : 20px;
-		text-align : center;
-		
-	}
+.title{
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 38px;
+	
+}
+.w3-button{
+  font-family: 'Jua', sans-serif;
+  font-size: 18px;
+  width:90px;
+}
+.w3-col{
+  font-size: 17px;
+  font-family: 'Do Hyeon', sans-serif;	
+}
 	
 </style>   
 <!DOCTYPE html>
 <div class="w3-container w3-center">
-	<div class="w3-padding-large">
-		<div class="w3-row">
-			<div class="w3-col m4">&nbsp;</div>
-			<div class="w3-col m4">
-				<form action="taltowi.do" id="helperUpdate" name="helperUpdate">
-					<h1 class="title">간병인 탈퇴</h1>	<br>	
-					<div class="w3-row">
-						<div class="w3-col s4 m4" style="font-size:20px;" ><p>비밀번호</p></div>
-						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border form-control" type="password" placeholder="" id="helperPw" name="helperPw" value="" required>
-						</div>
-					</div>
+<div class="w3-padding-large">
+	<div class="w3-row">
+	<div class="w3-col m4">&nbsp;</div>
+	<div class="w3-col m4">
+	<form action="taltowi.do" id="helperUpdate" name="helperUpdate">
+		<h1 class="title">간병인 탈퇴</h1>	<br>	
+			<div class="w3-row">
+				<div class="w3-col s4 m4" style="font-size:20px;" ><p>비밀번호</p></div>
+			<div class="w3-col s8 m8">
+				<input class="w3-input w3-border form-control" type="password" placeholder="" id="helperPw" name="helperPw" value="" required>
+			</div>
+		</div>
 					<div class="w3-row">
 						<div class="w3-col s4 m4" style="font-size : 20px;"><p style="margin-bottom : 1px;">비밀번호</p>확인</div>
 						<div class="w3-col s8 m8">
@@ -68,7 +76,7 @@
 					<br>				
 					<button class="w3-button w3-round w3-dark-grey confirm"  type="button" id="btn" name="btn" onclick="validate()">회원탈퇴</button>
 				
-					<button class="w3-button w3-round w3-dark-grey confirm" type="reset" onclick="loaction.href='helperMain.do'">취소</button>
+					<button class="w3-button w3-round w3-dark-grey confirm" type="reset" onclick="location.href='helperMain.do'">취소</button>
 				</form>
 				
 			</div>

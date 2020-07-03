@@ -77,7 +77,7 @@
  </div>
 <!-- 블랙리스트 버튼 + Form 끝-->
 	<div class="img" align="center">
-		<img src="uploadProfile/${applyDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="110" height="120"><br/>
+		<img src="${pageContext.request.contextPath}/resources/upload/${applyDetail.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="110" height="120"><br/>
 	</div>
 	<div class="col-xl-6 col-md-12 col-sm-12 content" align="center" >
 		<br> 

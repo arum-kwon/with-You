@@ -159,10 +159,6 @@ function validPw(){
 					</div>
 					<button class="w3-button w3-round w3-dark-grey confirm"  type="button" onclick="validPw()">수정</button>
 					&nbsp;&nbsp;&nbsp;
-					<button class="w3-button w3-round w3-dark-grey cancle" type="reset" onclick="loaction.href=''">취소</button>
+					<button class="w3-button w3-round w3-dark-grey cancle" type="reset" onclick="location.href='helperMain.do'">취소</button>
 				</form>
-
-			</div>
-			<div class="w3-col m4">&nbsp;</div>
-		</div>
 

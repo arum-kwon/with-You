@@ -34,7 +34,7 @@
 <body>
 <div class="container">
 <div align="center" style="margin:30px;">
-	<a class="title">간병인 정보</a>
+	<a class="title">간병인 정보</a><br>
 		<img src="${pageContext.request.contextPath}/resources/upload/${helperInfo.helperProfile }" onerror='this.src="resources/img/no_image.png"' id="viewProfile" class="rounded-circle" width="100" height="100"><br/>
 		<div class="content">
 		${helperInfo.helperName }님 / ${helperInfo.helperSex }<br />		
