@@ -42,7 +42,6 @@ select {
 }
 
 .main {
- 	margin:30px;
  	font-family: 'Noto Serif KR', serif;
 }
 .btn{
@@ -61,7 +60,7 @@ th, td{
 
 <div class="main" align="center">
 	<form id="frm" name="frm" action="helperList.do" method="post">
-	  <div>
+	  <div style="margin-top:15px;">
 		<label for="helperWorkArea1">근무지역</label>
 			<select name="helperWorkArea1" id="helperWorkArea1" onchange="categoryChange(this)">
 				<option value="" selected="selected">시도</option>
@@ -83,7 +82,7 @@ th, td{
 				<option value="경남" ${param.helperWorkArea1 eq "경남" ? "selected" :""}>경남</option>
 				<option value="제주" ${param.helperWorkArea1 eq "제주" ? "selected" :""}>제주</option>
 			</select> 
-			
+			<br>
 		<label for="helperWorkArea2">근무지역</label>
 			<select name="helperWorkArea2" id="helperWorkArea2">
 				<option value="${param.helperWorkArea2}" selected="selected">시군구</option>
