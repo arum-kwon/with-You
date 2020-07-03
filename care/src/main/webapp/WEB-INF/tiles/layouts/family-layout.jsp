@@ -23,6 +23,8 @@
 
 
 <body class ="main">
+<%= session.getId() %><br>
+<%= session.getMaxInactiveInterval() %>
 <div>
     <tiles:insertAttribute name="header" />
    <tiles:insertAttribute name="content" />

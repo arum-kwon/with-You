@@ -36,8 +36,11 @@
 	    <beans:property name="suffix" value=".jsp" />
 	    <beans:property name="order" value="2" />
 	</beans:bean>
-	<interceptors>
 	
+	
+	         <beans:bean name="sessionPreIntercep" 
+                  class="co.withyou.care.common.session.interceptor.SessionPreHandler"/>
+	<interceptors>
 	
 	
 		<!--로그인 PreHandle 코드 재선 -->
@@ -86,17 +89,17 @@
 		
 	<!-- 세션확인 -->
       <interceptor>
-           <mapping path="*.do"/>   
-           <exclude-mapping path="/familyLogin.do"/> <!-- 로그인 / 회원가입 / 메인 홈으로 가는 컨트롤러 제외 -->
-           <exclude-mapping path="/helperLogin.do"/>
-           <exclude-mapping path="/patientLogin.do"/>
-           <exclude-mapping path="/home.do"/>
-           <exclude-mapping path="/signUpFormFamily.do"/>
-           <exclude-mapping path="/signUpFormHelper.do"/>
+           <mapping path="/**"/>   
+           <exclude-mapping path="/familyLogin*"/> <!-- 로그인 / 회원가입 / 메인 홈으로 가는 컨트롤러 제외 -->
+           <exclude-mapping path="/helperLogin*"/>
+           <exclude-mapping path="/patientLogin*"/>
+           <exclude-mapping path="/home*"/>
+           <exclude-mapping path="/loginCheck*"/>
+           <exclude-mapping path="/signUpFormFamily*"/>
+           <exclude-mapping path="/signUpFormHelper*"/>
            <exclude-mapping path="/sessionAlert.do"/>
-         <beans:bean id="sessionPreIntercep" 
-                  class="co.withyou.care.common.session.interceptor.SessionPreHandler">
-         </beans:bean>
+           <exclude-mapping path="resources/**"/>
+         <beans:ref bean="sessionPreIntercep"/>
       </interceptor>
       
 		<!-- 알림 관련 handler -->

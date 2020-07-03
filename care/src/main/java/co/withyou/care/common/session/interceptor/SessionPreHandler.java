@@ -15,11 +15,11 @@ public class SessionPreHandler extends HandlerInterceptorAdapter {
 			                 Object obj) throws Exception {
 		
 		HttpSession session = request.getSession();
-		String loginSes = (String) session.getAttribute("loginOk");
-		String userSes = (String) session.getAttribute("userType");
+		System.out.println("==========================="+ request.getRequestURI());
+
 		
-		if(loginSes == null || userSes == null) {
-			System.out.println("세션확인:" +loginSes +userSes);	
+		if(session.getAttribute("loginOk") == null ) {
+			
 			response.sendRedirect("sessionAlert.do");
 		} else {
 			return true;

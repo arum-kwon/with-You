@@ -71,7 +71,6 @@ public class FamilyLoginController {
 		  session.invalidate();
 		  
 		  Cookie[] cookies = request.getCookies(); // 모든 쿠키의 정보를 cookies에 저장
-		  System.out.println(cookies+"========쿡희덜======================");
 		  if(cookies != null){ // 쿠키가 한개라도 있으면 실행
 
 			for (int i = 0; i < cookies.length; i++) {
