@@ -2,6 +2,7 @@
 
     pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,6 +56,8 @@
 		      <th scope="col">성별</th>
 		      <th scope="col">전화번호</th>
 		      <th scope="col">이메일</th>
+		      <th scope="col">등급</th>
+		      <th scope="col">가입일자</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -63,10 +66,12 @@
 			      <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
 			      <td>${ list.helperNo }</td>
 			      <td>${ list.helperName }</td>
-			      <td>${ list.helperBirth }</td>
+			      <td><fmt:formatDate value="${ list.helperBirth }" pattern="yyyy-MM-dd" /></td>
 			      <td>${ list.helperSex }</td>
 			      <td>${ list.helperTel }</td>
 			      <td>${ list.helperEmail }</td>
+			      <td>${ list.commissionGrade }</td>
+			      <td><fmt:formatDate value="${ list.helperJoinDate }" pattern="yyyy-MM-dd" /></td>
 			    </tr>
 		    </c:forEach>
 		  </tbody>

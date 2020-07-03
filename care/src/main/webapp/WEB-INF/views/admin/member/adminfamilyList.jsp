@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,7 +40,7 @@
 		<h1>보호자 회원</h1>
 
 		<table class="table">
-			<head>
+			<thead>
 				<tr>
 					<th scope="col"><input type="checkbox"
 						aria-label="Checkbox for following text input"></th>
@@ -50,27 +51,25 @@
 					<th scope="col">전화번호</th>
 					<th scope="col">이메일</th>
 					<th scope="col">가입일자</th>
-					<th scope="col">환자등록번호</th>
 				</tr>
-			</head>
+			</thead>
 		
 	
-			<body>
+			<tbody>
 				<c:forEach items="${ familylist }" var="list" varStatus="status">
 					<tr>
 						<th scope="row"><input type="checkbox"
 							aria-label="Checkbox for following text input"></th>
 						<td>${ list.familyNo }</td>
 						<td>${ list.familyName }</td>
-						<td>${ list.familyBirth }</td>
+						<td><fmt:formatDate value="${ list.familyBirth }" pattern="yyyy-MM-dd" /> </td>
 						<td>${ list.familyAddr }</td>
 						<td>${ list.familyTel }</td>
 						<td>${ list.familyEmail }</td>
-						<td>${ list.familyJoinDate }</td>
-						<td>${ list.patientNo }</td>
+						<td><fmt:formatDate value="${ list.familyJoinDate }" pattern="yyyy-MM-dd" /></td>
 					</tr>    
 				</c:forEach>
-			</body>
+			</tbody>
 		</table>
 
 		<c:forEach items="${ familylist }" var="list">
