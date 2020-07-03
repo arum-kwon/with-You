@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 7. 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="co.withyou.care.admin.adminfamily.mapper.AdminFamilyMapper">
+
+	<select id="FamilyselectAll" resultType="co.withyou.care.admin.adminfamily.service.AdminFamilyVo">
+		SELECT * from family
+		
+	</select>
+
+</mapper>
