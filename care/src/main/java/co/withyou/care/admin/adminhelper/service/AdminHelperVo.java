@@ -18,6 +18,15 @@ public class AdminHelperVo {
 	private String helperAddr;
 	private String helperProfile;
 	private String commissionGrade;
+	private Date helperJoinDate;
+
+	public Date getHelperJoinDate() {
+		return helperJoinDate;
+	}
+
+	public void setHelperJoinDate(Date helperJoinDate) {
+		this.helperJoinDate = helperJoinDate;
+	}
 
 	public int getHelperNo() {
 		return helperNo;

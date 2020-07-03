@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script src="${pageContext.request.contextPath}/resources/common/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/core.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/sha256.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/user-info.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/sign.js"></script>
+<script src="resources/common/js/jquery.min.js"></script>
+<script src="resources/common/js/core.min.js"></script>
+<script src="resources/common/js/sha256.min.js"></script>
+<script src="resources/common/js/user-info.js"></script>
+<script src="resources/common/js/sign.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -229,7 +229,7 @@
 				<input class="w3-input w3-border form-control" type="text" placeholder="" id="patientUnique" name="patientUnique">
 			</div>
 		</div>
-		<button class="w3-button w3-round w3-dark-grey confirm" type="button" onclick="fnSubmit(true)" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
+		<button class="w3-button w3-round w3-dark-grey confirm" type="button" onclick="formCheckF()" >&nbsp;&nbsp;등록&nbsp;&nbsp;</button>
 			&nbsp;&nbsp;&nbsp;
 		<button class="w3-button w3-round w3-dark-grey cancle" type="reset">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 

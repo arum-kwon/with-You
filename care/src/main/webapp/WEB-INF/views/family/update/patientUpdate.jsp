@@ -138,9 +138,9 @@
 						</div>
 					</div>
 					<div class="w3-row">
-					<div class="w3-col s4 m4"><p>프로필 사진</p></div>
+						<div class="w3-col s4 m4"><p>환자코드</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border" type="file" placeholder="" id="helperProfile" name="helperProfile">
+							<input class="w3-input w3-border form-control" type="text" placeholder="" id="patientVcode" name="patientVcode" value="${getSelect.patientVcode }" readonly> 
 						</div>
 					</div>
 					<button class="w3-button w3-round w3-dark-grey confirm" id="updateButton"type="submit" >&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
