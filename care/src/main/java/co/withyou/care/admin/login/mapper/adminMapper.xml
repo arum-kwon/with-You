@@ -3,16 +3,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <!-- 7.  다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
-<mapper namespace="co.withyou.care.admin.last.mapper.AdminMapper">
+<mapper namespace="co.withyou.care.admin.login.mapper.AdminMapper">
     
-    <select id="loginCheck" resultType="String">
-        SELECT adminid AS adminId FROM admin
-        WHERE adminid = #{adminId} AND adminpw = #{adminPw}
-        
-        
+    <select id="loginCheck" resultType="String" parameterType="co.withyou.care.admin.login.service.AdminVO">
+        SELECT ADMINID AS ADMINID FROM ADMIN
+        WHERE ADMINID = #{adminId} AND ADMINPW = #{adminPw}
     </select> 
     
-    <select id="viewAdmin" resultType="co.withyou.care.admin.vo.AdminVO">
+    <select id="viewAdmin" resultType="co.withyou.care.admin.login.service.AdminVO">
 	    SELECT 
 	    adminid AS ID,
 	    adminpw AS PW,

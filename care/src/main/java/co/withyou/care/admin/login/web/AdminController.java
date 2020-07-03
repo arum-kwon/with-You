@@ -45,7 +45,7 @@ public class AdminController {
         ModelAndView mav = new ModelAndView();
         if (result == true) { // 로그인 성공
             // main.로 이동
-            mav.setViewName("redirect:ad_home.do");
+            mav.setViewName("redirect:adminpatientList.do");
             mav.addObject("msg", "success");
         } else {    // 로그인 실패
             // login.jsp로 이동
