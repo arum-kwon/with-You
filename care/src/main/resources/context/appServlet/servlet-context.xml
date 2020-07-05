@@ -89,17 +89,33 @@
 		
 	<!-- 세션확인 -->
       <interceptor>
-           <mapping path="/**"/>   
-           <exclude-mapping path="/familyLogin*"/> <!-- 로그인 / 회원가입 / 메인 홈으로 가는 컨트롤러 제외 -->
+           <mapping path="/**"/>  
+           <!-- 메인홈 경로 -->
+           <exclude-mapping path="/home*"/> <!-- 로그인 / 회원가입 / 메인 홈으로 가는 컨트롤러 제외 -->
+           <!-- 로그인 관련 경로 -->
+           <exclude-mapping path="/familyLogin*"/> 
            <exclude-mapping path="/helperLogin*"/>
            <exclude-mapping path="/patientLogin*"/>
-           <exclude-mapping path="/home*"/>
            <exclude-mapping path="/loginCheck*"/>
+           <!-- 회원가입 관련 경로 -->
            <exclude-mapping path="/signUpFormFamily*"/>
            <exclude-mapping path="/signUpFormHelper*"/>
-           <exclude-mapping path="/sessionAlert.do"/>
-           <exclude-mapping path="/resources/**"/>
            <exclude-mapping path="/checkEmail.do"/>
+           <exclude-mapping path="/createMember*"/>
+           <!-- 주소 api 경로 -->
+           <exclude-mapping path="/jusoPopup.do"/>
+           <!-- 세션 만료창 경로 -->
+           <exclude-mapping path="/sessionAlert.do"/>
+           <!-- 리소스 경로 -->
+           <exclude-mapping path="/resources/**"/>
+           <!-- 관리자 페이지 경로 -->
+           <exclude-mapping path="/admin*"/>
+           <!-- 안드로이드에서 직접 접근하는 위치처리 관련 경로 -->
+           <exclude-mapping path="/insertLocation.do"/>
+           <exclude-mapping path="/helperLeave.do"/>
+           <exclude-mapping path="/outOfTheArea.do"/>
+           <exclude-mapping path="/getPatientLocServiceNo.do"/>
+           <exclude-mapping path="/getPatientLoc.do"/>
          <beans:ref bean="sessionPreIntercep"/>
       </interceptor>
       
