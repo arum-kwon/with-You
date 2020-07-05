@@ -43,19 +43,19 @@ public class HomeController {
 		
 		return "common/home/home";
 	}	
- //환자
+	//환자
 	@RequestMapping(value = "/patient.do")
 	public String patient(Locale locale, Model model) {
 
 		return "patient/test/patient";
 	}
-//보호자
+	//보호자
 	@RequestMapping(value = "/family.do")
 	public String family(Locale locale, Model model) {
 
 		return "family/test/family";
 	}
-//간병
+	//간병
 	@RequestMapping(value = "/helper.do")
 	public String helper(Locale locale, Model model) {
 	
@@ -64,7 +64,6 @@ public class HomeController {
 	@RequestMapping(value = "/hospitalGetData.do")
 	public String hospital(Locale locale,Model model) {
 		return "hospital/test/hospitalGetdata";
-		
 	}
 	
 }

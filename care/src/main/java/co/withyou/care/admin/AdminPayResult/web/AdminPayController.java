@@ -23,7 +23,7 @@ public class AdminPayController {
 		return "admin/service/adminpayService";
 	}
 	
-	@RequestMapping("/AdminPayList.do") //jsp 
+	@RequestMapping("/adminPayList.do") //jsp 
 	public String adminpayList(AdminPayVo adminpayVo, Model model) throws Exception {
 		List<AdminPayVo> adpayVo = adminpayService.AdPayselectAll();
 		model.addAttribute("paylist" ,adpayVo);

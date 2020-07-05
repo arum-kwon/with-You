@@ -31,14 +31,14 @@ public class AdminController {
     AdminService adminService;
     
     // 01. 로그인 화면 
-    @RequestMapping("adminlogin.do")
+    @RequestMapping("/adminlogin.do")
     public String login(HttpServletRequest request, ModelMap model){
     	
         return "admin/adminlogin";    // views/admin /login.jsp로 포워드
     }
     
     // 02. 로그인 처리
-    @RequestMapping(value = "adminloginCheck.do") //, method=RequestMethod.POST)
+    @RequestMapping(value = "/adminloginCheck.do") //, method=RequestMethod.POST)
     public ModelAndView loginCheck(@ModelAttribute AdminVO vo, HttpSession session) throws Exception{
     	
     	boolean result = adminService.loginCheck(vo, session);
@@ -56,7 +56,7 @@ public class AdminController {
     }
     
     // 03. 로그아웃 처리
-    @RequestMapping("adminlogout.do")
+    @RequestMapping("/adminlogout.do")
     public ModelAndView logout(HttpSession session){
         adminService.logout(session);
         ModelAndView mav = new ModelAndView();
@@ -66,7 +66,7 @@ public class AdminController {
     }
     
     //관리자 페이지홈으로가기
-    @RequestMapping("ad_home.do")
+    @RequestMapping("/ad_home.do")
 	public String ad_home(Locale locale,Model model) {
 		
     	return "admin/admin-layout/ad_home";

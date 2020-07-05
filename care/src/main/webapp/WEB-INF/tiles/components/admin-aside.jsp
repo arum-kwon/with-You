@@ -27,7 +27,7 @@
 					<span class=" arrow_carrot-right"></span>
 				</a>
 				<ul class="">
-					<li><a class="" href="AdminPayList.do">결제 정보</a></li>
+					<li><a class="" href="adminPayList.do">결제 정보</a></li>
 				</ul>
 			</li>
 		</ul>

@@ -21,13 +21,6 @@ public class GeoLocationController {
 	
 	@Autowired
 	GeoLocationService service;
-	/**
-	 * @return 위치정보를 조회할 수 있는 페이지로 안내
-	 */
-	@RequestMapping(value = "/location.do")
-	public String home() {
-		return "common/geolocation/gpsTest";
-	}
 	
 	/**
 	 * 위도, 경도를 받아서 DB에 저장함
