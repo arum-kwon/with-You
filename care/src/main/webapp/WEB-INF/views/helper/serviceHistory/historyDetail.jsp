@@ -104,21 +104,23 @@ p {
 				</c:when>
 				<%--후기가 있을 경우 --%>
 				<c:otherwise>
-					<div id="star">
-						<c:forEach var="i" begin="1" end="${reviewVo.reviewStar}">
-							<span class="review-star on"></span>
-						</c:forEach>
-							별점 : ${reviewVo.reviewStar}
-					</div>
-					<br>
-					<div align="left" id="review-content">
-						<p>내용 : ${reviewVo.reviewContents}</p>
-						<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
-						<p>첨부파일 : ${reviewVo.reviewFile}</p>
-					</div><br>
-					<div align="center">
-			    		<button class="btn btn-secondary" type="button" onclick="updateFrmReview()" >후기수정</button>	
-						<button class="btn btn-secondary" type="button" onclick="deleteReview()" >후기삭제</button>
+						<div id="star">
+							<c:forEach var="i" begin="1" end="${reviewVo.reviewStar}">
+								<span class="review-star on"></span>
+							</c:forEach>
+								별점 : ${reviewVo.reviewStar}
+						</div>
+						<br>
+					<div id="review-content">
+						<div align="left">
+							<p>내용 : ${reviewVo.reviewContents}</p>
+							<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
+							<p>첨부파일 : ${reviewVo.reviewFile}</p>
+						</div><br>
+						<div align="center">
+				    		<button class="btn btn-secondary" type="button" onclick="updateFrmReview()" >후기수정</button>	
+							<button class="btn btn-secondary" type="button" onclick="deleteReview()" >후기삭제</button>
+						</div>
 					</div>
 					<%-- 후기 수정 폼 --%>
 					<div id="updateFrm" style="display: none;">

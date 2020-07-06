@@ -32,6 +32,7 @@ alert("비밀번호를 입력하세요.")
  alert("연락처를 입력하세요")
 }
 else{
+ pwSHA256();
  document.updateForm.submit();
  
 }
@@ -70,16 +71,17 @@ else{
 							<input class="w3-input w3-border form-control" type="text" placeholder="" id="familyEmail" name="familyEmail" value="${getSelect.familyEmail }" readonly> 
 						</div>
 					</div>
+					
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>비밀번호</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border form-control" type="password" placeholder="" id="familyPw" name="familyPw" value="" > 
+							<input class="w3-input w3-border form-control pw-check" type="password" placeholder="" id="familyPw" name="familyPw" value="" > 
 						</div>
 					</div>
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>비밀번호 확인</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border form-control" type="password" placeholder="" id="familyPwValie" name="familyPwValid" value="" > 
+							<input class="w3-input w3-border form-control pw-check" type="password" placeholder="" id="familyPwValie" name="familyPwValid" value="" > 
 						</div>
 					</div>
 					
