@@ -60,7 +60,7 @@ else{
 		<div class="w3-row">
 			<div class="w3-col m4">
 			  <div align="center" style="margin-top:17px;">
-				<a class="title">환자정보 수정</a>
+				<a class="title">회원정보 수정</a>
  			  </div>
  			  <br>
 				<form id="updateForm" name="updateForm" class="updateForm" action="familyUpdate.do">
@@ -100,7 +100,8 @@ else{
 					<div class="w3-row">
 						<div class="w3-col s4 m4"><p>주소</p></div>
 						<div class="w3-col s8 m8">
-							<input class="w3-input w3-border add-juso form-control" type="text" placeholder="" id="familyAddr" name="familyAddr" value="${getSelect.familyAddr }"><button class="add-btn  w3-round"type="button" onclick="jusoPopup(0)">주소찾기</button>
+							<input class="w3-input w3-border add-juso form-control" type="text" placeholder="" id="familyAddr" name="familyAddr" value="${getSelect.familyAddr }">
+							<button class="add-btn w3-round"type="button" onclick="jusoPopup(0)">주소찾기</button>
 						</div>
 					</div>
 					<div class="w3-row">

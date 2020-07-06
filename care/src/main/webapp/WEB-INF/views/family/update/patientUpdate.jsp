@@ -36,7 +36,7 @@
 	font-size: 38px;
 	
 }
-.w3-button{
+.w3-dark-grey{
   font-family: 'Jua', sans-serif;
   font-size: 18px;
   width:70px;
@@ -131,7 +131,7 @@
 	<div align="center">
 	<button class="w3-button w3-round w3-dark-grey confirm" id="updateButton"type="submit" >수정</button>
 		&nbsp;&nbsp;&nbsp;
-	<button class="w3-button w3-round w3-dark-grey cancle" type="reset" onclick="location.href='careFamily.do'">취소</button>
+	<button class="w3-button w3-round w3-dark-grey cancle" type="reset" onclick="location.href='familyMain.do'">취소</button>
 	</div>
 
 </form>
