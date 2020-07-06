@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -132,8 +133,8 @@
 							<input type="file" id="reviewFile" name="reviewFile" >
 							<input type="hidden" id="reviewStar" name="reviewStar" >
 							<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
-					    	<button class="" type="reset" >취소</button>
-							<button class="" type="button" onclick="sendReview()" >저장</button>
+							<button class="btn btn-secondary" type="button" onclick="sendReview()" >저장</button>
+					    	<button class="btn btn-secondary" type="reset" >취소</button>
 						</c:when>
 						<%--그 외 상태일 때 : 비활성화 --%>
 						<c:otherwise>
@@ -148,14 +149,17 @@
 						<c:forEach var="i" begin="1" end="${reviewVo.reviewStar}">
 							<span class="review-star on"></span>
 						</c:forEach>
+							별점: ${reviewVo.reviewStar}
 					</div>
-					<div id="review-content">
-						<p>${reviewVo.reviewStar}</p>
-						<p>${reviewVo.reviewContents}</p>
-						<p>${reviewVo.reviewFile}</p>
-						<p>${reviewVo.reviewDate}</p>
-						<button class="" type="button" onclick="deleteReview()" >삭제</button>
-			    		<button class="" type="button" onclick="updateFrmReview()" >수정</button>	
+					<div align="left" id="review-content">
+						<p></p>
+						<p>내용 : ${reviewVo.reviewContents}</p>
+						<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
+						<p>첨부파일 : ${reviewVo.reviewFile}</p>
+					</div>
+					<div align="center">
+			    		<button class="btn btn-secondary" type="button" onclick="updateFrmReview()" >수정</button>	
+						<button class="btn btn-secondary" type="button" onclick="deleteReview()" >삭제</button>
 					</div>
 					<%-- 후기 수정 폼 --%>
 					<div id="updateFrm" style="display: none;">
@@ -166,9 +170,8 @@
 						<input type="hidden" id="writerType" name="writerType" value="f">
 						<input type="hidden" id="serviceNo" name="serviceNo" value="${reviewVo.serviceNo }">
 						<br><br>
-				    	<button class="" type="reset" onclick="updateReviewReset()" >수정취소</button>
-						<button class="" type="button" onclick="updateReview()" >수정저장</button>
-			    		<button class="" type="button" onclick="location.href='familyMain.do'" >메인</button>
+						<button class="btn btn-secondary" type="button" onclick="updateReview()" >수정저장</button>
+				    	<button class="btn btn-secondary" type="reset" onclick="updateReviewReset()" >수정취소</button>
 		    		</div>		
 			    </c:otherwise>
 			</c:choose>
