@@ -107,7 +107,6 @@ p {
 							<c:forEach var="i" begin="1" end="${reviewVo.reviewStar}">
 								<span class="review-star on"></span>
 							</c:forEach>
-								별점 : ${reviewVo.reviewStar}
 						</div>
 						<br>
 					<div id="review-content">
