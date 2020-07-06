@@ -6,6 +6,7 @@ import java.util.Map;
 import co.withyou.care.common.geoLocation.service.PatientLocVO;
 
 public interface PatientLineService {
+	public int getPatientNo(int familyNo) throws Exception;
 
 	public List<Map> getGpsList(PatientLocVO vo) throws Exception;
 		// TODO Auto-generated method stub

@@ -41,8 +41,10 @@ public class HeperUpdateController {
 
 		String area1 = request.getParameter("helperWorkArea1");
 		String area2 = request.getParameter("helperWorkArea2");
+		if(area2.equals("%")) {
+			area2="전체";
+		}
 		String area = area1 + " " + area2;
-		System.out.println(area);
 		vo.setHelperWorkArea(area);
 		
 		vo.setHelperNo(Hvo.getHelperNo());

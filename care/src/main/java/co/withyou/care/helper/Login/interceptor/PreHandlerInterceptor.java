@@ -32,6 +32,7 @@ public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 			Cookie loginEmailCookie = WebUtils.getCookie(request, "hloginEmail");
 			vo.setHelperEmail(loginEmailCookie.getValue());		
 			request.getSession().setAttribute("loginOk", helperservice.getSelect(vo));	
+			request.getSession().setAttribute("userType", "h");	
 			response.sendRedirect("helperMain.do");
 			
 		} else {

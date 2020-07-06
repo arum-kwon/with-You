@@ -35,6 +35,7 @@ public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 			Cookie loginCodeCookie = WebUtils.getCookie(request, "ploginCode");
 			vo.setPatientVcode(loginCodeCookie.getValue());		
 			request.getSession().setAttribute("loginOk", patientService.getSelect(vo));	
+			request.getSession().setAttribute("userType", "p");	// 로그인시 나타나는 이름 설정
 			response.sendRedirect("patientMain.do");	
 			
 		} else {

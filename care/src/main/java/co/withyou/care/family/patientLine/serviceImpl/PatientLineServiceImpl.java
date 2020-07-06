@@ -26,5 +26,9 @@ public class PatientLineServiceImpl implements PatientLineService{
 		// TODO Auto-generated method stub
 		return map.getSevenLine(vo);
 	}
+	@Override
+	public int getPatientNo(int familyNo) throws Exception {
+		return map.getPatientNo(familyNo);
+	}
 
 }

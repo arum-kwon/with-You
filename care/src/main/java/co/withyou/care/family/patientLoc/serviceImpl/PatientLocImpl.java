@@ -11,8 +11,11 @@ public class PatientLocImpl implements PatientLocService{
 	private PatientLocMapper map;
 	@Override
 	public PatientLocVO getLoc(PatientLocVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		return map.getLoc(vo);
+	}
+	@Override
+	public int getPatientNo(int familyNo) throws Exception {
+		return map.getPatientNo(familyNo);
 	}
 
 }

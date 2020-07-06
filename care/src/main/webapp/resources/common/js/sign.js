@@ -163,9 +163,6 @@ function formCheckH(){
 		alert("희망근무종료시간을 비워둘 수 없습니다.");
 		return;
 	}  else {
-		if($('#helperWorkArea2').val() == "%"){
-			$('#helperWorkArea2').val("전체");
-		}
 		fnSubmit();
 	}  
 }

@@ -99,6 +99,12 @@ public class SignUpController {
 		
 		String area1 = request.getParameter("helperWorkArea1");
 		String area2 = request.getParameter("helperWorkArea2");
+		System.out.println(area1);
+		System.out.println(area2);
+		
+		if(area2.equals("%")) {
+			area2="전체";
+		}
 		String area = area1 + " " + area2;
 		hVO.setHelperWorkArea(area);
 		

@@ -40,7 +40,7 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=94bea10f3763df2dcedf149bfaa1440e"></script>
 	<script>
 		var Search = JSON.parse('${todayLine}');
-		console.log("Search:" + Search)
+		console.log("Search:" + Search[0])
 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {

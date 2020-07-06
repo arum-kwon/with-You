@@ -29,7 +29,8 @@ public class PreHandlerInterceptor extends HandlerInterceptorAdapter {
 			FamilyVO vo = new FamilyVO();
 			Cookie loginEmailCookie = WebUtils.getCookie(request, "floginEmail");
 			vo.setFamilyEmail(loginEmailCookie.getValue());		
-			request.getSession().setAttribute("loginOk", service.getSelect(vo));	
+			request.getSession().setAttribute("loginOk", service.getSelect(vo));
+			request.getSession().setAttribute("userType", "f");	
 			response.sendRedirect("familyMain.do");
 			
 		} else {

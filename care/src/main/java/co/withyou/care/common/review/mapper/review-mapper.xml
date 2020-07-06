@@ -10,9 +10,9 @@
 	
 	<insert id="insertReview" parameterType="co.withyou.care.common.review.service.ReviewVO">
 		INSERT INTO REVIEW (REVIEWNO, REVIEWWRITER, REVIEWDATE, REVIEWCONTENTS, 
-							REVIEWFILE, REVIEWSTAR, SERVICENO) 
+							REVIEWSTAR, SERVICENO) 
 		VALUES (REVIEW_SQ.NEXTVAL, #{reviewWriter}, SYSDATE, #{reviewContents}, 
-				#{reviewFile}, #{reviewStar}, #{serviceNo})
+				#{reviewStar}, #{serviceNo})
 	</insert>
 	
 	<delete id="deleteReview" parameterType="int">
@@ -23,8 +23,7 @@
 		UPDATE REVIEW 
 		SET REVIEWDATE = SYSDATE, 
 		REVIEWCONTENTS = #{reviewContents}, 
-		REVIEWSTAR = #{reviewStar}, 
-		REVIEWFILE = #{reviewFile} 
+		REVIEWSTAR = #{reviewStar}
 		WHERE REVIEWNO = #{reviewNo}
 	</update>
 	
