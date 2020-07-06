@@ -28,16 +28,22 @@
 </head>
 
 <style>	
+.content{
+  margin-top:20px;
+}
+.review{
+  font-size: 18px;
+}
 .title{
   font-family: 'Do Hyeon', sans-serif;
   margin:35px;
-  font-size: 30px;
+  font-size: 33px;
   color: black;
   text-decoration: none;
 }
 .text,.text2 {
   font-family: 'Do Hyeon', sans-serif;
-  font-size: 16px;
+  font-size: 17px;
 }
 .w3-button{
   font-family: 'Jua', sans-serif;
@@ -47,20 +53,17 @@
 
 
 <body>
-	<div class="container">
 <div align="center">
 	<div class="content">
 		<a class="title">환자정보</a><br>
 	</div>
 	<div class="text">
 		이름 : ${serviceDetail.patientName }님<br>
-	<fmt:formatDate value="${serviceDetail.patientBirth}" pattern="yyyy-MM-dd" /><br>
-		성별 : ${serviceDetail.patientSex }<br>
+		${serviceDetail.patientBirth}세/${serviceDetail.patientSex }/${serviceDetail.patientBlood }형<br>
 	         보호자 연락처 :${serviceDetail.patientFamilyTel }<br>
 	         주소 :<br>${serviceDetail.patientAddr }<br>
 	         질환 : ${serviceDetail.patientDisease }<br>
 		치매등급 : ${serviceDetail.patientGrade }<br>
-		혈액형 :${serviceDetail.patientBlood }형<br>
 		복용중인약 :${serviceDetail.patientMedication }<br>
 		특이사항 :${serviceDetail.patientUnique }
 	</div>
@@ -74,23 +77,26 @@
 	수수료 :${serviceDetail.commission }원<br>
         수령금액:${serviceDetail.helperPrice }원<br>
          요구사항:${serviceDetail.serviceDemand } <br><br>
-     <환자 후기><br>
+    <div class="review">
+    <img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height:30px"/>${serviceDetail.patientName }님 후기<br>
+    </div>
+	<hr style="border: 1px solid #bcabae" width="100%">
 	 <c:forEach var="rList" items="${reviewList}"> 
 	작성일 : 
 	<fmt:formatDate value="${rList.reviewDate}" pattern="yy.MM.dd HH:MM" /><br>
 	별점 : ${rList.reviewStar }<br>
 	내용 :${rList.reviewContents }<br>
-	<hr style="border: 1px solid #313b45" width="100%">
+	<hr style="border: 1px solid #bcabae" width="100%">
      </c:forEach>
 	</div>
-		</div>
-	</div>
+</div>
+
 	<!-- 컨트롤러에 값을 전달하기 위해 태그 추가-->
 <div align="center">
 <form action="confirm.do" id="serviceFrm" name="serviceFrm">
 	<input type="hidden" id="familyNo" name="familyNo" value="${serviceDetail.familyNo }">
 	<input type="hidden" id="serviceNo" name="serviceNo" value="${serviceDetail.serviceNo }">
-	<button type="button" id="confirm" class="confirm w3-button w3-light-grey" onclick="getServiceNo('${serviceDetail.serviceNo }')">수락</button>
+	<button type="button" id="confirm" class="confirm w3-button w3-dark-grey" onclick="getServiceNo('${serviceDetail.serviceNo }')">수락</button>
 	<button type="button" class="w3-button w3-dark-grey" id="reject" onclick="getRejectNo('${serviceDetail.serviceNo}')">거절</button>
 	<input type="hidden" id="serviceNo" name="serviceNo">
 </form>

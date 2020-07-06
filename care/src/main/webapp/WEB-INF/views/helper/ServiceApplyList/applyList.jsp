@@ -45,6 +45,7 @@
 	<a id="title">서비스 요청 리스트</a><br>
  </div>
 <form id="sNoFrm" name="sNoFrm" action="serviceDetail.do" method="post">
+			<hr style="border:1px solid #bcabae;" width="100%">
 		<c:forEach var="list" items="${serviceList }">
 			<div class="w3-row">
 				<div class="w3-col w3-container m12 s12 text">
@@ -60,7 +61,7 @@
 			</div>
 
 			<div align="right" class="" id="centerDiv"></div>
-			<hr style="border:1px solid black;" width="100%">
+			<hr style="border:1px solid #bcabae;" width="100%">
 		</c:forEach>
 
 		<input type="hidden" id="serviceNo" name="serviceNo">

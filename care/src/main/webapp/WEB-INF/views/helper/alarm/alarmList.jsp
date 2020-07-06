@@ -16,7 +16,7 @@ body {
 
 }
 .contain{
-  margin-top:10px;
+  margin-top:20px;
 }
 </style>
 </head>
@@ -24,9 +24,10 @@ body {
 <body>
 <div class="contain">
 <c:forEach items="${list }" var="alarm">
-	${alarm.alarmNo }  : ${alarm.familyName } ${alarm.codeName } (${alarm.alarmType }) : <br>
-	${alarm.alarmTime }<br>
-	${alarm.alarmReceiverNo }, ${alarm.alarmSenderNo }, ${alarm.serviceNo }
+	<img src="${pageContext.request.contextPath}/resources/img/alert.png" style="height: 28px">
+	${alarm.familyName } ${alarm.codeName }<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날짜 : ${alarm.alarmTime }<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;읽음여부 :
 	<c:choose>
 		<c:when test="${alarm.alarmCheck == 'N'}">
 			읽지 않음<br>

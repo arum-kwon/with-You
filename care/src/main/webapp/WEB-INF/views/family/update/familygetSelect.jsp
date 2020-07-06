@@ -38,7 +38,7 @@ else{
 }
 </script>
 <style>
-.w3-button{
+.w3-dark-grey{
   font-family: 'Jua', sans-serif;
   font-size: 18px;
   width:70px;
@@ -101,7 +101,7 @@ else{
 						<div class="w3-col s4 m4"><p>주소</p></div>
 						<div class="w3-col s8 m8">
 							<input class="w3-input w3-border add-juso form-control" type="text" placeholder="" id="familyAddr" name="familyAddr" value="${getSelect.familyAddr }">
-							<button class="add-btn w3-round"type="button" onclick="jusoPopup(0)">주소찾기</button>
+							<button class="add-btn w3-round" type="button" onclick="jusoPopup(0)">주소찾기</button>
 						</div>
 					</div>
 					<div class="w3-row">

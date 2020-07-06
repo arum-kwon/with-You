@@ -4,19 +4,34 @@
 	namespace="co.withyou.care.helper.ServiceDetail.mapper.ServiceDetailMapper">
 
 	<!--알람을 위해 일부 컬럼 추가-->
-	<select id="getServiceDetail" parameterType="DetailVo"
-		resultType="map">
-		
-			 SELECT p.patientno "patientNO",s.serviceno "serviceNo", p.patientname "patientName", p.patientaddr 
-"patientAddr", p.patientsex "patientSex",p.patientbirth "patientBirth", p.patientfamilytel 
-"patientFamilyTel", p.patientdisease "patientDisease", p.patientgrade "patientGrade", p.patientblood 
-"patientBlood", p.patientmedication "patientMedication",p.patientunique "patientUnique", p.patienttel 
-"patientTel",h.helpername "helperName", s.servicestarttime "serviceStartTime", s.serviceendtime 
-"serviceEndTime", s.servicedemand "serviceDemand", s.familyNo "familyNo", s.serviceprice "servicePrice", 
-s.helperprice "helperPrice", s.serviceprice * (1-c.codename) as "commission" 
-FROM patient p,serviceapply s, code c, helper h
-WHERE h.helperno = s.helperno and h.helperno = #{helperNo} and s.patientno 
-= p.patientno and h.commissiongrade = c.codeid and s.serviceno = #{serviceNo}
+	<select id="getServiceDetail" parameterType="DetailVo" resultType="map">
+	SELECT p.patientno "patientNO",
+		   s.serviceno "serviceNo", 
+		   p.patientname "patientName", 
+		   p.patientaddr "patientAddr", 
+		   p.patientsex "patientSex",
+		   MONTHS_BETWEEN(TRUNC(SYSDATE,'YEAR'), TRUNC(p.PATIENTBIRTH,'YEAR') ) /12 +1 "patientBirth", 
+		   p.patientfamilytel "patientFamilyTel", 
+		   p.patientdisease "patientDisease", 
+		   p.patientgrade "patientGrade", 
+		   p.patientblood "patientBlood", 
+		   p.patientmedication "patientMedication",
+		   p.patientunique "patientUnique", 
+		   p.patienttel "patientTel",
+		   h.helpername "helperName", 
+		   s.servicestarttime "serviceStartTime", 
+		   s.serviceendtime "serviceEndTime", 
+		   s.servicedemand "serviceDemand", 
+		   s.familyNo "familyNo", 
+		   s.serviceprice "servicePrice", 
+		   s.helperprice "helperPrice", 
+		   s.serviceprice * (1-c.codename) as "commission" 
+	FROM patient p, serviceapply s, code c, helper h
+	WHERE h.helperno = s.helperno 
+	and h.helperno = #{helperNo} 
+	and s.patientno = p.patientno 
+	and h.commissiongrade = c.codeid 
+	and s.serviceno = #{serviceNo}
 	</select>
 	<select id ="getPatientReview" parameterType="PatientReviewVo" resultType="map">
 			

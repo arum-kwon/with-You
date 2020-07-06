@@ -33,8 +33,7 @@ $(function(){
 .title{
   font-family: 'Do Hyeon', sans-serif;
   margin:35px;
-  font-size: 30px;
-  color: black;
+  font-size: 35px;
   text-decoration: none;
 }
 a {

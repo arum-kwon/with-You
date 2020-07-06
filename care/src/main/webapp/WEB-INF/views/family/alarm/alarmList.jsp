@@ -16,7 +16,7 @@ body {
 
 }
 .contain{
-  margin-top:10px;
+  margin-top:20px;
 }
 </style>
 </head>
@@ -24,7 +24,7 @@ body {
 <body>
 <div class="contain">
 <c:forEach items="${list }" var="alarm">
-	${alarm.alarmNo }  : 
+	<img src="${pageContext.request.contextPath}/resources/img/alert.png" style="height: 28px">
 	<c:choose>
 	<c:when test="${alarm.alarmType == 'AF01'}">
 		${map.patientName }
@@ -33,9 +33,9 @@ body {
 		${alarm.helperName }
 	</c:otherwise>
 	</c:choose>
-	 ${alarm.codeName } (${alarm.alarmType }) : <br>
-	${alarm.alarmTime }<br>
-	${alarm.alarmReceiverNo }, ${alarm.alarmSenderNo }, ${alarm.serviceNo }
+	 ${alarm.codeName } <br>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날짜 : ${alarm.alarmTime }<br>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;읽음여부 :
 	<c:choose>
 		<c:when test="${alarm.alarmCheck == 'N'}">
 			읽지 않음<br>
