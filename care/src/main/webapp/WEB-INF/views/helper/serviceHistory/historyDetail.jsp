@@ -28,30 +28,33 @@
   color: black;
   text-decoration: none;
 }
-.text{
+.text,.review{
   margin-top:10px;
   font-family: 'Do Hyeon', sans-serif;
-  font-size: 18px;
-  text-align:center;
+  font-size: 19px;
 }
 .form-group{
   font-family: 'Do Hyeon', sans-serif;
   font-size: 18px;
   text-align:center;
 }
-.w3-button{
+.btn{
   font-family: 'Jua', sans-serif;
-  font-size: 17px;
+  font-size: 18px;
+  width:120px;
 }
-
+p {
+  margin-bottom:0px;
+}
 </style>
 </head>
 
 <body>
 <div class="content" align="center">
-	<a class="title">환자 정보</a><br>
+	<a class="title">환자 정보</a>
+</div>	
 <div class="w3-container">
-  <div class="text">
+  <div class="text" align="center">
 	${historyDetail.patientName }님 /${historyDetail.patientBirth }세/${historyDetail.patientSex }<br>
 	복용중인약:${historyDetail.patientMedication }<br>
 	혈액형:${historyDetail.patientMedication }<br>
@@ -64,13 +67,14 @@
 	출근시간:${historyDetail.realStartTime }<br> 
 	퇴근시간:${historyDetail.realEndTime }<br> 
 	수령금액:${historyDetail.helperPrice }원<br> 
-	요구사항:${historyDetail.serviceDemand }<br>
+	요구사항:<br>${historyDetail.serviceDemand }<br>
   </div>
 </div>
 	
 <!--  후기 및 평점 작성  -->
+<img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height:25px"/>
+<label class="review" for="exampleTextarea">후기 및 평점:</label>
 <div class="form-group">
-	<label for="exampleTextarea">후기 및 평점:</label>
 	<form action="insertHelperReview.do" id="reviewFrm" name="reviewFrm">
 		<div>
 			<c:choose>
@@ -94,8 +98,8 @@
 						<input type="hidden" id="reviewStar" name="reviewStar" >
 						<input type="hidden" id="serviceNo" name="serviceNo" value="${historyDetail.serviceNo }">
 						<br><br>
-				    	<button class="w3-button w3-purple w3-round" type="reset" >취소</button>
-						<button class="w3-button w3-purple w3-round" type="button" onclick="sendReview()" >저장</button>
+						<button class="btn btn-secondary" type="button" onclick="sendReview()" >저장</button>
+				    	<button class="btn btn-secondary" type="reset" onclick="location.href='helperMain.do'">취소</button>
 					</div>
 				</c:when>
 				<%--후기가 있을 경우 --%>
@@ -104,15 +108,17 @@
 						<c:forEach var="i" begin="1" end="${reviewVo.reviewStar}">
 							<span class="review-star on"></span>
 						</c:forEach>
+							별점 : ${reviewVo.reviewStar}
 					</div>
-					
-					<div id="review-content">
-						<p>별점 : ${reviewVo.reviewStar}</p>
+					<br>
+					<div align="left" id="review-content">
 						<p>내용 : ${reviewVo.reviewContents}</p>
+						<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
 						<p>첨부파일 : ${reviewVo.reviewFile}</p>
-						<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy-MM-dd" /></p>
-						<button class="w3-button w3-purple w3-round" type="button" onclick="deleteReview()" >후기삭제</button>
-			    		<button class="w3-button w3-purple w3-round" type="button" onclick="updateFrmReview()" >후기수정</button>	
+					</div><br>
+					<div align="center">
+			    		<button class="btn btn-secondary" type="button" onclick="updateFrmReview()" >후기수정</button>	
+						<button class="btn btn-secondary" type="button" onclick="deleteReview()" >후기삭제</button>
 					</div>
 					<%-- 후기 수정 폼 --%>
 					<div id="updateFrm" style="display: none;">
@@ -123,8 +129,8 @@
 						<input type="hidden" id="writerType" name="writerType" value="h">
 						<input type="hidden" id="serviceNo" name="serviceNo" value="${reviewVo.serviceNo }">
 						<br><br>
-				    	<button class="w3-button w3-purple w3-round" type="reset" onclick="updateReviewReset()" >수정취소</button>
-						<button class="w3-button w3-purple w3-round" type="button" onclick="updateReview()" >수정저장</button>
+				    	<button class="btn btn-secondary" type="reset" onclick="updateReviewReset()" >수정취소</button>
+						<button class="btn btn-secondary" type="button" onclick="updateReview()" >수정저장</button>
 		    		</div>		
 			    </c:otherwise>
 			</c:choose>
@@ -132,7 +138,6 @@
 	</form>
 </div>	
 <!--  후기 및 평점 작성 끝  -->	
-</div>	
 	
 	 
 </body>

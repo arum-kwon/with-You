@@ -9,40 +9,55 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- 글꼴 -->
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <title>Insert title here</title>
  <style type="text/css">
- 	.chatLeft {
- 		text-align:left;
- 	}
- 	.chatRight {
- 		text-align:right;
- 	}
- 	.balloonLeft {
-		 position:relative;
-		 margin: 50px;
-		 width:200px;
-		 height:70px;
-		  background: pink;
-		  border-radius: 10px;
-	}
-	.balloonLeft:after {
-		 border-top:15px solid pink;
-		 border-left: 15px solid transparent;
-		 border-right: 0px solid transparent;
-		 border-bottom: 0px solid transparent;
-		 content:"";
-		 position:absolute;
-		 top:10px;
-		 left:-15px;
-	}
-	.dateFont {
-		font-size: 12px;
-	}
-	.senderFont {
-		font-weight: bold;
-		font-size: 17px;
-	}
-	
+.chatLeft {
+	text-align:left;
+}
+.chatRight {
+	text-align:right;
+}
+.balloonLeft {
+ position:relative;
+ margin: 50px;
+ width:200px;
+ height:70px;
+  background: pink;
+  border-radius: 10px;
+}
+.balloonLeft:after {
+	 border-top:15px solid pink;
+	 border-left: 15px solid transparent;
+	 border-right: 0px solid transparent;
+	 border-bottom: 0px solid transparent;
+	 content:"";
+	 position:absolute;
+	 top:10px;
+	 left:-15px;
+}
+.dateFont {
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 17px;
+}
+.senderFont {
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: bold;
+	font-size: 17px;
+}
+.btn{
+  font-family: 'Jua', sans-serif !important;
+  font-size: 18px;
+  width:60px;
+}
+.btn-success{
+  font-family: 'Jua', sans-serif !important;
+  font-size: 18px;
+  width:120px;
+}	
  </style>
  
 
@@ -75,8 +90,9 @@
 			<div class="container mt-3">
 				<div class="input-group mb-3">
 				    <input type="text" id="chatContents" name="chatContents" class="form-control" placeholder="메시지를 입력하세요" autofocus="autofocus">
+				    &nbsp;&nbsp;&nbsp;
 				    <div class="input-group-append">
-				      <button type="submit" class="btn btn-primary" type="button">전송</button>  
+				      <button type="submit" class="btn btn-primary" type="button">전송</button>&nbsp;&nbsp;
 				      <button type="reset" class="btn btn-danger" type="button">취소</button>  
 			     	</div>
 			  	</div>

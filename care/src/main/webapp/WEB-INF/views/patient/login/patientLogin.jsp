@@ -39,6 +39,9 @@
 .login100-form-btn {
 	font-family: 'Jua', sans-serif;
 }
+.has-val{
+    background-color:white;
+}
 </style>
 
 <script>

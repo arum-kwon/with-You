@@ -118,7 +118,7 @@ ul.breadcrumb li a {
 	<div class="card bg-secondary text-white ">
        <div class="card-body">
 			<h4>${sceduleList.title }님 </h4>
-			<h5>서비스 시간: ${sceduleList.serviceStartTime } - ${sceduleList.serviceEndTime }</h5>
+			<h5>서비스 시간: ${sceduleList.serviceStartTime }시 - ${sceduleList.serviceEndTime }시</h5>
 				<button type="button" onclick="getServiceNo('${sceduleList.serviceNo}')"class="w3-button w3-sand w3-round">상세정보</button>&nbsp;&nbsp;&nbsp;&nbsp;
 				<a onclick="callToFamily('${sceduleList.familyTel}')"> 
 					<img src="${pageContext.request.contextPath}/resources/img/chat/callWhite.png" style="height: 42px" />

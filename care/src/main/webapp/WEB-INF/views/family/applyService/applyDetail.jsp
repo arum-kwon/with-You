@@ -16,7 +16,7 @@
 .img{
 	margin-top:10px;
 }
-.content,.form-group {
+.content,.form-group,.review {
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 18px;
 }
@@ -40,12 +40,12 @@
 	<c:choose>
 		<c:when test="${empty applyDetail4.familyNo}">
 			<a href="#" onClick="addlike(); return false;">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:39px"  />
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike.png" style="height:34px"  />
 		  	</a>
 		</c:when>
 		<c:when test="${not empty applyDetail4.familyNo}"> 
 			<a href="javascript:void(0);" onClick="disLike();">
-		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:39px"  />
+		  		<img src="${pageContext.request.contextPath}/resources/img/bestLike/bestLike2.png" style="height:34px"  />
 		  	</a>
 		</c:when>
 	</c:choose>
@@ -87,7 +87,7 @@
 		돌봄종료시간 : ${applyDetail.serviceEndTime }시<br/>
 		실제출근시간 : ${applyDetail2.realStartTime }<br/>
 		실제퇴근시간 : ${applyDetail2.realEndTime }<br/>
-		보호자요청사항 : ${applyDetail.serviceDemand }<br/>
+		보호자요청사항 : <br>${applyDetail.serviceDemand }<br/>
 		결제예정금액 : ${applyDetail.servicePrice }원<br/>
 	</div>
 	<br>
@@ -103,8 +103,9 @@
 	</div>
 	<br>
 <!--  후기 및 평점 작성  -->
+<img src="${pageContext.request.contextPath}/resources/img/noContents.png" style="height:30px"/>
+<label class="review"for="exampleTextarea">후기 및 평점:</label>
 <div class="form-group" align="center">
-	<label for="exampleTextarea">후기 및 평점:</label>
 	<form action="insertFamilyReview.do" id="reviewFrm" name="reviewFrm">
 		<div>
 			<c:choose>
@@ -133,7 +134,6 @@
 							<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
 					    	<button class="" type="reset" >취소</button>
 							<button class="" type="button" onclick="sendReview()" >저장</button>
-				    		<button class="" type="button" onclick="location.href='familyMain.do'" >메인</button>
 						</c:when>
 						<%--그 외 상태일 때 : 비활성화 --%>
 						<c:otherwise>

@@ -52,6 +52,9 @@ th, td{
 	font-family: 'Noto Serif KR', serif;
 	font-size:15px;
 }
+.area2{
+	margin-left:55px;
+}
 </style>
 
 
@@ -82,8 +85,10 @@ th, td{
 				<option value="경남" ${param.helperWorkArea1 eq "경남" ? "selected" :""}>경남</option>
 				<option value="제주" ${param.helperWorkArea1 eq "제주" ? "selected" :""}>제주</option>
 			</select> 
+	  </div>
 			<br>
-		<label for="helperWorkArea2">근무지역</label>
+	  <div class="area2">
+		<label for="helperWorkArea2"></label>
 			<select name="helperWorkArea2" id="helperWorkArea2">
 				<option value="${param.helperWorkArea2}" selected="selected">시군구</option>
 			</select>
