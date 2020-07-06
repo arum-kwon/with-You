@@ -23,7 +23,7 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
- <!-- 에러페이지 설정 -->
+ <!-- 에러페이지 설정 
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/views/common/error/error404.jsp</location>
@@ -32,7 +32,7 @@
     <error-code>500</error-code>
     <location>/WEB-INF/views/common/error/error500.jsp</location>
 </error-page>
-
+-->
   <!-- 한글필터? -->
   <filter> 
     <filter-name>encodingFilter</filter-name> 
