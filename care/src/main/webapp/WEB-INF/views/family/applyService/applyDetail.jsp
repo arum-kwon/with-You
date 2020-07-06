@@ -130,7 +130,6 @@
 						<%-- 서비스 신청가 종료된 상태일때 : 활성화 --%>
 						<c:when test="${applyDetail.serviceStatus == 'S04'}">
 							<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5"></textarea>
-							<input type="file" id="reviewFile" name="reviewFile" >
 							<input type="hidden" id="reviewStar" name="reviewStar" >
 							<input type="hidden" id="serviceNo" name="serviceNo" value="${applyDetail.serviceNo }">
 							<button class="btn btn-secondary" type="button" onclick="sendReview()" >저장</button>
@@ -139,7 +138,6 @@
 						<%--그 외 상태일 때 : 비활성화 --%>
 						<c:otherwise>
 							<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5" placeholder="서비스 종료 후 작성할 수 있습니다." readonly></textarea>
-							<input type="file" id="reviewFile" name="reviewFile" disabled>
 					    </c:otherwise>
 					</c:choose>
 				</c:when>
@@ -151,20 +149,20 @@
 						</c:forEach>
 							별점: ${reviewVo.reviewStar}
 					</div>
-					<div align="left" id="review-content">
-						<p></p>
-						<p>내용 : ${reviewVo.reviewContents}</p>
-						<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
-						<p>첨부파일 : ${reviewVo.reviewFile}</p>
-					</div>
-					<div align="center">
-			    		<button class="btn btn-secondary" type="button" onclick="updateFrmReview()" >수정</button>	
-						<button class="btn btn-secondary" type="button" onclick="deleteReview()" >삭제</button>
+					<div  id="review-content">
+						<div align="left">
+							<p></p>
+							<p>내용 : ${reviewVo.reviewContents}</p>
+							<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
+						</div>
+						<div align="center">
+				    		<button class="btn btn-secondary" type="button" onclick="updateFrmReview()" >수정</button>	
+							<button class="btn btn-secondary" type="button" onclick="deleteReview()" >삭제</button>
+						</div>
 					</div>
 					<%-- 후기 수정 폼 --%>
 					<div id="updateFrm" style="display: none;">
 						<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5">${reviewVo.reviewContents}</textarea>
-						<input type="file" id="reviewFile" name="reviewFile" value="${reviewVo.reviewFile}">
 						<input type="hidden" id="reviewNo" name="reviewNo" value="${reviewVo.reviewNo }">
 						<input type="hidden" id="reviewStar" name="reviewStar" >
 						<input type="hidden" id="writerType" name="writerType" value="f">

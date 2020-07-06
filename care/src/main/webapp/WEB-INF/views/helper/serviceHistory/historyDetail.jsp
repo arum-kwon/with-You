@@ -94,7 +94,6 @@ p {
 							<span class="starR2"></span>
 						</div>
 						<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5"></textarea>
-						<input type="file" id="reviewFile" name="reviewFile" >
 						<input type="hidden" id="reviewStar" name="reviewStar" >
 						<input type="hidden" id="serviceNo" name="serviceNo" value="${historyDetail.serviceNo }">
 						<br><br>
@@ -115,7 +114,6 @@ p {
 						<div align="left">
 							<p>내용 : ${reviewVo.reviewContents}</p>
 							<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
-							<p>첨부파일 : ${reviewVo.reviewFile}</p>
 						</div><br>
 						<div align="center">
 				    		<button class="btn btn-secondary" type="button" onclick="updateFrmReview()" >후기수정</button>	
@@ -125,7 +123,6 @@ p {
 					<%-- 후기 수정 폼 --%>
 					<div id="updateFrm" style="display: none;">
 						<textarea class="form-control" id="reviewContents" name="reviewContents" rows="5">${reviewVo.reviewContents}</textarea>
-						<input type="file" id="reviewFile" name="reviewFile" value="${reviewVo.reviewFile}">
 						<input type="hidden" id="reviewNo" name="reviewNo" value="${reviewVo.reviewNo }">
 						<input type="hidden" id="reviewStar" name="reviewStar" >
 						<input type="hidden" id="writerType" name="writerType" value="h">
