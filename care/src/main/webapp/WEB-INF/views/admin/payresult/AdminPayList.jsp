@@ -47,7 +47,7 @@
 					<th scope="col">상점 거래정</th>
 					<th scope="col">승인번호</th>
 					<th scope="col">가격</th>
-					<th scope="col">보호자 등록번호</th>
+					<th scope="col">보호자명</th>
 					<th scope="col">서비스 등록번호</th>
 				</tr>
 			</thead>
@@ -60,7 +60,7 @@
 						<td>${ list.merchant_Uid }</td>
 						<td>${ list.apply_Num }</td>
 						<td>${ list.paid_Amount }</td>
-						<td>${ list.familyNo }</td>
+						<td>${ list.familyName }</td>
 						<td>${ list.serviceNo }</td>
 					</tr>
 				</c:forEach>

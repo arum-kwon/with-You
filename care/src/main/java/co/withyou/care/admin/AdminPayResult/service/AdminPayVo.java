@@ -5,9 +5,19 @@ public class AdminPayVo {
 	private String imp_Uid;
 	private String merchant_Uid;
 	private String apply_Num;
+	private String familyName;
 	private int paid_Amount;
 	private int familyNo;
 	private int serviceNo;
+
+	
+	public String getFamilyName() {
+		return familyName;
+	}
+
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
 
 	public String getImp_Uid() {
 		return imp_Uid;
