@@ -111,6 +111,7 @@ p {
 						<br>
 					<div id="review-content">
 						<div align="left">
+							<p><br></p>
 							<p>내용 : ${reviewVo.reviewContents}</p>
 							<p>작성날짜 : <fmt:formatDate value="${reviewVo.reviewDate}" pattern="yyyy/MM/dd" /></p>
 						</div><br>
