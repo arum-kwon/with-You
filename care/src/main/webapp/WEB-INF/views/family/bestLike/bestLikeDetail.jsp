@@ -102,9 +102,6 @@ select {
 							<div>
 							내용 : ${list.reviewContents }		
 							</div>
-							<div>
-							사진첨부 : ${list.reviewFile }		
-							</div>
 						</div><br/>
 					</c:forEach>
 				</c:otherwise>
