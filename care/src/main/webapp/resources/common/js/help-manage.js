@@ -78,7 +78,6 @@ function helperLcoCheck(){
 	    	window.MyApp.helperLocCheck(result.patientLongitude, result.patientLatitude);
 	    	if(type==1){
 		    	window.MyApp.helperStartService(hNo, fNo, sNo, 1, 1);
-		    	alert(sNo + ", " + pNo + ", " + fNo);
 	    	}else if(type==2){
 		    	window.MyApp.helperStopService();
 	    	}
