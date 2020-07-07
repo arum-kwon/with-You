@@ -33,7 +33,6 @@ function initialize(date, startTime, endTime){
 	}
 }
 
-
 function clickStart(helperNo){
 	type = 1;
 	var text = $('#realStartTime').text();
