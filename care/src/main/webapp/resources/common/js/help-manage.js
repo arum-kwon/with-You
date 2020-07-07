@@ -41,18 +41,14 @@ function clickStart(helperNo){
 	console.log(hNo);
 	if(text==""){ //출근 안 했음. 해야됨
 	    
-	    if(applyStartDate > today){
-	    	console.log("입실 가능");
+	    if(applyStartDate > today){ //출근 가능
 	    	helperLcoCheck();
-	    }else if(applyStartDate < today){
-	    	console.log("님 지각");
+	    }else if(applyStartDate < today){ //지각
 	    	helperLcoCheck();
-	    }else if(applyEndDate < today){
-	    	console.log("님 결석");
+	    }else if(applyEndDate < today){ //결석
 	    	helperLcoCheck();
 	    }
-	}else{
-    	console.log("이미 출근함");
+	}else{//이미 출근
 	}
 }
 
@@ -62,15 +58,12 @@ function clickEnd(date, endTime){
 	text = $('#realEndTime').text();
 	if(text==""){ //퇴근처리
 		
-	    if(applyEndDate > today){
-	    	console.log("조퇴");
+	    if(applyEndDate > today){ //조퇴
 	    	helperLcoCheck();
-	    }else if(applyEndDate < today){
-	    	console.log("정상퇴근");
+	    }else if(applyEndDate < today){ //정상 퇴근
 	    	helperLcoCheck();
 	    }
-	}else{
-    	console.log("이미 퇴근 했음");
+	}else{ //이미 퇴근함
 	}
 }
 
