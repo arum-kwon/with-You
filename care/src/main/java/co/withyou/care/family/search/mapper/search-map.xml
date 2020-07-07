@@ -14,33 +14,28 @@
 			<if test="helperWorkArea != null and helperWorkArea != ''">
 				HELPERWORKAREA LIKE #{helperWorkArea}
 			</if>
-			
 			<if test="helperStartTime != null and helperStartTime != ''">
 				AND HELPERSTARTTIME <![CDATA[<=]]> #{helperStartTime}
 			</if>
-				
 			<if test="helperEndTime != null and helperEndTime != ''">
 				AND HELPERENDTIME >= #{helperEndTime}
 			</if>
-			
+				AND HELPERNO NOT IN (SELECT HELPERNO "helperNo" FROM BLACKLIST 
+													WHERE FAMILYNO = #{familyNo})
 			<!-- 
 			<if test='certifiName != null and certifiName == "y"'>
 				AND EXISTS ( SELECT CERTIFINAME "certifiNo" FROM CERTIFICATION 
 								WHERE HELPER.HELPERNO = CERTIFICATION.HELPERNO)
 			</if>
-			
 			<if test='certifiName != null and certifiName == "n"'>
 				AND NOT EXISTS ( SELECT CERTIFINAME "certifiName" FROM CERTIFICATION 
 										WHERE HELPER.HELPERNO = CERTIFICATION.HELPERNO)
 			</if> 
 			-->
-			
-				AND HELPERNO NOT IN (SELECT HELPERNO "helperNo" FROM BLACKLIST 
-													WHERE FAMILYNO = #{familyNo})
 		</where>
 	</select>
 	
-	<!--경력과 자격증이 없으면 목록에 안떠서 아우터조인으로 수정함-->
+	<!-- 간병인 상세정보 조회 -->
 	<select id="getSelect" parameterType="String" resultType="map">
 		SELECT H.HELPERNO "helperNo",
 				H.HELPERNAME "helperName",
