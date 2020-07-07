@@ -167,8 +167,8 @@
 						<input type="hidden" id="writerType" name="writerType" value="f">
 						<input type="hidden" id="serviceNo" name="serviceNo" value="${reviewVo.serviceNo }">
 						<br><br>
-						<button class="btn btn-secondary" type="button" onclick="updateReview()" >수정저장</button>
-				    	<button class="btn btn-secondary" type="reset" onclick="updateReviewReset()" >수정취소</button>
+						<button class="btn btn-secondary" type="button" style="height:45px;" onclick="updateReview()" >수정저장</button>
+				    	<button class="btn btn-secondary" type="reset" style="height:45px;" onclick="updateReviewReset()" >수정취소</button>
 		    		</div>		
 			    </c:otherwise>
 			</c:choose>
