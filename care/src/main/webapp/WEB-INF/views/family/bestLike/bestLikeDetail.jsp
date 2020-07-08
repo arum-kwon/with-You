@@ -77,7 +77,7 @@ select {
 		희망근무시간: ${likeDetail.helperStartTime } 시 ~ ${likeDetail.helperEndTime }시<br/>
 		특이사항: ${likeDetail.helperUnique }<br/>
 		<%-- 자격면허: ${likeDetail.certifiName }<br/> --%>
-		경력사항: ${likeDetail.careerOrgan } / ${likeDetail.careerStart } 부터 ~ ${likeDetail.careerEnd } 까지<br/>
+		<%-- 경력사항: ${likeDetail.careerOrgan } / ${likeDetail.careerStart } 부터 ~ ${likeDetail.careerEnd } 까지<br/> --%>
 		<br/>
 
 		<!-- 후기 및 평점 영역 -->
@@ -101,9 +101,6 @@ select {
 							</div>
 							<div>
 							내용 : ${list.reviewContents }		
-							</div>
-							<div>
-							사진첨부 : ${list.reviewFile }		
 							</div>
 						</div><br/>
 					</c:forEach>
