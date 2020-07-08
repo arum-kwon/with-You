@@ -18,7 +18,7 @@
    .fa-anchor,.fa-coffee {font-size:200px}
    .main{ background:#f9f0e6;}
 </style>
-<title>Insert title here</title>
+<title>보호자페이지</title>
 </head>
 
 
